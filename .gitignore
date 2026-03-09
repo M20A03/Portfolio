@@ -25,12 +25,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# debug logs
-firebase-debug.log
-
-# lint/build output
-lint_output.txt
-
-# npm lock (using pnpm)
-package-lock.json
