@@ -68,10 +68,11 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "postcss": "^8.5",
-    "tailwindcss": "^4.1.9",
+    "baseline-browser-mapping": "^2.10.0",
     "eslint": "^9.21.0",
     "eslint-config-next": "16.0.10",
+    "postcss": "^8.5",
+    "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
     "typescript": "^5"
   }
