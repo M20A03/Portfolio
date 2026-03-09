@@ -8,6 +8,7 @@ import { ContactSection } from "@/components/contact-section";
 import { JourneySection } from "@/components/journey-section";
 import { AIAssistant } from "@/components/ai-assistant";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { Separator } from "@/components/ui/separator";
 
 export default function Portfolio() {
   return (
@@ -23,7 +24,8 @@ export default function Portfolio() {
       <ContactSection />
       <AIAssistant />
 
-      <footer className="py-8 px-6 md:px-12 border-t border-border">
+      <footer className="py-8 px-6 md:px-12">
+        <Separator className="mb-8" />
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Mayank Raj Gupta. All rights reserved.

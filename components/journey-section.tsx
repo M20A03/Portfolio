@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Zap, Code } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const milestones = [
     {
@@ -105,19 +107,23 @@ export function JourneySection() {
 
                                 {/* Content Card */}
                                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-16 text-left" : "md:pr-16 md:text-right"} pl-12 w-full`}>
-                                    <article className="group p-6 md:p-8 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 flex flex-col gap-3">
-                                        <time className="text-xs font-black text-primary uppercase tracking-widest">{item.date}</time>
-                                        <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-sm font-semibold text-muted-foreground italic flex items-center gap-2 md:justify-inherit">
-                                            <Zap className="w-4 h-4 text-primary shrink-0" />
-                                            {item.location}
-                                        </p>
-                                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                                            {item.description}
-                                        </p>
-                                    </article>
+                                    <Card className="group hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+                                        <CardContent className="p-6 md:p-8 flex flex-col gap-3">
+                                            <Badge variant="outline" className="w-fit text-primary border-primary/20 text-xs font-black uppercase tracking-widest">
+                                                {item.date}
+                                            </Badge>
+                                            <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-sm font-semibold text-muted-foreground italic flex items-center gap-2 md:justify-inherit">
+                                                <Zap className="w-4 h-4 text-primary shrink-0" />
+                                                {item.location}
+                                            </p>
+                                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                                {item.description}
+                                            </p>
+                                        </CardContent>
+                                    </Card>
                                 </div>
                             </motion.li>
                         ))}

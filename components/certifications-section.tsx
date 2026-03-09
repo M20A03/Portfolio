@@ -3,6 +3,9 @@
 import { Calendar } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const certifications = [
   {
@@ -51,6 +54,7 @@ const certifications = [
 
 export function CertificationsSection() {
   const [brokenImages, setBrokenImages] = useState<Record<string, boolean>>({});
+  const [selectedCert, setSelectedCert] = useState<typeof certifications[number] | null>(null);
 
   return (
     <section
@@ -76,15 +80,20 @@ export function CertificationsSection() {
         {/* Certifications Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, index) => (
-            <div
+            <Card
               key={index}
-              className="group relative p-6 rounded-2xl bg-background border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 overflow-hidden flex flex-col"
+              className="group relative border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 overflow-hidden flex flex-col cursor-pointer py-0 gap-0"
+              onClick={() => setSelectedCert(cert)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${cert.title} certificate`}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedCert(cert); } }}
             >
               {/* Background decoration */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors" />
 
               {/* Certificate Image */}
-              <div className="relative w-full aspect-[4/3] mb-6 rounded-xl overflow-hidden border border-border/50 bg-muted/50 flex flex-col items-center justify-center">
+              <div className="relative w-full aspect-[4/3] rounded-t-xl overflow-hidden border-b border-border/50 bg-muted/50 flex flex-col items-center justify-center">
                 {brokenImages[cert.image] ? (
                   <div className="flex h-full w-full items-center justify-center text-center text-sm text-muted-foreground px-4">
                     Certificate preview unavailable
@@ -106,11 +115,13 @@ export function CertificationsSection() {
                 )}
               </div>
 
-              <div className="relative z-10 flex-1 flex flex-col">
+              <CardContent className="relative z-10 flex-1 flex flex-col p-6">
                 {/* Year */}
-                <div className="flex items-center gap-2 text-sm text-primary font-medium mb-3">
-                  <Calendar className="w-4 h-4" />
-                  {cert.year}
+                <div className="mb-3">
+                  <Badge variant="outline" className="gap-2 text-primary border-primary/20">
+                    <Calendar className="w-4 h-4" />
+                    {cert.year}
+                  </Badge>
                 </div>
 
                 {/* Title */}
@@ -122,10 +133,31 @@ export function CertificationsSection() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {cert.issuer}
                 </p>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
+
+        {/* Certificate Dialog */}
+        <Dialog open={!!selectedCert} onOpenChange={() => setSelectedCert(null)}>
+          <DialogContent className="max-w-3xl">
+            <DialogHeader>
+              <DialogTitle>{selectedCert?.title}</DialogTitle>
+              <DialogDescription>{selectedCert?.issuer} &middot; {selectedCert?.year}</DialogDescription>
+            </DialogHeader>
+            {selectedCert && !brokenImages[selectedCert.image] && (
+              <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
+                <Image
+                  src={selectedCert.image}
+                  alt={`${selectedCert.title} certificate from ${selectedCert.issuer}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 700px"
+                  className="object-contain"
+                />
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* Tagline */}
         <p className="mt-10 text-center text-sm text-muted-foreground italic">

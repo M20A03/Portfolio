@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Github, Linkedin, Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 
@@ -99,41 +101,58 @@ export function Navbar() {
           {/* Social Links & Mobile Menu Button */}
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-3">
-              <a
-                href="https://github.com/M20A03"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href="https://github.com/M20A03"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="GitHub"
+                  >
+                    <Github className="w-5 h-5" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>GitHub</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>LinkedIn</TooltipContent>
+              </Tooltip>
             </div>
+
+            <Separator orientation="vertical" className="hidden md:block h-5" />
 
             {/* Theme Toggle */}
             {mounted && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                aria-label="Toggle theme"
-                className="rounded-full text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all"
-              >
-                {theme === "dark" ? (
-                  <Sun className="w-5 h-5 transition-transform rotate-0 scale-100" />
-                ) : (
-                  <Moon className="w-5 h-5 transition-transform rotate-0 scale-100" />
-                )}
-              </Button>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    aria-label="Toggle theme"
+                    className="rounded-full text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all"
+                  >
+                    {theme === "dark" ? (
+                      <Sun className="w-5 h-5 transition-transform rotate-0 scale-100" />
+                    ) : (
+                      <Moon className="w-5 h-5 transition-transform rotate-0 scale-100" />
+                    )}
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>{theme === "dark" ? "Light mode" : "Dark mode"}</TooltipContent>
+              </Tooltip>
             )}
 
             <Button

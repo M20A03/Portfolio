@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 
 const roles = [
@@ -73,10 +76,10 @@ export function HeroSection() {
               }`}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+            <Badge variant="outline" className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border-primary/20 text-primary text-sm font-medium mb-6">
               <Sparkles className="w-3.5 h-3.5" />
               Open to opportunities
-            </div>
+            </Badge>
 
             {/* Name */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
@@ -158,16 +161,20 @@ export function HeroSection() {
                 { href: "https://www.linkedin.com/in/mayank-raj-gupta-159020396", icon: Linkedin, label: "LinkedIn" },
                 { href: "mailto:mayankrajgupta01@gmail.com", icon: Mail, label: "Email" },
               ].map(({ href, icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith("mailto") ? undefined : "_blank"}
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
+                <Tooltip key={label}>
+                  <TooltipTrigger asChild>
+                    <a
+                      href={href}
+                      target={href.startsWith("mailto") ? undefined : "_blank"}
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                    >
+                      <Icon className="w-5 h-5" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>{label}</TooltipContent>
+                </Tooltip>
               ))}
             </div>
           </div>
@@ -206,7 +213,8 @@ export function HeroSection() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="mt-16 flex justify-center">
+        <Separator className="max-w-xs mx-auto mb-6 mt-16 opacity-30" />
+        <div className="flex justify-center">
           <button
             onClick={scrollToAbout}
             className="text-muted-foreground hover:text-primary transition-colors animate-bounce cursor-pointer"

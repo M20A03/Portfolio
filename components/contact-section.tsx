@@ -2,6 +2,12 @@
 
 import { Github, Linkedin, Mail, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -160,9 +166,9 @@ export function ContactSection() {
                 {contactInfo.map((item, index) => {
                   const Icon = item.icon;
                   const content = (
-                    <div
+                    <Card
                       key={index}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group"
+                      className="flex-row items-center gap-4 p-4 border-border hover:border-primary/50 transition-all duration-300 group"
                     >
                       <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         <Icon className="w-5 h-5" />
@@ -173,7 +179,7 @@ export function ContactSection() {
                           {item.value}
                         </p>
                       </div>
-                    </div>
+                    </Card>
                   );
 
                   return item.href ? (
@@ -202,34 +208,40 @@ export function ContactSection() {
                 {socialLinks.map((link, index) => {
                   const Icon = link.icon;
                   return (
-                    <a
-                      key={index}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex-1"
-                    >
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">{link.label}</p>
-                        <p className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">
-                          {link.username}
-                        </p>
-                      </div>
-                    </a>
+                    <Tooltip key={index}>
+                      <TooltipTrigger asChild>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group flex-1"
+                        >
+                          <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                            <Icon className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <p className="text-sm text-muted-foreground">{link.label}</p>
+                            <p className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">
+                              {link.username}
+                            </p>
+                          </div>
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>Visit {link.label} profile</TooltipContent>
+                    </Tooltip>
                   );
                 })}
               </div>
             </div>
 
             {/* Languages */}
-            <div className="p-4 rounded-xl bg-card border border-border">
-              <p className="text-sm text-muted-foreground">
-                <span className="text-foreground font-medium">Languages:</span> English, Hindi
-              </p>
-            </div>
+            <Card className="p-4">
+              <CardContent className="p-0">
+                <p className="text-sm text-muted-foreground">
+                  <span className="text-foreground font-medium">Languages:</span> English, Hindi
+                </p>
+              </CardContent>
+            </Card>
           </motion.div>
 
           {/* Contact Form */}
@@ -278,10 +290,10 @@ export function ContactSection() {
                 >
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1.5">
-                      <label htmlFor="name" className="text-sm font-medium text-foreground">
+                      <Label htmlFor="name">
                         Your Name <span className="text-primary">*</span>
-                      </label>
-                      <input
+                      </Label>
+                      <Input
                         id="name"
                         name="name"
                         type="text"
@@ -292,7 +304,6 @@ export function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Mayank Raj"
-                        className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition text-sm"
                       />
                       {formErrors.name && (
                         <p id={nameErrorId} className="text-xs text-destructive" role="alert">
@@ -301,10 +312,10 @@ export function ContactSection() {
                       )}
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <label htmlFor="email" className="text-sm font-medium text-foreground">
+                      <Label htmlFor="email">
                         Email Address <span className="text-primary">*</span>
-                      </label>
-                      <input
+                      </Label>
+                      <Input
                         id="email"
                         name="email"
                         type="email"
@@ -315,7 +326,6 @@ export function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="you@example.com"
-                        className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition text-sm"
                       />
                       {formErrors.email && (
                         <p id={emailErrorId} className="text-xs text-destructive" role="alert">
@@ -326,10 +336,10 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                    <Label htmlFor="subject">
                       Subject
-                    </label>
-                    <input
+                    </Label>
+                    <Input
                       id="subject"
                       name="subject"
                       type="text"
@@ -337,15 +347,14 @@ export function ContactSection() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Internship Opportunity"
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition text-sm"
                     />
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="message" className="text-sm font-medium text-foreground">
+                    <Label htmlFor="message">
                       Message <span className="text-primary">*</span>
-                    </label>
-                    <textarea
+                    </Label>
+                    <Textarea
                       id="message"
                       name="message"
                       autoComplete="off"
@@ -356,7 +365,7 @@ export function ContactSection() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Hi Mayank, I'd love to discuss..."
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition text-sm resize-none"
+                      className="resize-none"
                     />
                     {formErrors.message && (
                       <p id={messageErrorId} className="text-xs text-destructive" role="alert">

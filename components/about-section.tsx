@@ -2,6 +2,10 @@
 
 import { GraduationCap, Calendar, MapPin, Code2, Lightbulb, Bike, Plane } from "lucide-react";
 import { GitHubStatsCard } from "./github-stats";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 const education = [
   {
@@ -48,42 +52,54 @@ export function AboutSection() {
 
           {/* Bio Cards */}
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Code2 className="w-5 h-5 text-primary" />
+            <Card className="hover:border-primary/50 transition-all duration-300">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Code2 className="w-5 h-5 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">My Journey</CardTitle>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">My Journey</h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                I am a dedicated <span className="text-foreground font-medium">Computer Applications student</span> with a strong foundation in programming and web development. My journey in tech started with <span className="text-primary">curiosity about how things work</span>, and has evolved into a passion for building solutions that matter.
-              </p>
-            </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed">
+                  I am a dedicated <span className="text-foreground font-medium">Computer Applications student</span> with a strong foundation in programming and web development. My journey in tech started with <span className="text-primary">curiosity about how things work</span>, and has evolved into a passion for building solutions that matter.
+                </p>
+              </CardContent>
+            </Card>
 
-            <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Lightbulb className="w-5 h-5 text-primary" />
+            <Card className="hover:border-primary/50 transition-all duration-300">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Lightbulb className="w-5 h-5 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">My Approach</CardTitle>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">My Approach</h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Always <span className="text-primary">inquisitive to new technologies</span> and eager to learn. I believe in writing clean, efficient code and creating user-friendly experiences. Every project is an opportunity to grow and make an impact.
-              </p>
-            </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground leading-relaxed">
+                  Always <span className="text-primary">inquisitive to new technologies</span> and eager to learn. I believe in writing clean, efficient code and creating user-friendly experiences. Every project is an opportunity to grow and make an impact.
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-3 md:gap-4 mb-12">
             {highlights.map((item, index) => (
-              <div
-                key={index}
-                className="p-4 md:p-6 rounded-xl bg-card border border-border text-center group hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
-              >
-                <item.icon className="w-6 h-6 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                <p className="text-2xl md:text-3xl font-bold text-foreground">{item.value}</p>
-                <p className="text-sm text-muted-foreground">{item.label}</p>
-              </div>
+              <Tooltip key={index}>
+                <TooltipTrigger asChild>
+                  <Card className="p-4 md:p-6 text-center group hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-default">
+                    <CardContent className="p-0">
+                      <item.icon className="w-6 h-6 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                      <p className="text-2xl md:text-3xl font-bold text-foreground">{item.value}</p>
+                      <p className="text-sm text-muted-foreground">{item.label}</p>
+                    </CardContent>
+                  </Card>
+                </TooltipTrigger>
+                <TooltipContent>{item.value} {item.label}</TooltipContent>
+              </Tooltip>
             ))}
           </div>
 
@@ -135,21 +151,24 @@ export function AboutSection() {
           </div>
 
           {/* Interests */}
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border border-primary/20">
-            <h3 className="text-lg font-semibold text-foreground mb-4">When I&apos;m not coding...</h3>
-            <div className="flex flex-wrap gap-4">
-              {interests.map((interest, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 px-4 py-2 rounded-full bg-background/50 border border-border hover:border-primary/50 transition-all"
-                >
-                  <interest.icon className="w-4 h-4 text-primary" />
-                  <span className="text-foreground font-medium">{interest.label}</span>
-                  <span className="text-muted-foreground text-sm hidden sm:inline">• {interest.description}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Card className="bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-primary/20">
+            <CardContent className="p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4">When I&apos;m not coding...</h3>
+              <div className="flex flex-wrap gap-4">
+                {interests.map((interest, index) => (
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="flex items-center gap-3 px-4 py-2 rounded-full bg-background/50 border-border hover:border-primary/50 transition-all text-sm"
+                  >
+                    <interest.icon className="w-4 h-4 text-primary" />
+                    <span className="text-foreground font-medium">{interest.label}</span>
+                    <span className="text-muted-foreground hidden sm:inline">• {interest.description}</span>
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Education Timeline */}
@@ -174,23 +193,26 @@ export function AboutSection() {
                   {/* Timeline dot */}
                   <div className="absolute left-0 md:left-8 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary ring-4 ring-background group-hover:scale-125 transition-transform" />
 
-                  <div className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/5">
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <span className="flex items-center gap-2 text-sm text-primary font-medium">
-                        <Calendar className="w-4 h-4" />
-                        {edu.year}
-                      </span>
-                      <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <MapPin className="w-4 h-4" />
-                        {edu.location}
-                      </span>
-                    </div>
-                    <h4 className="text-lg font-semibold text-foreground mb-1">
-                      {edu.degree}
-                    </h4>
-                    <p className="text-muted-foreground">{edu.institution}</p>
-                    <p className="text-primary text-sm mt-2 font-medium">{edu.details}</p>
-                  </div>
+                  <Card className="hover:border-primary/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/5">
+                    <CardContent className="p-6">
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <Badge variant="outline" className="gap-2 text-primary border-primary/20">
+                          <Calendar className="w-4 h-4" />
+                          {edu.year}
+                        </Badge>
+                        <Badge variant="secondary" className="gap-2 text-muted-foreground">
+                          <MapPin className="w-4 h-4" />
+                          {edu.location}
+                        </Badge>
+                      </div>
+                      <h4 className="text-lg font-semibold text-foreground mb-1">
+                        {edu.degree}
+                      </h4>
+                      <p className="text-muted-foreground">{edu.institution}</p>
+                      <Separator className="my-2" />
+                      <p className="text-primary text-sm font-medium">{edu.details}</p>
+                    </CardContent>
+                  </Card>
                 </div>
               ))}
             </div>

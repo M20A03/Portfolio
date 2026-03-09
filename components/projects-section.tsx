@@ -2,6 +2,10 @@
 
 import { ExternalLink, Github, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -180,72 +184,87 @@ export function ProjectsSection() {
               key={index}
               variants={cardVariants}
               whileHover={{ y: -6 }}
-              className="group relative rounded-2xl bg-background border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 overflow-hidden flex flex-col"
             >
-              {/* Private badge */}
-              {project.isPrivate && (
-                <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border text-xs font-semibold text-muted-foreground">
-                  <Lock className="w-3 h-3" />
-                  Private
-                </div>
-              )}
+              <Card className="group relative border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 overflow-hidden flex flex-col h-full py-0 gap-0">
+                {/* Private badge */}
+                {project.isPrivate && (
+                  <Badge variant="secondary" className="absolute top-3 left-3 z-10 gap-1.5 rounded-full bg-background/80 backdrop-blur-sm border-border text-muted-foreground">
+                    <Lock className="w-3 h-3" />
+                    Private
+                  </Badge>
+                )}
 
-              {/* Image / Fallback */}
-              <ProjectImage image={project.image} title={project.title} color={project.color} emoji={project.emoji} />
+                {/* Image / Fallback */}
+                <ProjectImage image={project.image} title={project.title} color={project.color} emoji={project.emoji} />
 
-              {/* Date badge */}
-              <span className="absolute top-3 right-3 text-xs font-medium px-2.5 py-1 rounded-full bg-background/70 backdrop-blur-sm text-foreground border border-border">
-                {project.date}
-              </span>
+                {/* Date badge */}
+                <Badge variant="outline" className="absolute top-3 right-3 rounded-full bg-background/70 backdrop-blur-sm text-foreground border-border">
+                  {project.date}
+                </Badge>
 
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {project.tech.slice(0, 3).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.tech.length > 3 && (
-                    <span className="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground">
-                      +{project.tech.length - 3}
-                    </span>
-                  )}
-                </div>
+                {/* Content */}
+                <CardContent className="p-6 flex flex-col flex-1">
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.tech.slice(0, 3).map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="outline"
+                        className="rounded-full bg-primary/10 text-primary border-primary/20"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                    {project.tech.length > 3 && (
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Badge variant="secondary" className="rounded-full cursor-default">
+                            +{project.tech.length - 3}
+                          </Badge>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          {project.tech.slice(3).join(", ")}
+                        </TooltipContent>
+                      </Tooltip>
+                    )}
+                  </div>
 
-                {/* Title */}
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
-                  {project.title}
-                </h3>
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+                    {project.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-sm text-muted-foreground mb-3 leading-relaxed flex-1">
-                  {project.description}
-                </p>
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground mb-3 leading-relaxed flex-1">
+                    {project.description}
+                  </p>
 
-                {/* Stats line */}
-                <p className="text-xs text-primary/70 font-medium mb-4 border-t border-border pt-3">
-                  {project.stats}
-                </p>
+                  {/* Stats line */}
+                  <Separator className="mb-3" />
+                  <p className="text-xs text-primary/70 font-medium mb-4">
+                    {project.stats}
+                  </p>
+                </CardContent>
 
                 {/* Links */}
-                <div className="flex items-center gap-3 mt-auto">
+                <CardFooter className="px-6 pb-6 pt-0 flex items-center gap-3">
                   {project.github ? (
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="gap-2 border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all bg-transparent text-xs"
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-3.5 h-3.5" />
-                        Code
-                      </a>
-                    </Button>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="gap-2 border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all bg-transparent text-xs"
+                        >
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <Github className="w-3.5 h-3.5" />
+                            Code
+                          </a>
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>View source on GitHub</TooltipContent>
+                    </Tooltip>
                   ) : project.isPrivate ? (
                     <Button
                       variant="outline"
@@ -258,19 +277,24 @@ export function ProjectsSection() {
                     </Button>
                   ) : null}
                   {project.live && (
-                    <Button
-                      asChild
-                      size="sm"
-                      className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all text-xs"
-                    >
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-3.5 h-3.5" />
-                        Live Demo
-                      </a>
-                    </Button>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          asChild
+                          size="sm"
+                          className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all text-xs"
+                        >
+                          <a href={project.live} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-3.5 h-3.5" />
+                            Live Demo
+                          </a>
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>Open live demo</TooltipContent>
+                    </Tooltip>
                   )}
-                </div>
-              </div>
+                </CardFooter>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
