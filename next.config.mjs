@@ -8,7 +8,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/resume.pdf",
+        source: "/RESUME_Mayank Raj Gupta.pdf",
         headers: [
           {
             key: "Content-Disposition",
