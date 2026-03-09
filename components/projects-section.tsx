@@ -7,7 +7,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const projects = [
@@ -24,6 +24,7 @@ const projects = [
     image: "/images/srs-ecommerce.png",
     isPrivate: false,
     stats: "JS 68.6% · CSS 31.1% · Semester Final Project",
+    category: "Full-Stack",
   },
   {
     title: "Future Working App",
@@ -38,6 +39,7 @@ const projects = [
     image: "/images/mrg-app-preview.png",
     isPrivate: true,
     stats: "Private · In Active Development",
+    category: "Full-Stack",
   },
   {
     title: "Online Meeting App",
@@ -52,6 +54,7 @@ const projects = [
     image: "/images/project-meeting.png",
     isPrivate: false,
     stats: "HTML 40.9% · Python 40.8% · Prototype",
+    category: "Full-Stack",
   },
   {
     title: "Amazon Clone",
@@ -66,6 +69,7 @@ const projects = [
     image: "/images/project-amazon-clone.png",
     isPrivate: false,
     stats: "HTML · CSS · Front-End Practice",
+    category: "Frontend",
   },
   {
     title: "Study Archive",
@@ -80,6 +84,7 @@ const projects = [
     image: "/images/project-study-archive.png",
     isPrivate: false,
     stats: "4 Commits · Firebase Hosted",
+    category: "Full-Stack",
   },
   {
     title: "Search Algorithm Simulator",
@@ -94,6 +99,7 @@ const projects = [
     image: "/images/project-search-sim.png",
     isPrivate: false,
     stats: "AI Chatbot · 5 Simulations · DSA Simulation",
+    category: "Tools",
   },
   {
     title: "Angular Bakery App",
@@ -108,8 +114,11 @@ const projects = [
     image: "/images/project-bakery.png",
     isPrivate: false,
     stats: "TypeScript 45.3% · SCSS 32.7% · Firebase Deployed",
+    category: "Full-Stack",
   },
 ];
+
+const categories = ["All", "Full-Stack", "Frontend", "Tools"] as const;
 
 function ProjectImage({ image, title, color, emoji }: { image: string | null; title: string; color: string; emoji: string }) {
   const [imgError, setImgError] = useState(false);
@@ -142,17 +151,15 @@ function ProjectImage({ image, title, color, emoji }: { image: string | null; ti
   );
 }
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export function ProjectsSection() {
+  const [activeFilter, setActiveFilter] = useState<(typeof categories)[number]>("All");
+  const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
+
   return (
     <section id="projects" className="py-16 md:py-32 px-4 sm:px-6 md:px-12 bg-card/50">
       <div className="max-w-6xl mx-auto">
@@ -165,24 +172,50 @@ export function ProjectsSection() {
             Featured
             <span className="text-primary"> Projects</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed text-pretty">
+          <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed text-pretty mb-8">
             A selection of projects that showcase my skills in web development,
             from interactive tools to full-stack applications.
           </p>
+
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <Button
+                key={cat}
+                variant={activeFilter === cat ? "default" : "outline"}
+                size="sm"
+                onClick={() => setActiveFilter(cat)}
+                className={`rounded-full transition-all ${
+                  activeFilter === cat
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
+                    : "bg-transparent border-border hover:border-primary hover:bg-primary/10 hover:text-primary"
+                }`}
+              >
+                {cat}
+                {cat !== "All" && (
+                  <span className="ml-1.5 text-xs opacity-70">
+                    ({projects.filter((p) => p.category === cat).length})
+                  </span>
+                )}
+              </Button>
+            ))}
+          </div>
         </div>
 
         {/* Projects Grid */}
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          layout
         >
-          {projects.map((project, index) => (
+          <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project) => (
             <motion.div
-              key={index}
+              key={project.title}
               variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+              layout
               whileHover={{ y: -6 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -295,6 +328,7 @@ export function ProjectsSection() {
               </Card>
             </motion.div>
           ))}
+          </AnimatePresence>
         </motion.div>
 
         {/* View More */}

@@ -5,6 +5,7 @@ import { Github, Linkedin, Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 
@@ -174,59 +175,83 @@ export function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <div
-          id="mobile-nav-menu"
-          className={`md:hidden overflow-hidden overflow-y-auto transition-all duration-300 ${isMobileMenuOpen ? "max-h-[80vh] pb-6" : "max-h-0"
-            }`}
-        >
-          <div className="flex flex-col gap-4 pt-4 border-t border-border">
-            {navLinks.map((link) =>
-              link.isPage ? (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-base font-medium transition-colors text-muted-foreground hover:text-foreground"
-                  onClick={() => setIsMobileMenuOpen(false)}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              id="mobile-nav-menu"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden overflow-hidden"
+            >
+              <div className="flex flex-col gap-4 pt-4 pb-6 border-t border-border">
+                {navLinks.map((link, index) =>
+                  link.isPage ? (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      <Link
+                        href={link.href}
+                        className="text-base font-medium transition-colors text-muted-foreground hover:text-foreground block"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      <a
+                        href={link.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        aria-current={activeSection === link.href.replace("#", "") ? "page" : undefined}
+                        className={`text-base font-medium transition-colors block ${activeSection === link.href.replace("#", "")
+                            ? "text-primary"
+                            : "text-muted-foreground hover:text-foreground"
+                          }`}
+                      >
+                        {link.label}
+                      </a>
+                    </motion.div>
+                  )
+                )}
+                <motion.div
+                  className="flex items-center gap-4 pt-4 border-t border-border"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
                 >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  aria-current={activeSection === link.href.replace("#", "") ? "page" : undefined}
-                  className={`text-base font-medium transition-colors ${activeSection === link.href.replace("#", "")
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                    }`}
-                >
-                  {link.label}
-                </a>
-              )
-            )}
-            <div className="flex items-center gap-4 pt-4 border-t border-border">
-              <a
-                href="https://github.com/M20A03"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
+                  <a
+                    href="https://github.com/M20A03"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="GitHub"
+                  >
+                    <Github className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

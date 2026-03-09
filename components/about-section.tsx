@@ -1,10 +1,67 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { GraduationCap, Calendar, MapPin, Code2, Lightbulb, Bike, Plane } from "lucide-react";
+import { motion } from "framer-motion";
 import { GitHubStatsCard } from "./github-stats";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+
+function AnimatedCounter({ value }: { value: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLParagraphElement>(null);
+  const hasAnimated = useRef(false);
+  const numericValue = parseInt(value.replace(/\D/g, ""), 10) || 0;
+  const textSuffix = value.replace(/[0-9]/g, "");
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          let start = 0;
+          const duration = 1500;
+          const startTime = performance.now();
+
+          const animate = (now: number) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            start = Math.floor(eased * numericValue);
+            setCount(start);
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [numericValue]);
+
+  return (
+    <p ref={ref} className="text-2xl md:text-3xl font-bold text-foreground">
+      {count}{textSuffix}
+    </p>
+  );
+}
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const education = [
   {
@@ -38,9 +95,15 @@ const interests = [
 export function AboutSection() {
   return (
     <section id="about" className="py-16 md:py-32 px-4 sm:px-6 md:px-12">
-      <div className="max-w-6xl mx-auto">
+      <motion.div
+        className="max-w-6xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.05 }}
+      >
         {/* Section Header */}
-        <div className="mb-16">
+        <motion.div className="mb-16" variants={itemVariants}>
           <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
             About Me
           </p>
@@ -50,7 +113,7 @@ export function AboutSection() {
           </h2>
 
           {/* Bio Cards */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <motion.div className="grid md:grid-cols-2 gap-6 mb-12" variants={itemVariants}>
             <Card className="hover:border-primary/50 transition-all duration-300">
               <CardHeader>
                 <div className="flex items-center gap-3">
@@ -82,23 +145,23 @@ export function AboutSection() {
                 </p>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-12">
+          <motion.div className="grid grid-cols-3 gap-3 md:gap-4 mb-12" variants={itemVariants}>
             {highlights.map((item, index) => (
               <Card key={index} className="p-4 md:p-6 text-center group hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-default">
                 <CardContent className="p-0">
                   <item.icon className="w-6 h-6 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                  <p className="text-2xl md:text-3xl font-bold text-foreground">{item.value}</p>
+                  <AnimatedCounter value={item.value} />
                   <p className="text-sm text-muted-foreground">{item.label}</p>
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </motion.div>
 
           {/* Code Activity Dashboard */}
-          <div className="mb-16">
+          <motion.div className="mb-16" variants={itemVariants}>
             <div className="relative group">
               {/* Decorative Background Glow */}
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-border to-primary/20 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
@@ -142,9 +205,10 @@ export function AboutSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Interests */}
+          <motion.div variants={itemVariants}>
           <Card className="bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-primary/20">
             <CardContent className="p-6">
               <h3 className="text-lg font-semibold text-foreground mb-4">When I&apos;m not coding...</h3>
@@ -163,16 +227,22 @@ export function AboutSection() {
               </div>
             </CardContent>
           </Card>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Education Timeline */}
-        <div>
-          <div className="flex items-center gap-3 mb-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <motion.div className="flex items-center gap-3 mb-8" variants={itemVariants}>
             <GraduationCap className="w-6 h-6 text-primary" />
             <h3 className="text-xl md:text-2xl font-semibold text-foreground">
               Education
             </h3>
-          </div>
+          </motion.div>
 
           <div className="relative">
             {/* Timeline line */}
@@ -180,9 +250,10 @@ export function AboutSection() {
 
             <div className="space-y-8">
               {education.map((edu, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="relative pl-8 md:pl-20 group"
+                  variants={itemVariants}
                 >
                   {/* Timeline dot */}
                   <div className="absolute left-0 md:left-8 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary ring-4 ring-background group-hover:scale-125 transition-transform" />
@@ -207,12 +278,12 @@ export function AboutSection() {
                       <p className="text-primary text-sm font-medium">{edu.details}</p>
                     </CardContent>
                   </Card>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

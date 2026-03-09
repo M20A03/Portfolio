@@ -184,3 +184,14 @@
     }
   }
 }
+
+/* ─── Gradient text animation ─────────────────────────────────── */
+@keyframes gradient {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-gradient {
+  animation: gradient 4s linear infinite;
+  background-size: 200% auto !important;
+}

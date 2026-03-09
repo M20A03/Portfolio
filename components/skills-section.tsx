@@ -1,10 +1,44 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { Code2, Database, Wrench, Globe, BarChart3, Palette } from "lucide-react";
 import { motion } from "framer-motion";
-import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+function AnimatedProgress({ value, className }: { value: number; className?: string }) {
+  const [width, setWidth] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          // Small delay so the card animation plays first
+          setTimeout(() => setWidth(value), 200);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <div ref={ref} className={`relative h-2 w-full overflow-hidden rounded-full bg-secondary ${className || ""}`}>
+      <div
+        className="h-full rounded-full bg-primary transition-all duration-1000 ease-out"
+        style={{ width: `${width}%` }}
+      />
+    </div>
+  );
+}
 
 const skillCategories = [
   {
@@ -148,7 +182,7 @@ export function SkillsSection() {
                             {skill.level}%
                           </Badge>
                         </div>
-                        <Progress value={skill.level} className="h-2" />
+                        <AnimatedProgress value={skill.level} />
                       </div>
                     ))}
                   </CardContent>

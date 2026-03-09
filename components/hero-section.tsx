@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
+import { ParticleBackground } from "./particle-background";
 import Image from "next/image";
 
 const roles = [
@@ -15,15 +16,61 @@ const roles = [
   "Open Source Enthusiast",
 ];
 
+function MagneticIcon({ children, className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { children: React.ReactNode }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+
+  const handleMouse = useCallback((e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+    const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+    setOffset({ x, y });
+  }, []);
+
+  const reset = useCallback(() => setOffset({ x: 0, y: 0 }), []);
+
+  return (
+    <a
+      ref={ref}
+      onMouseMove={handleMouse}
+      onMouseLeave={reset}
+      style={{ transform: `translate(${offset.x}px, ${offset.y}px)`, transition: "transform 0.2s ease-out" }}
+      className={className}
+      {...props}
+    >
+      {children}
+    </a>
+  );
+}
+
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
+  }, []);
+
+  // Mouse tracking for gradient blob
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    };
+    const section = sectionRef.current;
+    section?.addEventListener("mousemove", handleMouseMove);
+    return () => section?.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   // Typing effect
@@ -50,7 +97,20 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Particle canvas */}
+      <ParticleBackground />
+
+      {/* Mouse-following gradient blob */}
+      <div
+        className="absolute pointer-events-none w-[500px] h-[500px] rounded-full opacity-20 blur-3xl bg-primary/30 transition-transform duration-[2000ms] ease-out"
+        style={{
+          left: mousePos.x - 250,
+          top: mousePos.y - 250,
+        }}
+        aria-hidden="true"
+      />
+
       {/* Animated background blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -84,7 +144,7 @@ export function HeroSection() {
             {/* Name */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
               Hi, I&apos;m{" "}
-              <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
                 Mayank
               </span>
             </h1>
@@ -163,15 +223,15 @@ export function HeroSection() {
               ].map(({ href, icon: Icon, label }) => (
                 <Tooltip key={label}>
                   <TooltipTrigger asChild>
-                    <a
+                    <MagneticIcon
                       href={href}
                       target={href.startsWith("mailto") ? undefined : "_blank"}
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                      className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 inline-block"
                     >
                       <Icon className="w-5 h-5" />
-                    </a>
+                    </MagneticIcon>
                   </TooltipTrigger>
                   <TooltipContent>{label}</TooltipContent>
                 </Tooltip>
