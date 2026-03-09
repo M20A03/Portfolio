@@ -34,10 +34,6 @@ const staggerContainer = {
 };
 
 export default function ResumePage() {
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <main id="main-content" className="min-h-screen bg-background selection:bg-primary/20">
       {/* Header - Hidden on Print */}
@@ -50,12 +46,11 @@ export default function ResumePage() {
             </Button>
           </Link>
           <div className="flex items-center gap-3">
-            <p className="text-xs text-muted-foreground italic hidden sm:block">
-              Tip: Save as PDF via Print (Ctrl+P)
-            </p>
-            <Button size="sm" className="gap-2" onClick={handlePrint}>
-              <Download className="w-4 h-4" />
-              Save as PDF
+            <Button size="sm" className="gap-2" asChild>
+              <a href="/resume.pdf" download="Mayank_Raj_Gupta_Resume.pdf">
+                <Download className="w-4 h-4" />
+                Save as PDF
+              </a>
             </Button>
           </div>
         </div>
