@@ -184,6 +184,7 @@ export function ProjectsSection() {
               key={index}
               variants={cardVariants}
               whileHover={{ y: -6 }}
+              whileTap={{ scale: 0.98 }}
             >
               <Card className="group relative border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 overflow-hidden flex flex-col h-full py-0 gap-0">
                 {/* Private badge */}
@@ -215,18 +216,15 @@ export function ProjectsSection() {
                         {tech}
                       </Badge>
                     ))}
-                    {project.tech.length > 3 && (
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <Badge variant="secondary" className="rounded-full cursor-default">
-                            +{project.tech.length - 3}
-                          </Badge>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          {project.tech.slice(3).join(", ")}
-                        </TooltipContent>
-                      </Tooltip>
-                    )}
+                    {project.tech.slice(3).map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="outline"
+                        className="rounded-full bg-primary/10 text-primary border-primary/20"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
 
                   {/* Title */}

@@ -151,7 +151,7 @@ export function AIAssistant() {
                     aria-label={isOpen ? "Close AI assistant" : "Open AI assistant"}
                     aria-expanded={isOpen}
                     aria-controls="ai-assistant-dialog"
-                    className="rounded-full w-20 h-20 bg-primary text-primary-foreground shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:bg-primary/90 flex items-center justify-center relative overflow-hidden group border-4 border-background"
+                    className="rounded-full w-14 h-14 sm:w-20 sm:h-20 bg-primary text-primary-foreground shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:bg-primary/90 flex items-center justify-center relative overflow-hidden group border-4 border-background"
                 >
                     <AnimatePresence mode="wait">
                         {isOpen ? (
@@ -181,7 +181,7 @@ export function AIAssistant() {
                         role="dialog"
                         aria-modal="false"
                         aria-label="Mayank AI assistant"
-                        className="fixed bottom-32 right-8 z-50 w-[92vw] sm:w-[400px] h-[600px] bg-background/95 backdrop-blur-2xl border border-border/50 rounded-[3rem] shadow-[0_30px_100px_rgba(0,0,0,0.4)] flex flex-col overflow-hidden ring-1 ring-primary/10"
+                        className="fixed bottom-32 right-4 sm:right-8 z-50 w-[92vw] sm:w-[400px] h-[600px] max-h-[calc(100dvh-10rem)] bg-background/95 backdrop-blur-2xl border border-border/50 rounded-[2rem] sm:rounded-[3rem] shadow-[0_30px_100px_rgba(0,0,0,0.4)] flex flex-col overflow-hidden ring-1 ring-primary/10"
                     >
                         {/* Header */}
                         <div className="p-4 sm:p-6 bg-primary/10 border-b border-border/50 flex items-center justify-between">

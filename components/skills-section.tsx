@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 const skillCategories = [
   {
@@ -122,6 +121,7 @@ export function SkillsSection() {
                   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
                 }}
                 whileHover={{ y: -5, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Card className="group border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 relative overflow-hidden h-full">
                   {/* Glow effect on hover */}
@@ -144,16 +144,9 @@ export function SkillsSection() {
                       <div key={skill.name} className="flex flex-col gap-1.5 w-full">
                         <div className="flex justify-between items-center text-sm">
                           <span className="font-medium text-foreground">{skill.name}</span>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <span>
-                                <Badge variant="secondary" className="text-[10px] px-1.5 py-0 cursor-default">
-                                  {skill.level}%
-                                </Badge>
-                              </span>
-                            </TooltipTrigger>
-                            <TooltipContent>{skill.name}: {skill.level}% proficiency</TooltipContent>
-                          </Tooltip>
+                          <Badge variant="secondary" className="text-[10px] px-1.5 py-0 cursor-default" aria-label={`${skill.name}: ${skill.level}% proficiency`}>
+                            {skill.level}%
+                          </Badge>
                         </div>
                         <Progress value={skill.level} className="h-2" />
                       </div>

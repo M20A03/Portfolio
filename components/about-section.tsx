@@ -5,7 +5,6 @@ import { GitHubStatsCard } from "./github-stats";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 const education = [
   {
@@ -88,18 +87,13 @@ export function AboutSection() {
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-3 md:gap-4 mb-12">
             {highlights.map((item, index) => (
-              <Tooltip key={index}>
-                <TooltipTrigger asChild>
-                  <Card className="p-4 md:p-6 text-center group hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-default">
-                    <CardContent className="p-0">
-                      <item.icon className="w-6 h-6 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                      <p className="text-2xl md:text-3xl font-bold text-foreground">{item.value}</p>
-                      <p className="text-sm text-muted-foreground">{item.label}</p>
-                    </CardContent>
-                  </Card>
-                </TooltipTrigger>
-                <TooltipContent>{item.value} {item.label}</TooltipContent>
-              </Tooltip>
+              <Card key={index} className="p-4 md:p-6 text-center group hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-default">
+                <CardContent className="p-0">
+                  <item.icon className="w-6 h-6 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="text-2xl md:text-3xl font-bold text-foreground">{item.value}</p>
+                  <p className="text-sm text-muted-foreground">{item.label}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
 

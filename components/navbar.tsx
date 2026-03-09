@@ -176,7 +176,7 @@ export function Navbar() {
         {/* Mobile Menu */}
         <div
           id="mobile-nav-menu"
-          className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? "max-h-96 pb-6" : "max-h-0"
+          className={`md:hidden overflow-hidden overflow-y-auto transition-all duration-300 ${isMobileMenuOpen ? "max-h-[80vh] pb-6" : "max-h-0"
             }`}
         >
           <div className="flex flex-col gap-4 pt-4 border-t border-border">
