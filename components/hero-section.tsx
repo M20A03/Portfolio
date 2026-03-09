@@ -203,7 +203,7 @@ export function HeroSection() {
                 size="lg"
                 className="px-6 py-6 text-base font-medium gap-2 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all group"
               >
-                <a href="/resume.pdf" download="RESUME_Mayank Raj Gupta.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/resume.pdf" download="RESUME_Mayank Raj Gupta.pdf">
                   <Download className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
                   Download Resume
                 </a>
