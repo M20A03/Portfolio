@@ -50,6 +50,12 @@ const certifications = [
     issuer: "Samsung Opera House, Bangalore",
     image: "/certificates/certificate-7.jpg",
   },
+  {
+    year: "2026",
+    title: "Treasure Hunt",
+    issuer: "Maths Department (Christ University)",
+    image: "/certificates/certificate-8.jpg",
+  },
 ];
 
 export function CertificationsSection() {
