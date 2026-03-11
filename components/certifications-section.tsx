@@ -52,8 +52,8 @@ const certifications = [
   },
   {
     year: "2026",
-    title: "Treasure Hunt",
-    issuer: "Maths Department (Christ University)",
+    title: "FRACTAL 2026 – Intercollegiate Fest",
+    issuer: "Mathematics Association (ABHISARAN), CHRIST University",
     image: "/certificates/certificate-8.jpg",
   },
 ];
