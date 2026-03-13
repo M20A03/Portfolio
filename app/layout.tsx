@@ -1,32 +1,35 @@
-import React from "react"
+﻿import React from "react"
 import type { Metadata } from 'next'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
+  verification: {
+    google: 'zsm4spgo5oDy1u8aRUa0b2HyzCHMEM_HGjTWWmkfI4U',
+  },
   title: 'Mayank Raj Gupta | Full-Stack Developer',
-  description: 'Portfolio of Mayank Raj Gupta — BCA Student & Full-Stack Developer. Explore projects, skills, and certifications.',
+  description: 'Portfolio of Mayank Raj Gupta â€” BCA Student & Full-Stack Developer. Explore projects, skills, and certifications.',
   generator: 'Next.js',
   metadataBase: new URL('https://mayankraj.me'),
   openGraph: {
     type: 'website',
     url: 'https://mayankraj.me',
     title: 'Mayank Raj Gupta | Full-Stack Developer',
-    description: 'BCA Student & Full-Stack Developer — explore my projects, skills, and certifications.',
+    description: 'BCA Student & Full-Stack Developer â€” explore my projects, skills, and certifications.',
     siteName: 'Mayank Raj Gupta Portfolio',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Mayank Raj Gupta — Full-Stack Developer Portfolio',
+        alt: 'Mayank Raj Gupta â€” Full-Stack Developer Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Mayank Raj Gupta | Full-Stack Developer',
-    description: 'BCA Student & Full-Stack Developer — explore my projects, skills, and certifications.',
+    description: 'BCA Student & Full-Stack Developer â€” explore my projects, skills, and certifications.',
     images: ['/og-image.png'],
   },
   icons: {
@@ -69,3 +72,4 @@ export default function RootLayout({
     </html>
   )
 }
+
