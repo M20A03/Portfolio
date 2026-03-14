@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Send, CheckCircle, AlertCircle, Loader2, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -37,6 +37,12 @@ const socialLinks = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/mayank-raj-gupta-159020396",
     username: "Mayank Raj Gupta",
+  },
+  {
+    icon: Globe,
+    label: "Portfolio",
+    href: "https://www.mayankraj.me",
+    username: "mayankraj.me",
   },
 ];
 

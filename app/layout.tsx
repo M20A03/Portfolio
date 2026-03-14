@@ -7,30 +7,32 @@ export const metadata: Metadata = {
   verification: {
     google: 'zsm4spgo5oDy1u8aRUa0b2HyzCHMEM_HGjTWWmkfI4U',
   },
-  title: 'Mayank Raj Gupta | Web Developer Portfolio',
-  description: 'Official portfolio of Mayank Raj Gupta, web developer specializing in React, JavaScript and modern web applications.',
+  title: 'Mayank Raj Gupta | Full Stack Developer Portfolio',
+  description: 'Portfolio of Mayank Raj Gupta, a Full Stack Developer skilled in React, JavaScript, and modern web technologies.',
+  keywords: 'Mayank Raj Gupta, Web Developer, Full Stack Developer, React Developer, Portfolio',
+  authors: [{ name: 'Mayank Raj Gupta' }],
   generator: 'Next.js',
-  metadataBase: new URL('https://mayankraj.me'),
+  metadataBase: new URL('https://www.mayankraj.me'),
   openGraph: {
     type: 'website',
-    url: 'https://mayankraj.me',
-    title: 'Mayank Raj Gupta | Full-Stack Developer',
-    description: 'BCA Student & Full-Stack Developer â€” explore my projects, skills, and certifications.',
+    url: 'https://www.mayankraj.me',
+    title: 'Mayank Raj Gupta | Full Stack Developer',
+    description: 'Explore the portfolio of Mayank Raj Gupta, showcasing web development projects and skills.',
     siteName: 'Mayank Raj Gupta Portfolio',
     images: [
       {
-        url: '/og-image.png',
+        url: '/favicon.png', // Using favicon.png as profile.jpg is missing, or can use placeholder-user.jpg
         width: 1200,
         height: 630,
-        alt: 'Mayank Raj Gupta â€” Full-Stack Developer Portfolio',
+        alt: 'Mayank Raj Gupta | Full Stack Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mayank Raj Gupta | Full-Stack Developer',
-    description: 'BCA Student & Full-Stack Developer â€” explore my projects, skills, and certifications.',
-    images: ['/og-image.png'],
+    title: 'Mayank Raj Gupta | Full Stack Developer',
+    description: 'Portfolio of Mayank Raj Gupta showcasing projects and development skills.',
+    images: ['/favicon.png'],
   },
   icons: {
     icon: [
@@ -69,7 +71,8 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Mayank Raj Gupta",
               "url": "https://www.mayankraj.me",
-              "jobTitle": "Web Developer",
+              "image": "https://www.mayankraj.me/favicon.png",
+              "jobTitle": "Full Stack Developer",
               "sameAs": [
                 "https://github.com/M20A03",
                 "https://www.linkedin.com/in/mayank-raj-gupta-159020396"

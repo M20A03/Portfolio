@@ -143,9 +143,9 @@ export function HeroSection() {
 
             {/* Name */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
-              Hi, I&apos;m{" "}
+              Mayank Raj{" "}
               <span className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
-                Mayank
+                Gupta
               </span>
             </h1>
 
@@ -165,9 +165,7 @@ export function HeroSection() {
                 }`}
               style={{ transitionDelay: "400ms" }}
             >
-              Crafting elegant digital experiences with modern technologies.
-              Passionate about building responsive, user-centric applications
-              that make a difference.
+              Hi, I&apos;m Mayank Raj Gupta, a Full Stack Developer passionate about building modern web applications using React, JavaScript, and modern web technologies.
             </p>
 
             {/* CTA Buttons */}
