@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { GraduationCap, Calendar, MapPin, Code2, Lightbulb, Bike, Plane } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { GitHubStatsCard } from "./github-stats";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -53,12 +53,12 @@ function AnimatedCounter({ value }: { value: string }) {
   );
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };

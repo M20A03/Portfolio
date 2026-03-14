@@ -115,7 +115,7 @@ export function JourneySection() {
                                             <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-sm font-semibold text-muted-foreground italic flex items-center gap-2 md:justify-inherit">
+                                            <p className="text-sm font-semibold text-muted-foreground italic flex items-center gap-2">
                                                 <Zap className="w-4 h-4 text-primary shrink-0" />
                                                 {item.location}
                                             </p>

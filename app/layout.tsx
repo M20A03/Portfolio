@@ -1,4 +1,4 @@
-﻿import React from "react"
+import React from "react"
 import type { Metadata } from 'next'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   verification: {
     google: 'zsm4spgo5oDy1u8aRUa0b2HyzCHMEM_HGjTWWmkfI4U',
   },
-  title: 'Mayank Raj Gupta | Full-Stack Developer',
-  description: 'Portfolio of Mayank Raj Gupta â€” BCA Student & Full-Stack Developer. Explore projects, skills, and certifications.',
+  title: 'Mayank Raj Gupta | Web Developer Portfolio',
+  description: 'Official portfolio of Mayank Raj Gupta, web developer specializing in React, JavaScript and modern web applications.',
   generator: 'Next.js',
   metadataBase: new URL('https://mayankraj.me'),
   openGraph: {
@@ -35,6 +35,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
+        url: "/favicon.png",
+        type: "image/png",
+      },
+      {
         url: "/icon.png",
         type: "image/png",
       },
@@ -43,7 +47,7 @@ export const metadata: Metadata = {
         type: "image/svg+xml",
       },
     ],
-    apple: "/icon.png",
+    apple: "/favicon.png",
   },
 }
 
@@ -56,6 +60,23 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Mayank Raj Gupta",
+              "url": "https://www.mayankraj.me",
+              "jobTitle": "Web Developer",
+              "sameAs": [
+                "https://github.com/M20A03",
+                "https://www.linkedin.com/in/mayank-raj-gupta-159020396"
+              ]
+            })
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
