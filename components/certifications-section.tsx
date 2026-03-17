@@ -58,8 +58,8 @@ const certifications = [
   },
   {
     year: "2026",
-    title: "Recent Certification",
-    issuer: "Latest Achievement",
+    title: "National Science Day Exhibition",
+    issuer: "School of Sciences, Christ University",
     image: "/certificates/certificate-9.png",
   },
 ];
