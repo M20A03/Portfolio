@@ -56,6 +56,12 @@ const certifications = [
     issuer: "Mathematics Association (ABHISARAN), CHRIST University",
     image: "/certificates/certificate-8.jpg",
   },
+  {
+    year: "2026",
+    title: "Recent Certification",
+    issuer: "Latest Achievement",
+    image: "/certificates/certificate-9.png",
+  },
 ];
 
 export function CertificationsSection() {
