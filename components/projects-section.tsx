@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -158,7 +158,13 @@ const cardVariants = {
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<(typeof categories)[number]>("All");
+  const [showAllMobile, setShowAllMobile] = useState(false);
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
+  const visibleProjects = showAllMobile ? filteredProjects : filteredProjects.slice(0, 3);
+
+  useEffect(() => {
+    setShowAllMobile(false);
+  }, [activeFilter]);
 
   return (
     <section id="projects" className="py-16 md:py-32 px-4 sm:px-6 md:px-12 bg-card/50">
@@ -208,7 +214,7 @@ export function ProjectsSection() {
           layout
         >
           <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project) => (
+          {visibleProjects.map((project) => (
             <motion.div
               key={project.title}
               variants={cardVariants}
@@ -330,6 +336,21 @@ export function ProjectsSection() {
           ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Mobile See More */}
+        {filteredProjects.length > 3 && (
+          <div className="mt-6 md:hidden flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllMobile((prev) => !prev)}
+              className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
+              aria-expanded={showAllMobile}
+              aria-controls="projects"
+            >
+              {showAllMobile ? "See less projects" : `See more projects (${filteredProjects.length - 3})`}
+            </button>
+          </div>
+        )}
 
         {/* View More */}
         <div className="mt-12 text-center">

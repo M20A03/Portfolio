@@ -67,6 +67,8 @@ const certifications = [
 export function CertificationsSection() {
   const [brokenImages, setBrokenImages] = useState<Record<string, boolean>>({});
   const [selectedCert, setSelectedCert] = useState<typeof certifications[number] | null>(null);
+  const [showAllMobile, setShowAllMobile] = useState(false);
+  const visibleCertifications = showAllMobile ? certifications : certifications.slice(0, 4);
 
   return (
     <section
@@ -91,7 +93,7 @@ export function CertificationsSection() {
 
         {/* Certifications Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certifications.map((cert, index) => (
+          {visibleCertifications.map((cert, index) => (
             <Card
               key={index}
               className="group relative border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 overflow-hidden flex flex-col cursor-pointer py-0 gap-0"
@@ -149,6 +151,21 @@ export function CertificationsSection() {
             </Card>
           ))}
         </div>
+
+        {/* Mobile See More */}
+        {certifications.length > 4 && (
+          <div className="mt-6 md:hidden flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllMobile((prev) => !prev)}
+              className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
+              aria-expanded={showAllMobile}
+              aria-controls="certifications"
+            >
+              {showAllMobile ? "See less certificates" : `See more certificates (${certifications.length - 4})`}
+            </button>
+          </div>
+        )}
 
         {/* Certificate Dialog */}
         <Dialog open={!!selectedCert} onOpenChange={() => setSelectedCert(null)}>

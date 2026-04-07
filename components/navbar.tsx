@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Menu, X, Sun, Moon } from "lucide-react";
+import { Github, Linkedin, Menu, X, Sun, Moon, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
@@ -97,6 +97,14 @@ export function Navbar() {
                 </a>
               )
             )}
+            <a
+              href="/RESUME_Mayank Raj Gupta.pdf"
+              download="RESUME_Mayank Raj Gupta.pdf"
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              Download PDF
+            </a>
           </div>
 
           {/* Social Links & Mobile Menu Button */}
@@ -223,6 +231,18 @@ export function Navbar() {
                     </motion.div>
                   )
                 )}
+                <motion.a
+                  href="/RESUME_Mayank Raj Gupta.pdf"
+                  download="RESUME_Mayank Raj Gupta.pdf"
+                  className="inline-flex items-center gap-2 text-base font-medium text-primary hover:text-primary/80 transition-colors"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <Download className="w-4 h-4" />
+                  Download Resume PDF
+                </motion.a>
                 <motion.div
                   className="flex items-center gap-4 pt-4 border-t border-border"
                   initial={{ opacity: 0 }}

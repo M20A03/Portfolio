@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Zap, Code } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -65,6 +66,9 @@ const milestones = [
 ];
 
 export function JourneySection() {
+    const [showAllMobile, setShowAllMobile] = useState(false);
+    const visibleMilestones = showAllMobile ? milestones : milestones.slice(0, 3);
+
     return (
         <section id="journey" className="py-24 md:py-32 px-6 md:px-12 bg-background relative overflow-hidden">
             {/* Background Decorative Element */}
@@ -90,7 +94,7 @@ export function JourneySection() {
                     <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2" />
 
                     <ol className="space-y-12 md:space-y-24" aria-label="Journey timeline milestones">
-                        {milestones.map((item, index) => (
+                        {visibleMilestones.map((item, index) => (
                             <motion.li
                                 key={index}
                                 initial={{ opacity: 0, y: 50 }}
@@ -128,6 +132,21 @@ export function JourneySection() {
                             </motion.li>
                         ))}
                     </ol>
+
+                    {/* Mobile See More */}
+                    {milestones.length > 3 && (
+                        <div className="mt-6 md:hidden flex justify-center">
+                            <button
+                                type="button"
+                                onClick={() => setShowAllMobile((prev) => !prev)}
+                                className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
+                                aria-expanded={showAllMobile}
+                                aria-controls="journey"
+                            >
+                                {showAllMobile ? "See less journey" : `See more journey (${milestones.length - 3})`}
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
