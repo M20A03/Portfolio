@@ -1,5 +1,11 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://www.mayankraj.me/sitemap.xml
 Host: https://www.mayankraj.me

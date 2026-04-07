@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-section";
 import { AboutSection } from "@/components/about-section";
@@ -13,6 +14,23 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { SectionDivider } from "@/components/section-divider";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
+
+const siteUrl = "https://www.mayankraj.me";
+
+export const metadata: Metadata = {
+  title: "Mayank Raj Gupta | Full Stack Developer Portfolio",
+  description:
+    "Official portfolio of Mayank Raj Gupta, Full Stack Developer. Explore projects, skills, resume, certifications, and contact details.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    url: siteUrl,
+    title: "Mayank Raj Gupta | Full Stack Developer Portfolio",
+    description:
+      "Official portfolio of Mayank Raj Gupta featuring projects, resume, certifications, and developer skills.",
+  },
+};
 
 const footerLinks = [
   { label: "About", href: "#about" },
@@ -42,8 +60,29 @@ const socials = [
 ];
 
 export default function Portfolio() {
+  const profilePageLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    name: "Mayank Raj Gupta | Full Stack Developer Portfolio",
+    url: siteUrl,
+    mainEntity: {
+      "@type": "Person",
+      name: "Mayank Raj Gupta",
+      jobTitle: "Full Stack Developer",
+      url: siteUrl,
+      sameAs: [
+        "https://github.com/M20A03",
+        "https://www.linkedin.com/in/mayank-raj-gupta-159020396",
+      ],
+    },
+  };
+
   return (
     <main id="main-content" className="min-h-screen bg-background relative selection:bg-primary/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageLd) }}
+      />
       <CustomCursor />
       <ScrollProgress />
       <Navbar />
