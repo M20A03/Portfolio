@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.mayankraj.me/sitemap.xml
+Host: https://www.mayankraj.me
