@@ -82,7 +82,7 @@ const education = [
 
 const highlights = [
   { icon: Code2, label: "Languages", value: "5+" },
-  { icon: Lightbulb, label: "Projects", value: "12+" },
+  { icon: Lightbulb, label: "Projects", value: "7+" },
   { icon: GraduationCap, label: "Certifications", value: "5+" },
 ];
 
@@ -179,7 +179,7 @@ export function AboutSection() {
 
                     <div className="grid grid-cols-2 gap-4">
                       {[
-                        { label: "Public Repos", value: "13", sub: "GitHub Profile" },
+                        { label: "Public Repos", value: "8", sub: "GitHub Profile" },
                         { label: "Private Repos", value: "2", sub: "Personal Projects" },
                         { label: "Top Skills", value: "TS / JS", sub: "Most Used" },
                         { label: "Followers", value: "7", sub: "Active Profile" },
