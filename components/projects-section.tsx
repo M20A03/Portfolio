@@ -229,6 +229,15 @@ function mapGithubRepoToProject(repo: GithubRepo, index: number): Project {
   };
 }
 
+function normalizeRepoPath(url: string) {
+  try {
+    const parsed = new URL(url);
+    return parsed.pathname.replace(/\.git$/i, "").replace(/^\/+/, "").toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
 function ProjectImage({ image, title, color, emoji }: { image: string | null; title: string; color: string; emoji: string }) {
   const [imgError, setImgError] = useState(false);
 
@@ -297,22 +306,39 @@ export function ProjectsSection() {
         }
 
         const repos = (await response.json()) as GithubRepo[];
-        const transformed = repos
-          .filter((repo) => !repo.fork && !repo.archived)
-          .sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
-          .slice(0, 12)
-          .map(mapGithubRepoToProject);
+        const publicRepos = repos.filter((repo) => !repo.fork && !repo.archived);
+        const repoByPath = new Map(publicRepos.map((repo) => [`${GITHUB_USERNAME.toLowerCase()}/${repo.name.toLowerCase()}`, repo]));
+
+        // Keep only curated projects and enrich their GitHub-backed metadata.
+        const transformed = fallbackProjects.map((project, index) => {
+          if (!project.github) {
+            return project;
+          }
+
+          const repoPath = normalizeRepoPath(project.github);
+          const matchedRepo = repoByPath.get(repoPath);
+
+          if (!matchedRepo) {
+            return project;
+          }
+
+          const githubProject = mapGithubRepoToProject(matchedRepo, index);
+          return {
+            ...project,
+            github: githubProject.github,
+            live: project.live ?? githubProject.live,
+            date: githubProject.date,
+            stats: githubProject.stats,
+            isPrivate: githubProject.isPrivate,
+            tech: project.tech.length > 0 ? project.tech : githubProject.tech,
+          };
+        });
 
         if (!isMounted) {
           return;
         }
 
-        if (transformed.length > 0) {
-          setProjects(transformed);
-        } else {
-          setProjects(fallbackProjects);
-          setGithubLoadError("No public repositories were found.");
-        }
+        setProjects(transformed);
       } catch {
         if (!isMounted) {
           return;
