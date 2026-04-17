@@ -24,7 +24,13 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+
+  const isDarkMode = resolvedTheme === "dark";
+
+  const handleThemeToggle = () => {
+    setTheme(isDarkMode ? "light" : "dark");
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -150,18 +156,18 @@ export function Navbar() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    onClick={handleThemeToggle}
                     aria-label="Toggle theme"
                     className="rounded-full text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all"
                   >
-                    {theme === "dark" ? (
+                    {isDarkMode ? (
                       <Sun className="w-5 h-5 transition-transform rotate-0 scale-100" />
                     ) : (
                       <Moon className="w-5 h-5 transition-transform rotate-0 scale-100" />
                     )}
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>{theme === "dark" ? "Light mode" : "Dark mode"}</TooltipContent>
+                <TooltipContent>{isDarkMode ? "Light mode" : "Dark mode"}</TooltipContent>
               </Tooltip>
             )}
 
