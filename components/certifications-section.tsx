@@ -20,6 +20,12 @@ const certifications = [
     issuer: "CHRIST (Deemed to be University)",
     image: "/certificates/certificate-4.jpg",
   },
+   {
+    year: "2026",
+    title: "SPARK Research Program",
+    issuer: "CHRIST (Deemed to be University)",
+    image: "/certificates/certificate-10.png",
+  },
   {
     year: "2025",
     title: "C Programming Course",
