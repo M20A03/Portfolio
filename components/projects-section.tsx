@@ -106,6 +106,21 @@ const fallbackProjects: Project[] = [
     category: "Frontend" as const,
   },
   {
+    title: "Lumi Glow",
+    description:
+      "A modern brand website project focused on polished UI, smooth interactions, and responsive layout, deployed on Vercel.",
+    tech: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/M20A03/Lumi-Glow",
+    live: "https://lumi-glow-sigma.vercel.app",
+    date: "Mar 2026",
+    color: "from-pink-500/20 to-rose-500/20",
+    emoji: "✨",
+    image: null,
+    isPrivate: false,
+    stats: "JavaScript · Vercel Deployed",
+    category: "Frontend" as const,
+  },
+  {
     title: "Study Archive",
     description:
       "A campus resource platform built to help students manage and access study materials, notes, and resources. Powered by Firebase for real-time sync, it serves as a central digital library for college coursework.",
