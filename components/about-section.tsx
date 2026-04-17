@@ -94,7 +94,7 @@ const interests = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-16 md:py-32 px-4 sm:px-6 md:px-12">
+    <section id="about" className="scroll-mt-24 py-16 md:py-32 px-4 sm:px-6 md:px-12">
       <motion.div
         className="max-w-6xl mx-auto"
         variants={containerVariants}

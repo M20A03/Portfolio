@@ -32,6 +32,18 @@ export function Navbar() {
     setTheme(isDarkMode ? "light" : "dark");
   };
 
+  const handleSectionClick = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    event.preventDefault();
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", `#${targetId}`);
+    }
+
+    setIsMobileMenuOpen(false);
+  };
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -88,6 +100,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
+                  onClick={(event) => handleSectionClick(event, link.href.replace("#", ""))}
                   aria-current={activeSection === link.href.replace("#", "") ? "page" : undefined}
                   className={`text-sm font-medium transition-colors relative group ${activeSection === link.href.replace("#", "")
                       ? "text-primary"
@@ -226,7 +239,7 @@ export function Navbar() {
                     >
                       <a
                         href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={(event) => handleSectionClick(event, link.href.replace("#", ""))}
                         aria-current={activeSection === link.href.replace("#", "") ? "page" : undefined}
                         className={`text-base font-medium transition-colors block ${activeSection === link.href.replace("#", "")
                             ? "text-primary"

@@ -70,7 +70,7 @@ export function JourneySection() {
     const visibleMilestones = showAllMobile ? milestones : milestones.slice(0, 3);
 
     return (
-        <section id="journey" className="py-24 md:py-32 px-6 md:px-12 bg-background relative overflow-hidden">
+        <section id="journey" className="scroll-mt-24 py-24 md:py-32 px-6 md:px-12 bg-background relative overflow-hidden">
             {/* Background Decorative Element */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
