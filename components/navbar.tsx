@@ -10,14 +10,18 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#journey", label: "Journey" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#certifications", label: "Certifications" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#journey", label: "Journey" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#certifications", label: "Certifications" },
+  { href: "/#contact", label: "Contact" },
   { href: "/resume", label: "Resume", isPage: true },
 ];
+
+function getSectionId(href: string) {
+  return href.includes("#") ? href.split("#")[1] : href;
+}
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,18 +36,6 @@ export function Navbar() {
     setTheme(isDarkMode ? "light" : "dark");
   };
 
-  const handleSectionClick = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    event.preventDefault();
-
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      window.history.replaceState(null, "", `#${targetId}`);
-    }
-
-    setIsMobileMenuOpen(false);
-  };
-
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -53,7 +45,9 @@ export function Navbar() {
       setIsScrolled(window.scrollY > 50);
 
       // Determine active section
-      const sections = navLinks.map((link) => link.href.replace("#", ""));
+      const sections = navLinks
+        .filter((link) => !link.isPage)
+        .map((link) => getSectionId(link.href));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
@@ -100,16 +94,15 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={(event) => handleSectionClick(event, link.href.replace("#", ""))}
-                  aria-current={activeSection === link.href.replace("#", "") ? "page" : undefined}
-                  className={`text-sm font-medium transition-colors relative group ${activeSection === link.href.replace("#", "")
+                  aria-current={activeSection === getSectionId(link.href) ? "page" : undefined}
+                  className={`text-sm font-medium transition-colors relative group ${activeSection === getSectionId(link.href)
                       ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
                     }`}
                 >
                   {link.label}
                   <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${activeSection === link.href.replace("#", "")
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${activeSection === getSectionId(link.href)
                         ? "w-full"
                         : "w-0 group-hover:w-full"
                       }`}
@@ -239,9 +232,8 @@ export function Navbar() {
                     >
                       <a
                         href={link.href}
-                        onClick={(event) => handleSectionClick(event, link.href.replace("#", ""))}
-                        aria-current={activeSection === link.href.replace("#", "") ? "page" : undefined}
-                        className={`text-base font-medium transition-colors block ${activeSection === link.href.replace("#", "")
+                        aria-current={activeSection === getSectionId(link.href) ? "page" : undefined}
+                        className={`text-base font-medium transition-colors block ${activeSection === getSectionId(link.href)
                             ? "text-primary"
                             : "text-muted-foreground hover:text-foreground"
                           }`}

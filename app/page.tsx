@@ -33,12 +33,12 @@ export const metadata: Metadata = {
 };
 
 const footerLinks = [
-  { label: "About", href: "#about" },
-  { label: "Journey", href: "#journey" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Journey", href: "/#journey" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Certifications", href: "/#certifications" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socials = [
