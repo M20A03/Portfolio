@@ -10,7 +10,41 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const projects = [
+type ProjectCategory = "Full-Stack" | "Frontend" | "Tools";
+
+type Project = {
+  title: string;
+  description: string;
+  tech: string[];
+  github: string | null;
+  live: string | null;
+  date: string;
+  color: string;
+  emoji: string;
+  image: string | null;
+  isPrivate: boolean;
+  stats: string;
+  category: ProjectCategory;
+};
+
+type GithubRepo = {
+  name: string;
+  description: string | null;
+  private: boolean;
+  html_url: string;
+  homepage: string | null;
+  language: string | null;
+  fork: boolean;
+  archived: boolean;
+  pushed_at: string;
+  stargazers_count: number;
+  forks_count: number;
+  topics?: string[];
+};
+
+const GITHUB_USERNAME = "M20A03";
+
+const fallbackProjects: Project[] = [
   {
     title: "Wholesale & Retail E-Commerce Website",
     description:
@@ -24,7 +58,7 @@ const projects = [
     image: "/images/srs-ecommerce.png",
     isPrivate: false,
     stats: "JS 68.6% · CSS 31.1% · Semester Final Project",
-    category: "Full-Stack",
+    category: "Full-Stack" as const,
   },
   {
     title: "Future Working App",
@@ -39,7 +73,7 @@ const projects = [
     image: "/images/mrg-app-preview.png",
     isPrivate: true,
     stats: "Private · In Active Development",
-    category: "Full-Stack",
+    category: "Full-Stack" as const,
   },
   {
     title: "Online Meeting App",
@@ -54,7 +88,7 @@ const projects = [
     image: "/images/project-meeting.png",
     isPrivate: false,
     stats: "HTML 40.9% · Python 40.8% · Prototype",
-    category: "Full-Stack",
+    category: "Full-Stack" as const,
   },
   {
     title: "Amazon Clone",
@@ -69,7 +103,7 @@ const projects = [
     image: "/images/project-amazon-clone.png",
     isPrivate: false,
     stats: "HTML · CSS · Front-End Practice",
-    category: "Frontend",
+    category: "Frontend" as const,
   },
   {
     title: "Study Archive",
@@ -84,7 +118,7 @@ const projects = [
     image: "/images/project-study-archive.png",
     isPrivate: false,
     stats: "4 Commits · Firebase Hosted",
-    category: "Full-Stack",
+    category: "Full-Stack" as const,
   },
   {
     title: "Search Algorithm Simulator",
@@ -99,7 +133,7 @@ const projects = [
     image: "/images/project-search-sim.png",
     isPrivate: false,
     stats: "AI Chatbot · 5 Simulations · DSA Simulation",
-    category: "Tools",
+    category: "Tools" as const,
   },
   {
     title: "Angular Bakery App",
@@ -114,11 +148,86 @@ const projects = [
     image: "/images/project-bakery.png",
     isPrivate: false,
     stats: "TypeScript 45.3% · SCSS 32.7% · Firebase Deployed",
-    category: "Full-Stack",
+    category: "Full-Stack" as const,
   },
 ];
 
 const categories = ["All", "Full-Stack", "Frontend", "Tools"] as const;
+
+const gradientPalette = [
+  "from-blue-500/20 to-indigo-500/20",
+  "from-violet-500/20 to-fuchsia-500/20",
+  "from-green-500/20 to-teal-500/20",
+  "from-orange-500/20 to-amber-500/20",
+  "from-cyan-500/20 to-blue-500/20",
+  "from-rose-500/20 to-red-500/20",
+  "from-emerald-500/20 to-lime-500/20",
+  "from-sky-500/20 to-cyan-500/20",
+] as const;
+
+const formatMonthYear = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  year: "numeric",
+});
+
+function toTitle(value: string) {
+  return value
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function detectCategory(repo: GithubRepo): ProjectCategory {
+  const language = repo.language?.toLowerCase() ?? "";
+  const topicText = (repo.topics ?? []).join(" ").toLowerCase();
+
+  if (/(tool|cli|utility|script|algorithm|simulation|visualizer)/.test(topicText)) {
+    return "Tools";
+  }
+
+  if (language === "html" || language === "css" || /(ui|frontend|landing-page)/.test(topicText)) {
+    return "Frontend";
+  }
+
+  return "Full-Stack";
+}
+
+function getTech(repo: GithubRepo) {
+  const tech = new Set<string>();
+  if (repo.language) {
+    tech.add(repo.language);
+  }
+
+  (repo.topics ?? []).forEach((topic) => {
+    const normalized = topic
+      .split("-")
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ");
+    tech.add(normalized);
+  });
+
+  return Array.from(tech).slice(0, 5);
+}
+
+function mapGithubRepoToProject(repo: GithubRepo, index: number): Project {
+  const category = detectCategory(repo);
+  const emoji = category === "Frontend" ? "🎨" : category === "Tools" ? "🛠️" : "🚀";
+  const tech = getTech(repo);
+
+  return {
+    title: toTitle(repo.name),
+    description: repo.description ?? "Project details available in the GitHub repository.",
+    tech: tech.length > 0 ? tech : ["Web"],
+    github: repo.html_url,
+    live: repo.homepage && repo.homepage.trim() ? repo.homepage : null,
+    date: formatMonthYear.format(new Date(repo.pushed_at)),
+    color: gradientPalette[index % gradientPalette.length],
+    emoji,
+    image: null,
+    isPrivate: repo.private,
+    stats: `${repo.stargazers_count} ★ · ${repo.forks_count} forks · Updated ${formatMonthYear.format(new Date(repo.pushed_at))}`,
+    category,
+  };
+}
 
 function ProjectImage({ image, title, color, emoji }: { image: string | null; title: string; color: string; emoji: string }) {
   const [imgError, setImgError] = useState(false);
@@ -159,8 +268,71 @@ const cardVariants = {
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<(typeof categories)[number]>("All");
   const [showAllMobile, setShowAllMobile] = useState(false);
+  const [projects, setProjects] = useState<Project[]>(fallbackProjects);
+  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
+  const [githubLoadError, setGithubLoadError] = useState<string | null>(null);
+
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
   const visibleProjects = showAllMobile ? filteredProjects : filteredProjects.slice(0, 3);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadGithubProjects() {
+      setIsLoadingProjects(true);
+      setGithubLoadError(null);
+
+      try {
+        const response = await fetch(
+          `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100&type=owner`,
+          {
+            headers: {
+              Accept: "application/vnd.github+json",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`GitHub request failed (${response.status})`);
+        }
+
+        const repos = (await response.json()) as GithubRepo[];
+        const transformed = repos
+          .filter((repo) => !repo.fork && !repo.archived)
+          .sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
+          .slice(0, 12)
+          .map(mapGithubRepoToProject);
+
+        if (!isMounted) {
+          return;
+        }
+
+        if (transformed.length > 0) {
+          setProjects(transformed);
+        } else {
+          setProjects(fallbackProjects);
+          setGithubLoadError("No public repositories were found.");
+        }
+      } catch {
+        if (!isMounted) {
+          return;
+        }
+
+        setProjects(fallbackProjects);
+        setGithubLoadError("Unable to load repositories from GitHub. Showing saved projects instead.");
+      } finally {
+        if (isMounted) {
+          setIsLoadingProjects(false);
+        }
+      }
+    }
+
+    void loadGithubProjects();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     setShowAllMobile(false);
@@ -179,8 +351,7 @@ export function ProjectsSection() {
             <span className="text-primary"> Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed text-pretty mb-8">
-            A selection of projects that showcase my skills in web development,
-            from interactive tools to full-stack applications.
+            Repositories are loaded directly from my GitHub profile and grouped by project type.
           </p>
 
           {/* Filter Tabs */}
@@ -206,6 +377,12 @@ export function ProjectsSection() {
               </Button>
             ))}
           </div>
+
+          {(isLoadingProjects || githubLoadError) && (
+            <p className="mt-4 text-sm text-muted-foreground">
+              {isLoadingProjects ? "Syncing projects from GitHub..." : githubLoadError}
+            </p>
+          )}
         </div>
 
         {/* Projects Grid */}
@@ -360,7 +537,7 @@ export function ProjectsSection() {
             size="lg"
             className="gap-2 px-8 border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all bg-transparent"
           >
-            <a href="https://github.com/M20A03" target="_blank" rel="noopener noreferrer">
+            <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5" />
               View All Projects on GitHub
               <ExternalLink className="w-4 h-4" />
