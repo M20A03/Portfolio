@@ -405,6 +405,10 @@ export function ProjectsSection() {
             Curated projects with the problem context, implementation direction, and outcome notes.
           </p>
 
+          <div className="mb-8 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm text-primary">
+            Live demo first, source code second, screenshots always visible.
+          </div>
+
           {/* Filter Tabs */}
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
@@ -519,34 +523,6 @@ export function ProjectsSection() {
 
                 {/* Links */}
                 <CardFooter className="px-6 pb-6 pt-0 flex items-center gap-3">
-                  {project.github ? (
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button
-                          asChild
-                          variant="outline"
-                          size="sm"
-                          className="gap-2 border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all bg-transparent text-xs"
-                        >
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-3.5 h-3.5" />
-                            Code
-                          </a>
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent>View source on GitHub</TooltipContent>
-                    </Tooltip>
-                  ) : project.isPrivate ? (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      disabled
-                      className="gap-2 border-border bg-transparent text-xs opacity-60 cursor-not-allowed"
-                    >
-                      <Lock className="w-3.5 h-3.5" />
-                      Private Repo
-                    </Button>
-                  ) : null}
                   {project.live && (
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -564,6 +540,34 @@ export function ProjectsSection() {
                       <TooltipContent>Open live demo</TooltipContent>
                     </Tooltip>
                   )}
+                  {project.github ? (
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="gap-2 border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all bg-transparent text-xs"
+                        >
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <Github className="w-3.5 h-3.5" />
+                            Code
+                          </a>
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>View source on GitHub</TooltipContent>
+                    </Tooltip>
+                    ) : project.isPrivate ? (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled
+                      className="gap-2 border-border bg-transparent text-xs opacity-60 cursor-not-allowed"
+                    >
+                      <Lock className="w-3.5 h-3.5" />
+                      Private Repo
+                    </Button>
+                  ) : null}
                 </CardFooter>
               </Card>
             </motion.div>

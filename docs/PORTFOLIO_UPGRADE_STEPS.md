@@ -27,10 +27,11 @@ NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_real_web3forms_key_here
 2. For each project `outcome`, add one measurable result if possible.
 3. Example format: "Reduced load time by 32% on mobile".
 
-## 5) Add 30-60 second demos
-1. Record a quick demo video/GIF for top 3 projects.
-2. Add links in project descriptions or as additional buttons.
-3. Focus demo flow: problem -> key feature -> result.
+## 5) Strengthen live demo support
+1. Keep the live links above the code links on project cards.
+2. Add 2-3 strong screenshots per project so the recruiter can scan quickly.
+3. Make sure each live demo opens fast on mobile and laptop screens.
+4. If a project has no live demo, add a short note explaining why.
 
 ## 6) Add real case-study pages (optional but high impact)
 1. Create routes under `app/projects/[slug]/page.tsx`.
