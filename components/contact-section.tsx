@@ -46,6 +46,12 @@ const socialLinks = [
   },
 ];
 
+const availabilityItems = [
+  "Frontend and full-stack internship roles",
+  "Freelance landing pages and dashboards",
+  "Collaboration on React and Next.js products",
+];
+
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 type FormErrors = {
@@ -62,6 +68,7 @@ export function ContactSection() {
   const nameErrorId = "contact-name-error";
   const emailErrorId = "contact-email-error";
   const messageErrorId = "contact-message-error";
+  const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -105,12 +112,18 @@ export function ContactSection() {
 
     setFormErrors({});
     setFormStatus("loading");
+
+    if (!web3formsKey) {
+      setFormStatus("error");
+      return;
+    }
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // ← replace with your free key from web3forms.com
+          access_key: web3formsKey,
           name: formData.name,
           email: formData.email,
           subject: formData.subject || `Portfolio message from ${formData.name}`,
@@ -245,6 +258,17 @@ export function ContactSection() {
                 <p className="text-sm text-muted-foreground">
                   <span className="text-foreground font-medium">Languages:</span> English, Hindi
                 </p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-4 border-primary/30 bg-primary/5">
+              <CardContent className="p-0 space-y-3">
+                <p className="text-sm font-semibold text-foreground">Current Availability</p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {availabilityItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           </motion.div>
@@ -385,7 +409,9 @@ export function ContactSection() {
                       <span>
                         {Object.keys(formErrors).length > 0
                           ? "Please review the highlighted fields and try again."
-                          : "Something went wrong while sending. Please try again or email me directly."}
+                          : web3formsKey
+                            ? "Something went wrong while sending. Please try again or email me directly."
+                            : "Contact form key is missing. Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to your environment file."}
                       </span>
                     </div>
                   )}

@@ -7,6 +7,7 @@ import { SkillsSection } from "@/components/skills-section";
 import { CertificationsSection } from "@/components/certifications-section";
 import { ContactSection } from "@/components/contact-section";
 import { JourneySection } from "@/components/journey-section";
+import { ProofSection } from "@/components/proof-section";
 import { AIAssistant } from "@/components/ai-assistant";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { ScrollToTop } from "@/components/scroll-to-top";
@@ -29,6 +30,21 @@ export const metadata: Metadata = {
     title: "Mayank Raj Gupta | Full Stack Developer Portfolio",
     description:
       "Official portfolio of Mayank Raj Gupta featuring projects, resume, certifications, and developer skills.",
+    type: "website",
+    images: [
+      {
+        url: `${siteUrl}/images/portfolio-og.png`,
+        width: 1200,
+        height: 630,
+        alt: "Mayank Raj Gupta Portfolio Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mayank Raj Gupta | Full Stack Developer Portfolio",
+    description: "Full-stack projects, case studies, and contact details.",
+    images: [`${siteUrl}/images/portfolio-og.png`],
   },
 };
 
@@ -36,6 +52,7 @@ const footerLinks = [
   { label: "About", href: "/#about" },
   { label: "Journey", href: "/#journey" },
   { label: "Projects", href: "/#projects" },
+  { label: "Proof", href: "/#proof" },
   { label: "Skills", href: "/#skills" },
   { label: "Certifications", href: "/#certifications" },
   { label: "Contact", href: "/#contact" },
@@ -94,6 +111,8 @@ export default function Portfolio() {
       <SectionDivider />
       <ProjectsSection />
       <SectionDivider flip />
+      <ProofSection />
+      <SectionDivider />
       <SkillsSection />
       <SectionDivider />
       <CertificationsSection />

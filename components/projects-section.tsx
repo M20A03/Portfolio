@@ -15,6 +15,7 @@ type ProjectCategory = "Full-Stack" | "Frontend" | "Tools";
 type Project = {
   title: string;
   description: string;
+  outcome?: string;
   tech: string[];
   github: string | null;
   live: string | null;
@@ -49,6 +50,7 @@ const fallbackProjects: Project[] = [
     title: "Wholesale & Retail E-Commerce Website",
     description:
       "A full-stack e-commerce platform for Roshan Enterprises, enabling both retail and wholesale purchasing. Features guest browsing, Firebase authentication, interactive cart, protected checkout, order history, and a premium dark-mode UI with glassmorphism effects.",
+    outcome: "Delivered a complete checkout flow and role-based buying journey for both retail and wholesale customers.",
     tech: ["React", "Vite", "Firebase", "Vanilla CSS", "Lucide React"],
     github: "https://github.com/M20A03/SRS-E-commerce-Online-Shopping-for-Retail-and-Wholesale-MayankRaj-2543115",
     live: "https://e-commerce-roshan-enterprises-dhn.web.app",
@@ -64,6 +66,7 @@ const fallbackProjects: Project[] = [
     title: "Future Working App",
     description:
       "A next-generation B2B2C marketplace connecting wholesalers, retailers, and customers — competing with apps like Zepto, Blinkit & Instamart. Currently in active development with modern architecture.",
+    outcome: "Defined core architecture and feature roadmap for a scalable multi-actor commerce platform.",
     tech: ["React", "TypeScript", "Node.js", "Firebase"],
     github: null,
     live: null,
@@ -79,6 +82,7 @@ const fallbackProjects: Project[] = [
     title: "Online Meeting App",
     description:
       "A prototype meeting platform with user registration, login via Firebase authentication, and meeting creation/management. Users can create and view their scheduled meetings — designed as a foundation for a full WebRTC video conferencing solution.",
+    outcome: "Validated the authentication and meeting workflow before moving to real-time video architecture.",
     tech: ["HTML", "CSS", "Python", "JavaScript", "Firebase"],
     github: "https://github.com/M20A03/OnlineMeetingApp",
     live: null,
@@ -94,6 +98,7 @@ const fallbackProjects: Project[] = [
     title: "Lumi Glow",
     description:
       "A modern makeup products website designed to showcase beauty collections with elegant product presentation, responsive shopping-style sections, and a polished user experience across devices.",
+    outcome: "Shipped a polished responsive storefront with strong visual hierarchy and brand-focused UI.",
     tech: ["JavaScript", "HTML", "CSS"],
     github: "https://github.com/M20A03/Lumi-Glow",
     live: "https://lumi-glow-sigma.vercel.app",
@@ -109,6 +114,7 @@ const fallbackProjects: Project[] = [
     title: "Study Archive",
     description:
       "A campus resource platform built to help students manage and access study materials, notes, and resources. Powered by Firebase for real-time sync, it serves as a central digital library for college coursework.",
+    outcome: "Created a single access point for study resources with cloud-backed updates.",
     tech: ["HTML", "CSS", "JavaScript", "Firebase"],
     github: "https://github.com/M20A03/StudyArchive",
     live: "https://straw-hats-7795d.web.app",
@@ -124,6 +130,7 @@ const fallbackProjects: Project[] = [
     title: "Amazon Clone",
     description:
       "A pixel-perfect front-end recreation of the Amazon India homepage. Built with pure HTML and CSS to practice responsive layout design, replicating the navigation bar, hero banner, product grid, and footer with real product images.",
+    outcome: "Improved layout precision and responsive CSS implementation through real-world UI reproduction.",
     tech: ["HTML", "CSS"],
     github: "https://github.com/M20A03/Amazon-Clone-",
     live: null,
@@ -139,6 +146,7 @@ const fallbackProjects: Project[] = [
     title: "Search Algorithm Simulator",
     description:
       "An interactive web app with 5 visual simulations of Linear and Binary search algorithms, plus 2 real-life problem simulations. Features an integrated AI chatbot (Star-Command AI) to explain concepts and guide students through the search processes step-by-step.",
+    outcome: "Made DSA concepts easier to understand with interactive visuals and guided explanations.",
     tech: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/M20A03/Linear-and-Bineary-Search-Simulation",
     live: "https://linear-and-binary-search.web.app",
@@ -154,6 +162,7 @@ const fallbackProjects: Project[] = [
     title: "Angular Bakery App",
     description:
       "A full-featured bakery e-commerce and management application built with Angular. Includes product listings, order management, and a Firebase backend — deployed live on Firebase Hosting.",
+    outcome: "Delivered an end-to-end Angular commerce workflow with live deployment and backend integration.",
     tech: ["Angular", "TypeScript", "SCSS", "Firebase", "Firestore"],
     github: "https://github.com/M20A03/Angappbackery",
     live: "https://angappbackery-216fe.web.app",
@@ -231,6 +240,7 @@ function mapGithubRepoToProject(repo: GithubRepo, index: number): Project {
   return {
     title: toTitle(repo.name),
     description: repo.description ?? "Project details available in the GitHub repository.",
+    outcome: undefined,
     tech: tech.length > 0 ? tech : ["Web"],
     github: repo.html_url,
     live: repo.homepage && repo.homepage.trim() ? repo.homepage : null,
@@ -392,7 +402,7 @@ export function ProjectsSection() {
             <span className="text-primary"> Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed text-pretty mb-8">
-            Repositories are loaded directly from my GitHub profile and grouped by project type.
+            Curated projects with the problem context, implementation direction, and outcome notes.
           </p>
 
           {/* Filter Tabs */}
@@ -494,6 +504,12 @@ export function ProjectsSection() {
                     {project.description}
                   </p>
 
+                  {project.outcome && (
+                    <p className="text-xs text-foreground/80 bg-secondary/60 border border-border rounded-lg p-2.5 mb-3 leading-relaxed">
+                      <span className="font-semibold text-primary">Outcome:</span> {project.outcome}
+                    </p>
+                  )}
+
                   {/* Stats line */}
                   <Separator className="mb-3" />
                   <p className="text-xs text-primary/70 font-medium mb-4">
@@ -557,7 +573,7 @@ export function ProjectsSection() {
 
         {/* Mobile See More */}
         {filteredProjects.length > 3 && (
-          <div className="mt-6 md:hidden flex justify-center">
+          <div className="mt-6 flex justify-center">
             <button
               type="button"
               onClick={() => setShowAllMobile((prev) => !prev)}

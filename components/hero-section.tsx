@@ -11,9 +11,15 @@ import Image from "next/image";
 
 const roles = [
   "Full-Stack Developer",
-  "BCA Student",
-  "Problem Solver",
-  "Open Source Enthusiast",
+  "React + Next.js Builder",
+  "Frontend Performance Focused",
+  "Open Source Learner",
+];
+
+const proofChips = [
+  "7+ deployed projects",
+  "WCAG-focused UI",
+  "Open to internship and freelance",
 ];
 
 function MagneticIcon({ children, className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { children: React.ReactNode }) {
@@ -165,8 +171,20 @@ export function HeroSection() {
                 }`}
               style={{ transitionDelay: "400ms" }}
             >
-              Hi, I&apos;m Mayank Raj Gupta, a Full Stack Developer passionate about building modern web applications using React, JavaScript, and modern web technologies.
+              I build fast, accessible, and conversion-focused web experiences for startups and growing businesses using React, Next.js, and TypeScript.
             </p>
+
+            <div
+              className={`flex flex-wrap gap-2 justify-center lg:justify-start mb-8 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+              style={{ transitionDelay: "500ms" }}
+            >
+              {proofChips.map((chip) => (
+                <Badge key={chip} variant="secondary" className="rounded-full px-3 py-1 bg-secondary border border-border">
+                  {chip}
+                </Badge>
+              ))}
+            </div>
 
             {/* CTA Buttons */}
             <div
@@ -182,7 +200,7 @@ export function HeroSection() {
                   if (element) element.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Get In Touch
+                Hire Me
               </Button>
               <Button
                 variant="outline"
@@ -203,7 +221,7 @@ export function HeroSection() {
               >
                 <a href="/RESUME_Mayank Raj Gupta.pdf" download="RESUME_Mayank Raj Gupta.pdf">
                   <Download className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
-                  Download Resume
+                  Download CV
                 </a>
               </Button>
             </div>
