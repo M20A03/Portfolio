@@ -111,7 +111,7 @@ export default function ResumePage() {
               <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Professional Summary</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Highly motivated <span className="text-foreground font-semibold">Bachelor of Computer Applications (BCA)</span> student at <span className="text-primary">Christ University</span> with a passion for building scalable, high-performance web applications. Expertise in <span className="text-foreground">React, Next.js, and Python</span>, with a strong foundation in <span className="text-foreground">DSA and AI prompt engineering</span>. Proven ability to deliver complex projects like B2B2C marketplaces and real-time simulators. Eager to apply technical skills in a challenging internship role.
+              Highly motivated <span className="text-foreground font-semibold">Bachelor of Computer Applications (BCA)</span> student at <span className="text-primary">Christ University</span> with a focus on building fast, accessible, and conversion-ready web experiences. Expertise in <span className="text-foreground">React, Next.js, TypeScript, and Python</span>, with a strong foundation in <span className="text-foreground">DSA, UI/UX, and AI-assisted workflows</span>. Proven ability to deliver deployed projects with live demos, strong visual quality, and practical user flows. Eager to contribute to a product team through an internship or freelance role.
             </p>
           </motion.section>
 
@@ -129,7 +129,7 @@ export default function ResumePage() {
                   year: "2025 — 2028",
                   degree: "Bachelor of Computer Applications (BCA)",
                   institution: "Christ University, Bangalore",
-                  score: "3.2 / 4.0 CGPA (1st Semester)",
+                  score: "3.33 / 4.0 CGPA (2nd Semester)",
                   highlight: "Core focus on Software Engineering & Data Structures",
                 },
                 {
@@ -170,8 +170,8 @@ export default function ResumePage() {
                   tech: "React, Next.js, Node.js, Firebase",
                   points: [
                     "Developing a scalable marketplace connecting wholesalers, retailers, and customers (Zepto/Blinkit model).",
-                    "Implementing real-time inventory sync and multi-user authentication roles.",
-                    "Designed premium UI/UX focusing on glassmorphism and performance optimization.",
+                    "Implementing role-based flows, real-time inventory sync, and product discovery screens.",
+                    "Designed a premium UI/UX system focused on clarity, trust, and performance.",
                   ],
                 },
                 {
@@ -179,9 +179,9 @@ export default function ResumePage() {
                   date: "Feb 2026",
                   tech: "JavaScript, HTML5, CSS3, AI Integration",
                   points: [
-                    "Built 5+ visual simulations for Linear/Binary search with step-by-step animations.",
-                    "Integrated 'Star-Command AI', an intelligent chatbot to explain algorithmic concepts dynamically.",
-                    "Optimized rendering logic for smooth 60FPS visualizations of data sorting and searching.",
+                    "Built 5+ visual simulations for Linear and Binary search with step-by-step animations.",
+                    "Integrated 'Star-Command AI' to explain algorithmic concepts with guided prompts.",
+                    "Optimized rendering logic for smooth, interactive learning experiences.",
                   ],
                 },
                 {
@@ -190,8 +190,8 @@ export default function ResumePage() {
                   tech: "React (Vite), Firebase, Context API, Lucide",
                   points: [
                     "Full-stack platform for Roshan Enterprises supporting bulk and retail purchases.",
-                    "Features secure guest checkout, interactive cart, and personalized order history.",
-                    "Achieved 95+ Lighthouse performance score through efficient state management.",
+                    "Features secure checkout, product browsing, and a polished mobile-friendly shopping flow.",
+                    "Delivered a live demo with performance-focused UI and responsive layouts.",
                   ],
                 },
               ].map((project, index) => (
