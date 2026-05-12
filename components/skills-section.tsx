@@ -152,7 +152,7 @@ export function SkillsSection() {
   }, [normalizedCategories]);
 
   return (
-    <section id="skills" className="scroll-mt-24 py-14 md:py-24 px-6 md:px-12">
+    <section id="skills" className="scroll-mt-24 py-12 md:py-24 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div

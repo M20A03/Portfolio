@@ -390,7 +390,7 @@ export function ProjectsSection() {
   }, [activeFilter]);
 
   return (
-    <section id="projects" className="scroll-mt-24 py-14 md:py-24 px-4 sm:px-6 md:px-12 bg-card/50">
+    <section id="projects" className="scroll-mt-24 py-12 md:py-24 px-4 sm:px-6 md:px-12 bg-card/50">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
