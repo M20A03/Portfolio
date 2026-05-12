@@ -16,7 +16,7 @@ const navLinks = [
   { href: "/#skills", label: "Skills" },
   { href: "/#certifications", label: "Certifications" },
   { href: "/#contact", label: "Contact" },
-  { href: "/resume", label: "Resume", isPage: true },
+  { href: "/resume", label: "CV", isPage: true },
 ];
 
 function getSectionId(href: string) {
@@ -111,12 +111,12 @@ export function Navbar() {
               )
             )}
             <a
-              href="/RESUME_Mayank Raj Gupta.pdf"
-              download="RESUME_Mayank Raj Gupta.pdf"
+              href="/CV_Mayank Raj Gupta.pdf"
+              download="CV_Mayank Raj Gupta.pdf"
               className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
             >
               <Download className="w-4 h-4" />
-              Download PDF
+              Download CV
             </a>
           </div>
 
@@ -244,8 +244,8 @@ export function Navbar() {
                   )
                 )}
                 <motion.a
-                  href="/RESUME_Mayank Raj Gupta.pdf"
-                  download="RESUME_Mayank Raj Gupta.pdf"
+                  href="/CV_Mayank Raj Gupta.pdf"
+                  download="CV_Mayank Raj Gupta.pdf"
                   className="inline-flex items-center gap-2 text-base font-medium text-primary hover:text-primary/80 transition-colors"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -253,7 +253,7 @@ export function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Download className="w-4 h-4" />
-                  Download Resume PDF
+                  Download CV PDF
                 </motion.a>
                 <motion.div
                   className="flex items-center gap-4 pt-4 border-t border-border"
