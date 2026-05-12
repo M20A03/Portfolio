@@ -100,6 +100,21 @@ export default function ResumePage() {
                 <Linkedin className="w-4 h-4" /> LinkedIn Profile
               </a>
             </div>
+            {/* Top Skills (ATS-friendly quick keywords) */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Firebase",
+                "UI/UX",
+                "Tailwind CSS",
+              ].map((k) => (
+                <span key={k} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">
+                  {k}
+                </span>
+              ))}
+            </div>
           </motion.section>
 
           {/* Professional Summary */}
@@ -111,7 +126,7 @@ export default function ResumePage() {
               <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Professional Summary</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Highly motivated <span className="text-foreground font-semibold">Bachelor of Computer Applications (BCA)</span> student at <span className="text-primary">Christ University</span> with a focus on building fast, accessible, and conversion-ready web experiences. Expertise in <span className="text-foreground">React, Next.js, TypeScript, and Python</span>, with a strong foundation in <span className="text-foreground">DSA, UI/UX, and AI-assisted workflows</span>. Proven ability to deliver deployed projects with live demos, strong visual quality, and practical user flows. Eager to contribute to a product team through an internship or freelance role.
+              Highly motivated <span className="text-foreground font-semibold">Bachelor of Computer Applications (BCA)</span> student at <span className="text-primary">Christ University</span> focused on building fast, accessible, and conversion-first web experiences. Core expertise includes <span className="text-foreground">React, Next.js, TypeScript</span> and backend integration with Firebase. I design and implement UI/UX systems (Figma → component library) with an emphasis on accessibility (WCAG AA), performance, and clear product outcomes. Proven ability to ship deployed projects with practical user flows and polished visuals.
             </p>
           </motion.section>
 
@@ -151,6 +166,24 @@ export default function ResumePage() {
                   {edu.highlight && <p className="mt-2 text-xs text-primary font-medium italic">⭐ {edu.highlight}</p>}
                 </div>
               ))}
+            </div>
+          </motion.section>
+
+          {/* UI / UX Focus (new) */}
+          <motion.section variants={fadeInUp}>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <Star className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">UI / UX & Design</h2>
+            </div>
+            <div className="space-y-4">
+              <p className="text-muted-foreground">I create accessible, user-centred interfaces and component libraries optimized for conversion and performance. My UX workflow includes user flows, low-fi to high-fi prototyping in Figma, accessibility checks (WCAG AA), and handoff-ready component specs for engineers.</p>
+              <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                <li>Designed responsive design systems and component libraries (Figma → React).</li>
+                <li>Performed accessibility audits and implemented improvements for keyboard and screen-reader users.</li>
+                <li>Iterated on visual hierarchy and micro-interactions to increase perceived performance and clarity.</li>
+              </ul>
             </div>
           </motion.section>
 
@@ -222,7 +255,7 @@ export default function ResumePage() {
               </div>
               <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Technical Skills</h2>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 p-6 rounded-2xl bg-card/30 border border-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 rounded-2xl bg-card/30 border border-border">
               {[
                 { cat: "Languages", val: "C, C++, Python (Pandas/NumPy), JavaScript (ES6+), TypeScript" },
                 { cat: "Frontend", val: "React, Next.js, Angular, Tailwind CSS, Framer Motion" },
