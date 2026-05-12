@@ -256,17 +256,27 @@ export function SkillsSection() {
 
                   {/* Skills */}
                   <CardContent className="flex flex-col gap-3 relative z-10 w-full">
-                    {category.skills.map((skill, skillIndex) => (
-                      <div key={skill.name} className="flex flex-col gap-1.5 w-full">
-                        <div className="flex justify-between items-center text-sm">
-                          <span className="font-medium text-foreground">{skill.name}</span>
-                          <Badge variant="secondary" className="text-[10px] px-1.5 py-0 cursor-default" aria-label={`${skill.name}: ${skill.level}% proficiency`}>
-                            {skill.level}%
+                    {category.title === "Soft Skills" ? (
+                      <div className="flex flex-wrap gap-2 py-2">
+                        {category.skills.map((skill) => (
+                          <Badge key={skill.name} variant="secondary" className="px-3 py-1 text-sm" aria-label={skill.name}>
+                            {skill.name}
                           </Badge>
-                        </div>
-                        <AnimatedProgress value={skill.level} delay={180 + skillIndex * 100} />
+                        ))}
                       </div>
-                    ))}
+                    ) : (
+                      category.skills.map((skill, skillIndex) => (
+                        <div key={skill.name} className="flex flex-col gap-1.5 w-full">
+                          <div className="flex justify-between items-center text-sm">
+                            <span className="font-medium text-foreground">{skill.name}</span>
+                            <Badge variant="secondary" className="text-[10px] px-1.5 py-0 cursor-default" aria-label={`${skill.name}: ${skill.level}% proficiency`}>
+                              {skill.level}%
+                            </Badge>
+                          </div>
+                          <AnimatedProgress value={skill.level} delay={180 + skillIndex * 100} />
+                        </div>
+                      ))
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
