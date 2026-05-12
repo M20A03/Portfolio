@@ -46,7 +46,7 @@ export default function ResumePage() {
             </Button>
           </Link>
           <div className="flex items-center gap-3">
-            <Button size="sm" className="gap-2" asChild>
+            <Button size="sm" className="gap-2 hidden sm:flex" asChild>
               <a href="/RESUME_Mayank Raj Gupta.pdf" download="RESUME_Mayank Raj Gupta.pdf">
                 <Download className="w-4 h-4" />
                 Save as PDF
@@ -128,6 +128,26 @@ export default function ResumePage() {
             <p className="text-muted-foreground leading-relaxed">
               Highly motivated <span className="text-foreground font-semibold">Bachelor of Computer Applications (BCA)</span> student at <span className="text-primary">Christ University</span> focused on building fast, accessible, and conversion-first web experiences. Core expertise includes <span className="text-foreground">React, Next.js, TypeScript</span> and backend integration with Firebase. I design and implement UI/UX systems (Figma → component library) with an emphasis on accessibility (WCAG AA), performance, and clear product outcomes. Proven ability to ship deployed projects with practical user flows and polished visuals.
             </p>
+          </motion.section>
+
+          {/* How I work - recruiter friendly */}
+          <motion.section variants={fadeInUp}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <Zap className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-lg font-bold text-foreground uppercase tracking-wider">How I work</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4 text-sm text-muted-foreground">
+              <div className="space-y-2">
+                <p className="font-semibold">Design & Prototype</p>
+                <p>Figma-driven flows → low-fi to high-fi prototypes → usability check.</p>
+              </div>
+              <div className="space-y-2">
+                <p className="font-semibold">Build & Iterate</p>
+                <p>Component-led development, accessibility audits, and performance tuning.</p>
+              </div>
+            </div>
           </motion.section>
 
           {/* Academic Qualifications */}
