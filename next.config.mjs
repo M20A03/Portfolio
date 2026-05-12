@@ -8,15 +8,6 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/CV_Mayank Raj Gupta.pdf",
-        headers: [
-          {
-            key: "Content-Disposition",
-            value: 'attachment; filename="CV_Mayank Raj Gupta.pdf"',
-          },
-        ],
-      },
-      {
         source: "/RESUME_Mayank Raj Gupta.pdf",
         headers: [
           {
