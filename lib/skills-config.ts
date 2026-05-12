@@ -26,20 +26,19 @@ export const skillCategoriesData: SkillCategoryData[] = [
     icon: "Globe",
     skills: [
       { name: "HTML", level: 95 },
-      { name: "CSS", level: 90 },
-      { name: "React", level: 85 },
-      { name: "Angular JS", level: 75 },
+        { name: "HTML", level: 95 },
+        { name: "CSS", level: 90 },
       { name: "Flask", level: 70 },
     ],
   },
   {
     title: "Framework",
     icon: "Wrench",
-    skills: [
-      { name: "React Js", level: 88 },
-      { name: "Angular Js", level: 78 },
-      { name: "Node.Js", level: 80 },
-      { name: "Next Js", level: 84 },
+        { name: "React", level: 88 },
+        { name: "Angular", level: 78 },
+        { name: "Node.js", level: 80 },
+        { name: "Next.js", level: 84 },
+        { name: "Flask", level: 70 },
       { name: "Git", level: 86 },
       { name: "GitHub", level: 90 },
     ],
@@ -83,11 +82,20 @@ export const skillCategoriesData: SkillCategoryData[] = [
   },
   {
     title: "Tools",
-    icon: "Wrench",
-    skills: [
-      { name: "GitHub", level: 90 },
-      { name: "VS Code", level: 95 },
+        { name: "Git", level: 86 },
+        { name: "GitHub", level: 90 },
+        { name: "VS Code", level: 95 },
+        { name: "AntiGravity", level: 100 },
       { name: "AntiGravity", level: 100 },
     ],
+    {
+      title: "Soft Skills",
+      icon: "BarChart3",
+      skills: [
+        { name: "Time Management", level: 85 },
+        { name: "Teamwork", level: 88 },
+        { name: "Leadership", level: 82 },
+      ],
+    },
   },
 ];
