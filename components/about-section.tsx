@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { GraduationCap, Calendar, MapPin, Code2, Lightbulb, Bike, Plane } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
-import { GitHubStatsCard } from "./github-stats";
+import { GitHubStatsCard, type GitHubStatsData, type LanguageStat } from "./github-stats";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -92,7 +92,151 @@ const interests = [
   { icon: Code2, label: "Coding", description: "Building solutions" },
 ];
 
+const GITHUB_USERNAME = "M20A03";
+
+const languageColors = ["bg-blue-500", "bg-yellow-400", "bg-orange-500", "bg-purple-500", "bg-emerald-500"] as const;
+
+const fallbackGithubData: GitHubStatsData = {
+  username: GITHUB_USERNAME,
+  stars: 0,
+  repositories: 0,
+  followers: 0,
+  forks: 0,
+  languages: [
+    { name: "TypeScript", percent: 40, color: "bg-blue-500" },
+    { name: "JavaScript", percent: 35, color: "bg-yellow-400" },
+    { name: "HTML", percent: 15, color: "bg-orange-500" },
+    { name: "Others", percent: 10, color: "bg-muted-foreground" },
+  ],
+};
+
+type GithubRepo = {
+  stargazers_count: number;
+  forks_count: number;
+  language: string | null;
+  size: number;
+  fork: boolean;
+  private: boolean;
+};
+
+type GithubUser = {
+  followers: number;
+  public_repos: number;
+};
+
+function buildLanguageDistribution(repos: GithubRepo[]): LanguageStat[] {
+  const totals = new Map<string, number>();
+  let totalWeight = 0;
+
+  repos.forEach((repo) => {
+    if (!repo.language) {
+      return;
+    }
+
+    const weight = Math.max(repo.size, 1);
+    totals.set(repo.language, (totals.get(repo.language) ?? 0) + weight);
+    totalWeight += weight;
+  });
+
+  if (totalWeight === 0) {
+    return fallbackGithubData.languages;
+  }
+
+  const sorted = [...totals.entries()].sort((a, b) => b[1] - a[1]);
+  const top = sorted.slice(0, 3);
+  const othersWeight = sorted.slice(3).reduce((sum, [, weight]) => sum + weight, 0);
+
+  const distribution: LanguageStat[] = top.map(([name, weight], index) => ({
+    name,
+    percent: Math.round((weight / totalWeight) * 100),
+    color: languageColors[index % languageColors.length],
+  }));
+
+  if (othersWeight > 0) {
+    distribution.push({
+      name: "Others",
+      percent: Math.max(1, Math.round((othersWeight / totalWeight) * 100)),
+      color: "bg-muted-foreground",
+    });
+  }
+
+  return distribution;
+}
+
 export function AboutSection() {
+  const [githubData, setGithubData] = useState<GitHubStatsData>(fallbackGithubData);
+  const [isLoadingGithub, setIsLoadingGithub] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadGithubStats() {
+      setIsLoadingGithub(true);
+
+      try {
+        const [userRes, reposRes] = await Promise.all([
+          fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, {
+            headers: { Accept: "application/vnd.github+json" },
+          }),
+          fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100&type=owner`, {
+            headers: { Accept: "application/vnd.github+json" },
+          }),
+        ]);
+
+        if (!userRes.ok || !reposRes.ok) {
+          throw new Error("Unable to load GitHub data");
+        }
+
+        const user = (await userRes.json()) as GithubUser;
+        const repos = ((await reposRes.json()) as GithubRepo[]).filter((repo) => !repo.fork);
+
+        const stars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+        const forks = repos.reduce((sum, repo) => sum + repo.forks_count, 0);
+        const languages = buildLanguageDistribution(repos);
+
+        if (!isMounted) {
+          return;
+        }
+
+        setGithubData({
+          username: GITHUB_USERNAME,
+          stars,
+          repositories: user.public_repos,
+          followers: user.followers,
+          forks,
+          languages,
+        });
+      } catch {
+        if (isMounted) {
+          setGithubData(fallbackGithubData);
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoadingGithub(false);
+        }
+      }
+    }
+
+    void loadGithubStats();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const topSkills = githubData.languages
+    .filter((lang) => lang.name !== "Others")
+    .slice(0, 2)
+    .map((lang) => lang.name.replace("TypeScript", "TS").replace("JavaScript", "JS"))
+    .join(" / ");
+
+  const codeActivityStats = [
+    { label: "Public Repos", value: isLoadingGithub ? "..." : String(githubData.repositories), sub: "GitHub Profile" },
+    { label: "Profile Stars", value: isLoadingGithub ? "..." : String(githubData.stars), sub: "Across Public Repos" },
+    { label: "Top Skills", value: isLoadingGithub ? "..." : topSkills || "Web", sub: "Most Used" },
+    { label: "Followers", value: isLoadingGithub ? "..." : String(githubData.followers), sub: "Active Profile" },
+  ];
+
   return (
     <section id="about" className="scroll-mt-24 py-16 md:py-32 px-4 sm:px-6 md:px-12">
       <motion.div
@@ -178,12 +322,7 @@ export function AboutSection() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                      {[
-                        { label: "Public Repos", value: "8", sub: "GitHub Profile" },
-                        { label: "Private Repos", value: "2", sub: "Personal Projects" },
-                        { label: "Top Skills", value: "TS / JS", sub: "Most Used" },
-                        { label: "Followers", value: "7", sub: "Active Profile" },
-                      ].map((stat, i) => (
+                      {codeActivityStats.map((stat, i) => (
                         <div key={i} className="p-4 rounded-2xl bg-background/50 border border-border/50 hover:border-primary/30 transition-colors group/stat">
                           <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1 group-hover/stat:text-primary transition-colors">{stat.label}</p>
                           <p className="text-xl font-black text-foreground">{stat.value}</p>
@@ -195,7 +334,7 @@ export function AboutSection() {
 
                   {/* Right Side: GitHub Profile Cards */}
                   <div className="w-full lg:w-2/3">
-                    <GitHubStatsCard />
+                    <GitHubStatsCard data={githubData} isLoading={isLoadingGithub} />
 
                     <div className="mt-8 flex items-center gap-2 justify-center lg:justify-end text-[10px] font-bold text-muted-foreground uppercase tracking-tighter">
                       <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
