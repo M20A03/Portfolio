@@ -257,12 +257,20 @@ export function SkillsSection() {
                   {/* Skills */}
                   <CardContent className="flex flex-col gap-3 relative z-10 w-full">
                     {category.title === "Soft Skills" ? (
-                      <div className="flex flex-wrap gap-2 py-2">
-                        {category.skills.map((skill) => (
-                          <Badge key={skill.name} variant="secondary" className="px-3 py-1 text-sm" aria-label={skill.name}>
-                            {skill.name}
-                          </Badge>
-                        ))}
+                      <div className="flex flex-col gap-2 py-2">
+                        <div className="flex flex-wrap gap-2">
+                          {category.skills.map((skill) => {
+                            const label = skill.level >= 85 ? "Strong" : skill.level >= 70 ? "Experienced" : "Familiar";
+                            return (
+                              <div key={skill.name} className="flex items-center gap-2">
+                                <Badge variant="secondary" className="px-3 py-1 text-sm" aria-label={skill.name}>
+                                  {skill.name}
+                                </Badge>
+                                <span className="text-xs text-muted-foreground">{label}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                     ) : (
                       category.skills.map((skill, skillIndex) => (
