@@ -79,7 +79,7 @@ export function CertificationsSection() {
   return (
     <section
       id="certifications"
-      className="scroll-mt-24 py-16 md:py-32 px-4 sm:px-6 md:px-12 bg-card/50"
+      className="scroll-mt-24 py-14 md:py-24 px-4 sm:px-6 md:px-12 bg-card/50"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}

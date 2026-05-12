@@ -49,7 +49,7 @@ const nowItems = [
 
 export function ProofSection() {
   return (
-    <section id="proof" className="scroll-mt-24 py-16 md:py-32 px-4 sm:px-6 md:px-12 bg-card/30">
+    <section id="proof" className="scroll-mt-24 py-14 md:py-24 px-4 sm:px-6 md:px-12 bg-card/30">
       <div className="max-w-6xl mx-auto space-y-14">
         <motion.div
           className="text-center"

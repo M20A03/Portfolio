@@ -6,16 +6,12 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { LucideIcon } from "lucide-react";
-
-type Skill = {
-  name: string;
-  level: number;
-};
+import { skillCategoriesData } from "@/lib/skills-config";
 
 type SkillCategory = {
   title: string;
   icon: LucideIcon;
-  skills: Skill[];
+  skills: { name: string; level: number }[];
 };
 
 function getProgressGradient(level: number) {
@@ -102,76 +98,26 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
   );
 }
 
-const skillCategories: SkillCategory[] = [
-  {
-    title: "Programming Languages",
-    icon: Code2,
-    skills: [
-      { name: "C", level: 80 },
-      { name: "C++", level: 75 },
-      { name: "JavaScript", level: 90 },
-    ],
-  },
-  {
-    title: "Web Technologies",
-    icon: Globe,
-    skills: [
-      { name: "HTML", level: 95 },
-      { name: "CSS", level: 90 },
-      { name: "React", level: 85 },
-      { name: "Angular JS", level: 75 },
-      { name: "Flask", level: 70 },
-    ],
-  },
-  {
-    title: "Database",
-    icon: Database,
-    skills: [
-      { name: "MySQL", level: 85 },
-      { name: "Firebase", level: 80 },
-    ],
-  },
-  {
-    title: "Python Libraries",
-    icon: BarChart3,
-    skills: [
-      { name: "Pandas", level: 85 },
-      { name: "CSV Handling", level: 90 },
-      { name: "Matplotlib", level: 75 },
-      { name: "NumPy", level: 80 },
-    ],
-  },
-  {
-    title: "Data Structures & Algorithms",
-    icon: Code2,
-    skills: [
-      { name: "Arrays", level: 90 },
-      { name: "Linked List", level: 85 },
-      { name: "Stack", level: 85 },
-      { name: "Queue", level: 85 },
-    ],
-  },
-  {
-    title: "Design & Media",
-    icon: Palette,
-    skills: [
-      { name: "Canva", level: 95 },
-      { name: "Adobe", level: 70 },
-      { name: "Clipchamp", level: 85 },
-    ],
-  },
-  {
-    title: "Tools",
-    icon: Wrench,
-    skills: [
-      { name: "GitHub", level: 90 },
-      { name: "VS Code", level: 95 },
-      { name: "AntiGravity", level: 100 },
-    ],
-  },
-];
+const iconMap: Record<string, LucideIcon> = {
+  Code2,
+  Database,
+  Wrench,
+  Globe,
+  BarChart3,
+  Palette,
+};
 
 export function SkillsSection() {
+  const skillCategories = useMemo<SkillCategory[]>(
+    () =>
+      skillCategoriesData.map((category) => ({
+        title: category.title,
+        icon: iconMap[category.icon] ?? Code2,
+        skills: category.skills,
+      })),
+    []
+  );
+
   const normalizedCategories = useMemo(() => {
     return skillCategories
       .map((category) => {
@@ -206,7 +152,7 @@ export function SkillsSection() {
   }, [normalizedCategories]);
 
   return (
-    <section id="skills" className="scroll-mt-24 py-24 md:py-32 px-6 md:px-12">
+    <section id="skills" className="scroll-mt-24 py-14 md:py-24 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
