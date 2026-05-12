@@ -19,6 +19,8 @@ export const skillCategoriesData: SkillCategoryData[] = [
       { name: "C", level: 80 },
       { name: "C++", level: 75 },
       { name: "JavaScript", level: 90 },
+      { name: "TypeScript", level: 85 },
+      { name: "Python", level: 80 },
     ],
   },
   {
@@ -27,6 +29,8 @@ export const skillCategoriesData: SkillCategoryData[] = [
     skills: [
       { name: "HTML", level: 95 },
       { name: "CSS", level: 90 },
+      { name: "Tailwind CSS", level: 88 },
+      { name: "SCSS", level: 78 },
     ],
   },
   {
@@ -46,6 +50,7 @@ export const skillCategoriesData: SkillCategoryData[] = [
     skills: [
       { name: "MySQL", level: 85 },
       { name: "Firebase", level: 80 },
+      { name: "Firestore", level: 78 },
     ],
   },
   {
@@ -73,6 +78,7 @@ export const skillCategoriesData: SkillCategoryData[] = [
     icon: "Palette",
     skills: [
       { name: "Canva", level: 95 },
+      { name: "Figma", level: 82 },
       { name: "Adobe", level: 70 },
       { name: "Clipchamp", level: 85 },
     ],
@@ -85,6 +91,10 @@ export const skillCategoriesData: SkillCategoryData[] = [
       { name: "GitHub", level: 90 },
       { name: "VS Code", level: 95 },
       { name: "AntiGravity", level: 100 },
+      { name: "Vercel", level: 82 },
+      { name: "Vite", level: 78 },
+      { name: "Lucide React", level: 70 },
+      { name: "Framer Motion", level: 80 },
     ],
   },
   {
