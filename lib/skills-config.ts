@@ -33,6 +33,18 @@ export const skillCategoriesData: SkillCategoryData[] = [
     ],
   },
   {
+    title: "Framework",
+    icon: "Wrench",
+    skills: [
+      { name: "React Js", level: 88 },
+      { name: "Angular Js", level: 78 },
+      { name: "Node.Js", level: 80 },
+      { name: "Next Js", level: 84 },
+      { name: "Git", level: 86 },
+      { name: "GitHub", level: 90 },
+    ],
+  },
+  {
     title: "Database",
     icon: "Database",
     skills: [

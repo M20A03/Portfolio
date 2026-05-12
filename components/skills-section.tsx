@@ -140,14 +140,12 @@ export function SkillsSection() {
     const totalSkills = allSkills.length;
     const avgSkill = Math.round(allSkills.reduce((sum, skill) => sum + skill.level, 0) / totalSkills);
     const strongestCategory = normalizedCategories[0];
-    const topSkill = allSkills.sort((a, b) => b.level - a.level)[0];
 
     return {
       totalSkills,
       categoryCount: normalizedCategories.length,
       avgSkill,
       strongestCategory,
-      topSkill,
     };
   }, [normalizedCategories]);
 
@@ -177,7 +175,7 @@ export function SkillsSection() {
 
         {/* Skill Analytics */}
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -207,16 +205,6 @@ export function SkillsSection() {
               <p className="text-3xl font-black text-foreground mt-2">
                 <AnimatedNumber value={analytics.avgSkill} suffix="%" />
               </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-border/70">
-            <CardContent className="p-5">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Top Skill</p>
-              <p className="text-lg font-black text-foreground mt-2 leading-tight">
-                {analytics.topSkill?.name}
-              </p>
-              <p className="text-xs text-muted-foreground">{analytics.topSkill?.level}% proficiency</p>
             </CardContent>
           </Card>
         </motion.div>
