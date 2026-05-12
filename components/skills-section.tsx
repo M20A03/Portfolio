@@ -1,12 +1,31 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Code2, Database, Wrench, Globe, BarChart3, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { LucideIcon } from "lucide-react";
 
-function AnimatedProgress({ value, className }: { value: number; className?: string }) {
+type Skill = {
+  name: string;
+  level: number;
+};
+
+type SkillCategory = {
+  title: string;
+  icon: LucideIcon;
+  skills: Skill[];
+};
+
+function getProgressGradient(level: number) {
+  if (level >= 90) return "from-emerald-500 to-teal-500";
+  if (level >= 80) return "from-blue-500 to-cyan-500";
+  if (level >= 70) return "from-violet-500 to-fuchsia-500";
+  return "from-amber-500 to-orange-500";
+}
+
+function AnimatedProgress({ value, delay = 0, className }: { value: number; delay?: number; className?: string }) {
   const [width, setWidth] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
@@ -19,8 +38,8 @@ function AnimatedProgress({ value, className }: { value: number; className?: str
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
-          // Small delay so the card animation plays first
-          setTimeout(() => setWidth(value), 200);
+          // Delay creates a staggered fill effect for cleaner visual sequencing.
+          setTimeout(() => setWidth(value), delay);
         }
       },
       { threshold: 0.3 }
@@ -28,19 +47,62 @@ function AnimatedProgress({ value, className }: { value: number; className?: str
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [value]);
+  }, [value, delay]);
 
   return (
     <div ref={ref} className={`relative h-2 w-full overflow-hidden rounded-full bg-secondary ${className || ""}`}>
       <div
-        className="h-full rounded-full bg-primary transition-all duration-1000 ease-out"
+        className={`h-full rounded-full bg-gradient-to-r ${getProgressGradient(value)} transition-all duration-1000 ease-out`}
         style={{ width: `${width}%` }}
       />
     </div>
   );
 }
 
-const skillCategories = [
+function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const start = performance.now();
+          const duration = 1000;
+
+          const animate = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.round(eased * value));
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
+}
+
+const skillCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
     icon: Code2,
@@ -110,6 +172,39 @@ const skillCategories = [
 ];
 
 export function SkillsSection() {
+  const normalizedCategories = useMemo(() => {
+    return skillCategories
+      .map((category) => {
+        const sortedSkills = [...category.skills].sort((a, b) => b.level - a.level);
+        const average = Math.round(
+          sortedSkills.reduce((sum, skill) => sum + skill.level, 0) / sortedSkills.length
+        );
+
+        return {
+          ...category,
+          skills: sortedSkills,
+          average,
+        };
+      })
+      .sort((a, b) => b.average - a.average);
+  }, []);
+
+  const analytics = useMemo(() => {
+    const allSkills = normalizedCategories.flatMap((category) => category.skills);
+    const totalSkills = allSkills.length;
+    const avgSkill = Math.round(allSkills.reduce((sum, skill) => sum + skill.level, 0) / totalSkills);
+    const strongestCategory = normalizedCategories[0];
+    const topSkill = allSkills.sort((a, b) => b.level - a.level)[0];
+
+    return {
+      totalSkills,
+      categoryCount: normalizedCategories.length,
+      avgSkill,
+      strongestCategory,
+      topSkill,
+    };
+  }, [normalizedCategories]);
+
   return (
     <section id="skills" className="scroll-mt-24 py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
@@ -134,6 +229,56 @@ export function SkillsSection() {
           </p>
         </motion.div>
 
+        {/* Skill Analytics */}
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Card className="border-border/70">
+            <CardContent className="p-5">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Total Skills</p>
+              <p className="text-3xl font-black text-foreground mt-2">
+                <AnimatedNumber value={analytics.totalSkills} />
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/70">
+            <CardContent className="p-5">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Categories</p>
+              <p className="text-3xl font-black text-foreground mt-2">
+                <AnimatedNumber value={analytics.categoryCount} />
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/70">
+            <CardContent className="p-5">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Average Proficiency</p>
+              <p className="text-3xl font-black text-foreground mt-2">
+                <AnimatedNumber value={analytics.avgSkill} suffix="%" />
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border/70">
+            <CardContent className="p-5">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">Top Skill</p>
+              <p className="text-lg font-black text-foreground mt-2 leading-tight">
+                {analytics.topSkill?.name}
+              </p>
+              <p className="text-xs text-muted-foreground">{analytics.topSkill?.level}% proficiency</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <div className="mb-8 text-sm text-muted-foreground">
+          <span className="font-semibold text-foreground">Strongest domain:</span> {analytics.strongestCategory?.title} ({analytics.strongestCategory?.average}%)
+        </div>
+
         {/* Skills Grid */}
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -145,7 +290,7 @@ export function SkillsSection() {
             hidden: {},
           }}
         >
-          {skillCategories.map((category, index) => {
+          {normalizedCategories.map((category, index) => {
             const Icon = category.icon;
             return (
               <motion.div
@@ -169,12 +314,15 @@ export function SkillsSection() {
                       <CardTitle className="text-lg">
                         {category.title}
                       </CardTitle>
+                      <Badge variant="secondary" className="ml-auto text-[10px] px-2 py-0.5 cursor-default">
+                        Avg {category.average}%
+                      </Badge>
                     </div>
                   </CardHeader>
 
                   {/* Skills */}
                   <CardContent className="flex flex-col gap-3 relative z-10 w-full">
-                    {category.skills.map((skill) => (
+                    {category.skills.map((skill, skillIndex) => (
                       <div key={skill.name} className="flex flex-col gap-1.5 w-full">
                         <div className="flex justify-between items-center text-sm">
                           <span className="font-medium text-foreground">{skill.name}</span>
@@ -182,7 +330,7 @@ export function SkillsSection() {
                             {skill.level}%
                           </Badge>
                         </div>
-                        <AnimatedProgress value={skill.level} />
+                        <AnimatedProgress value={skill.level} delay={180 + skillIndex * 100} />
                       </div>
                     ))}
                   </CardContent>
