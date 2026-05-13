@@ -208,12 +208,6 @@ export default function ResumePage() {
                       score: "3.2+ / 4.0 CGPA",
                       highlight: "Strong foundation in core BCA curriculum",
                     },
-                    {
-                      year: "2024 — 2025",
-                      degree: "Class XI (CBSE) - Commerce",
-                      institution: "Rajkamal Swarswati Vidya Mandir, Dhanbad",
-                      score: "81%",
-                    },
                   ].map((edu, index) => (
                     <div key={index} className="group p-4 rounded-lg bg-secondary/30 border border-border/40 hover:border-primary/30 transition-all">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
@@ -235,7 +229,7 @@ export default function ResumePage() {
                 onClick={() => setShowAllEducation(!showAllEducation)}
                 className="mt-4 text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors print:hidden"
               >
-                {showAllEducation ? "See less" : "See more details (Semesters & Class XI marks)"}
+                {showAllEducation ? "See less" : "See more details (Semester breakdown)"}
               </button>
             </div>
           </motion.section>
