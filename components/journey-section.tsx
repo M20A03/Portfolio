@@ -32,6 +32,14 @@ const milestones = [
         color: "bg-yellow-500",
     },
     {
+        date: "Nov 2025 — Mar 2026",
+        title: "2nd Semester Excellence",
+        location: "Christ University, Bangalore",
+        description: "Achieved 3.33 CGPA in the 2nd semester while balancing rigorous coursework with hands-on project development and competitive programming.",
+        icon: GraduationCap,
+        color: "bg-emerald-500",
+    },
+    {
         date: "Nov 2025",
         title: "Online Meeting Prototype",
         location: "Solo Initiative",
@@ -62,6 +70,14 @@ const milestones = [
         description: "Developing this premium portfolio while building complex Linear and Binary search visualizers to master algorithmic UI/UX.",
         icon: Code,
         color: "bg-amber-500",
+    },
+    {
+        date: "May 2026 — Present",
+        title: "Web Development Internship",
+        location: "shadowfox.org.in",
+        description: "Focused professional experience in modern web development. Working on real-world projects to strengthen full-stack capabilities and industry practices.",
+        icon: Briefcase,
+        color: "bg-cyan-500",
     },
 ];
 
