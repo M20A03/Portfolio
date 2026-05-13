@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   Mail,
   Phone,
@@ -34,6 +35,7 @@ const staggerContainer = {
 };
 
 export default function ResumePage() {
+  const [showAllEducation, setShowAllEducation] = useState(false);
   return (
     <main id="main-content" className="min-h-screen bg-background selection:bg-primary/20">
       {/* Header - Hidden on Print */}
@@ -186,6 +188,55 @@ export default function ResumePage() {
                   {edu.highlight && <p className="mt-2 text-xs text-primary font-medium italic">⭐ {edu.highlight}</p>}
                 </div>
               ))}
+
+              {/* Expandable Section - Semester Breakdown & Class Marks */}
+              {showAllEducation && (
+                <div className="space-y-4 pt-2 border-t border-border/50 mt-4">
+                  <div className="text-sm text-muted-foreground italic">📊 Academic Breakdown</div>
+                  {[
+                    {
+                      year: "Nov 2025 — Mar 2026",
+                      degree: "2nd Semester Achievement",
+                      institution: "Christ University, Bangalore",
+                      score: "3.33 CGPA",
+                      highlight: "Balanced academics with project development",
+                    },
+                    {
+                      year: "2025 (1st Semester)",
+                      degree: "1st Semester Foundation",
+                      institution: "Christ University, Bangalore",
+                      score: "3.2+ / 4.0 CGPA",
+                      highlight: "Strong foundation in core BCA curriculum",
+                    },
+                    {
+                      year: "2024 — 2025",
+                      degree: "Class XI (CBSE) - Commerce",
+                      institution: "Rajkamal Swarswati Vidya Mandir, Dhanbad",
+                      score: "81%",
+                    },
+                  ].map((edu, index) => (
+                    <div key={index} className="group p-4 rounded-lg bg-secondary/30 border border-border/40 hover:border-primary/30 transition-all">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                        <h3 className="font-semibold text-foreground">{edu.degree}</h3>
+                        <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">{edu.score}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-muted-foreground text-sm">
+                        <p>{edu.institution}</p>
+                        <p className="font-medium text-primary/70">{edu.year}</p>
+                      </div>
+                      {edu.highlight && <p className="mt-1.5 text-xs text-primary/80 font-medium italic">✓ {edu.highlight}</p>}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* See More Button */}
+              <button
+                onClick={() => setShowAllEducation(!showAllEducation)}
+                className="mt-4 text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors print:hidden"
+              >
+                {showAllEducation ? "See less" : "See more details (Semesters & Class XI marks)"}
+              </button>
             </div>
           </motion.section>
 
