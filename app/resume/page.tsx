@@ -46,7 +46,7 @@ export default function ResumePage() {
             </Button>
           </Link>
           <div className="flex items-center gap-3">
-            <Button size="sm" className="gap-2 hidden sm:flex" asChild>
+            <Button size="sm" className="gap-2 hidden md:flex" asChild>
               <a href="/RESUME_Mayank Raj Gupta.pdf" download="RESUME_Mayank Raj Gupta.pdf">
                 <Download className="w-4 h-4" />
                 Save as PDF
