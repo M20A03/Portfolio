@@ -2,7 +2,7 @@
 
 import { Calendar } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -74,7 +74,19 @@ export function CertificationsSection() {
   const [brokenImages, setBrokenImages] = useState<Record<string, boolean>>({});
   const [selectedCert, setSelectedCert] = useState<typeof certifications[number] | null>(null);
   const [showAllMobile, setShowAllMobile] = useState(false);
-  const visibleCertifications = showAllMobile ? certifications : certifications.slice(0, 4);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Detect desktop vs mobile to show all certificates on larger screens
+  useState(() => {});
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
+
+  const visibleCertifications = isDesktop ? certifications : (showAllMobile ? certifications : certifications.slice(0, 3));
 
   return (
     <section
@@ -159,8 +171,8 @@ export function CertificationsSection() {
         </div>
 
         {/* Mobile See More */}
-        {certifications.length > 4 && (
-          <div className="mt-6 md:hidden flex justify-center">
+        {certifications.length > 3 && (
+          <div className="mt-6 flex justify-center print:hidden md:hidden">
             <button
               type="button"
               onClick={() => setShowAllMobile((prev) => !prev)}
@@ -168,7 +180,7 @@ export function CertificationsSection() {
               aria-expanded={showAllMobile}
               aria-controls="certifications"
             >
-              {showAllMobile ? "See less certificates" : `See more certificates (${certifications.length - 4})`}
+              {showAllMobile ? "See less certificates" : `See more certificates (${certifications.length - 3})`}
             </button>
           </div>
         )}

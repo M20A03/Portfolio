@@ -169,12 +169,6 @@ export default function ResumePage() {
                   score: "3.33 / 4.0 CGPA (2nd Semester)",
                   highlight: "Core focus on Software Engineering & Data Structures",
                 },
-                {
-                  year: "2023 — 2025",
-                  degree: "Class XII (CBSE) - Commerce",
-                  institution: "Rajkamal Swarswati Vidya Mandir, Dhanbad",
-                  score: "76%",
-                },
               ].map((edu, index) => (
                 <div key={index} className="group p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
@@ -207,6 +201,12 @@ export default function ResumePage() {
                       institution: "Christ University, Bangalore",
                       score: "3.2+ / 4.0 CGPA",
                       highlight: "Strong foundation in core BCA curriculum",
+                    },
+                    {
+                      year: "2023 — 2025",
+                      degree: "Class XII (CBSE) - Commerce",
+                      institution: "Rajkamal Swarswati Vidya Mandir, Dhanbad",
+                      score: "76%",
                     },
                   ].map((edu, index) => (
                     <div key={index} className="group p-4 rounded-lg bg-secondary/30 border border-border/40 hover:border-primary/30 transition-all">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Zap, Code } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -83,7 +83,17 @@ const milestones = [
 
 export function JourneySection() {
     const [showAllMobile, setShowAllMobile] = useState(false);
-    const visibleMilestones = showAllMobile ? milestones : milestones.slice(0, 3);
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia("(min-width: 768px)");
+        const update = () => setIsDesktop(mq.matches);
+        update();
+        mq.addEventListener?.("change", update);
+        return () => mq.removeEventListener?.("change", update);
+    }, []);
+
+    const visibleMilestones = isDesktop ? milestones : (showAllMobile ? milestones.slice(0, 5) : milestones.slice(0, 3));
 
     return (
         <section id="journey" className="scroll-mt-24 py-12 md:py-24 px-6 md:px-12 bg-background relative overflow-hidden">
@@ -151,7 +161,7 @@ export function JourneySection() {
 
                     {/* Mobile See More */}
                     {milestones.length > 3 && (
-                        <div className="mt-6 md:hidden flex justify-center">
+                        <div className="mt-6 flex justify-center print:hidden md:hidden">
                             <button
                                 type="button"
                                 onClick={() => setShowAllMobile((prev) => !prev)}
@@ -159,7 +169,7 @@ export function JourneySection() {
                                 aria-expanded={showAllMobile}
                                 aria-controls="journey"
                             >
-                                {showAllMobile ? "See less journey" : `See more journey (${milestones.length - 3})`}
+                                {showAllMobile ? "See less journey" : `See more journey (${Math.min(2, milestones.length - 3)})`}
                             </button>
                         </div>
                     )}

@@ -4,6 +4,7 @@ import { BadgeCheck, Clock3, MessageSquareQuote, Rocket, Star } from "lucide-rea
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const proofStats = [
   {
@@ -48,6 +49,18 @@ const nowItems = [
 ];
 
 export function ProofSection() {
+  const [showAllMobile, setShowAllMobile] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
+
+  const visibleProofStats = isDesktop ? proofStats : proofStats.slice(0, 2);
   return (
     <section id="proof" className="scroll-mt-24 py-12 md:py-24 px-4 sm:px-6 md:px-12 bg-card/30">
       <div className="max-w-6xl mx-auto space-y-14">
@@ -70,7 +83,7 @@ export function ProofSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-4">
-          {proofStats.map(({ icon: Icon, label, value, note }, index) => (
+          {visibleProofStats.map(({ icon: Icon, label, value, note }, index) => (
             <motion.div
               key={label}
               initial={{ opacity: 0, y: 16 }}
@@ -91,7 +104,7 @@ export function ProofSection() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-5 items-stretch">
-          {testimonials.map((item, index) => (
+          {(isDesktop || showAllMobile) && testimonials.map((item, index) => (
             <motion.div
               key={`${item.author}-${index}`}
               initial={{ opacity: 0, y: 16 }}
@@ -145,6 +158,20 @@ export function ProofSection() {
             </Card>
           </motion.div>
         </div>
+        {/* Mobile see-more for proof: reveals Testimonials + Now Building as two items */}
+        {!isDesktop && (
+          <div className="mt-6 flex justify-center print:hidden md:hidden">
+            <button
+              type="button"
+              onClick={() => setShowAllMobile((p) => !p)}
+              className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
+              aria-expanded={showAllMobile}
+              aria-controls="proof"
+            >
+              {showAllMobile ? "See less proof" : `See more proof (2)`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
