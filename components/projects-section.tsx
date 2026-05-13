@@ -1,6 +1,7 @@
 "use client";
 
-import { ExternalLink, Github, Lock } from "lucide-react";
+import { ExternalLink, Github, Lock, LayoutGrid } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -522,7 +523,20 @@ export function ProjectsSection() {
                 </CardContent>
 
                 {/* Links */}
-                <CardFooter className="px-6 pb-6 pt-0 flex items-center gap-3">
+                <CardFooter className="px-6 pb-6 pt-0 flex flex-wrap items-center gap-3">
+                  {project.title === "Wholesale & Retail E-Commerce Website" && (
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="gap-2 border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all bg-transparent text-xs"
+                    >
+                      <Link href="/case-study/roshan-enterprises">
+                        <LayoutGrid className="w-3.5 h-3.5" />
+                        Case Study
+                      </Link>
+                    </Button>
+                  )}
                   {project.live && (
                     <Tooltip>
                       <TooltipTrigger asChild>
@@ -557,7 +571,7 @@ export function ProjectsSection() {
                       </TooltipTrigger>
                       <TooltipContent>View source on GitHub</TooltipContent>
                     </Tooltip>
-                    ) : project.isPrivate ? (
+                  ) : project.isPrivate ? (
                     <Button
                       variant="outline"
                       size="sm"
