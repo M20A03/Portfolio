@@ -524,14 +524,25 @@ export function ProjectsSection() {
 
                 {/* Links */}
                 <CardFooter className="px-6 pb-6 pt-0 flex flex-wrap items-center gap-3">
-                  {project.title === "Wholesale & Retail E-Commerce Website" && (
+                  {(project.title === "Wholesale & Retail E-Commerce Website" ||
+                    project.title === "Search Algorithm Simulator" ||
+                    project.title === "Study Archive" ||
+                    project.title === "Lumi Glow") && (
                     <Button
                       asChild
                       variant="outline"
                       size="sm"
                       className="gap-2 border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all bg-transparent text-xs"
                     >
-                      <Link href="/case-study/roshan-enterprises">
+                      <Link href={
+                        project.title === "Wholesale & Retail E-Commerce Website"
+                          ? "/case-study/roshan-enterprises"
+                          : project.title === "Search Algorithm Simulator"
+                          ? "/case-study/search-algorithm-simulator"
+                          : project.title === "Study Archive"
+                          ? "/case-study/study-archive"
+                          : "/case-study/lumi-glow"
+                      }>
                         <LayoutGrid className="w-3.5 h-3.5" />
                         Case Study
                       </Link>
