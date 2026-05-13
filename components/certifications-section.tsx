@@ -2,7 +2,7 @@
 
 import { Calendar } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -73,20 +73,9 @@ const certifications = [
 export function CertificationsSection() {
   const [brokenImages, setBrokenImages] = useState<Record<string, boolean>>({});
   const [selectedCert, setSelectedCert] = useState<typeof certifications[number] | null>(null);
-  const [showAllMobile, setShowAllMobile] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
-  // Detect desktop vs mobile to show all certificates on larger screens
-  useState(() => {});
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const update = () => setIsDesktop(mq.matches);
-    update();
-    mq.addEventListener?.("change", update);
-    return () => mq.removeEventListener?.("change", update);
-  }, []);
-
-  const visibleCertifications = isDesktop ? certifications : (showAllMobile ? certifications : certifications.slice(0, 3));
+  const visibleCertifications = showAll ? certifications : certifications.slice(0, 3);
 
   return (
     <section
@@ -172,15 +161,15 @@ export function CertificationsSection() {
 
         {/* Mobile See More */}
         {certifications.length > 3 && (
-          <div className="mt-6 flex justify-center print:hidden md:hidden">
+          <div className="mt-6 flex justify-center print:hidden">
             <button
               type="button"
-              onClick={() => setShowAllMobile((prev) => !prev)}
+              onClick={() => setShowAll((prev) => !prev)}
               className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
-              aria-expanded={showAllMobile}
+              aria-expanded={showAll}
               aria-controls="certifications"
             >
-              {showAllMobile ? "See less certificates" : `See more certificates (${certifications.length - 3})`}
+              {showAll ? "See less certificates" : `See more certificates (${certifications.length - 3})`}
             </button>
           </div>
         )}

@@ -166,6 +166,7 @@ function buildLanguageDistribution(repos: GithubRepo[]): LanguageStat[] {
 export function AboutSection() {
   const [githubData, setGithubData] = useState<GitHubStatsData>(fallbackGithubData);
   const [isLoadingGithub, setIsLoadingGithub] = useState(true);
+  const [showAllEducation, setShowAllEducation] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -388,7 +389,9 @@ export function AboutSection() {
             <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-border" />
 
             <div className="space-y-8">
-              {education.map((edu, index) => (
+              {education
+                .slice(0, showAllEducation ? education.length : 1)
+                .map((edu, index) => (
                 <motion.div
                   key={index}
                   className="relative pl-8 md:pl-20 group"
@@ -419,6 +422,19 @@ export function AboutSection() {
                   </Card>
                 </motion.div>
               ))}
+
+              {/* See More Button for Education */}
+              {education.length > 1 && (
+                <div className="flex justify-center pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowAllEducation(!showAllEducation)}
+                    className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
+                  >
+                    {showAllEducation ? "See less" : `See more (${education.length - 1})`}
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Zap, Code } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -82,18 +82,9 @@ const milestones = [
 ];
 
 export function JourneySection() {
-    const [showAllMobile, setShowAllMobile] = useState(false);
-    const [isDesktop, setIsDesktop] = useState(false);
+    const [showAll, setShowAll] = useState(false);
 
-    useEffect(() => {
-        const mq = window.matchMedia("(min-width: 768px)");
-        const update = () => setIsDesktop(mq.matches);
-        update();
-        mq.addEventListener?.("change", update);
-        return () => mq.removeEventListener?.("change", update);
-    }, []);
-
-    const visibleMilestones = isDesktop ? milestones : (showAllMobile ? milestones.slice(0, 5) : milestones.slice(0, 3));
+    const visibleMilestones = showAll ? milestones.slice(0, 5) : milestones.slice(0, 3);
 
     return (
         <section id="journey" className="scroll-mt-24 py-12 md:py-24 px-6 md:px-12 bg-background relative overflow-hidden">
@@ -161,15 +152,15 @@ export function JourneySection() {
 
                     {/* Mobile See More */}
                     {milestones.length > 3 && (
-                        <div className="mt-6 flex justify-center print:hidden md:hidden">
+                        <div className="mt-6 flex justify-center print:hidden">
                             <button
                                 type="button"
-                                onClick={() => setShowAllMobile((prev) => !prev)}
+                                onClick={() => setShowAll((prev) => !prev)}
                                 className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
-                                aria-expanded={showAllMobile}
+                                aria-expanded={showAll}
                                 aria-controls="journey"
                             >
-                                {showAllMobile ? "See less journey" : `See more journey (${Math.min(2, milestones.length - 3)})`}
+                                {showAll ? "See less journey" : `See more journey (2)`}
                             </button>
                         </div>
                     )}
