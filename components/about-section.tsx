@@ -69,7 +69,7 @@ const education = [
     degree: "Bachelor of Computer Applications (BCA)",
     institution: "Christ University",
     location: "Bangalore, India",
-    details: "3.33 / 4.0 CGPA (2nd Semester)",
+    details: "Semester 1: 3.2 / 4.0 CGPA · Semester 2: 3.33 / 4.0 CGPA",
   },
   {
     year: "2023 — 2025",
@@ -431,7 +431,7 @@ export function AboutSection() {
                     onClick={() => setShowAllEducation(!showAllEducation)}
                     className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
                   >
-                    {showAllEducation ? "See less" : `See more (${education.length - 1})`}
+                    {showAllEducation ? "See less" : `See more education (${education.length - 1})`}
                   </button>
                 </div>
               )}
