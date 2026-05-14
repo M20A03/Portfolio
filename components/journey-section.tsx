@@ -160,7 +160,7 @@ export function JourneySection() {
                                 aria-expanded={showAll}
                                 aria-controls="journey"
                             >
-                                {showAll ? "See less journey" : `See more journey (2)`}
+                                {showAll ? "See less journey" : `See more journey (${milestones.length - 3})`}
                             </button>
                         </div>
                     )}
