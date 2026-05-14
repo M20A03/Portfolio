@@ -69,7 +69,7 @@ const education = [
     degree: "Bachelor of Computer Applications (BCA)",
     institution: "Christ University",
     location: "Bangalore, India",
-    details: "3.2 / 4.0 CGPA (1st Semester)",
+    details: "3.33 / 4.0 CGPA (2nd Semester)",
   },
   {
     year: "2023 — 2025",

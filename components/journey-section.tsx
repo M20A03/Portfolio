@@ -84,7 +84,7 @@ const milestones = [
 export function JourneySection() {
     const [showAll, setShowAll] = useState(false);
 
-    const visibleMilestones = showAll ? milestones.slice(0, 5) : milestones.slice(0, 3);
+    const visibleMilestones = showAll ? milestones : milestones.slice(0, 3);
 
     return (
         <section id="journey" className="scroll-mt-24 py-12 md:py-24 px-6 md:px-12 bg-background relative overflow-hidden">
