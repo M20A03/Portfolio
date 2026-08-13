@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#450a0a"/>
+      <stop offset="50%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="redAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="100" cy="80" r="140" fill="#ef4444" opacity="0.15" filter="blur(40px)"/>
+  <rect x="50" y="40" width="700" height="370" rx="20" fill="#27272a" fill-opacity="0.5" stroke="#ef4444" stroke-opacity="0.4" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="70" y="60" width="660" height="50" rx="12" fill="#18181b"/>
+  <circle cx="100" cy="85" r="12" fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="130" cy="85" r="6" fill="#ef4444"/>
+  <circle cx="148" cy="85" r="6" fill="#eab308"/>
+  <circle cx="166" cy="85" r="6" fill="#22c55e"/>
+  <text x="200" y="91" font-family="system-ui, sans-serif" font-weight="800" font-size="20" fill="#ef4444">POKÉDEX LITE</text>
+  
+  <rect x="480" y="70" width="230" height="30" rx="15" fill="#27272a" stroke="#ef4444" stroke-opacity="0.4"/>
+  <text x="500" y="90" font-family="system-ui, sans-serif" font-size="13" fill="#a1a1aa">🔍 Search Pokemon (e.g. Pikachu)</text>
+
+  <!-- Cards -->
+  <g transform="translate(70, 130)">
+    <!-- Pikachu -->
+    <rect x="0" y="0" width="200" height="250" rx="14" fill="#18181b" stroke="#eab308" stroke-width="1.5"/>
+    <rect x="15" y="15" width="170" height="120" rx="10" fill="#fef08a" fill-opacity="0.2"/>
+    <text x="100" y="90" font-size="50" text-anchor="middle">⚡</text>
+    <text x="20" y="160" font-family="system-ui, sans-serif" font-weight="800" font-size="18" fill="#ffffff">Pikachu #025</text>
+    <rect x="20" y="172" width="70" height="22" rx="11" fill="#eab308"/>
+    <text x="55" y="187" font-family="system-ui, sans-serif" font-weight="700" font-size="11" fill="#422006" text-anchor="middle">Electric</text>
+    <text x="20" y="222" font-family="system-ui, sans-serif" font-size="12" fill="#a1a1aa">HP: 35 | ATK: 55 | SPD: 90</text>
+
+    <!-- Charizard -->
+    <rect x="230" y="0" width="200" height="250" rx="14" fill="#18181b" stroke="#ef4444" stroke-width="1.5"/>
+    <rect x="245" y="15" width="170" height="120" rx="10" fill="#fca5a5" fill-opacity="0.2"/>
+    <text x="330" y="90" font-size="50" text-anchor="middle">🔥</text>
+    <text x="250" y="160" font-family="system-ui, sans-serif" font-weight="800" font-size="18" fill="#ffffff">Charizard #006</text>
+    <rect x="250" y="172" width="60" height="22" rx="11" fill="#ef4444"/>
+    <text x="280" y="187" font-family="system-ui, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Fire</text>
+    <rect x="318" y="172" width="60" height="22" rx="11" fill="#38bdf8"/>
+    <text x="348" y="187" font-family="system-ui, sans-serif" font-weight="700" font-size="11" fill="#0c4a6e" text-anchor="middle">Flying</text>
+    <text x="250" y="222" font-family="system-ui, sans-serif" font-size="12" fill="#a1a1aa">HP: 78 | ATK: 84 | SPD: 100</text>
+
+    <!-- Mewtwo -->
+    <rect x="460" y="0" width="200" height="250" rx="14" fill="#18181b" stroke="#a855f7" stroke-width="1.5"/>
+    <rect x="475" y="15" width="170" height="120" rx="10" fill="#e9d5ff" fill-opacity="0.2"/>
+    <text x="560" y="90" font-size="50" text-anchor="middle">🔮</text>
+    <text x="480" y="160" font-family="system-ui, sans-serif" font-weight="800" font-size="18" fill="#ffffff">Mewtwo #150</text>
+    <rect x="480" y="172" width="65" height="22" rx="11" fill="#a855f7"/>
+    <text x="512" y="187" font-family="system-ui, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">Psychic</text>
+    <text x="480" y="222" font-family="system-ui, sans-serif" font-size="12" fill="#a1a1aa">HP: 106 | ATK: 110 | SPD: 130</text>
+  </g>
+</svg>

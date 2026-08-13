@@ -269,7 +269,7 @@ export function AboutSection() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  I am a dedicated <span className="text-foreground font-medium">Computer Applications student</span> with a strong foundation in programming and web development. My journey in tech started with <span className="text-primary">curiosity about how things work</span>, and has evolved into a passion for building solutions that matter.
+                  I am a dedicated <span className="text-foreground font-medium">Full-Stack &amp; MERN Stack Developer</span> and BCA Scholar at <span className="text-primary">Christ University</span> with a strong foundation in scalable web architecture, frontend UI design, and backend RESTful APIs. My engineering focus centers on building production-ready applications with clean code and modern frameworks.
                 </p>
               </CardContent>
             </Card>

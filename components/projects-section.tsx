@@ -79,12 +79,13 @@ const cardVariants = {
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<(typeof categories)[number]>("All");
-  const [showAllMobile, setShowAllMobile] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [projects, setProjects] = useState<ProjectData[]>(projectData);
   const [isLoadingProjects, setIsLoadingProjects] = useState(true);
 
+  const INITIAL_PROJECT_COUNT = 6;
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
-  const visibleProjects = showAllMobile ? filteredProjects : filteredProjects;
+  const visibleProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, INITIAL_PROJECT_COUNT);
 
   useEffect(() => {
     let isMounted = true;
@@ -137,7 +138,7 @@ export function ProjectsSection() {
   }, []);
 
   useEffect(() => {
-    setShowAllMobile(false);
+    setShowAllProjects(false);
   }, [activeFilter]);
 
   return (
@@ -318,8 +319,25 @@ export function ProjectsSection() {
           </AnimatePresence>
         </motion.div>
 
+        {/* See More Projects Toggle */}
+        {filteredProjects.length > INITIAL_PROJECT_COUNT && (
+          <div className="mt-10 text-center">
+            <Button
+              variant="default"
+              size="lg"
+              onClick={() => setShowAllProjects((prev) => !prev)}
+              className="gap-2 px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-bold shadow-lg shadow-primary/20 transition-all cursor-pointer"
+            >
+              <Sparkles className="w-4 h-4" />
+              {showAllProjects
+                ? "Show Less Projects"
+                : `See More Projects (${filteredProjects.length - INITIAL_PROJECT_COUNT} remaining)`}
+            </Button>
+          </div>
+        )}
+
         {/* View GitHub All Button */}
-        <div className="mt-14 text-center">
+        <div className="mt-8 text-center">
           <Button
             asChild
             variant="outline"

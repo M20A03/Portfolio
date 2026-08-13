@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="100" cy="100" r="160" fill="#6366f1" opacity="0.15" filter="blur(40px)"/>
+  <rect x="40" y="40" width="720" height="370" rx="20" fill="#1e1b4b" fill-opacity="0.6" stroke="#6366f1" stroke-opacity="0.4" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="60" y="60" width="680" height="55" rx="12" fill="#312e81" fill-opacity="0.7"/>
+  <text x="90" y="95" font-family="system-ui, sans-serif" font-weight="900" font-size="22" fill="#818cf8">🎓 SAMAGRA</text>
+  <text x="240" y="94" font-family="system-ui, sans-serif" font-weight="500" font-size="14" fill="#c7d2fe">Computer Science Department Portal</text>
+
+  <!-- Navigation Tabs -->
+  <g transform="translate(60, 130)">
+    <rect x="0" y="0" width="130" height="32" rx="16" fill="url(#indigoGrad)"/>
+    <text x="65" y="21" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#ffffff" text-anchor="middle">Announcements</text>
+
+    <rect x="140" y="0" width="100" height="32" rx="16" fill="#312e81"/>
+    <text x="190" y="21" font-family="system-ui, sans-serif" font-weight="500" font-size="13" fill="#a5b4fc" text-anchor="middle">Syllabus</text>
+
+    <rect x="250" y="0" width="100" height="32" rx="16" fill="#312e81"/>
+    <text x="300" y="21" font-family="system-ui, sans-serif" font-weight="500" font-size="13" fill="#a5b4fc" text-anchor="middle">Faculty</text>
+
+    <rect x="360" y="0" width="100" height="32" rx="16" fill="#312e81"/>
+    <text x="410" y="21" font-family="system-ui, sans-serif" font-weight="500" font-size="13" fill="#a5b4fc" text-anchor="middle">Events</text>
+  </g>
+
+  <!-- Main Portal Layout -->
+  <g transform="translate(60, 180)">
+    <!-- Column 1: Notices -->
+    <rect x="0" y="0" width="320" height="200" rx="12" fill="#312e81" fill-opacity="0.3" stroke="#6366f1" stroke-opacity="0.3"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#ffffff">📌 Department Notices</text>
+    
+    <rect x="20" y="45" width="280" height="40" rx="8" fill="#1e1b4b"/>
+    <text x="35" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#c7d2fe">📢 End Sem Lab Exams Schedule 2026</text>
+
+    <rect x="20" y="95" width="280" height="40" rx="8" fill="#1e1b4b"/>
+    <text x="35" y="120" font-family="system-ui, sans-serif" font-size="12" fill="#c7d2fe">💡 CODEX'26 Hackathon Registrations</text>
+
+    <rect x="20" y="145" width="280" height="40" rx="8" fill="#1e1b4b"/>
+    <text x="35" y="170" font-family="system-ui, sans-serif" font-size="12" fill="#c7d2fe">📑 Research Paper Submission Guidelines</text>
+
+    <!-- Column 2: Resources & Faculty -->
+    <rect x="360" y="0" width="320" height="200" rx="12" fill="#312e81" fill-opacity="0.3" stroke="#6366f1" stroke-opacity="0.3"/>
+    <text x="380" y="30" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#ffffff">📚 Academic Resources</text>
+
+    <rect x="380" y="45" width="280" height="40" rx="8" fill="#1e1b4b"/>
+    <text x="395" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#c7d2fe">📥 Download BCA 3rd Sem Curriculum PDF</text>
+
+    <rect x="380" y="95" width="280" height="40" rx="8" fill="#1e1b4b"/>
+    <text x="395" y="120" font-family="system-ui, sans-serif" font-size="12" fill="#c7d2fe">👨‍🏫 Faculty Office Hours &amp; Profiles</text>
+
+    <rect x="380" y="145" width="280" height="40" rx="8" fill="url(#indigoGrad)"/>
+    <text x="520" y="170" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#ffffff" text-anchor="middle">Access Student Portal</text>
+  </g>
+</svg>

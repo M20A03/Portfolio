@@ -11,17 +11,17 @@ import Image from "next/image";
 
 const roles = [
   "Full-Stack Developer",
-  "React + Next.js Builder",
+  "MERN Stack Specialist",
+  "Next.js & React Architect",
   "AntiGravity AI Specialist",
-  "Frontend Performance Focused",
-  "Open Source Learner",
+  "Backend & REST API Engineer",
 ];
 
 const proofChips = [
-  "7+ deployed projects",
+  "7+ deployed full-stack projects",
+  "MERN Stack & Next.js 15",
   "AntiGravity AI Workflow",
-  "WCAG-focused UI",
-  "Open to internship and freelance",
+  "Open to full-stack roles & freelance",
 ];
 
 function MagneticIcon({ children, className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { children: React.ReactNode }) {
@@ -173,7 +173,7 @@ export function HeroSection() {
                 }`}
               style={{ transitionDelay: "400ms" }}
             >
-              I build fast, accessible, and conversion-focused web experiences using React, Next.js, and TypeScript.
+              I build scalable, high-performance web platforms and end-to-end applications as a <span className="text-foreground font-semibold">Full-Stack &amp; MERN Stack Developer</span> utilizing React, Next.js, Node.js, Express, and Firebase.
             </p>
             <p
               className={`text-sm md:text-base text-muted-foreground/90 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed p-4 rounded-2xl bg-primary/5 border border-primary/15 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
