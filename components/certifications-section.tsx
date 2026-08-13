@@ -10,6 +10,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 const certifications = [
   {
     year: "2026",
+    title: "CODEX'26 National Level Online Hackathon (Theme: AI Solutions)",
+    issuer: "Don Bosco College, KR Puram, Bengaluru (BITBLAZE BCA)",
+    image: "/certificates/certificate-11.png",
+  },
+  {
+    year: "2026",
     title: "YUGASTR IT FEST Hackathon",
     issuer: "Ramaiah College of Arts, Science & Commerce",
     image: "/certificates/certificate-5.jpg",

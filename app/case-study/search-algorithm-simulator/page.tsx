@@ -5,8 +5,23 @@ import { ArrowLeft, ArrowRight, ExternalLink, Github, LayoutGrid, Zap, Brain, Co
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
+const siteUrl = "https://www.mayankraj.me";
+const searchSimProjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Search Algorithm Simulator",
+  "description": "An interactive web app featuring 5 visual simulations of Linear and Binary search algorithms with integrated AI chatbot explanations.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "author": {
+    "@type": "Person",
+    "name": "Mayank Raj Gupta",
+    "url": siteUrl
+  },
+  "url": `${siteUrl}/case-study/search-algorithm-simulator`
+};
 
 const highlights = [
   "5 interactive algorithm visualizations with step-by-step execution",
@@ -106,6 +121,10 @@ const processStepVariants = {
 export default function SearchAlgorithmSimulatorCaseStudy() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(searchSimProjectSchema) }}
+      />
       <section className="relative overflow-hidden border-b border-border/60 bg-card/40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.18),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.14),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">

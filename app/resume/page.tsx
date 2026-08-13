@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
 import {
   Mail,
@@ -252,11 +252,46 @@ export default function ResumePage() {
             </div>
           </motion.section>
 
-          {/* Core Projects */}
+          {/* Work & Research Experience */}
           <motion.section variants={fadeInUp}>
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 rounded-lg bg-primary/10">
                 <Briefcase className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Experience & AI Research</h2>
+            </div>
+            <div className="space-y-4">
+              <div className="p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-1">
+                  <h3 className="font-bold text-foreground text-lg">Freelance Software Engineer</h3>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">2026 — Present</span>
+                </div>
+                <p className="text-sm font-medium text-muted-foreground mb-3">Singularium Technologies</p>
+                <ul className="text-sm text-muted-foreground space-y-1.5 list-disc pl-5">
+                  <li>Engineering custom full-stack web applications, landing pages, and cloud services for clients.</li>
+                  <li>Integrating robust REST APIs, authentication flows, and responsive UI components with React & Next.js.</li>
+                </ul>
+              </div>
+
+              <div className="p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-1">
+                  <h3 className="font-bold text-foreground text-lg">Deep Learning AI Research Engineer (Confidential)</h3>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">2026 — Present</span>
+                </div>
+                <p className="text-sm font-medium text-muted-foreground mb-3">Christ (Deemed to be University), Bangalore</p>
+                <ul className="text-sm text-muted-foreground space-y-1.5 list-disc pl-5">
+                  <li>Developing a YOLOv11 computer vision system for real-time object detection and spatial classification.</li>
+                  <li>Engineered Thermino: a specialized thermal analytics deep learning software platform for heat map modeling.</li>
+                </ul>
+              </div>
+            </div>
+          </motion.section>
+
+          {/* Core Projects */}
+          <motion.section variants={fadeInUp}>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <Code className="w-5 h-5 text-primary" />
               </div>
               <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Technical Projects</h2>
             </div>

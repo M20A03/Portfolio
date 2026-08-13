@@ -5,8 +5,23 @@ import { ArrowLeft, ArrowRight, ExternalLink, Github, LayoutGrid, Palette, Smart
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
+const siteUrl = "https://www.mayankraj.me";
+const lumiGlowProjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Lumi Glow Beauty Storefront",
+  "description": "A modern makeup and beauty products website showcase featuring responsive design and custom UI craftsmanship.",
+  "applicationCategory": "ShoppingApplication",
+  "operatingSystem": "Web",
+  "author": {
+    "@type": "Person",
+    "name": "Mayank Raj Gupta",
+    "url": siteUrl
+  },
+  "url": `${siteUrl}/case-study/lumi-glow`
+};
 
 const highlights = [
   "Polished beauty product showcase with premium visual hierarchy",
@@ -106,6 +121,10 @@ const processStepVariants = {
 export default function LumiGlowCaseStudy() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(lumiGlowProjectSchema) }}
+      />
       <section className="relative overflow-hidden border-b border-border/60 bg-card/40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(236,72,153,0.18),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(249,115,22,0.14),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">

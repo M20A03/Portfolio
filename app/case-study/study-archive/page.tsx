@@ -5,8 +5,23 @@ import { ArrowLeft, ArrowRight, ExternalLink, Github, LayoutGrid, Database, User
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
+const siteUrl = "https://www.mayankraj.me";
+const studyArchiveProjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Study Archive (CampusShare)",
+  "description": "A campus resource platform built to help students manage and access study materials, notes, and previous year questions.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "author": {
+    "@type": "Person",
+    "name": "Mayank Raj Gupta",
+    "url": siteUrl
+  },
+  "url": `${siteUrl}/case-study/study-archive`
+};
 
 const highlights = [
   "Centralized repository for campus study materials, notes, and resources",
@@ -106,6 +121,10 @@ const processStepVariants = {
 export default function StudyArchiveCaseStudy() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(studyArchiveProjectSchema) }}
+      />
       <section className="relative overflow-hidden border-b border-border/60 bg-card/40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(168,85,247,0.18),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(236,72,153,0.14),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">

@@ -72,6 +72,22 @@ const milestones = [
         color: "bg-amber-500",
     },
     {
+        date: "2026 — Present",
+        title: "Freelance Software Engineer",
+        location: "Singularium Technologies",
+        description: "Delivering high-performance client web platforms, custom full-stack applications, and API integrations tailored for scaling businesses.",
+        icon: Briefcase,
+        color: "bg-blue-600",
+    },
+    {
+        date: "2026 — Present",
+        title: "Deep Learning Research (YOLOv11 & Thermino)",
+        location: "Christ University, Bangalore",
+        description: "Engineering 2 confidential AI projects: a YOLOv11 computer vision object detection system and the Thermino thermal analytics software platform.",
+        icon: Zap,
+        color: "bg-purple-600",
+    },
+    {
         date: "May 2026 — Present",
         title: "Web Development Internship",
         location: "shadowfox.org.in",

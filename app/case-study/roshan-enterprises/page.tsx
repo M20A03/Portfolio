@@ -6,7 +6,23 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
+const siteUrl = "https://www.mayankraj.me";
+const roshanProjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Wholesale & Retail E-Commerce Website - Roshan Enterprises",
+  "description": "A full-stack e-commerce platform for Roshan Enterprises, enabling both retail and wholesale purchasing with Firebase authentication and protected checkout.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "author": {
+    "@type": "Person",
+    "name": "Mayank Raj Gupta",
+    "url": siteUrl
+  },
+  "url": `${siteUrl}/case-study/roshan-enterprises`
+};
 
 const highlights = [
   "Retail + wholesale buying journeys in one interface",
@@ -60,6 +76,10 @@ const process = [
 export default function RoshanEnterprisesCaseStudyPage() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(roshanProjectSchema) }}
+      />
       <section className="relative overflow-hidden border-b border-border/60 bg-card/40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.18),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.14),transparent_28%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
