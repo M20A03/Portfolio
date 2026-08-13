@@ -169,18 +169,11 @@ export function HeroSection() {
 
             {/* Description */}
             <p
-              className={`text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              className={`text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
               style={{ transitionDelay: "400ms" }}
             >
               I build scalable, high-performance web platforms and end-to-end applications as a <span className="text-foreground font-semibold">Full-Stack &amp; MERN Stack Developer</span> utilizing React, Next.js, Node.js, Express, and Firebase.
-            </p>
-            <p
-              className={`text-sm md:text-base text-muted-foreground/90 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed p-4 rounded-2xl bg-primary/5 border border-primary/15 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-              style={{ transitionDelay: "450ms" }}
-            >
-              <span className="font-semibold text-primary">AntiGravity Advantage:</span> Driven by advanced AI-agentic engineering, I leverage autonomous multi-agent systems and intelligent prompt architecture to accelerate full-stack development cycles and ship production-ready applications with uncompromised quality.
             </p>
 
             <div

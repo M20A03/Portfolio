@@ -357,12 +357,12 @@ export default function ResumePage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 rounded-2xl bg-card/30 border border-border">
               {[
-                { cat: "Languages", val: "C, C++, Python (Pandas/NumPy), JavaScript (ES6+), TypeScript" },
-                { cat: "Frontend", val: "React, Next.js, Angular, Tailwind CSS, Framer Motion" },
-                { cat: "Backend & Cloud", val: "Node.js, Firebase (Auth/Firestore), Python Flask" },
-                { cat: "Database", val: "MySQL, Firestore" },
-                { cat: "Developer Tools", val: "Git, GitHub, Vercel, VS Code, Figma" },
-                { cat: "Other", val: "AI Prompt Engineering, DSA, UI/UX Design" },
+                { cat: "Languages", val: "JavaScript (ES6+), TypeScript, Python (Pandas/NumPy), C++, C" },
+                { cat: "Frontend & MERN", val: "React 19, Next.js 15, Tailwind CSS 4, Motion" },
+                { cat: "Backend & APIs", val: "Node.js, Express.js, RESTful APIs, Python Flask" },
+                { cat: "Database", val: "PostgreSQL, MongoDB, Supabase, Firebase / Firestore, MySQL" },
+                { cat: "Cloud & Infrastructure", val: "AWS, Supabase, Cloudflare, Railway, Render, Vercel" },
+                { cat: "Tools & AI", val: "Git, GitHub, AntiGravity AI, VS Code, Figma, YOLOv11" },
               ].map((s, idx) => (
                 <div key={idx}>
                   <h4 className="text-xs font-bold text-primary uppercase tracking-widest mb-1">{s.cat}</h4>

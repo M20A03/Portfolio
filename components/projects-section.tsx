@@ -111,8 +111,8 @@ export function ProjectsSection() {
               return {
                 ...project,
                 stats: project.stats || `${matched.stargazers_count} ★ · ${matched.forks_count} forks`,
-                githubUrl: project.githubUrl || matched.html_url,
-                demoUrl: project.demoUrl || matched.homepage,
+                githubUrl: project.githubUrl === null ? null : (project.githubUrl || matched.html_url),
+                demoUrl: project.demoUrl === null ? null : (project.demoUrl || matched.homepage),
               };
             }
             return project;
