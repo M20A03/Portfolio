@@ -5,6 +5,40 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/projects",
+        destination: "/#projects",
+        permanent: true,
+      },
+      {
+        source: "/case-studies",
+        destination: "/#projects",
+        permanent: true,
+      },
+      {
+        source: "/study-archive",
+        destination: "/case-study/study-archive",
+        permanent: true,
+      },
+      {
+        source: "/lumi-glow",
+        destination: "/case-study/lumi-glow",
+        permanent: true,
+      },
+      {
+        source: "/roshan-enterprises",
+        destination: "/case-study/roshan-enterprises",
+        permanent: true,
+      },
+      {
+        source: "/search-algorithm-simulator",
+        destination: "/case-study/search-algorithm-simulator",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
@@ -18,6 +52,6 @@ const nextConfig = {
       },
     ];
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

@@ -1,36 +1,41 @@
-import React from "react"
-import type { Metadata } from 'next'
-import { ThemeProvider } from '@/components/theme-provider'
-import './globals.css'
+import React from "react";
+import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
+import "./globals.css";
 
-const siteUrl = 'https://www.mayankraj.me'
+const siteUrl = "https://www.mayankraj.me";
 
 export const metadata: Metadata = {
   verification: {
-    google: 'zsm4spgo5oDy1u8aRUa0b2HyzCHMEM_HGjTWWmkfI4U',
+    google: "zsm4spgo5oDy1u8aRUa0b2HyzCHMEM_HGjTWWmkfI4U",
   },
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Mayank Raj Gupta | Full Stack Developer Portfolio',
-    template: '%s | Mayank Raj Gupta',
+    default: "Mayank Raj Gupta | Full Stack Developer & AI Specialist Portfolio",
+    template: "%s | Mayank Raj Gupta",
   },
-  description: 'Mayank Raj Gupta is a Full Stack Developer and BCA student building React, Next.js, JavaScript, TypeScript, and Firebase projects.',
+  description:
+    "Official portfolio of Mayank Raj Gupta, Full Stack Developer and BCA Scholar at Christ University. Expertise in React, Next.js 15, TypeScript, Python, YOLOv11 Deep Learning, and AntiGravity AI workflows.",
   keywords: [
-    'Mayank Raj Gupta',
-    'Mayank Raj Gupta portfolio',
-    'Mayank Raj Gupta developer',
-    'full stack developer',
-    'React developer',
-    'Next.js developer',
-    'JavaScript developer',
-    'TypeScript developer',
-    'Firebase developer',
-    'BCA student',
+    "Mayank Raj Gupta",
+    "Mayank Raj Gupta portfolio",
+    "Mayank Raj Gupta developer",
+    "Mayank Raj Gupta Christ University",
+    "Mayank Raj Gupta Bangalore",
+    "Mayank Raj Gupta Full Stack Developer",
+    "Mayank Raj Gupta Singularium Technologies",
+    "Mayank Raj Gupta BCA",
+    "Mayank Raj Gupta AI Specialist",
+    "Mayank Raj Gupta GitHub M20A03",
+    "Full Stack Developer Bangalore",
+    "React Next.js TypeScript Developer",
   ],
-  authors: [{ name: 'Mayank Raj Gupta' }],
-  generator: 'Next.js',
+  authors: [{ name: "Mayank Raj Gupta", url: siteUrl }],
+  creator: "Mayank Raj Gupta",
+  publisher: "Mayank Raj Gupta",
+  generator: "Next.js 15",
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -38,56 +43,107 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
   openGraph: {
-    type: 'website',
+    type: "website",
     url: siteUrl,
-    title: 'Mayank Raj Gupta | Full Stack Developer',
-    description: 'Explore the portfolio of Mayank Raj Gupta, showcasing web development projects, certifications, and technical skills.',
-    siteName: 'Mayank Raj Gupta Portfolio',
+    title: "Mayank Raj Gupta | Full Stack Developer & AI Specialist",
+    description:
+      "Official portfolio of Mayank Raj Gupta showcasing full-stack web applications, deep learning projects, certifications, and developer skills.",
+    siteName: "Mayank Raj Gupta Portfolio",
     images: [
       {
-        url: '/favicon.png',
+        url: `${siteUrl}/images/portfolio-og.png`,
         width: 1200,
         height: 630,
-        alt: 'Mayank Raj Gupta | Full Stack Developer',
+        alt: "Mayank Raj Gupta | Full Stack Developer & AI Specialist",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Mayank Raj Gupta | Full Stack Developer',
-    description: 'Portfolio of Mayank Raj Gupta showcasing projects, certifications, and development skills.',
-    images: ['/favicon.png'],
+    card: "summary_large_image",
+    title: "Mayank Raj Gupta | Full Stack Developer & AI Specialist",
+    description: "Official portfolio of Mayank Raj Gupta showcasing projects, certifications, and technical skills.",
+    images: [`${siteUrl}/images/portfolio-og.png`],
   },
   icons: {
     icon: [
-      {
-        url: "/favicon.png",
-        type: "image/png",
-      },
-      {
-        url: "/icon.png",
-        type: "image/png",
-      },
-      {
-        url: "/placeholder-logo.svg",
-        type: "image/svg+xml",
-      },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+      { url: "/placeholder-logo.svg", type: "image/svg+xml" },
     ],
     apple: "/favicon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
+  const rootSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mayank Raj Gupta",
+      "alternateName": ["Mayank Raj", "Mayank Raj Gupta Developer", "M20A03"],
+      "url": siteUrl,
+      "image": `${siteUrl}/placeholder-user.jpg`,
+      "jobTitle": "Full Stack Developer & AI Research Engineer",
+      "worksFor": [
+        {
+          "@type": "Organization",
+          "name": "Singularium Technologies",
+        },
+        {
+          "@type": "Organization",
+          "name": "ShadowFox",
+        },
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Christ (Deemed to be University), Bangalore",
+      },
+      "knowsAbout": [
+        "React",
+        "Next.js 15",
+        "TypeScript",
+        "Node.js",
+        "Python",
+        "Deep Learning",
+        "YOLOv11",
+        "Firebase",
+        "AntiGravity AI",
+        "Software Architecture",
+      ],
+      "sameAs": [
+        "https://github.com/M20A03",
+        "https://www.linkedin.com/in/mayank-raj-gupta-159020396",
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Mayank Raj Gupta Portfolio",
+      "url": siteUrl,
+      "description":
+        "Official portfolio website of Mayank Raj Gupta, Full Stack Developer and BCA Scholar at Christ University.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Mayank Raj Gupta",
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${siteUrl}/?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ];
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -96,32 +152,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Mayank Raj Gupta",
-                "url": siteUrl,
-                "image": `${siteUrl}/favicon.png`,
-                "jobTitle": "Full Stack Developer",
-                "sameAs": [
-                  "https://github.com/M20A03",
-                  "https://www.linkedin.com/in/mayank-raj-gupta-159020396"
-                ]
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "Mayank Raj Gupta Portfolio",
-                "url": siteUrl,
-                "description": "Portfolio website for Mayank Raj Gupta, a Full Stack Developer showcasing projects, certifications, and skills.",
-                "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": `${siteUrl}/?q={search_term_string}`,
-                  "query-input": "required name=search_term_string"
-                }
-              }
-            ])
+            __html: JSON.stringify(rootSchema),
           }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -138,6 +169,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
-
