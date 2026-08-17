@@ -155,35 +155,87 @@ export default function CaseStudyPage({ params }: DynamicCaseStudyProps) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16"
+      >
         <div className="mb-6 flex items-center gap-3">
           <LayoutGrid className="h-5 w-5 text-primary" />
           <h2 className="text-2xl font-bold">Tech Stack & Tools Used</h2>
         </div>
-        <div className="flex flex-wrap gap-3 mb-12">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.05 }
+            }
+          }}
+          className="flex flex-wrap gap-3 mb-12"
+        >
           {project.techStack.map((tech) => (
-            <Badge key={tech} variant="outline" className="px-4 py-2 text-sm rounded-full bg-primary/10 border-primary/20 text-primary">
-              {tech}
-            </Badge>
+            <motion.div
+              key={tech}
+              variants={{
+                hidden: { opacity: 0, scale: 0.8 },
+                visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100, damping: 12 } }
+              }}
+            >
+              <Badge variant="outline" className="px-4 py-2 text-sm rounded-full bg-primary/10 border-primary/20 text-primary hover:bg-primary/25 transition-colors cursor-default">
+                {tech}
+              </Badge>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {project.process && project.process.length > 0 && (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.1 }
+              }
+            }}
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-8"
+          >
             {project.process.map((step, idx) => (
-              <Card key={step.title} className="border-border/70 bg-card/70">
-                <CardContent className="p-6 space-y-3">
-                  <div className="text-sm font-bold text-primary">0{idx + 1}. {step.title}</div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.text}</p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={step.title}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                }}
+              >
+                <Card className="border-border/70 bg-card/70 hover:border-primary/50 transition-colors duration-300 h-full">
+                  <CardContent className="p-6 space-y-3">
+                    <div className="text-sm font-bold text-primary">0{idx + 1}. {step.title}</div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{step.text}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
-      </section>
+      </motion.section>
 
       {project.outcome && (
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+        <motion.section 
+          initial={{ opacity: 0, scale: 0.98, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 70, damping: 16 }}
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20"
+        >
           <Card className="overflow-hidden border-border/70 bg-primary/5">
             <CardContent className="flex flex-col gap-6 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="space-y-3">
@@ -194,16 +246,16 @@ export default function CaseStudyPage({ params }: DynamicCaseStudyProps) {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button asChild className="gap-2 rounded-full px-6">
+                <Button asChild className="gap-2 rounded-full px-6 group">
                   <Link href="/#projects">
                     Back to Portfolio
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
               </div>
             </CardContent>
           </Card>
-        </section>
+        </motion.section>
       )}
     </main>
   );

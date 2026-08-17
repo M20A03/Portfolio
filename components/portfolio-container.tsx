@@ -49,10 +49,10 @@ const socials = [
 ];
 
 const sectionAnimation = {
-  initial: { opacity: 0, y: 35 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.6, ease: "easeOut" },
+  initial: { opacity: 0, y: 40, scale: 0.99 },
+  whileInView: { opacity: 1, y: 0, scale: 1 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { type: "spring", stiffness: 70, damping: 16, mass: 0.6 },
 };
 
 export function PortfolioContainer() {
