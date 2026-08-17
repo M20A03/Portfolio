@@ -189,10 +189,6 @@ export function ProjectsSection() {
 
         {/* Projects Grid with Staggered Children Animation */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
@@ -200,6 +196,9 @@ export function ProjectsSection() {
               <motion.div
                 key={project.slug}
                 variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
                 layout
                 whileHover={{ y: -6 }}
@@ -294,7 +293,7 @@ export function ProjectsSection() {
                       </Tooltip>
                     )}
 
-                    {project.githubUrl && (
+                    {project.githubUrl && !project.isPrivate && (
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <Button

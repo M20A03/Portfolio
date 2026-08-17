@@ -1,0 +1,76 @@
+# Mayank Raj Gupta
+
+Official portfolio of Mayank Raj Gupta, Full Stack Developer, BCA Scholar at Christ University (Bangalore), and AI Specialist.
+
+- Website: https://www.mayankraj.me
+- GitHub: https://github.com/M20A03
+- LinkedIn: https://www.linkedin.com/in/mayank-raj-gupta-159020396
+- Email: mayankrajgupta01@gmail.com
+
+---
+
+## Technical Summary
+
+Mayank is a full-stack engineer and AI specialist proficient in React, Next.js, TypeScript, Node.js, Python, Firebase, Supabase, and custom AI pair-programming tools. He has engineered 7+ deployed production-grade applications, worked on deep learning research at Christ University, and built advanced fintech & e-commerce applications.
+
+### Core Stack
+- **Frontend:** React, Next.js, TypeScript, Angular, Tailwind CSS v4, Framer Motion, GSAP.
+- **Backend:** Node.js, Express.js, Flask, Python, REST APIs.
+- **Databases & Cloud:** Supabase (PostgreSQL), Firebase (Auth, Firestore, Cloud Functions, Realtime DB), MySQL, AWS, Cloudflare.
+- **AI & Deep Learning:** YOLOv11 Edge Computer Vision, PyTorch, PyModel Training, Anthropic Claude SDK, AntiGravity Multi-Agent SDK workflows.
+
+---
+
+## Featured Projects & Case Studies
+
+Each case study can be accessed at `https://www.mayankraj.me/case-study/[slug]`.
+
+### 1. Credex AI Spend Audit (`/case-study/credex`)
+- **Category:** Full-Stack
+- **Tech Stack:** React, Next.js, Tailwind CSS v4, Anthropic SDK, Supabase, Zustand, GSAP, Framer Motion.
+- **Key Features:** Real-time Indian Rupee (₹) savings calculator with Lakh/Crore formatting, floating orb AI chatbot assistant powered by Anthropic's Claude API, spring-physics tickers, and glassmorphic dashboards.
+- **Outcome:** Shipped a high-speed, zero-latency auditing application optimizing AI SaaS spend for Indian startups.
+
+### 2. GMT Mart Grocery & Retail Platform (`/case-study/gmt-mart`)
+- **Category:** Full-Stack
+- **Tech Stack:** React, Next.js, Tailwind CSS v4, Supabase (PostgreSQL), Firebase (Auth & Functions), Zustand, PostHog.
+- **Key Features:** High-speed storefront with neon design, Firebase Functions Express.js middleware, relational database schemas for category/reviews, persistent cart, and product search.
+- **Outcome:** Deployed a functional retail storefront with persistent cart memory and user feedback tracking. (Note: Repository code is private).
+
+### 3. Wholesale & Retail E-Commerce (`/case-study/roshan-enterprises`)
+- **Category:** Full-Stack
+- **Tech Stack:** React, Vite, Firebase, Vanilla CSS, Lucide React, js-cookie.
+- **Key Features:** Dual checkout routes for retail and wholesale buyers, cookie-based session security, list virtualization for large catalog rendering, and responsive item cards.
+- **Outcome:** Built a comprehensive storefront handling complex B2B and B2C purchasing routes.
+
+### 4. FLUX - Cyberpunk IT & Cultural Fest (`/case-study/flux`)
+- **Category:** Frontend
+- **Tech Stack:** React, Next.js, Tailwind CSS v4, Axios, Lucide React, HTML5 Canvas.
+- **Key Features:** Interactive cyber-rain Canvas animation, custom keyword-matching assistant chatbot, hacker-themed sign-up modals, and a countdown timer.
+- **Outcome:** Created an immersive registration portal for Christ University CS Association fests. (Note: Repository code is private).
+
+### 5. Event Registration & Admin Desk (`/case-study/event-registration-desk-system`)
+- **Category:** Full-Stack
+- **Tech Stack:** Node.js, Express, EJS, Supabase (PostgreSQL), Nodemailer, HTML/CSS/JS.
+- **Key Features:** Input sanitation using express-validator, automated calendar invites (.ics invites via Nodemailer), and secure CSV dashboard exports for organizers.
+- **Outcome:** Deployed a secure tech conference administration system.
+
+### 6. Samagra - Computer Science Department Portal (`/case-study/samagra`)
+- **Category:** Full-Stack
+- **Tech Stack:** React, Vite, Tailwind CSS v4, tsParticles, Lenis, Framer Motion, React Router v7, Zustand.
+- **Key Features:** Centralized club schedules, interactive blogging modules, custom smooth scrolling (Lenis), and tsParticles backdrop canvas.
+- **Outcome:** Centralized Christ University CS Association announcements on Vercel. (Note: Repository code is private).
+
+### 7. Search Algorithm Simulator (`/case-study/search-algorithm-simulator`)
+- **Category:** Tools
+- **Tech Stack:** JavaScript, HTML, CSS, Firebase, AI Chatbot.
+- **Key Features:** 5 visual simulation grids showing search steps, real-world scenario tools, and Star-Command AI chatbot.
+- **Outcome:** Visualized and simplified search logic for students.
+
+---
+
+## Site Navigation
+- **Home:** https://www.mayankraj.me/
+- **Resume:** https://www.mayankraj.me/resume
+- **Sitemap:** https://www.mayankraj.me/sitemap.xml
+- **Robots.txt:** https://www.mayankraj.me/robots.txt
