@@ -704,7 +704,7 @@ export const projectData: ProjectData[] = [
     description:
       "A Python Flask prototype allowing users to register, login, and schedule meetings. Backed by a MySQL database for managing metadata, and features a responsive templates UI.",
     techStack: ["Python", "Flask", "MySQL", "EJS/HTML", "CSS"],
-    demoUrl: "https://online-meeting-app-rho.vercel.app",
+    demoUrl: null,
     githubUrl: "https://github.com/M20A03/OnlineMeetingApp",
     thumbnailAlt: "Online Meeting App Interface",
     category: "Tools",
