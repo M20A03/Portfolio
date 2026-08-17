@@ -95,4 +95,15 @@ export const skillCategoriesData: SkillCategoryData[] = [
       { name: "Vite", level: 85 },
     ],
   },
+  {
+    title: "Generative AI & Prompting",
+    icon: "BarChart3",
+    skills: [
+      { name: "ChatGPT & OpenAI API", level: 95 },
+      { name: "Google Gemini SDK & Live API", level: 92 },
+      { name: "Anthropic Claude API", level: 90 },
+      { name: "DeepSeek API Integration", level: 88 },
+      { name: "AI Prompt Engineering", level: 98 },
+    ],
+  },
 ];

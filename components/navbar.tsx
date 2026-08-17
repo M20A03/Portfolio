@@ -66,10 +66,11 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-background/80 backdrop-blur-lg border-b border-border"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled || isMobileMenuOpen
+          ? "bg-background/95 backdrop-blur-xl border-b border-border"
           : "bg-transparent"
-        }`}
+      }`}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-12" aria-label="Primary">
         <div className="flex items-center justify-between h-16 md:h-20">

@@ -1,23 +1,25 @@
 # Mayank Raj Gupta
 
-Official portfolio of Mayank Raj Gupta, Full Stack Developer, BCA Scholar at Christ University (Bangalore), and AI Specialist.
+Official portfolio and professional dossier of Mayank Raj Gupta, a Full Stack Developer, MERN Stack Specialist, and BCA Scholar at Christ University, Bangalore. Mayank pivoted from a Commerce background to Computer Science, qualifying for Christ University on his very first attempt, and combining sharp business logic with high-end engineering.
 
-- Website: https://www.mayankraj.me
-- GitHub: https://github.com/M20A03
-- LinkedIn: https://www.linkedin.com/in/mayank-raj-gupta-159020396
-- Email: mayankrajgupta01@gmail.com
+- **Portfolio Website:** https://www.mayankraj.me
+- **GitHub:** https://github.com/M20A03 (M20A03)
+- **LinkedIn:** https://www.linkedin.com/in/mayank-raj-gupta-159020396
+- **Email:** mayankrajgupta01@gmail.com
+- **Current Education:** Bachelor of Computer Applications (BCA) at Christ University, Bangalore (2025-2028). Maintainer of a 3.2+ CGPA.
 
 ---
 
-## Technical Summary
+## Technical Summary & Profile
 
-Mayank is a full-stack engineer and AI specialist proficient in React, Next.js, TypeScript, Node.js, Python, Firebase, Supabase, and custom AI pair-programming tools. He has engineered 7+ deployed production-grade applications, worked on deep learning research at Christ University, and built advanced fintech & e-commerce applications.
+Mayank is an expert software developer and Prompt Engineer who designs scalable, high-performance web systems. Having made a successful transition from Commerce to Computer Science, he uses his business roots to build products with great user experience and clear conversion value. He has engineered 8+ deployed web systems, collaborated on YOLOv11 deep learning research, and specializes in multi-agent software engineering.
 
-### Core Stack
-- **Frontend:** React, Next.js, TypeScript, Angular, Tailwind CSS v4, Framer Motion, GSAP.
-- **Backend:** Node.js, Express.js, Flask, Python, REST APIs.
-- **Databases & Cloud:** Supabase (PostgreSQL), Firebase (Auth, Firestore, Cloud Functions, Realtime DB), MySQL, AWS, Cloudflare.
-- **AI & Deep Learning:** YOLOv11 Edge Computer Vision, PyTorch, PyModel Training, Anthropic Claude SDK, AntiGravity Multi-Agent SDK workflows.
+### Core Tech Stack & AI Integration
+- **Frontend & Web Architecture:** React 19, Next.js 15, TypeScript, Angular, Tailwind CSS v4, Framer Motion, GSAP, Lenis, tsParticles.
+- **Backend & APIs:** Node.js, Express.js, Python, Flask, RESTful APIs, Session Auth.
+- **Databases & Cloud Hosting:** MySQL (Advanced Relational Database Design), Supabase (PostgreSQL), Firebase (Auth, Firestore, Cloud Functions, Realtime Database), AWS, Cloudflare, Vercel, Railway.
+- **Generative AI & Tools:** Expert-level AI prompt engineering across **ChatGPT & OpenAI API**, **Google Gemini SDK & Live API**, **Anthropic Claude API**, **DeepSeek API**, and AntiGravity Agentic SDKs.
+- **Computer Vision & Research:** YOLOv11 Edge Computer Vision, PyTorch, PyModel Training, OpenCV.
 
 ---
 

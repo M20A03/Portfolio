@@ -8,6 +8,7 @@ import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip
 import { Separator } from "@/components/ui/separator";
 import { ParticleBackground } from "./particle-background";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const roles = [
   "Full-Stack Developer",
@@ -258,10 +259,25 @@ export function HeroSection() {
           </div>
 
           {/* RIGHT: Avatar */}
-          <div
-            className={`flex-shrink-0 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"
-              }`}
-            style={{ transitionDelay: "300ms" }}
+          <motion.div
+            className="flex-shrink-0"
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{
+              opacity: isVisible ? 1 : 0,
+              y: isVisible ? [0, -12, 0] : 30,
+              scale: isVisible ? 1 : 0.95,
+            }}
+            transition={{
+              opacity: { duration: 1.2 },
+              scale: { duration: 1.2 },
+              y: isVisible
+                ? {
+                    repeat: Infinity,
+                    duration: 5,
+                    ease: "easeInOut",
+                  }
+                : { duration: 1 },
+            }}
           >
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-96 lg:h-96">
               {/* Glow ring */}
@@ -277,7 +293,8 @@ export function HeroSection() {
                       alt="Portrait of Mayank Raj Gupta"
                       fill
                       sizes="(max-width: 768px) 16rem, 24rem"
-                      className="object-cover rounded-full"
+                      className="object-cover rounded-full animate-pulse"
+                      style={{ animationDuration: "10s" }}
                       onError={() => setAvatarError(true)}
                     />
                   )}
@@ -287,7 +304,7 @@ export function HeroSection() {
               <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary animate-bounce" style={{ animationDelay: "0.5s" }} />
               <div className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: "1s" }} />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}

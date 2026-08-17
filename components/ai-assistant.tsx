@@ -7,64 +7,56 @@ import { Button } from "@/components/ui/button";
 
 const knowledgeResponses: Record<string, string[]> = {
     profile: [
-        "Mayank Raj Gupta is a BCA student at Christ University, Bangalore. He made a surprising but passionate pivot from Commerce to Computer Science, qualifying for Christ on his first attempt!",
-        "A student with a unique blend of backgrounds—Mayank combines his logic from a Commerce foundation with a lifelong passion for computers and laptops.",
-        "From excelling in Information Practices in Class 12 to mastering BCA today, Mayank is an engineer who never looks back, though he still keeps his business roots through subjects like Investing and Marketing."
+        "Mayank Raj Gupta is a Full-Stack Developer, AI Prompt Engineering Specialist, and BCA Scholar at Christ University (Bangalore). He has built multiple deployed applications including Credex, GMT Mart, and Samagra.",
+        "Mayank pivoted from a Commerce background to Computer Science, qualifying for Christ University on his very first attempt. He combines sharp business logic with high-level software engineering.",
+        "From mastering Information Practices in high school to architecting enterprise-grade full-stack systems, Mayank is a developer who values continuous learning, scalable code, and AI integration."
     ],
     stack: [
-        "He's an absolute beast at MySQL and a pro at AI Prompt Engineering—in fact, he considers prompt engineering his current technical superpower!",
-        "His core arsenal includes React, Next.js, and Node.js. He's also highly skilled in database architecture, specifically MySQL where he's practically unbeatable.",
-        "Mayank leverages AI (like 80-90% of his project builds) as a powerful mentor. While he's modest about it, his ability to orchestrate complex tools through prompt engineering is top-tier."
+        "His core technical arsenal includes React (React 19), Next.js (Next.js 15), TypeScript, Node.js, and Express.",
+        "He is highly skilled in databases, particularly MySQL (where he has advanced relational design expertise), PostgreSQL (via Supabase), and Firestore/Firebase.",
+        "Mayank is a Prompt Engineering expert. He leverages advanced AI (using ChatGPT, Claude, Gemini, and DeepSeek) to build complex apps quickly while studying the core fundamentals to master every line of code."
     ],
     projects: [
-        "He's built the MRG App and various simulators. He's very honest about his process, using AI as a primary collaborator while he strives to master every line of code.",
-        "Check out his MRG Marketplace architecture. He views every project as a step towards his goal of using AI less (20-30%) as his own mastery grows.",
-        "His portfolio spans from e-commerce platforms to deep-tech simulations. He believes in 'building to learn', using current tools to architect the startups of tomorrow."
+        "Credex: A real-time Indian Rupee (₹) SaaS and AI spend auditor powered by Claude API with Lakh/Crore formatting and spring physics.",
+        "GMT Mart: A high-speed e-commerce storefront with neon design, Firebase Functions backend, and robust relational product search.",
+        "Samagra: The official web portal for the Computer Science Association at Christ University, featuring particle backgrounds and Lenis smooth scrolling.",
+        "Future Working App: A private product idea launched with React, Vite, and Firebase hosting for local market storefront operations."
+    ],
+    christ_university: [
+        "Mayank is currently pursuing his BCA at Christ University, Bangalore (2025-2028), maintaining an excellent 3.2+ CGPA.",
+        "At Christ University, he is an active student leader, having built the official Computer Science Association web portal (Samagra) and participated in major fests like YUGASTR.",
+        "Christ University provided the perfect campus for Mayank's pivot into CS. He also takes courses in Marketing and Investing to stay linked to his business roots."
+    ],
+    ai_tools: [
+        "Mayank uses ChatGPT, Google Gemini, Anthropic Claude, and DeepSeek APIs in his development workflow, integrating them directly into products.",
+        "He has designed custom chatbots, like the floating orb assistant in Credex (using Claude API) and the keyword-matching helper in Flux.",
+        "Mayank believes that prompt engineering and agentic workflows (like AntiGravity AI) are developer superpowers that accelerate building by 10x."
+    ],
+    pivot: [
+        "Yes! Mayank made a bold pivot from a Commerce background to BCA. He proved that logic, passion, and relentless building can bridge any educational gap.",
+        "Having a Commerce background gives Mayank a unique edge in product design, startup strategy, selling, and marketing, making him a rare business-minded engineer."
     ],
     contact: [
-        "You can reach him at mayankrajgupta01@gmail.com or call +91 9835139865. He's always open to discussing tech or business!",
-        "Feel free to drop a message at mayankrajgupta01@gmail.com. He's always open to discussing new opportunities or tech collaborations.",
-        "Need to connect? You can find him on LinkedIn or use the contact form right here on the website. He usually responds within 24 hours!"
+        "You can reach Mayank directly at mayankrajgupta01@gmail.com or call +91 9835139865.",
+        "Send him an email at mayankrajgupta01@gmail.com or connect with him on LinkedIn. He's always down to discuss software architecture or business ideas."
     ],
     location: [
-        "Mayank is currently based in Bangalore, India for his BCA at Christ University.",
-        "He is located in Bangalore, India and regularly participates in local university tech events.",
-        "Bangalore, India is his current base for studies and project work."
+        "Mayank is based in Bangalore, India, the tech capital of the country, where he studies at Christ University."
     ],
     education: [
-        "He's currently in his BCA years at Christ University (2025-2028). Interestingly, he chose courses like 'Investment & Trading' and 'Marketing' to stay connected to his commerce roots.",
-        "At Christ University, he's currently maintaining a 3.2+ CGPA. He chose BCA over B.Tech because of his commerce background, and he's been acing it since day one.",
-        "Currently based in Bangalore for his BCA. His academic journey is a mix of high-level coding and strategic business subjects like Marketing & Selling."
+        "Currently pursuing a Bachelor of Computer Applications (BCA) at Christ University, Bangalore (Class of 2028).",
+        "He blends tech subjects (like data structures and MySQL) with business courses like 'Investment & Trading' and 'Marketing' at Christ University."
     ],
     experience: [
-        "Mayank is a regular at hackathons like YUGASTR and has been building since his Class 11 IP days. He's constantly evolving from a 'kid with a laptop' to a professional dev.",
-        "His experience is built through constant iteration. He's a 'Christite' through and through, active in GameJams and tech workshops in Bangalore.",
-        "From mastering MySQL in school to architecting B2B2C marketplaces today, his journey is marked by a relentless drive to 'learn by building'."
-    ],
-    future: [
-        "He believes life is unpredictable and in God's hands. His current plan? Finish BCA, pursue an MBA, and launch his own startup one day!",
-        "After his BCA at Christ University, Mayank aims to do a Masters (MBA) to combine his technical skills with high-level business strategy.",
-        "The goal is simple: secure a great job first, settle into a professional rhythm, and build a startup on the side to change the world."
-    ],
-    hobbies: [
-        "To clear his head after a long day of coding, Mayank loves driving. It's his favorite way to relax and 'cool down' his mind.",
-        "He's a traveler and a driver! Exploring new places or just taking a long drive helps him stay creative for his next project.",
-        "Cycling was a great hobby, but these days, a long drive is his go-to for relaxing and finding fresh inspiration for his work."
-    ],
-    ai_philosophy: [
-        "Mayank is very humble—he uses AI for 80-90% of his work right now, but his goal is to sharpen his skills until he only needs it for 20-30% of the heavy lifting.",
-        "He views AI as a mentor. While he builds complex apps like MRG with it, he's constantly studying the 'why' behind the code to gain ultimate mastery.",
-        "He believes in using the best tools available. Currently a Prompt Engineering expert, he's using that power to build faster while he masters the fundamentals."
-    ],
-    greetings: [
-        "Namaste! Curious about Mayank's journey from Commerce to BCA? Or his latest projects? Ask away!",
-        "Hello! I'm Mayank's personal AI. I know all about his 'IP' days, his MySQL expertise, and his future MBA goals!",
-        "Hi there! Want to know why Mayank chose Christ University or what he drives to relax? I've got the answers!"
+        "Mayank is a MERN Stack Specialist with practical experience at Singularium Technologies and ShadowFox.",
+        "He built the fests registration portal (Flux) and the department site (Samagra) for Christ University, and regularly takes on complex freelance projects."
     ],
     fallback: [
-        "That's a great question! While I don't have that specific detail in my memory yet, you can definitely ask Mayank directly via the contact form below.",
-        "I'm still learning! For more specific information, I recommend checking out Mayank's LinkedIn or sending him a quick email.",
-        "I'm not exactly sure about that, but Mayank would love to chat about it! You can reach him at mayankrajgupta01@gmail.com."
+        "That is a great question! While I don't have that specific detail in my local database, you can ask Mayank directly using the contact form below or email him at mayankrajgupta01@gmail.com."
+    ],
+    greetings: [
+        "Namaste! I'm Mayank's AI assistant. Ask me about his tech stack, Christ University, his pivot from Commerce, or his projects!",
+        "Hello! Want to know more about Mayank Raj Gupta's portfolio, full-stack projects, or how he uses AI tools like Claude and DeepSeek? Ask away!"
     ]
 };
 
@@ -72,9 +64,9 @@ const demoQuestions = [
     { id: 1, text: "Tell me about Mayank", category: "profile" },
     { id: 2, text: "What's his tech stack?", category: "stack" },
     { id: 3, text: "Latest projects?", category: "projects" },
-    { id: 4, text: "How to contact him?", category: "contact" },
-    { id: 5, text: "Where does he study?", category: "education" },
-    { id: 6, text: "Professional experience?", category: "experience" },
+    { id: 4, text: "Commerce to BCA Pivot?", category: "pivot" },
+    { id: 5, text: "How does he use AI tools?", category: "ai_tools" },
+    { id: 6, text: "Study at Christ University?", category: "christ_university" },
 ];
 
 export function AIAssistant() {
@@ -98,16 +90,18 @@ export function AIAssistant() {
         let category = 'fallback';
 
         if (lowerText.includes("future") || lowerText.includes("mba") || lowerText.includes("startup") || lowerText.includes("god") || lowerText.includes("years") || lowerText.includes("goal") || lowerText.includes("plan")) category = 'future';
-        else if (lowerText.includes("project") || lowerText.includes("work") || lowerText.includes("mrg") || lowerText.includes("proud") || lowerText.includes("build")) category = 'projects';
-        else if (lowerText.includes("stack") || lowerText.includes("tech") || lowerText.includes("skills") || lowerText.includes("language") || lowerText.includes("programming") || lowerText.includes("prompt")) category = 'stack';
-        else if (lowerText.includes("education") || lowerText.includes("study") || lowerText.includes("college") || lowerText.includes("university") || lowerText.includes("christ") || lowerText.includes("commerce") || lowerText.includes("science")) category = 'education';
-        else if (lowerText.includes("experience") || lowerText.includes("hackathon") || lowerText.includes("workshop") || lowerText.includes("activity") || lowerText.includes("yugastr") || lowerText.includes("ip")) category = 'experience';
-        else if (lowerText.includes("contact") || lowerText.includes("email") || lowerText.includes("phone") || lowerText.includes("call") || lowerText.includes("message")) category = 'contact';
+        else if (lowerText.includes("pivot") || lowerText.includes("commerce") || lowerText.includes("background") || lowerText.includes("switch")) category = 'pivot';
+        else if (lowerText.includes("ai") || lowerText.includes("chatgpt") || lowerText.includes("gemini") || lowerText.includes("claude") || lowerText.includes("deepseek") || lowerText.includes("prompt") || lowerText.includes("chatbot") || lowerText.includes("bot")) category = 'ai_tools';
+        else if (lowerText.includes("christ") || lowerText.includes("university") || lowerText.includes("college") || lowerText.includes("csa") || lowerText.includes("samagra")) category = 'christ_university';
+        else if (lowerText.includes("project") || lowerText.includes("work") || lowerText.includes("credex") || lowerText.includes("mart") || lowerText.includes("roshan") || lowerText.includes("flux") || lowerText.includes("build")) category = 'projects';
+        else if (lowerText.includes("stack") || lowerText.includes("tech") || lowerText.includes("skills") || lowerText.includes("language") || lowerText.includes("programming") || lowerText.includes("mysql") || lowerText.includes("react") || lowerText.includes("next")) category = 'stack';
+        else if (lowerText.includes("education") || lowerText.includes("study") || lowerText.includes("bca") || lowerText.includes("school") || lowerText.includes("degree")) category = 'education';
+        else if (lowerText.includes("experience") || lowerText.includes("hackathon") || lowerText.includes("workshop") || lowerText.includes("singularium") || lowerText.includes("shadowfox")) category = 'experience';
+        else if (lowerText.includes("contact") || lowerText.includes("email") || lowerText.includes("phone") || lowerText.includes("call") || lowerText.includes("mail") || lowerText.includes("reach")) category = 'contact';
         else if (lowerText.includes("where") || lowerText.includes("location") || lowerText.includes("live") || lowerText.includes("base") || lowerText.includes("bangalore")) category = 'location';
         else if (lowerText.includes("hobby") || lowerText.includes("outside") || lowerText.includes("cycling") || lowerText.includes("travel") || lowerText.includes("relax") || lowerText.includes("driving") || lowerText.includes("drive")) category = 'hobbies';
-        else if (lowerText.includes("ai") || lowerText.includes("chatgpt") || lowerText.includes("bot")) category = 'ai_philosophy';
-        else if (lowerText.includes("who") || lowerText.includes("profile") || lowerText.includes("bio") || lowerText.includes("mayank") || lowerText.includes("about")) category = 'profile';
-        else if (lowerText.includes("hi") || lowerText.includes("hello") || lowerText.includes("namaste") || lowerText.includes("hey")) category = 'greetings';
+        else if (lowerText.includes("who") || lowerText.includes("profile") || lowerText.includes("bio") || lowerText.includes("mayank") || lowerText.includes("about") || lowerText.includes("gupta")) category = 'profile';
+        else if (lowerText.includes("hi") || lowerText.includes("hello") || lowerText.includes("namaste") || lowerText.includes("hey") || lowerText.includes("greetings")) category = 'greetings';
 
         const variations = knowledgeResponses[category] ?? knowledgeResponses.fallback;
         const lastIndex = history[category] !== undefined ? history[category] : -1;
