@@ -302,6 +302,23 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
+    slug: "future-working-app",
+    title: "Future Working App",
+    subtitle: "Personal Product Idea & Landing",
+    description: "A private project geared for a personal product launch, featuring local market catalog browsing and clean responsive interfaces.",
+    techStack: ["React", "Vite", "Firebase", "Tailwind CSS"],
+    demoUrl: "https://mrg-idea.web.app/",
+    githubUrl: "https://github.com/M20A03/Future-working-app",
+    thumbnailAlt: "Future Working App Local Market Storefront",
+    category: "Full-Stack",
+    date: "2026",
+    color: "from-yellow-500/20 to-amber-500/20",
+    emoji: "💡",
+    image: "/images/future-working-app.png",
+    isPrivate: true,
+    stats: "React · Vite · Firebase Hosting",
+  },
+  {
     slug: "search-algorithm-simulator",
     title: "Search Algorithm Simulator",
     subtitle: "Linear & Binary Search Visualizer with AI",
