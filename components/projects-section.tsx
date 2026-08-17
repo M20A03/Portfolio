@@ -244,7 +244,7 @@ export function ProjectsSection() {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1 line-clamp-3">
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
                       {project.description}
                     </p>
 
