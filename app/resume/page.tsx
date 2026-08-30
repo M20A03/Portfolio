@@ -382,6 +382,8 @@ export default function ResumePage() {
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {[
+                "InHack - Hackathon (Media Meet 2026) - CHRIST University",
+                "CODEX'26 National Level AI Hackathon (2026)",
                 "YUGASTR IT FEST Hackathon (2026)",
                 "HACKNOVA Game Jam Participant - CHRIST University (2026)",
                 "Microsoft AI Prompt Engineering Masterclass",

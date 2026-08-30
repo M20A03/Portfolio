@@ -10,6 +10,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 const certifications = [
   {
     year: "2026",
+    title: "InHack - Hackathon (Media Meet 2026)",
+    issuer: "Department of Media Studies, CHRIST (Deemed to be University), Yeshwanthpur",
+    image: "/certificates/certificate-12.jpg",
+  },
+  {
+    year: "2026",
     title: "CODEX'26 National Level Online Hackathon (Theme: AI Solutions)",
     issuer: "Don Bosco College, KR Puram, Bengaluru (BITBLAZE BCA)",
     image: "/certificates/certificate-11.png",
