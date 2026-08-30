@@ -22,7 +22,7 @@ Comprehensive collection of **Senior Full-Stack Architect & Site Reliability Eng
 | **12** | [Online Meeting App](./online-meeting-app.md) | Meeting Lifecycle & Scheduling | Python (Flask), MySQL, Pandas, Jinja2 | [Live Demo](https://github.com/M20A03/OnlineMeetingApp-main) |
 | **13** | [Enterprise Indian ALPR](./license-plate-detection.md) | Computer Vision & Traffic Security | YOLO11/YOLOv8, CRNN/Transformers, OpenCV, Streamlit | [Live Demo](https://github.com/M20A03/License-Plate-Detection) |
 | **14** | [GMT Mart](./gmt-mart.md) | Neo-Futuristic Retail Platform | Next.js 16, Tailwind CSS v4, Supabase, Firebase, Zustand | [Live Demo](https://gmt-mart-black.vercel.app) |
-| **15** | [Karo Pitch (Startup Pitch)](./startup-pitch.md) | Founder-Investor Matchmaking | React 18, Vite, Framer Motion, Rollup Vendor Chunking | [Live Demo](https://github.com/M20A03/Startup-Pitch) |
+| **15** | [Karo Pitch (Startup Pitch)](./startup-pitch.md) | Founder-Investor Matchmaking | React 18, Vite, Framer Motion, Rollup Vendor Chunking | [Live Demo](https://startup-pitch-react.vercel.app/) |
 | **16** | [Nexus Scholar](./nexus-scholar.md) | Research Knowledge Graph & Literature | React 18, TS, Vite 5, Serverless API, PostgreSQL + pgvector | [Live Demo](https://nexus-scholar-huhs.vercel.app) |
 | **17** | [FLUX 2026](./flux.md) | Cyberpunk Tech Fest Platform | Next.js 16 / React 19 + Django REST Framework Backend | [Live Demo](https://github.com/M20A03/Flux-main) |
 

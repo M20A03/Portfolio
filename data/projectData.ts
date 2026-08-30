@@ -589,7 +589,7 @@ export const projectData: ProjectData[] = [
     description:
       "A high-conversion responsive landing page designed for a startup pitch portal ('KaroStartup'), featuring custom Framer Motion transitions, trust indicators, and keyboard-friendly bypass elements.",
     techStack: ["React", "Vite", "Framer Motion", "Lucide React", "Tailwind CSS"],
-    demoUrl: "https://startup-pitch-mu.vercel.app",
+    demoUrl: "https://startup-pitch-react.vercel.app/",
     githubUrl: "https://github.com/M20A03/Startup-Pitch",
     thumbnailAlt: "Startup Pitch Landing Page",
     category: "Frontend",

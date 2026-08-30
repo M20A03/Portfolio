@@ -2,7 +2,8 @@
 
 **Enterprise Modernization & Cross-Platform Resilience Overhaul for "Karo Pitch"**
 
-- **Target Product:** [Karo Pitch](https://github.com/M20A03/Startup-Pitch) — India's Premier Startup-Investor Matchmaking Platform
+- **Target Product:** [Karo Pitch](https://startup-pitch-react.vercel.app/) — India's Premier Startup-Investor Matchmaking Platform
+- **Live Demo:** [startup-pitch-react.vercel.app](https://startup-pitch-react.vercel.app/)
 - **Role:** Full-Stack Architect & Site Reliability Engineer (SRE)
 - **Tech Stack:** React 18, Vite, Framer Motion, Lucide Icons, Modern CSS Custom Properties, Rollup
 - **Codebase Repository:** [github.com/M20A03/Startup-Pitch](https://github.com/M20A03/Startup-Pitch)
