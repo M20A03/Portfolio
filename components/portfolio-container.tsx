@@ -16,7 +16,7 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { SectionDivider } from "@/components/section-divider";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Heart, Sparkles } from "lucide-react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const siteUrl = "https://www.mayankraj.me";
 

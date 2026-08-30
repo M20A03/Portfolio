@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -11,10 +11,10 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <AnimatePresence mode="wait">
       <motion.div
         key={pathname}
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0.9, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -15 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
+        exit={{ opacity: 0.9, y: -8 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
       >
         {children}
       </motion.div>

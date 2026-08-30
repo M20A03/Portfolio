@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Terminal, Home, Construction } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";

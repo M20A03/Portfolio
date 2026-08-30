@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { getProjectBySlug } from "@/data/projectData";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const siteUrl = "https://www.mayankraj.me";
 

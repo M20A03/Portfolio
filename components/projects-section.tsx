@@ -8,7 +8,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { projectData, type ProjectData, type ProjectCategory } from "@/data/projectData";
 
