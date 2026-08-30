@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
-import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles, Briefcase, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
@@ -11,18 +11,18 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const roles = [
-  "Full-Stack Developer",
-  "MERN Stack Specialist",
-  "Next.js & React Architect",
-  "AntiGravity AI Specialist",
-  "Backend & REST API Engineer",
+  "Full-Stack & MERN Developer",
+  "Next.js 15 & React Architect",
+  "AI-Powered Workflows & LLMs",
+  "RESTful APIs & Backend Engineer",
+  "Cloud & SRE Infrastructure",
 ];
 
 const proofChips = [
-  "7+ deployed full-stack projects",
-  "MERN Stack & Next.js 15",
-  "AntiGravity AI Workflow",
-  "Open to full-stack roles & freelance",
+  "17+ Deployed Case Studies",
+  "React 19 & Next.js 15",
+  "TypeScript (Strict Mode)",
+  "AI-Powered Workflows & Auth",
 ];
 
 function MagneticIcon({ children, className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { children: React.ReactNode }) {
@@ -67,7 +67,7 @@ export function HeroSection() {
     setIsVisible(true);
   }, []);
 
-  // Mouse tracking for gradient blob
+  // Mouse tracking for subtle gradient blob on desktop
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!sectionRef.current) return;
@@ -82,17 +82,17 @@ export function HeroSection() {
     return () => section?.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Typing effect
+  // Smooth typing effect
   useEffect(() => {
     const current = roles[roleIndex];
     let timeout: NodeJS.Timeout;
 
     if (!isDeleting && displayed.length < current.length) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), Math.random() * 50 + 50);
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), Math.random() * 40 + 40);
     } else if (!isDeleting && displayed.length === current.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 2500);
+      timeout = setTimeout(() => setIsDeleting(true), 2400);
     } else if (isDeleting && displayed.length > 0) {
-      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
+      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 25);
     } else if (isDeleting && displayed.length === 0) {
       setIsDeleting(false);
       setRoleIndex((prev) => (prev + 1) % roles.length);
@@ -100,145 +100,139 @@ export function HeroSection() {
     return () => clearTimeout(timeout);
   }, [displayed, isDeleting, roleIndex]);
 
-  const scrollToAbout = () => {
-    const element = document.getElementById("about");
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Particle canvas */}
+    <section
+      id="hero"
+      aria-label="Introduction & Overview"
+      ref={sectionRef}
+      className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-16 sm:py-20"
+    >
+      {/* Particle background */}
       <ParticleBackground />
 
       {/* Mouse-following gradient blob */}
       <div
-        className="absolute pointer-events-none w-[500px] h-[500px] rounded-full opacity-20 blur-3xl bg-primary/30 transition-transform duration-[2000ms] ease-out"
+        className="absolute pointer-events-none w-[450px] h-[450px] rounded-full opacity-20 blur-3xl bg-primary/30 transition-transform duration-[1500ms] ease-out hidden md:block"
         style={{
-          left: mousePos.x - 250,
-          top: mousePos.y - 250,
+          left: mousePos.x - 225,
+          top: mousePos.y - 225,
         }}
         aria-hidden="true"
       />
 
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl" />
+      {/* Ambient background glows */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-64 sm:w-80 h-64 sm:h-80 bg-primary/5 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1.2s" }}
+        />
       </div>
 
-      {/* Dot grid overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`,
-          backgroundSize: "32px 32px",
-        }}
-      />
+      {/* Main bounded container preventing 4K over-stretching */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 md:px-8 w-full min-h-[500px] flex flex-col justify-center">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-14">
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-12 pt-20 pb-10 w-full">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-16">
-
-          {/* LEFT: Text content */}
+          {/* LEFT: Core SEO & Action Column */}
           <div
-            className={`flex-1 text-center lg:text-left transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
+            className={`flex-1 text-center lg:text-left transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
           >
-            {/* Badge */}
-            <Badge variant="outline" className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border-primary/20 text-primary text-sm font-medium mb-6">
-              <Sparkles className="w-3.5 h-3.5" />
-              Open to opportunities
-            </Badge>
+            {/* Status Pill */}
+            <div className="flex justify-center lg:justify-start mb-5">
+              <Badge
+                variant="outline"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border-primary/20 text-primary text-xs sm:text-sm font-medium"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Available for Full-Stack &amp; SRE Roles
+              </Badge>
+            </div>
 
-            {/* Name */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-foreground mb-4 tracking-tight leading-tight">
+            {/* H1 Semantic Main Heading */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-foreground mb-3 tracking-tight leading-[1.15]">
               Mayank Raj{" "}
-              <span className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
+              <span className="bg-gradient-to-r from-primary via-blue-500 to-teal-400 bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient">
                 Gupta
               </span>
             </h1>
 
-            {/* Typing animation */}
+            {/* Dynamic Animated Role Ticker */}
             <div
-              className="text-2xl md:text-3xl text-muted-foreground font-light mb-6 min-h-[2.5rem] transition-all duration-1000"
-              style={{ transitionDelay: "200ms" }}
+              className="text-xl sm:text-2xl md:text-3xl text-foreground/90 font-medium mb-4 min-h-[2.25rem] flex items-center justify-center lg:justify-start"
               aria-live="polite"
             >
-              <span className="text-foreground font-medium">{displayed}</span>
-              <span className="animate-pulse text-primary" aria-hidden="true">|</span>
+              <span>{displayed}</span>
+              <span className="animate-pulse text-primary ml-1" aria-hidden="true">|</span>
             </div>
 
-            {/* Description */}
-            <p
-              className={`text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-              style={{ transitionDelay: "400ms" }}
-            >
-              I build scalable, high-performance web platforms and end-to-end applications as a <span className="text-foreground font-semibold">Full-Stack &amp; MERN Stack Developer</span> utilizing React, Next.js, Node.js, Express, and Firebase.
-            </p>
+            {/* H2 Semantic Punchy Tagline (Exactly 12 words) */}
+            <h2 className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed font-normal">
+              Full-Stack &amp; MERN Developer building high-performance, accessible web applications and AI-driven platforms.
+            </h2>
 
-            <div
-              className={`flex flex-wrap gap-2 justify-center lg:justify-start mb-8 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-              style={{ transitionDelay: "500ms" }}
-            >
+            {/* Feature Proof Badges (Wrap gracefully on 320px screens) */}
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-8">
               {proofChips.map((chip) => (
-                <Badge key={chip} variant="secondary" className="rounded-full px-3 py-1 bg-secondary border border-border">
+                <Badge
+                  key={chip}
+                  variant="secondary"
+                  className="rounded-full px-3 py-1 bg-secondary/80 border border-border text-xs text-foreground/90 font-medium shadow-xs"
+                >
                   {chip}
                 </Badge>
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div
-              className={`flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 mb-8 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-              style={{ transitionDelay: "600ms" }}
-            >
+            {/* TWO ACTIVE CTAs + RESUME BUTTON */}
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
               <Button
                 size="lg"
-                className="px-8 py-6 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/25"
-                onClick={() => {
-                  const element = document.getElementById("contact");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => scrollToSection("projects")}
+                className="w-full sm:w-auto px-7 py-6 text-sm sm:text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 gap-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary"
               >
-                Hire Me
+                <Code className="w-4 h-4" />
+                View My Work
               </Button>
+
               <Button
                 variant="outline"
                 size="lg"
-                className="px-8 py-6 text-base font-medium border-border hover:bg-secondary transition-all hover:scale-105 bg-transparent gap-2"
-                onClick={() => {
-                  const element = document.getElementById("projects");
-                  if (element) element.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => scrollToSection("contact")}
+                className="w-full sm:w-auto px-7 py-6 text-sm sm:text-base font-semibold border-border hover:bg-secondary hover:border-primary/50 transition-all hover:scale-105 active:scale-95 bg-background/80 gap-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary"
               >
-                View Projects
+                <Briefcase className="w-4 h-4" />
+                Hire Me / Freelance
               </Button>
+
               <Button
                 asChild
                 variant="ghost"
                 size="lg"
-                className="px-6 py-6 text-base font-medium gap-2 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all group"
+                className="w-full sm:w-auto px-5 py-6 text-sm sm:text-base font-medium gap-2 text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all active:scale-95 group focus-visible:ring-2 focus-visible:ring-primary"
               >
-                <a href="/RESUME_Mayank Raj Gupta.pdf" download="RESUME_Mayank Raj Gupta.pdf">
-                  <Download className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
-                  Download Resume
+                <a href="/resume.pdf" download="Mayank_Raj_Gupta_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+                  Resume
                 </a>
               </Button>
             </div>
 
-            {/* Social links */}
-            <div
-              className={`flex items-center justify-center lg:justify-start gap-4 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-              style={{ transitionDelay: "800ms" }}
-            >
+            {/* Social Channels */}
+            <div className="flex items-center justify-center lg:justify-start gap-3">
               {[
-                { href: "https://github.com/M20A03", icon: Github, label: "GitHub" },
-                { href: "https://www.linkedin.com/in/mayank-raj-gupta-159020396", icon: Linkedin, label: "LinkedIn" },
-                { href: "mailto:mayankrajgupta01@gmail.com", icon: Mail, label: "Email" },
+                { href: "https://github.com/M20A03", icon: Github, label: "GitHub Profile" },
+                { href: "https://www.linkedin.com/in/mayank-raj-gupta-159020396", icon: Linkedin, label: "LinkedIn Profile" },
+                { href: "mailto:mayankrajgupta01@gmail.com", icon: Mail, label: "Send Email" },
               ].map(({ href, icon: Icon, label }) => (
                 <Tooltip key={label}>
                   <TooltipTrigger asChild>
@@ -247,9 +241,9 @@ export function HeroSection() {
                       target={href.startsWith("mailto") ? undefined : "_blank"}
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 inline-block"
+                      className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 active:scale-95 inline-block focus-visible:ring-2 focus-visible:ring-primary"
                     >
-                      <Icon className="w-5 h-5" />
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </MagneticIcon>
                   </TooltipTrigger>
                   <TooltipContent>{label}</TooltipContent>
@@ -258,68 +252,62 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT: Avatar */}
+          {/* RIGHT: Avatar with Explicit Width & Height */}
           <motion.div
             className="flex-shrink-0"
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            animate={{
-              opacity: isVisible ? 1 : 0,
-              y: isVisible ? [0, -12, 0] : 30,
-              scale: isVisible ? 1 : 0.95,
-            }}
-            transition={{
-              opacity: { duration: 1.2 },
-              scale: { duration: 1.2 },
-              y: isVisible
-                ? {
-                    repeat: Infinity,
-                    duration: 5,
-                    ease: "easeInOut",
-                  }
-                : { duration: 1 },
-            }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-96 lg:h-96">
-              {/* Glow ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 via-primary/20 to-transparent blur-2xl animate-pulse" />
-              {/* Border gradient */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-primary/30 p-1">
-                <div className="w-full h-full rounded-full bg-background overflow-hidden flex items-center justify-center">
+            <div className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80">
+              {/* Outer Pulsing Glow Ring */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 via-blue-500/20 to-transparent blur-2xl animate-pulse pointer-events-none" />
+
+              {/* Gradient Border Frame */}
+              <div className="relative w-full h-full rounded-full bg-gradient-to-br from-primary to-primary/40 p-1 shadow-2xl shadow-primary/15">
+                <div className="w-full h-full rounded-full bg-background overflow-hidden flex items-center justify-center relative">
                   {avatarError ? (
-                    <span className="text-7xl select-none" aria-hidden="true">👨‍💻</span>
+                    <span className="text-6xl select-none" aria-hidden="true">👨‍💻</span>
                   ) : (
                     <Image
                       src="/placeholder-user.jpg"
-                      alt="Portrait of Mayank Raj Gupta"
-                      fill
-                      sizes="(max-width: 768px) 16rem, 24rem"
-                      className="object-cover rounded-full animate-pulse"
-                      style={{ animationDuration: "10s" }}
+                      alt="Portrait of Mayank Raj Gupta - Full Stack Developer"
+                      width={320}
+                      height={320}
+                      priority
+                      className="object-cover w-full h-full rounded-full"
                       onError={() => setAvatarError(true)}
                     />
                   )}
                 </div>
               </div>
-              {/* Orbiting decoration dots */}
-              <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary animate-bounce" style={{ animationDelay: "0.5s" }} />
-              <div className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: "1s" }} />
+
+              {/* Decorative Floating Status Rings */}
+              <div
+                className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-primary/80 border-2 border-background animate-bounce"
+                style={{ animationDelay: "0.4s" }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-blue-500/70 border-2 border-background animate-bounce"
+                style={{ animationDelay: "0.9s" }}
+                aria-hidden="true"
+              />
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <Separator className="max-w-xs mx-auto mb-6 mt-16 opacity-30" />
-        <div className="flex justify-center">
+        {/* Bottom Scroll Indicator */}
+        <div className="flex justify-center mt-12 sm:mt-16">
           <button
-            onClick={scrollToAbout}
-            className="text-muted-foreground hover:text-primary transition-colors animate-bounce cursor-pointer"
-            aria-label="Scroll down"
+            onClick={() => scrollToSection("about")}
+            className="text-muted-foreground hover:text-primary transition-colors animate-bounce p-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary rounded-full"
+            aria-label="Scroll down to About section"
           >
-            <ArrowDown className="w-6 h-6" />
+            <ArrowDown className="w-5 h-5" />
           </button>
         </div>
       </div>
     </section>
   );
 }
-
