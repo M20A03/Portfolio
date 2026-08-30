@@ -142,7 +142,7 @@ export function ProjectsSection() {
   }, [activeFilter]);
 
   return (
-    <section id="projects" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 md:px-12 bg-card/40">
+    <section id="projects" aria-label="Featured Projects and Engineering Case Studies" className="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 md:px-12 bg-card/40">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -163,37 +163,36 @@ export function ProjectsSection() {
           </p>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {categories.map((cat) => (
               <Button
                 key={cat}
                 variant={activeFilter === cat ? "default" : "outline"}
                 size="sm"
-                onClick={() => setActiveFilter(cat)}
-                className={`rounded-full transition-all ${
+                className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
                   activeFilter === cat
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                    : "bg-transparent border-border hover:border-primary hover:bg-primary/10 hover:text-primary"
+                    ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                    : "border-border hover:border-primary hover:bg-secondary bg-transparent"
                 }`}
+                onClick={() => setActiveFilter(cat)}
               >
                 {cat}
-                {cat !== "All" && (
-                  <span className="ml-1.5 text-xs opacity-70">
-                    ({projects.filter((p) => p.category === cat).length})
-                  </span>
-                )}
               </Button>
             ))}
           </div>
         </motion.div>
 
-        {/* Projects Grid with Staggered Children Animation */}
+        {/* Project Grid */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
             {visibleProjects.map((project) => (
-              <motion.div
+              <motion.article
                 key={project.slug}
                 variants={cardVariants}
                 initial="hidden"
@@ -203,6 +202,7 @@ export function ProjectsSection() {
                 layout
                 whileHover={{ y: -6 }}
                 whileTap={{ scale: 0.98 }}
+                className="h-full"
               >
                 <Card className="group relative border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 overflow-hidden flex flex-col h-full py-0 gap-0">
                   {/* Private badge */}
@@ -313,7 +313,7 @@ export function ProjectsSection() {
                     )}
                   </CardFooter>
                 </Card>
-              </motion.div>
+              </motion.article>
             ))}
           </AnimatePresence>
         </motion.div>

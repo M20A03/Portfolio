@@ -50,6 +50,15 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: "/resume.pdf",
+        headers: [
+          {
+            key: "Content-Disposition",
+            value: 'inline; filename="Mayank_Raj_Gupta_Resume.pdf"',
+          },
+        ],
+      },
     ];
   },
 };
