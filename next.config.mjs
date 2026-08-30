@@ -8,17 +8,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.mayankraj.me",
-          },
-        ],
-        destination: "https://mayankraj.me/:path*",
-        permanent: true,
-      },
-      {
         source: "/projects",
         destination: "/#projects",
         permanent: true,
