@@ -18,7 +18,7 @@ import AntigravityCanvas from "@/components/antigravity-canvas";
 import RetroWaveBackground from "@/components/retrowave-background";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Heart, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 
 const siteUrl = "https://www.mayankraj.me";
 
@@ -50,7 +50,7 @@ const socials = [
   },
 ];
 
-const sectionAnimation = {
+const sectionAnimation: HTMLMotionProps<"div"> = {
   initial: { opacity: 0, y: 40, scale: 0.99 },
   whileInView: { opacity: 1, y: 0, scale: 1 },
   viewport: { once: true, margin: "-80px" },
