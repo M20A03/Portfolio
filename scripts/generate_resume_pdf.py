@@ -1,4 +1,5 @@
 from pathlib import Path
+import shutil
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
@@ -9,6 +10,7 @@ from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, Tabl
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "public" / "RESUME_Mayank Raj Gupta.pdf"
+OUTPUT_STANDARDIZED = ROOT / "public" / "resume.pdf"
 
 styles = getSampleStyleSheet()
 styles.add(
@@ -16,10 +18,10 @@ styles.add(
         name="ResumeTitle",
         parent=styles["Title"],
         fontName="Helvetica-Bold",
-        fontSize=24,
-        leading=28,
-        textColor=colors.HexColor("#111827"),
-        spaceAfter=8,
+        fontSize=20,
+        leading=22,
+        textColor=colors.HexColor("#0f172a"),
+        spaceAfter=2,
         alignment=TA_LEFT,
     )
 )
@@ -28,10 +30,10 @@ styles.add(
         name="ResumeSubtitle",
         parent=styles["Normal"],
         fontName="Helvetica-Bold",
-        fontSize=11,
-        leading=14,
+        fontSize=9.5,
+        leading=12,
         textColor=colors.HexColor("#2563eb"),
-        spaceAfter=6,
+        spaceAfter=3,
     )
 )
 styles.add(
@@ -39,10 +41,10 @@ styles.add(
         name="ResumeBody",
         parent=styles["BodyText"],
         fontName="Helvetica",
-        fontSize=9.3,
-        leading=12,
-        textColor=colors.HexColor("#374151"),
-        spaceAfter=4,
+        fontSize=8.2,
+        leading=10.5,
+        textColor=colors.HexColor("#334155"),
+        spaceAfter=1.5,
     )
 )
 styles.add(
@@ -50,11 +52,11 @@ styles.add(
         name="ResumeSection",
         parent=styles["Heading2"],
         fontName="Helvetica-Bold",
-        fontSize=12,
-        leading=14,
-        textColor=colors.HexColor("#111827"),
-        spaceBefore=8,
-        spaceAfter=6,
+        fontSize=10,
+        leading=11.5,
+        textColor=colors.HexColor("#0f172a"),
+        spaceBefore=4.5,
+        spaceAfter=2.5,
     )
 )
 styles.add(
@@ -62,162 +64,185 @@ styles.add(
         name="ResumeSmall",
         parent=styles["BodyText"],
         fontName="Helvetica",
-        fontSize=8.4,
-        leading=10.2,
-        textColor=colors.HexColor("#4b5563"),
+        fontSize=7.8,
+        leading=9.5,
+        textColor=colors.HexColor("#475569"),
     )
 )
 
 story = []
 story.append(Paragraph("Mayank Raj Gupta", styles["ResumeTitle"]))
-story.append(Paragraph("Full-Stack Developer | BCA @ Christ University", styles["ResumeSubtitle"]))
+story.append(Paragraph("Full-Stack Developer | BCA Scholar @ Christ University, Bangalore", styles["ResumeSubtitle"]))
+
 contact = [
-    ["mayankrajgupta01@gmail.com", "+91 9835139865", "Bangalore, India"],
-    ["github.com/M20A03", "linkedin.com/in/mayank-raj-gupta-159020396", "mayankraj.me"],
+    ["mayankraj.gupta@bcah.christuniversity.in", "+91 9835139865", "Bangalore, India"],
+    ["Portfolio: mayankraj.me", "GitHub: github.com/M20A03", "LinkedIn: linkedin.com/in/mayank-raj-gupta-159020396"],
 ]
-contact_table = Table(contact, colWidths=[2.2 * inch, 2.4 * inch, 1.7 * inch])
+contact_table = Table(contact, colWidths=[2.6 * inch, 2.3 * inch, 2.5 * inch])
 contact_table.setStyle(
     TableStyle(
         [
             ("FONTNAME", (0, 0), (-1, -1), "Helvetica"),
-            ("FONTSIZE", (0, 0), (-1, -1), 8.6),
-            ("TEXTCOLOR", (0, 0), (-1, -1), colors.HexColor("#4b5563")),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
+            ("FONTSIZE", (0, 0), (-1, -1), 8),
+            ("TEXTCOLOR", (0, 0), (-1, -1), colors.HexColor("#475569")),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 0.5),
             ("TOPPADDING", (0, 0), (-1, -1), 0),
+            ("LEFTPADDING", (0, 0), (-1, -1), 0),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 0),
         ]
     )
 )
 story.append(contact_table)
-story.append(Spacer(1, 0.14 * inch))
+story.append(Spacer(1, 0.04 * inch))
 
+# Professional Summary
 summary = (
-    "Highly motivated Bachelor of Computer Applications (BCA) student at Christ University with a focus on building fast, "
-    "accessible, and conversion-ready web experiences. Expertise in React, Next.js, TypeScript, and Python, with a strong "
-    "foundation in DSA, UI/UX, and AI-assisted workflows. Proven ability to deliver deployed projects with live demos, strong "
-    "visual quality, and practical user flows. Eager to contribute to a product team through an internship or freelance role."
+    "BCA student at Christ University with hands-on experience engineering modern, responsive full-stack web applications. "
+    "Proficient in React, Next.js, TypeScript, JavaScript, Python, and Firebase, with solid foundations in Data Structures & Algorithms "
+    "and UI/UX design. Creator of multiple deployed production web portals and active national hackathon participant. "
+    "Seeking a Software Engineering Internship to apply full-stack problem solving and deliver user-focused product impact."
 )
-story.append(Paragraph("Professional Summary", styles["ResumeSection"]))
+story.append(Paragraph("PROFESSIONAL SUMMARY", styles["ResumeSection"]))
 story.append(Paragraph(summary, styles["ResumeBody"]))
 
-story.append(Paragraph("Education", styles["ResumeSection"]))
+# Education
+story.append(Paragraph("EDUCATION", styles["ResumeSection"]))
 edu_rows = [
     [
-        Paragraph("<b>Bachelor of Computer Applications (BCA)</b><br/>Christ University, Bangalore<br/>2025 — 2028", styles["ResumeBody"]),
-        Paragraph("3.33 / 4.0 CGPA (2nd Semester)<br/><font color='#2563eb'>Core focus on Software Engineering & Data Structures</font>", styles["ResumeBody"]),
+        Paragraph("<b>Bachelor of Computer Applications (BCA)</b><br/>Christ (Deemed to be University), Bangalore (2025 — 2029)", styles["ResumeBody"]),
+        Paragraph("<b>3.33 / 4.0 CGPA</b> (2nd Semester)<br/><font color='#2563eb'>Coursework: DSA, OOP, DBMS, Web Architecture</font>", styles["ResumeBody"]),
     ],
     [
-        Paragraph("<b>Class XII (CBSE) - Commerce</b><br/>Rajkamal Swarswati Vidya Mandir, Dhanbad<br/>2023 — 2025", styles["ResumeBody"]),
-        Paragraph("76%", styles["ResumeBody"]),
+        Paragraph("<b>Class XII (CBSE) — Senior Secondary</b><br/>Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023)", styles["ResumeBody"]),
+        Paragraph("<b>76.0%</b>", styles["ResumeBody"]),
     ],
 ]
-edu_table = Table(edu_rows, colWidths=[4.4 * inch, 2.5 * inch])
+edu_table = Table(edu_rows, colWidths=[4.9 * inch, 2.5 * inch])
 edu_table.setStyle(
     TableStyle(
         [
             ("VALIGN", (0, 0), (-1, -1), "TOP"),
-            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#d1d5db")),
-            ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e5e7eb")),
-            ("BACKGROUND", (0, 0), (-1, -1), colors.whitesmoke),
-            ("LEFTPADDING", (0, 0), (-1, -1), 8),
-            ("RIGHTPADDING", (0, 0), (-1, -1), 8),
-            ("TOPPADDING", (0, 0), (-1, -1), 6),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#cbd5e1")),
+            ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
+            ("LEFTPADDING", (0, 0), (-1, -1), 5),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+            ("TOPPADDING", (0, 0), (-1, -1), 3),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
         ]
     )
 )
 story.append(edu_table)
 
-story.append(Paragraph("Technical Projects", styles["ResumeSection"]))
+# Technical Projects
+story.append(Paragraph("TECHNICAL PROJECTS", styles["ResumeSection"]))
 projects = [
     (
         "MRG App: Next-Gen B2B2C Marketplace",
-        "Jan 2026 - Present",
-        "React, Next.js, Node.js, Firebase",
+        "React, Next.js, Node.js, Firebase Auth & Firestore",
+        "Live Demo: https://mrg-idea.web.app/",
         [
-            "Developing a scalable marketplace connecting wholesalers, retailers, and customers (Zepto/Blinkit model).",
-            "Implementing role-based flows, real-time inventory sync, and product discovery screens.",
-            "Designed a premium UI/UX system focused on clarity, trust, and performance.",
+            "Developing a full-scale marketplace platform connecting wholesalers, retailers, and customers.",
+            "Implementing role-based authentication, real-time inventory management, and intuitive product search flows.",
+            "Designed a modern, responsive UI with glassmorphism aesthetics and performance-first component architecture.",
         ],
     ),
     (
-        "DSA Search Algorithm Visualizer & AI Assistant",
-        "Feb 2026",
-        "JavaScript, HTML5, CSS3, AI Integration",
+        "Wholesale & Retail E-Commerce Website (Roshan Enterprises)",
+        "React (Vite), Firebase Auth/Firestore, Context API, Lucide",
+        "Live Demo: https://e-commerce-roshan-enterprises-dhn.web.app/",
         [
-            "Built 5+ visual simulations for Linear and Binary search with step-by-step animations.",
-            "Integrated 'Star-Command AI' to explain algorithmic concepts with guided prompts.",
-            "Optimized rendering logic for smooth, interactive learning experiences.",
+            "Engineered a production-ready commerce website supporting bulk wholesale ordering and retail consumer purchases.",
+            "Built dynamic catalog filtering, interactive cart management, and seamless order history tracking.",
+            "Enforced mobile-first responsive layouts, 16px iOS input zoom protection, and WCAG 2.1 AA accessibility checks.",
         ],
     ),
     (
-        "Wholesale & Retail E-Commerce Platform",
-        "Jan 2026",
-        "React (Vite), Firebase, Context API, Lucide",
+        "DSA Search Algorithm Visualizer & Space Explorer",
+        "JavaScript, HTML5, CSS3, AI Integration, WebAudio API",
+        "Live Demo: https://linear-and-binary-search.web.app/",
         [
-            "Full-stack platform for Roshan Enterprises supporting bulk and retail purchases.",
-            "Features secure checkout, product browsing, and a polished mobile-friendly shopping flow.",
-            "Delivered a live demo with performance-focused UI and responsive layouts.",
+            "Built 5+ step-by-step visual simulations for Linear and Binary search algorithms with dynamic visual pointer highlights.",
+            "Integrated 'Star-Command AI', an intelligent conversational assistant to guide students through algorithm logic.",
+            "Synthesized interactive audio frequencies for each comparison step to enhance educational comprehension.",
         ],
     ),
 ]
-for title, date, tech, bullets in projects:
-    story.append(Paragraph(f"<b>{title}</b> <font color='#6b7280'>| {date}</font>", styles["ResumeBody"]))
-    story.append(Paragraph(f"<font name='Helvetica-Oblique' color='#2563eb'>{tech}</font>", styles["ResumeSmall"]))
-    bullet_paras = [Paragraph(f"• {bullet}", styles["ResumeBody"]) for bullet in bullets]
-    for bullet in bullet_paras:
-        story.append(bullet)
-    story.append(Spacer(1, 0.04 * inch))
 
-story.append(Paragraph("Technical Skills", styles["ResumeSection"]))
+for title, tech, demo, bullets in projects:
+    story.append(Paragraph(f"<b>{title}</b> — <font color='#2563eb'>{demo}</font>", styles["ResumeBody"]))
+    story.append(Paragraph(f"<font name='Helvetica-Oblique' color='#475569'>{tech}</font>", styles["ResumeSmall"]))
+    for bullet in bullets:
+        story.append(Paragraph(f"• {bullet}", styles["ResumeBody"]))
+    story.append(Spacer(1, 0.02 * inch))
+
+# Technical Skills
+story.append(Paragraph("TECHNICAL SKILLS", styles["ResumeSection"]))
 skills = [
-    ("Languages", "C, C++, Python (Pandas/NumPy), JavaScript (ES6+), TypeScript"),
-    ("Frontend", "React, Next.js, Angular, Tailwind CSS, Framer Motion"),
-    ("Backend & Cloud", "Node.js, Firebase (Auth/Firestore), Python Flask"),
-    ("Database", "MySQL, Firestore"),
-    ("Developer Tools", "Git, GitHub, Vercel, VS Code, Figma"),
-    ("Other", "AI Prompt Engineering, DSA, UI/UX Design"),
+    ("Programming Languages", "C, C++, Python (Pandas, NumPy), JavaScript (ES6+), TypeScript, SQL"),
+    ("Frontend Frameworks", "React 19, Next.js 15, Angular, Tailwind CSS, Framer Motion, HTML5, CSS3"),
+    ("Backend & Databases", "Node.js, Express.js, Firebase (Auth & Firestore), Python Flask, MySQL"),
+    ("Developer Tools & Cloud", "Git, GitHub, Vercel, VS Code, Figma, Vite, Linux/Bash, Postman"),
+    ("Core Competencies", "Data Structures & Algorithms (DSA), UI/UX Design, AI Prompt Engineering, RESTful APIs"),
 ]
 skill_rows = [[Paragraph(f"<b>{cat}</b>", styles["ResumeBody"]), Paragraph(val, styles["ResumeBody"])] for cat, val in skills]
-skill_table = Table(skill_rows, colWidths=[1.35 * inch, 5.55 * inch])
+skill_table = Table(skill_rows, colWidths=[1.65 * inch, 5.75 * inch])
 skill_table.setStyle(
     TableStyle(
         [
             ("VALIGN", (0, 0), (-1, -1), "TOP"),
-            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#d1d5db")),
-            ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e5e7eb")),
-            ("BACKGROUND", (0, 0), (-1, -1), colors.whitesmoke),
-            ("LEFTPADDING", (0, 0), (-1, -1), 6),
-            ("RIGHTPADDING", (0, 0), (-1, -1), 6),
-            ("TOPPADDING", (0, 0), (-1, -1), 5),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#cbd5e1")),
+            ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
+            ("LEFTPADDING", (0, 0), (-1, -1), 4),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+            ("TOPPADDING", (0, 0), (-1, -1), 2.5),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5),
         ]
     )
 )
 story.append(skill_table)
 
-story.append(Paragraph("Achievements & Credentials", styles["ResumeSection"]))
-achievements = [
-    "YUGASTR IT FEST Hackathon (2026)",
-    "HACKNOVA Game Jam Participant - CHRIST University (2026)",
-    "Microsoft AI Prompt Engineering Masterclass",
-    "Infosys C & HTML5 Programming Certified",
-    "Leadership Skill Development - Christ University",
-    "Samsung Co-pilot Workshop Attendee",
+# Hackathons & Certifications (2-Column Grid to fit strictly on 1 page)
+story.append(Paragraph("HACKATHONS & CERTIFICATIONS", styles["ResumeSection"]))
+certs = [
+    [
+        Paragraph("• <b>InHack - Hackathon (Media Meet 2026)</b> — CHRIST University", styles["ResumeBody"]),
+        Paragraph("• <b>CODEX'26 National AI Hackathon</b> — Don Bosco College", styles["ResumeBody"]),
+    ],
+    [
+        Paragraph("• <b>YUGASTR IT FEST Hackathon (2026)</b> — Ramaiah College", styles["ResumeBody"]),
+        Paragraph("• <b>HACKNOVA Game Jam (2026)</b> — CHRIST University", styles["ResumeBody"]),
+    ],
+    [
+        Paragraph("• <b>AI Prompt Engineering Masterclass</b> — Microsoft & Reliance", styles["ResumeBody"]),
+        Paragraph("• <b>C & HTML5 Certified</b> — Infosys Springboard", styles["ResumeBody"]),
+    ],
 ]
-for item in achievements:
-    story.append(Paragraph(f"• {item}", styles["ResumeBody"]))
-
-story.append(Spacer(1, 0.12 * inch))
-story.append(Paragraph("Portfolio: mayankraj.me | Live demos available for selected projects", styles["ResumeSmall"]))
+cert_table = Table(certs, colWidths=[3.7 * inch, 3.7 * inch])
+cert_table.setStyle(
+    TableStyle(
+        [
+            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+            ("LEFTPADDING", (0, 0), (-1, -1), 0),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+            ("TOPPADDING", (0, 0), (-1, -1), 1),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 1),
+        ]
+    )
+)
+story.append(cert_table)
 
 doc = SimpleDocTemplate(
     str(OUTPUT),
     pagesize=A4,
-    rightMargin=0.55 * inch,
-    leftMargin=0.55 * inch,
-    topMargin=0.55 * inch,
-    bottomMargin=0.5 * inch,
+    rightMargin=0.35 * inch,
+    leftMargin=0.35 * inch,
+    topMargin=0.35 * inch,
+    bottomMargin=0.35 * inch,
 )
 
 doc.build(story)
-print(f"Wrote {OUTPUT}")
+
+shutil.copy(OUTPUT, OUTPUT_STANDARDIZED)
+print(f"Generated 1-page {OUTPUT} and {OUTPUT_STANDARDIZED}")
