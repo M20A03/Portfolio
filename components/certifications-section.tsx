@@ -10,6 +10,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 const certifications = [
   {
     year: "2026",
+    title: "Web Development Virtual Internship",
+    issuer: "ShadowFox",
+    image: "/certificates/certificate-13.png",
+  },
+  {
+    year: "2026",
     title: "InHack - Hackathon (Media Meet 2026)",
     issuer: "Department of Media Studies, CHRIST (Deemed to be University), Yeshwanthpur",
     image: "/certificates/certificate-12.jpg",

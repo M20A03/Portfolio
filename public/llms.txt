@@ -33,47 +33,41 @@ Each case study can be accessed at `https://www.mayankraj.me/case-study/[slug]`.
 - **Key Features:** Real-time Indian Rupee (₹) savings calculator with Lakh/Crore formatting, floating orb AI chatbot assistant powered by Anthropic's Claude API, spring-physics tickers, and glassmorphic dashboards.
 - **Outcome:** Shipped a high-speed, zero-latency auditing application optimizing AI SaaS spend for Indian startups.
 
-### 2. GMT Mart Grocery & Retail Platform (`/case-study/gmt-mart`)
-- **Category:** Full-Stack
-- **Tech Stack:** React, Next.js, Tailwind CSS v4, Supabase (PostgreSQL), Firebase (Auth & Functions), Zustand, PostHog.
-- **Key Features:** High-speed storefront with neon design, Firebase Functions Express.js middleware, relational database schemas for category/reviews, persistent cart, and product search.
-- **Outcome:** Deployed a functional retail storefront with persistent cart memory and user feedback tracking. (Note: Repository code is private).
-
-### 3. Wholesale & Retail E-Commerce (`/case-study/roshan-enterprises`)
+### 2. Wholesale & Retail E-Commerce (`/case-study/roshan-enterprises`)
 - **Category:** Full-Stack
 - **Tech Stack:** React, Vite, Firebase, Vanilla CSS, Lucide React, js-cookie.
 - **Key Features:** Dual checkout routes for retail and wholesale buyers, cookie-based session security, list virtualization for large catalog rendering, and responsive item cards.
 - **Outcome:** Built a comprehensive storefront handling complex B2B and B2C purchasing routes.
 
-### 4. FLUX - Cyberpunk IT & Cultural Fest (`/case-study/flux`)
-- **Category:** Frontend
-- **Tech Stack:** React, Next.js, Tailwind CSS v4, Axios, Lucide React, HTML5 Canvas.
-- **Key Features:** Interactive cyber-rain Canvas animation, custom keyword-matching assistant chatbot, hacker-themed sign-up modals, and a countdown timer.
-- **Outcome:** Created an immersive registration portal for Christ University CS Association fests. (Note: Repository code is private).
-
-### 5. Event Registration & Admin Desk (`/case-study/event-registration-desk-system`)
-- **Category:** Full-Stack
-- **Tech Stack:** Node.js, Express, EJS, Supabase (PostgreSQL), Nodemailer, HTML/CSS/JS.
-- **Key Features:** Input sanitation using express-validator, automated calendar invites (.ics invites via Nodemailer), and secure CSV dashboard exports for organizers.
-- **Outcome:** Deployed a secure tech conference administration system.
-
-### 6. Samagra - Computer Science Department Portal (`/case-study/samagra`)
+### 3. Samagra - Computer Science Department Portal (`/case-study/samagra`)
 - **Category:** Full-Stack
 - **Tech Stack:** React, Vite, Tailwind CSS v4, tsParticles, Lenis, Framer Motion, React Router v7, Zustand.
 - **Key Features:** Centralized club schedules, interactive blogging modules, custom smooth scrolling (Lenis), and tsParticles backdrop canvas.
 - **Outcome:** Centralized Christ University CS Association announcements on Vercel. (Note: Repository code is private).
 
-### 7. Future Working App (`/case-study/future-working-app`)
+### 4. Event Registration & Admin Desk (`/case-study/event-registration-desk-system`)
 - **Category:** Full-Stack
-- **Tech Stack:** React, Vite, Firebase, Tailwind CSS.
-- **Key Features:** Personal birthday launch project, featuring local market catalog browsing and clean interfaces.
-- **Outcome:** Private project, minimal details provided. (Note: Repository code is private).
+- **Tech Stack:** Node.js, Express, EJS, Supabase (PostgreSQL), Nodemailer, HTML/CSS/JS.
+- **Key Features:** Input sanitation using express-validator, automated calendar invites (.ics invites via Nodemailer), and secure CSV dashboard exports for organizers.
+- **Outcome:** Deployed a secure tech conference administration system.
 
-### 8. Search Algorithm Simulator (`/case-study/search-algorithm-simulator`)
+### 5. FLUX - Cyberpunk IT & Cultural Fest (`/case-study/flux`)
+- **Category:** Frontend
+- **Tech Stack:** React, Next.js, Tailwind CSS v4, Axios, Lucide React, HTML5 Canvas.
+- **Key Features:** Interactive cyber-rain Canvas animation, custom keyword-matching assistant chatbot, hacker-themed sign-up modals, and a countdown timer.
+- **Outcome:** Created an immersive registration portal for Christ University CS Association fests. (Note: Repository code is private).
+
+### 6. Search Algorithm Simulator (`/case-study/search-algorithm-simulator`)
 - **Category:** Tools
 - **Tech Stack:** JavaScript, HTML, CSS, Firebase, AI Chatbot.
 - **Key Features:** 5 visual simulation grids showing search steps, real-world scenario tools, and Star-Command AI chatbot.
 - **Outcome:** Visualized and simplified search logic for students.
+
+### 7. GMT Mart Grocery & Retail Platform (`/case-study/gmt-mart`)
+- **Category:** Full-Stack
+- **Tech Stack:** React, Next.js, Tailwind CSS v4, Supabase (PostgreSQL), Firebase (Auth & Functions), Zustand, PostHog.
+- **Key Features:** High-speed storefront with neon design, Firebase Functions Express.js middleware, relational database schemas for category/reviews, persistent cart, and product search.
+- **Outcome:** Deployed a functional retail storefront with persistent cart memory and user feedback tracking. (Note: Repository code is private).
 
 ---
 

@@ -4,7 +4,7 @@ import { BadgeCheck, Clock3, MessageSquareQuote, Rocket, Star, Sparkles } from "
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const proofStats = [
@@ -146,7 +146,7 @@ export function ProofSection() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 flex-1 flex flex-col justify-between">
-                  <p className="text-sm text-muted-foreground leading-relaxed italic">"{testimonials[0].quote}"</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed italic">&quot;{testimonials[0].quote}&quot;</p>
                   <div className="pt-2 border-t border-border/50">
                     <p className="text-sm font-semibold text-foreground">{testimonials[0].author}</p>
                     <p className="text-xs text-muted-foreground">{testimonials[0].role}</p>
@@ -173,7 +173,7 @@ export function ProofSection() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 flex-1 flex flex-col justify-between">
-                  <p className="text-sm text-muted-foreground leading-relaxed italic">"{testimonials[1].quote}"</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed italic">&quot;{testimonials[1].quote}&quot;</p>
                   <div className="pt-2 border-t border-border/50">
                     <p className="text-sm font-semibold text-foreground">{testimonials[1].author}</p>
                     <p className="text-xs text-muted-foreground">{testimonials[1].role}</p>

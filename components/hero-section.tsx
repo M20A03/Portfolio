@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
-import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles, Briefcase, Code } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download, Briefcase, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
-import { Separator } from "@/components/ui/separator";
 import { ParticleBackground } from "./particle-background";
 import Image from "next/image";
 import { motion } from "framer-motion";

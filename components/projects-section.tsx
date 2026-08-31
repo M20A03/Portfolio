@@ -10,7 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Image from "next/image";
-import { projectData, type ProjectData, type ProjectCategory } from "@/data/projectData";
+import { projectData, type ProjectData } from "@/data/projectData";
 
 type GithubRepo = {
   name: string;
@@ -81,7 +81,6 @@ export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<(typeof categories)[number]>("All");
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [projects, setProjects] = useState<ProjectData[]>(projectData);
-  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
 
   const INITIAL_PROJECT_COUNT = 6;
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
@@ -91,7 +90,6 @@ export function ProjectsSection() {
     let isMounted = true;
 
     async function fetchGithubMetadata() {
-      setIsLoadingProjects(true);
       try {
         const response = await fetch(
           `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100&type=owner`,
@@ -124,10 +122,6 @@ export function ProjectsSection() {
         }
       } catch {
         // Fallback to static projectData on network error
-      } finally {
-        if (isMounted) {
-          setIsLoadingProjects(false);
-        }
       }
     }
 

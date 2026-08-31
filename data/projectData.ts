@@ -82,50 +82,6 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "gmt-mart",
-    title: "GMT Mart Grocery & Retail Platform",
-    subtitle: "GMT Mart Storefront",
-    description:
-      "A high-performance e-commerce platform built for GMT MART. Features a stunning Antigravity neon design, a blazing fast Next.js storefront, a secure Firebase Cloud Functions Express.js API backend, and a Supabase PostgreSQL database.",
-    techStack: ["React", "Next.js", "Tailwind CSS v4", "Supabase", "Firebase", "Zustand", "PostHog"],
-    demoUrl: "https://gmt-mart-black.vercel.app",
-    githubUrl: "https://github.com/M20A03/Gmt-mart",
-    thumbnailAlt: "GMT Mart Online Grocery & Retail E-Commerce Application",
-    category: "Full-Stack",
-    date: "Jan 2026",
-    color: "from-emerald-500/20 to-lime-500/20",
-    emoji: "🏬",
-    image: "/images/gmt-mart.png",
-    isPrivate: true,
-    stats: "Next.js 16 · Supabase · Firebase SDK · Tailwind CSS v4",
-    outcome: "Built a modern e-commerce platform with real-time stock management, custom-designed banners, and persistent Zustand-based cart management.",
-    highlights: [
-      "Stunning 'Antigravity' neon design with full dark-mode responsiveness",
-      "Firebase Cloud Functions Express API serving as a middleware backend",
-      "Supabase DB schemas for categories, products, store reviews, and orders",
-      "Integrated analytics using PostHog client/node SDKs"
-    ],
-    featureTitle: "High-Speed Retail Commerce & Inventory UX",
-    process: [
-      {
-        title: "Problem",
-        text: "Create a unified grocery store that can handle fast product catalog queries, real-time reviews, and persistent state for user carts."
-      },
-      {
-        title: "Design",
-        text: "Implemented a dark-mode cyberpunk interface with green/cyan accents and Swiper.js image sliders."
-      },
-      {
-        title: "Build",
-        text: "Wrote Supabase SQL schemas for relational data, connected it to Next.js 16 and Tailwind CSS v4, and integrated Firebase Auth for admin dashboards."
-      },
-      {
-        title: "Outcome",
-        text: "Successfully deployed the live storefront on Vercel and configured the backend using Firebase hosting + functions."
-      }
-    ]
-  },
-  {
     slug: "roshan-enterprises",
     title: "Wholesale & Retail E-Commerce Website",
     subtitle: "Roshan Enterprises Storefront",
@@ -166,94 +122,6 @@ export const projectData: ProjectData[] = [
       {
         title: "Outcome",
         text: "Delivered a complete checkout journey with a polished interface and a live demo that is easy to present in interviews."
-      }
-    ]
-  },
-  {
-    slug: "flux",
-    title: "FLUX - Cyberpunk IT & Cultural Fest",
-    subtitle: "Christ University Department Fest",
-    description:
-      "A cyberpunk-themed intercollegiate fest website built for the Department of Computer Science. Features a gamified hacker registration sequence, countdown timer, matrix-rain canvas, and a built-in search chatbot.",
-    techStack: ["React", "Next.js", "Tailwind CSS v4", "Axios", "Lucide React"],
-    demoUrl: "https://flux-six-mu.vercel.app",
-    githubUrl: "https://github.com/M20A03/Flux",
-    thumbnailAlt: "FLUX IT & Cultural Fest Portal",
-    category: "Frontend",
-    date: "2026",
-    color: "from-purple-500/20 to-pink-500/20",
-    emoji: "⚡",
-    image: "/images/flux.png",
-    isPrivate: true,
-    stats: "Next.js 16 · Cyberpunk Theme · Canvas Effects · Custom Chatbot",
-    outcome: "Built a highly interactive event website with a custom keyword-matching assistant chatbot and mock registration api.",
-    highlights: [
-      "Custom matrix cyber-rain backdrop using HTML5 canvas context API",
-      "Built-in keyword-matching chatbot to assist attendees with event rules and fees",
-      "Interactive cyberpunk event grid showcasing tech and cultural categories",
-      "Mock registration modal with a gamified loading indicator"
-    ],
-    featureTitle: "Cyberpunk Immersive Landing & Event Assistant UX",
-    process: [
-      {
-        title: "Problem",
-        text: "Christ University fests need immersive, theme-focused portals that engage students and handle registrations."
-      },
-      {
-        title: "Design",
-        text: "Crafted a neon-glowing cyberpunk layout with matrix green, cyan, and magenta accent colors."
-      },
-      {
-        title: "Build",
-        text: "Implemented the site in Next.js 16 and Tailwind CSS v4, drawing a dynamic grid of technical and cultural events."
-      },
-      {
-        title: "Outcome",
-        text: "Delivered an interactive, theme-rich landing page complete with mock registration and an assistant bot."
-      }
-    ]
-  },
-  {
-    slug: "event-registration-desk-system",
-    title: "Event Registration & Admin Desk",
-    subtitle: "Annual Tech Conference 2025",
-    description:
-      "A production-ready event registration platform built for the Annual Tech Conference. Integrates Node.js Express routes, EJS template engine, Supabase PostgreSQL database, and Nodemailer for sending structured email confirmations with .ics calendar attachments.",
-    techStack: ["Node.js", "Express", "EJS", "Supabase", "PostgreSQL", "Nodemailer", "HTML/CSS/JS"],
-    demoUrl: "https://event-registration-desk-system.vercel.app",
-    githubUrl: "https://github.com/M20A03/Event-Registration-Desk-System",
-    thumbnailAlt: "Event Registration Desk Interface",
-    category: "Full-Stack",
-    date: "2026",
-    color: "from-purple-500/20 to-violet-500/20",
-    emoji: "🎟️",
-    image: "/images/event-registration.png",
-    isPrivate: false,
-    stats: "Node.js · EJS · Supabase DB · SMTP integration",
-    outcome: "Built a secure registration flow with duplicate checks, email templates with custom .ics calendar attachments, and an admin dashboard with CSV exporting.",
-    highlights: [
-      "Input sanitation and server-side validation using express-validator",
-      "Automated SMTP emails for attendees (with calendar invite) and organizers",
-      "Custom EJS templates rendering responsive forms and admin boards",
-      "Supabase PostgreSQL direct connections handling attendee storage"
-    ],
-    featureTitle: "Secure Attendee Registration & Database Infrastructure",
-    process: [
-      {
-        title: "Problem",
-        text: "Event hosts need a reliable registration page that sends immediate calendar attachments and a dashboard to download attendee lists as CSV."
-      },
-      {
-        title: "Design",
-        text: "Designed a simple, accessible layout for attendee sign-ups and a secure admin table view."
-      },
-      {
-        title: "Build",
-        text: "Developed Express backend routes, integrated node-postgres connections to Supabase, and used Nodemailer for mail SMTP transport."
-      },
-      {
-        title: "Outcome",
-        text: "Shipped the full-stack portal with automatic table provisioning and Vercel-ready serverless configurations."
       }
     ]
   },
@@ -302,21 +170,92 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "future-working-app",
-    title: "Future Working App",
-    subtitle: "Personal Product Idea & Landing",
-    description: "A private project geared for a personal product launch, featuring local market catalog browsing and clean responsive interfaces.",
-    techStack: ["React", "Vite", "Firebase", "Tailwind CSS"],
-    demoUrl: "https://mrg-idea.web.app/",
-    githubUrl: "https://github.com/M20A03/Future-working-app",
-    thumbnailAlt: "Future Working App Local Market Storefront",
+    slug: "event-registration-desk-system",
+    title: "Event Registration & Admin Desk",
+    subtitle: "Annual Tech Conference 2025",
+    description:
+      "A production-ready event registration platform built for the Annual Tech Conference. Integrates Node.js Express routes, EJS template engine, Supabase PostgreSQL database, and Nodemailer for sending structured email confirmations with .ics calendar attachments.",
+    techStack: ["Node.js", "Express", "EJS", "Supabase", "PostgreSQL", "Nodemailer", "HTML/CSS/JS"],
+    demoUrl: "https://event-registration-desk-system.vercel.app",
+    githubUrl: "https://github.com/M20A03/Event-Registration-Desk-System",
+    thumbnailAlt: "Event Registration Desk Interface",
     category: "Full-Stack",
     date: "2026",
-    color: "from-yellow-500/20 to-amber-500/20",
-    emoji: "💡",
-    image: "/images/future-working-app.png",
+    color: "from-purple-500/20 to-violet-500/20",
+    emoji: "🎟️",
+    image: "/images/event-registration.png",
+    isPrivate: false,
+    stats: "Node.js · EJS · Supabase DB · SMTP integration",
+    outcome: "Built a secure registration flow with duplicate checks, email templates with custom .ics calendar attachments, and an admin dashboard with CSV exporting.",
+    highlights: [
+      "Input sanitation and server-side validation using express-validator",
+      "Automated SMTP emails for attendees (with calendar invite) and organizers",
+      "Custom EJS templates rendering responsive forms and admin boards",
+      "Supabase PostgreSQL direct connections handling attendee storage"
+    ],
+    featureTitle: "Secure Attendee Registration & Database Infrastructure",
+    process: [
+      {
+        title: "Problem",
+        text: "Event hosts need a reliable registration page that sends immediate calendar attachments and a dashboard to download attendee lists as CSV."
+      },
+      {
+        title: "Design",
+        text: "Designed a simple, accessible layout for attendee sign-ups and a secure admin table view."
+      },
+      {
+        title: "Build",
+        text: "Developed Express backend routes, integrated node-postgres connections to Supabase, and used Nodemailer for mail SMTP transport."
+      },
+      {
+        title: "Outcome",
+        text: "Shipped the full-stack portal with automatic table provisioning and Vercel-ready serverless configurations."
+      }
+    ]
+  },
+  {
+    slug: "flux",
+    title: "FLUX - Cyberpunk IT & Cultural Fest",
+    subtitle: "Christ University Department Fest",
+    description:
+      "A cyberpunk-themed intercollegiate fest website built for the Department of Computer Science. Features a gamified hacker registration sequence, countdown timer, matrix-rain canvas, and a built-in search chatbot.",
+    techStack: ["React", "Next.js", "Tailwind CSS v4", "Axios", "Lucide React"],
+    demoUrl: "https://flux-six-mu.vercel.app",
+    githubUrl: "https://github.com/M20A03/Flux",
+    thumbnailAlt: "FLUX IT & Cultural Fest Portal",
+    category: "Frontend",
+    date: "2026",
+    color: "from-purple-500/20 to-pink-500/20",
+    emoji: "⚡",
+    image: "/images/flux.png",
     isPrivate: true,
-    stats: "React · Vite · Firebase Hosting",
+    stats: "Next.js 16 · Cyberpunk Theme · Canvas Effects · Custom Chatbot",
+    outcome: "Built a highly interactive event website with a custom keyword-matching assistant chatbot and mock registration api.",
+    highlights: [
+      "Custom matrix cyber-rain backdrop using HTML5 canvas context API",
+      "Built-in keyword-matching chatbot to assist attendees with event rules and fees",
+      "Interactive cyberpunk event grid showcasing tech and cultural categories",
+      "Mock registration modal with a gamified loading indicator"
+    ],
+    featureTitle: "Cyberpunk Immersive Landing & Event Assistant UX",
+    process: [
+      {
+        title: "Problem",
+        text: "Christ University fests need immersive, theme-focused portals that engage students and handle registrations."
+      },
+      {
+        title: "Design",
+        text: "Crafted a neon-glowing cyberpunk layout with matrix green, cyan, and magenta accent colors."
+      },
+      {
+        title: "Build",
+        text: "Implemented the site in Next.js 16 and Tailwind CSS v4, drawing a dynamic grid of technical and cultural events."
+      },
+      {
+        title: "Outcome",
+        text: "Delivered an interactive, theme-rich landing page complete with mock registration and an assistant bot."
+      }
+    ]
   },
   {
     slug: "search-algorithm-simulator",
@@ -359,182 +298,6 @@ export const projectData: ProjectData[] = [
       {
         title: "Outcome",
         text: "Created an engaging learning application used by peers and instructors to master core DSA concepts."
-      }
-    ]
-  },
-  {
-    slug: "study-archive",
-    title: "Study Archive (CampusShare)",
-    subtitle: "Campus Resource & Notes Sharing Platform",
-    description:
-      "A campus resource platform built to help students manage, share, and access study materials, notes, and previous year questions. Powered by Firebase real-time database for seamless collaboration.",
-    techStack: ["HTML", "CSS", "JavaScript", "Firebase"],
-    demoUrl: "https://straw-hats-7795d.web.app",
-    githubUrl: "https://github.com/M20A03/StudyArchive",
-    thumbnailAlt: "Study Archive Campus Material Platform Interface",
-    category: "Full-Stack",
-    date: "Feb 2026",
-    color: "from-purple-500/20 to-pink-500/20",
-    emoji: "📚",
-    image: "/images/project-study-archive.png",
-    isPrivate: false,
-    stats: "Firebase Realtime DB · Cloud Storage · Student Portal",
-    outcome: "Created a single access point for study resources with cloud-backed updates.",
-    highlights: [
-      "Centralized study notes, syllabus PDFs, and previous year questions",
-      "Firebase realtime database backend for instant resource sync across devices",
-      "Clean filterable category navigation designed for rapid exam prep",
-      "Live deployment serving active university students"
-    ],
-    featureTitle: "Cloud Collaboration & Academic Resource UX",
-    process: [
-      {
-        title: "Problem",
-        text: "Course materials were fragmented across multiple chat groups and hard to search during exam prep."
-      },
-      {
-        title: "Design",
-        text: "Organized resources by subject, semester, and material type with quick search and preview features."
-      },
-      {
-        title: "Build",
-        text: "Connected client interfaces directly with Firebase Cloud Storage and Realtime Database."
-      },
-      {
-        title: "Outcome",
-        text: "Built a reliable hub that streamlines academic resource distribution for students."
-      }
-    ]
-  },
-  {
-    slug: "yolo11-deep-learning",
-    title: "YOLOv11 Computer Vision & Object Detection System",
-    subtitle: "Confidential Deep Learning Research @ Christ University",
-    description:
-      "A confidential deep learning research project utilizing state-of-the-art YOLOv11 computer vision architecture for high-speed object detection, spatial tracking, and automated image feature classification.",
-    techStack: ["YOLOv11", "PyTorch", "Python", "Computer Vision", "OpenCV", "Deep Learning"],
-    demoUrl: null,
-    githubUrl: null,
-    thumbnailAlt: "YOLOv11 Deep Learning Computer Vision System",
-    category: "Tools",
-    date: "2026 — Present",
-    color: "from-purple-500/20 to-cyan-500/20",
-    emoji: "👁️",
-    image: "/images/yolo11-preview.svg",
-    isPrivate: true,
-    stats: "Confidential Research · YOLOv11 · Christ University",
-    outcome: "Trained and evaluated custom YOLOv11 object detection pipelines for specialized vision benchmarks.",
-    highlights: [
-      "Confidential research project supervised at Christ University",
-      "YOLOv11 neural network backbone optimized for low-latency visual inference",
-      "Custom dataset annotation, feature extraction, and bounding-box evaluation",
-      "Designed for real-time edge hardware deployment and spatial analysis"
-    ],
-    featureTitle: "Computer Vision Architecture & Neural Inference",
-    process: [
-      {
-        title: "Research & Design",
-        text: "Formulated object detection objectives and prepared annotated image datasets for YOLOv11 fine-tuning."
-      },
-      {
-        title: "Model Training",
-        text: "Trained YOLOv11 detection models with custom hyperparameters, data augmentations, and loss functions."
-      },
-      {
-        title: "Evaluation",
-        text: "Benchmarked mean Average Precision (mAP) and inference latency across diverse testing conditions."
-      },
-      {
-        title: "Outcome",
-        text: "Shipped a high-accuracy computer vision pipeline for academic research applications."
-      }
-    ]
-  },
-  {
-    slug: "thermino-software-project",
-    title: "Thermino Thermal Analytics & Modeling System",
-    subtitle: "Confidential Deep Learning Project @ Christ University",
-    description:
-      "An advanced thermal analytics and deep learning software application engineered for heat distribution modeling, automated infrared anomaly detection, and predictive thermal profiling.",
-    techStack: ["Deep Learning", "Python", "React", "TypeScript", "Thermal Modeling", "PyTorch"],
-    demoUrl: null,
-    githubUrl: null,
-    thumbnailAlt: "Thermino Thermal Analytics & Deep Learning System",
-    category: "Full-Stack",
-    date: "2026 — Present",
-    color: "from-red-500/20 to-orange-500/20",
-    emoji: "🔥",
-    image: "/images/thermino-preview.svg",
-    isPrivate: true,
-    stats: "Confidential Software · Thermal Deep Learning · Christ University",
-    outcome: "Engineered specialized deep learning models for thermal heat map analysis and automated diagnostics.",
-    highlights: [
-      "Confidential software platform developed under Christ University guidance",
-      "Deep learning neural networks for infrared pattern recognition and thermal gradients",
-      "Full-stack analytical dashboard rendering dynamic heat maps and predictive graphs",
-      "Integrated anomaly detection alerting for critical temperature thresholds"
-    ],
-    featureTitle: "Thermal Intelligence & Predictive Deep Learning",
-    process: [
-      {
-        title: "Data Acquisition",
-        text: "Ingested thermal sensor arrays and infrared image feeds into pre-processing data pipelines."
-      },
-      {
-        title: "Model Engineering",
-        text: "Developed deep learning regression and classification models to identify thermal hotspots."
-      },
-      {
-        title: "Frontend Integration",
-        text: "Built a responsive dashboard to visualize thermal telemetry and real-time inference results."
-      },
-      {
-        title: "Outcome",
-        text: "Delivered a full-stack thermal analytics suite for experimental and industrial evaluation."
-      }
-    ]
-  },
-  {
-    slug: "pokedex-lite",
-    title: "Pokedex Lite",
-    subtitle: "Lightweight Pokemon Encyclopedia",
-    description:
-      "A fast, responsive web application for exploring Pokemon stats, abilities, evolutions, and elemental types using data fetched directly from the official RESTful PokéAPI. Implements custom type-based color attributes.",
-    techStack: ["JavaScript", "React", "PokeAPI", "Firebase", "CSS"],
-    demoUrl: "https://pokedex-deepsolv.web.app/",
-    githubUrl: "https://github.com/M20A03/Pokedex-Lite",
-    thumbnailAlt: "Pokedex Lite Pokemon Discovery Application Interface",
-    category: "Full-Stack",
-    date: "2026",
-    color: "from-amber-500/20 to-red-500/20",
-    emoji: "⚡",
-    image: "/images/pokedex-lite.png",
-    isPrivate: false,
-    stats: "REST API · React · PokéAPI Integration",
-    outcome: "Built an energetic, zero-latency visual encyclopedia with client-side caching.",
-    highlights: [
-      "Asynchronous fetching from PokéAPI with client-side request caching",
-      "Type-based color accents matching Pokemon elemental attributes",
-      "Search-as-you-type filtering and modal view for detailed stat distributions",
-      "Mobile-first responsive design with smooth animations"
-    ],
-    featureTitle: "API Data Integration & Interactive Filtering",
-    process: [
-      {
-        title: "Problem",
-        text: "Standard Pokédex web tools can feel slow due to heavy asset payloads and unoptimized API calls."
-      },
-      {
-        title: "Design",
-        text: "Designed vibrant card UI components featuring dynamic color themes based on Pokémon types."
-      },
-      {
-        title: "Build",
-        text: "Structured asynchronous fetch calls, debounced search input, and client memory caching."
-      },
-      {
-        title: "Outcome",
-        text: "Delivered a snappy, enjoyable interactive encyclopedia web app."
       }
     ]
   },
@@ -583,46 +346,90 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "startup-pitch",
-    title: "Startup Pitch",
-    subtitle: "Business Landing Page",
+    slug: "thermino-software-project",
+    title: "Thermino Thermal Analytics & Modeling System",
+    subtitle: "Confidential Deep Learning Project @ Christ University",
     description:
-      "A high-conversion responsive landing page designed for a startup pitch portal ('KaroStartup'), featuring custom Framer Motion transitions, trust indicators, and keyboard-friendly bypass elements.",
-    techStack: ["React", "Vite", "Framer Motion", "Lucide React", "Tailwind CSS"],
-    demoUrl: "https://startup-pitch-react.vercel.app/",
-    githubUrl: "https://github.com/M20A03/Startup-Pitch",
-    thumbnailAlt: "Startup Pitch Landing Page",
-    category: "Frontend",
-    date: "2026",
-    color: "from-amber-500/20 to-orange-500/20",
-    emoji: "🚀",
-    image: "/images/startup-pitch.png",
-    isPrivate: false,
-    stats: "Vite · Framer Motion · a11y focus states",
-    outcome: "Designed and engineered an accessible landing page for startup pitch consultations.",
+      "An advanced thermal analytics and deep learning software application engineered for heat distribution modeling, automated infrared anomaly detection, and predictive thermal profiling.",
+    techStack: ["Deep Learning", "Python", "React", "TypeScript", "Thermal Modeling", "PyTorch"],
+    demoUrl: null,
+    githubUrl: null,
+    thumbnailAlt: "Thermino Thermal Analytics & Deep Learning System",
+    category: "Full-Stack",
+    date: "2026 — Present",
+    color: "from-red-500/20 to-orange-500/20",
+    emoji: "🔥",
+    image: "/images/thermino-preview.svg",
+    isPrivate: true,
+    stats: "Confidential Software · Thermal Deep Learning · Christ University",
+    outcome: "Engineered specialized deep learning models for thermal heat map analysis and automated diagnostics.",
     highlights: [
-      "Beautiful section scroll reveals using react-intersection-observer",
-      "Custom framer-motion slide-ins and interactive card animations",
-      "Skip-to-main content accessibility keyboard bypass routing",
-      "Responsive layout for mobile screens up to wide desktop monitors"
+      "Confidential software platform developed under Christ University guidance",
+      "Deep learning neural networks for infrared pattern recognition and thermal gradients",
+      "Full-stack analytical dashboard rendering dynamic heat maps and predictive graphs",
+      "Integrated anomaly detection alerting for critical temperature thresholds"
     ],
-    featureTitle: "Conversion Landing Page & Accessibility Engineering",
+    featureTitle: "Thermal Intelligence & Predictive Deep Learning",
     process: [
       {
-        title: "Problem",
-        text: "Startups need an elegant visual portal that establishes immediate trust with investors."
+        title: "Data Acquisition",
+        text: "Ingested thermal sensor arrays and infrared image feeds into pre-processing data pipelines."
       },
       {
-        title: "Design",
-        text: "Created a modern gradient layout with clean typography, spacing, and structured cards."
+        title: "Model Engineering",
+        text: "Developed deep learning regression and classification models to identify thermal hotspots."
       },
       {
-        title: "Build",
-        text: "Wrote reusable React items, configured Framer Motion triggers, and added keyboard outline focus rules."
+        title: "Frontend Integration",
+        text: "Built a responsive dashboard to visualize thermal telemetry and real-time inference results."
       },
       {
         title: "Outcome",
-        text: "Delivered a clean static page prototype optimized for conversion."
+        text: "Delivered a full-stack thermal analytics suite for experimental and industrial evaluation."
+      }
+    ]
+  },
+  {
+    slug: "yolo11-deep-learning",
+    title: "YOLOv11 Computer Vision & Object Detection System",
+    subtitle: "Confidential Deep Learning Research @ Christ University",
+    description:
+      "A confidential deep learning research project utilizing state-of-the-art YOLOv11 computer vision architecture for high-speed object detection, spatial tracking, and automated image feature classification.",
+    techStack: ["YOLOv11", "PyTorch", "Python", "Computer Vision", "OpenCV", "Deep Learning"],
+    demoUrl: null,
+    githubUrl: null,
+    thumbnailAlt: "YOLOv11 Deep Learning Computer Vision System",
+    category: "Tools",
+    date: "2026 — Present",
+    color: "from-purple-500/20 to-cyan-500/20",
+    emoji: "👁️",
+    image: "/images/yolo11-preview.svg",
+    isPrivate: true,
+    stats: "Confidential Research · YOLOv11 · Christ University",
+    outcome: "Trained and evaluated custom YOLOv11 object detection pipelines for specialized vision benchmarks.",
+    highlights: [
+      "Confidential research project supervised at Christ University",
+      "YOLOv11 neural network backbone optimized for low-latency visual inference",
+      "Custom dataset annotation, feature extraction, and bounding-box evaluation",
+      "Designed for real-time edge hardware deployment and spatial analysis"
+    ],
+    featureTitle: "Computer Vision Architecture & Neural Inference",
+    process: [
+      {
+        title: "Research & Design",
+        text: "Formulated object detection objectives and prepared annotated image datasets for YOLOv11 fine-tuning."
+      },
+      {
+        title: "Model Training",
+        text: "Trained YOLOv11 detection models with custom hyperparameters, data augmentations, and loss functions."
+      },
+      {
+        title: "Evaluation",
+        text: "Benchmarked mean Average Precision (mAP) and inference latency across diverse testing conditions."
+      },
+      {
+        title: "Outcome",
+        text: "Shipped a high-accuracy computer vision pipeline for academic research applications."
       }
     ]
   },
@@ -667,6 +474,138 @@ export const projectData: ProjectData[] = [
       {
         title: "Outcome",
         text: "Shipped a reactive single-page app deployed on Firebase Hosting."
+      }
+    ]
+  },
+  {
+    slug: "startup-pitch",
+    title: "Startup Pitch",
+    subtitle: "Business Landing Page",
+    description:
+      "A high-conversion responsive landing page designed for a startup pitch portal ('KaroStartup'), featuring custom Framer Motion transitions, trust indicators, and keyboard-friendly bypass elements.",
+    techStack: ["React", "Vite", "Framer Motion", "Lucide React", "Tailwind CSS"],
+    demoUrl: "https://startup-pitch-react.vercel.app/",
+    githubUrl: "https://github.com/M20A03/Startup-Pitch",
+    thumbnailAlt: "Startup Pitch Landing Page",
+    category: "Frontend",
+    date: "2026",
+    color: "from-amber-500/20 to-orange-500/20",
+    emoji: "🚀",
+    image: "/images/startup-pitch.png",
+    isPrivate: false,
+    stats: "Vite · Framer Motion · a11y focus states",
+    outcome: "Designed and engineered an accessible landing page for startup pitch consultations.",
+    highlights: [
+      "Beautiful section scroll reveals using react-intersection-observer",
+      "Custom framer-motion slide-ins and interactive card animations",
+      "Skip-to-main content accessibility keyboard bypass routing",
+      "Responsive layout for mobile screens up to wide desktop monitors"
+    ],
+    featureTitle: "Conversion Landing Page & Accessibility Engineering",
+    process: [
+      {
+        title: "Problem",
+        text: "Startups need an elegant visual portal that establishes immediate trust with investors."
+      },
+      {
+        title: "Design",
+        text: "Created a modern gradient layout with clean typography, spacing, and structured cards."
+      },
+      {
+        title: "Build",
+        text: "Wrote reusable React items, configured Framer Motion triggers, and added keyboard outline focus rules."
+      },
+      {
+        title: "Outcome",
+        text: "Delivered a clean static page prototype optimized for conversion."
+      }
+    ]
+  },
+  {
+    slug: "study-archive",
+    title: "Study Archive (CampusShare)",
+    subtitle: "Campus Resource & Notes Sharing Platform",
+    description:
+      "A campus resource platform built to help students manage, share, and access study materials, notes, and previous year questions. Powered by Firebase real-time database for seamless collaboration.",
+    techStack: ["HTML", "CSS", "JavaScript", "Firebase"],
+    demoUrl: "https://straw-hats-7795d.web.app",
+    githubUrl: "https://github.com/M20A03/StudyArchive",
+    thumbnailAlt: "Study Archive Campus Material Platform Interface",
+    category: "Full-Stack",
+    date: "Feb 2026",
+    color: "from-purple-500/20 to-pink-500/20",
+    emoji: "📚",
+    image: "/images/project-study-archive.png",
+    isPrivate: false,
+    stats: "Firebase Realtime DB · Cloud Storage · Student Portal",
+    outcome: "Created a single access point for study resources with cloud-backed updates.",
+    highlights: [
+      "Centralized study notes, syllabus PDFs, and previous year questions",
+      "Firebase realtime database backend for instant resource sync across devices",
+      "Clean filterable category navigation designed for rapid exam prep",
+      "Live deployment serving active university students"
+    ],
+    featureTitle: "Cloud Collaboration & Academic Resource UX",
+    process: [
+      {
+        title: "Problem",
+        text: "Course materials were fragmented across multiple chat groups and hard to search during exam prep."
+      },
+      {
+        title: "Design",
+        text: "Organized resources by subject, semester, and material type with quick search and preview features."
+      },
+      {
+        title: "Build",
+        text: "Connected client interfaces directly with Firebase Cloud Storage and Realtime Database."
+      },
+      {
+        title: "Outcome",
+        text: "Built a reliable hub that streamlines academic resource distribution for students."
+      }
+    ]
+  },
+  {
+    slug: "pokedex-lite",
+    title: "Pokedex Lite",
+    subtitle: "Lightweight Pokemon Encyclopedia",
+    description:
+      "A fast, responsive web application for exploring Pokemon stats, abilities, evolutions, and elemental types using data fetched directly from the official RESTful PokéAPI. Implements custom type-based color attributes.",
+    techStack: ["JavaScript", "React", "PokeAPI", "Firebase", "CSS"],
+    demoUrl: "https://pokedex-deepsolv.web.app/",
+    githubUrl: "https://github.com/M20A03/Pokedex-Lite",
+    thumbnailAlt: "Pokedex Lite Pokemon Discovery Application Interface",
+    category: "Full-Stack",
+    date: "2026",
+    color: "from-amber-500/20 to-red-500/20",
+    emoji: "⚡",
+    image: "/images/pokedex-lite.png",
+    isPrivate: false,
+    stats: "REST API · React · PokéAPI Integration",
+    outcome: "Built an energetic, zero-latency visual encyclopedia with client-side caching.",
+    highlights: [
+      "Asynchronous fetching from PokéAPI with client-side request caching",
+      "Type-based color accents matching Pokemon elemental attributes",
+      "Search-as-you-type filtering and modal view for detailed stat distributions",
+      "Mobile-first responsive design with smooth animations"
+    ],
+    featureTitle: "API Data Integration & Interactive Filtering",
+    process: [
+      {
+        title: "Problem",
+        text: "Standard Pokédex web tools can feel slow due to heavy asset payloads and unoptimized API calls."
+      },
+      {
+        title: "Design",
+        text: "Designed vibrant card UI components featuring dynamic color themes based on Pokémon types."
+      },
+      {
+        title: "Build",
+        text: "Structured asynchronous fetch calls, debounced search input, and client memory caching."
+      },
+      {
+        title: "Outcome",
+        text: "Delivered a snappy, enjoyable interactive encyclopedia web app."
       }
     ]
   },
@@ -759,6 +698,67 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
+    slug: "lumi-glow",
+    title: "Lumi Glow Beauty Storefront",
+    subtitle: "Lumi Glow",
+    description:
+      "A modern makeup and beauty products website designed to showcase beauty collections with elegant product presentation, responsive shopping-style sections, and a polished user experience across devices.",
+    techStack: ["JavaScript", "HTML", "CSS", "Vite", "React"],
+    demoUrl: "https://lumi-glow-sigma.vercel.app",
+    githubUrl: "https://github.com/M20A03/Lumi-Glow",
+    thumbnailAlt: "Lumi Glow Modern Beauty Products Storefront Interface",
+    category: "Frontend",
+    date: "Mar 2026",
+    color: "from-pink-500/20 to-rose-500/20",
+    emoji: "✨",
+    image: "/images/lumi-glow.png",
+    isPrivate: false,
+    stats: "React · Vite · Storefront UI",
+    outcome: "Shipped a polished responsive storefront with strong visual hierarchy and brand-focused UI.",
+    highlights: [
+      "Polished beauty product showcase with premium visual hierarchy",
+      "Fully responsive design that looks stunning on mobile, tablet, and desktop",
+      "Modern styling with careful attention to spacing, typography, and brand consistency",
+      "Built with core web technologies for maximum accessibility and performance"
+    ],
+    featureTitle: "Visual Craftsmanship & Design System",
+    process: [
+      {
+        title: "Problem",
+        text: "A makeup brand needs a storefront that feels premium and inviting, selling through elegance rather than visual clutter."
+      },
+      {
+        title: "Design",
+        text: "Focused on clean layouts, generous whitespace, and a curated luxury color scheme."
+      },
+      {
+        title: "Build",
+        text: "Crafted custom responsive CSS and lightweight JavaScript components for quick rendering."
+      },
+      {
+        title: "Outcome",
+        text: "Shipped a design-forward platform demonstrating deep UI polish and responsive layout design."
+      }
+    ]
+  },
+  {
+    slug: "future-working-app",
+    title: "Future Working App",
+    subtitle: "Personal Product Idea & Landing",
+    description: "A private project geared for a personal product launch, featuring local market catalog browsing and clean responsive interfaces.",
+    techStack: ["React", "Vite", "Firebase", "Tailwind CSS"],
+    demoUrl: "https://mrg-idea.web.app/",
+    githubUrl: "https://github.com/M20A03/Future-working-app",
+    thumbnailAlt: "Future Working App Local Market Storefront",
+    category: "Full-Stack",
+    date: "2026",
+    color: "from-yellow-500/20 to-amber-500/20",
+    emoji: "💡",
+    image: "/images/future-working-app.png",
+    isPrivate: true,
+    stats: "React · Vite · Firebase Hosting",
+  },
+  {
     slug: "amazon-clone",
     title: "Amazon Clone",
     subtitle: "E-Commerce Mockup Interface",
@@ -803,46 +803,46 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "lumi-glow",
-    title: "Lumi Glow Beauty Storefront",
-    subtitle: "Lumi Glow",
+    slug: "gmt-mart",
+    title: "GMT Mart Grocery & Retail Platform",
+    subtitle: "GMT Mart Storefront",
     description:
-      "A modern makeup and beauty products website designed to showcase beauty collections with elegant product presentation, responsive shopping-style sections, and a polished user experience across devices.",
-    techStack: ["JavaScript", "HTML", "CSS", "Vite", "React"],
-    demoUrl: "https://lumi-glow-sigma.vercel.app",
-    githubUrl: "https://github.com/M20A03/Lumi-Glow",
-    thumbnailAlt: "Lumi Glow Modern Beauty Products Storefront Interface",
-    category: "Frontend",
-    date: "Mar 2026",
-    color: "from-pink-500/20 to-rose-500/20",
-    emoji: "✨",
-    image: "/images/lumi-glow.png",
-    isPrivate: false,
-    stats: "React · Vite · Storefront UI",
-    outcome: "Shipped a polished responsive storefront with strong visual hierarchy and brand-focused UI.",
+      "A high-performance e-commerce platform built for GMT MART. Features a stunning Antigravity neon design, a blazing fast Next.js storefront, a secure Firebase Cloud Functions Express.js API backend, and a Supabase PostgreSQL database.",
+    techStack: ["React", "Next.js", "Tailwind CSS v4", "Supabase", "Firebase", "Zustand", "PostHog"],
+    demoUrl: "https://gmt-mart-black.vercel.app",
+    githubUrl: "https://github.com/M20A03/Gmt-mart",
+    thumbnailAlt: "GMT Mart Online Grocery & Retail E-Commerce Application",
+    category: "Full-Stack",
+    date: "Jan 2026",
+    color: "from-emerald-500/20 to-lime-500/20",
+    emoji: "🏬",
+    image: "/images/gmt-mart.png",
+    isPrivate: true,
+    stats: "Next.js 16 · Supabase · Firebase SDK · Tailwind CSS v4",
+    outcome: "Built a modern e-commerce platform with real-time stock management, custom-designed banners, and persistent Zustand-based cart management.",
     highlights: [
-      "Polished beauty product showcase with premium visual hierarchy",
-      "Fully responsive design that looks stunning on mobile, tablet, and desktop",
-      "Modern styling with careful attention to spacing, typography, and brand consistency",
-      "Built with core web technologies for maximum accessibility and performance"
+      "Stunning 'Antigravity' neon design with full dark-mode responsiveness",
+      "Firebase Cloud Functions Express API serving as a middleware backend",
+      "Supabase DB schemas for categories, products, store reviews, and orders",
+      "Integrated analytics using PostHog client/node SDKs"
     ],
-    featureTitle: "Visual Craftsmanship & Design System",
+    featureTitle: "High-Speed Retail Commerce & Inventory UX",
     process: [
       {
         title: "Problem",
-        text: "A makeup brand needs a storefront that feels premium and inviting, selling through elegance rather than visual clutter."
+        text: "Create a unified grocery store that can handle fast product catalog queries, real-time reviews, and persistent state for user carts."
       },
       {
         title: "Design",
-        text: "Focused on clean layouts, generous whitespace, and a curated luxury color scheme."
+        text: "Implemented a dark-mode cyberpunk interface with green/cyan accents and Swiper.js image sliders."
       },
       {
         title: "Build",
-        text: "Crafted custom responsive CSS and lightweight JavaScript components for quick rendering."
+        text: "Wrote Supabase SQL schemas for relational data, connected it to Next.js 16 and Tailwind CSS v4, and integrated Firebase Auth for admin dashboards."
       },
       {
         title: "Outcome",
-        text: "Shipped a design-forward platform demonstrating deep UI polish and responsive layout design."
+        text: "Successfully deployed the live storefront on Vercel and configured the backend using Firebase hosting + functions."
       }
     ]
   }

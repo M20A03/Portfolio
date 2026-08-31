@@ -5,7 +5,6 @@ import { useState } from "react";
 import {
   Mail,
   Phone,
-  MapPin,
   GraduationCap,
   Briefcase,
   Award,
@@ -16,7 +15,6 @@ import {
   Download,
   ArrowLeft,
   Star,
-  Zap,
   ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";

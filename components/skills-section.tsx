@@ -133,7 +133,7 @@ export function SkillsSection() {
         };
       })
       .sort((a, b) => b.average - a.average);
-  }, []);
+  }, [skillCategories]);
 
   const analytics = useMemo(() => {
     const allSkills = normalizedCategories.flatMap((category) => category.skills);
