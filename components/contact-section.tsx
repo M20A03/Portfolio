@@ -404,15 +404,36 @@ export function ContactSection() {
                   </div>
 
                   {formStatus === "error" && (
-                    <div id={formStatusMessageId} role="alert" className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm">
-                      <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                      <span>
-                        {Object.keys(formErrors).length > 0
-                          ? "Please review the highlighted fields and try again."
-                          : web3formsKey
-                            ? "Something went wrong while sending. Please try again or email me directly."
-                            : "Contact form key is missing. Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to your environment file."}
-                      </span>
+                    <div id={formStatusMessageId} role="alert" className="space-y-3 p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm">
+                      <div className="flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                        <span>
+                          {Object.keys(formErrors).length > 0
+                            ? "Please review the highlighted fields and try again."
+                            : "Web submission unavailable. Click below to send directly via your email client."}
+                        </span>
+                      </div>
+                      {Object.keys(formErrors).length === 0 && (
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="w-full text-foreground border-destructive/30 hover:bg-destructive/10"
+                        >
+                          <a
+                            href={`mailto:mayankrajgupta01@gmail.com?subject=${encodeURIComponent(
+                              formData.subject || `Portfolio inquiry from ${formData.name || "visitor"}`
+                            )}&body=${encodeURIComponent(
+                              `${formData.message || ""}\n\n---\nSender: ${formData.name || "N/A"}\nEmail: ${
+                                formData.email || "N/A"
+                              }`
+                            )}`}
+                          >
+                            <Mail className="w-4 h-4 mr-2" />
+                            Open in Email Client
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   )}
 

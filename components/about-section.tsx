@@ -65,7 +65,7 @@ const itemVariants: Variants = {
 
 const education = [
   {
-    year: "2025 — 2028",
+    year: "2025 — 2029",
     degree: "Bachelor of Computer Applications (BCA)",
     institution: "Christ University",
     location: "Bangalore, India",
@@ -74,7 +74,7 @@ const education = [
   {
     year: "2023 — 2025",
     degree: "Higher Secondary (12th Commerce)",
-    institution: "Rajkamal Swarswati Vidya Mandir, Dhanbad (CBSE)",
+    institution: "Rajkamal Saraswati Vidya Mandir, Dhanbad (CBSE)",
     location: "Dhanbad, Jharkhand",
     details: "76%",
   },
@@ -82,8 +82,8 @@ const education = [
 
 const highlights = [
   { icon: Code2, label: "Languages", value: "5+" },
-  { icon: Lightbulb, label: "Projects", value: "7+" },
-  { icon: GraduationCap, label: "Certifications", value: "5+" },
+  { icon: Lightbulb, label: "Projects", value: "17+" },
+  { icon: GraduationCap, label: "Certifications", value: "10+" },
 ];
 
 const interests = [

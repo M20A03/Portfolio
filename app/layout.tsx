@@ -1,7 +1,14 @@
 import React from "react";
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const siteUrl = "https://www.mayankraj.me";
 
@@ -171,7 +178,7 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -184,12 +191,8 @@ export default function RootLayout({
             __html: JSON.stringify(rootSchema),
           }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-sans antialiased">
+      <body className={`${inter.className} font-sans antialiased`}>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

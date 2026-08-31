@@ -309,7 +309,7 @@ export default function ResumePage() {
                     <span>Class XII (CBSE) — Senior Secondary</span>
                     <span className="text-primary">76%</span>
                   </div>
-                  <p>Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023)</p>
+                  <p>Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023 — 2025)</p>
                 </div>
               )}
 

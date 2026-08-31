@@ -17,11 +17,12 @@ export function CustomCursor() {
       setPosition({ x: e.clientX, y: e.clientY });
       setIsVisible(true);
 
-      const target = e.target as HTMLElement;
-      const isClickable =
-        target.closest("a, button, [role='button'], input, textarea, select, label, [tabindex]") !== null ||
-        window.getComputedStyle(target).cursor === "pointer";
-      setIsPointer(isClickable);
+      const target = e.target as HTMLElement | null;
+      if (target) {
+        const isClickable =
+          target.closest("a, button, [role='button'], input, textarea, select, label, [tabindex], .cursor-pointer") !== null;
+        setIsPointer(isClickable);
+      }
     };
 
     const leave = () => setIsVisible(false);
