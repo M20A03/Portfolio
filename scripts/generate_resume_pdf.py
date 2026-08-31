@@ -41,8 +41,8 @@ styles.add(
         name="ResumeBody",
         parent=styles["BodyText"],
         fontName="Helvetica",
-        fontSize=8.2,
-        leading=10.5,
+        fontSize=8.1,
+        leading=10.4,
         textColor=colors.HexColor("#334155"),
         spaceAfter=1.5,
     )
@@ -72,7 +72,7 @@ styles.add(
 
 story = []
 story.append(Paragraph("Mayank Raj Gupta", styles["ResumeTitle"]))
-story.append(Paragraph("Full-Stack Developer | BCA Scholar @ Christ University, Bangalore", styles["ResumeSubtitle"]))
+story.append(Paragraph("Full-Stack Developer & AI Specialist | BCA Scholar @ Christ University, Bangalore", styles["ResumeSubtitle"]))
 
 contact = [
     ["mayankraj.gupta@bcah.christuniversity.in", "+91 9835139865", "Bangalore, India"],
@@ -97,10 +97,10 @@ story.append(Spacer(1, 0.04 * inch))
 
 # Professional Summary
 summary = (
-    "BCA student at Christ University with hands-on experience engineering modern, responsive full-stack web applications. "
-    "Proficient in React, Next.js, TypeScript, JavaScript, Python, and Firebase, with solid foundations in Data Structures & Algorithms "
+    "BCA student at Christ University with hands-on experience building modern full-stack web applications and Computer Vision pipelines. "
+    "Proficient in React, Next.js, TypeScript, Python (YOLO11, OpenCV), and Firebase, with solid foundations in Data Structures & Algorithms "
     "and UI/UX design. Creator of multiple deployed production web portals and active national hackathon participant. "
-    "Seeking a Software Engineering Internship to apply full-stack problem solving and deliver user-focused product impact."
+    "Seeking a Software Engineering / AI Internship to apply full-stack problem solving and deliver user-focused product impact."
 )
 story.append(Paragraph("PROFESSIONAL SUMMARY", styles["ResumeSection"]))
 story.append(Paragraph(summary, styles["ResumeBody"]))
@@ -134,17 +134,17 @@ edu_table.setStyle(
 )
 story.append(edu_table)
 
-# Technical Projects
+# Technical Projects (Including YOLO11 Project!)
 story.append(Paragraph("TECHNICAL PROJECTS", styles["ResumeSection"]))
 projects = [
     (
-        "MRG App: Next-Gen B2B2C Marketplace",
-        "React, Next.js, Node.js, Firebase Auth & Firestore",
-        "Live Demo: https://mrg-idea.web.app/",
+        "Automated License Plate Recognition (ALPR) — YOLO11 & Computer Vision",
+        "Python, YOLO11, OpenCV, CRNN OCR, Streamlit",
+        "GitHub: github.com/M20A03/License-Plate-Detection",
         [
-            "Developing a full-scale marketplace platform connecting wholesalers, retailers, and customers.",
-            "Implementing role-based authentication, real-time inventory management, and intuitive product search flows.",
-            "Designed a modern, responsive UI with glassmorphism aesthetics and performance-first component architecture.",
+            "Developed an end-to-end automated license plate detection system using YOLO11 for real-time vehicle plate localization.",
+            "Implemented an OpenCV image preprocessing pipeline (grayscale, adaptive thresholding) and OCR for character recognition.",
+            "Built and deployed an interactive Streamlit web dashboard capable of processing uploaded images and live video streams.",
         ],
     ),
     (
@@ -167,6 +167,15 @@ projects = [
             "Synthesized interactive audio frequencies for each comparison step to enhance educational comprehension.",
         ],
     ),
+    (
+        "MRG App: Next-Gen B2B2C Marketplace",
+        "React, Next.js, Node.js, Firebase Auth & Firestore",
+        "Live Demo: https://mrg-idea.web.app/",
+        [
+            "Developing a marketplace platform connecting wholesalers, retailers, and customers with real-time inventory management.",
+            "Designed a modern, responsive UI with glassmorphism aesthetics and performance-first component architecture.",
+        ],
+    ),
 ]
 
 for title, tech, demo, bullets in projects:
@@ -179,11 +188,11 @@ for title, tech, demo, bullets in projects:
 # Technical Skills
 story.append(Paragraph("TECHNICAL SKILLS", styles["ResumeSection"]))
 skills = [
-    ("Programming Languages", "C, C++, Python (Pandas, NumPy), JavaScript (ES6+), TypeScript, SQL"),
+    ("Programming Languages", "Python (NumPy, Pandas), C, C++, JavaScript (ES6+), TypeScript, SQL"),
+    ("AI, ML & Vision", "YOLO11, OpenCV, Computer Vision, CRNN OCR, AI Prompt Engineering, Streamlit"),
     ("Frontend Frameworks", "React 19, Next.js 15, Angular, Tailwind CSS, Framer Motion, HTML5, CSS3"),
     ("Backend & Databases", "Node.js, Express.js, Firebase (Auth & Firestore), Python Flask, MySQL"),
     ("Developer Tools & Cloud", "Git, GitHub, Vercel, VS Code, Figma, Vite, Linux/Bash, Postman"),
-    ("Core Competencies", "Data Structures & Algorithms (DSA), UI/UX Design, AI Prompt Engineering, RESTful APIs"),
 ]
 skill_rows = [[Paragraph(f"<b>{cat}</b>", styles["ResumeBody"]), Paragraph(val, styles["ResumeBody"])] for cat, val in skills]
 skill_table = Table(skill_rows, colWidths=[1.65 * inch, 5.75 * inch])
@@ -196,14 +205,14 @@ skill_table.setStyle(
             ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
             ("LEFTPADDING", (0, 0), (-1, -1), 4),
             ("RIGHTPADDING", (0, 0), (-1, -1), 4),
-            ("TOPPADDING", (0, 0), (-1, -1), 2.5),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5),
+            ("TOPPADDING", (0, 0), (-1, -1), 2),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
         ]
     )
 )
 story.append(skill_table)
 
-# Hackathons & Certifications (2-Column Grid to fit strictly on 1 page)
+# Hackathons & Certifications
 story.append(Paragraph("HACKATHONS & CERTIFICATIONS", styles["ResumeSection"]))
 certs = [
     [
@@ -226,8 +235,8 @@ cert_table.setStyle(
             ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
             ("LEFTPADDING", (0, 0), (-1, -1), 0),
             ("RIGHTPADDING", (0, 0), (-1, -1), 0),
-            ("TOPPADDING", (0, 0), (-1, -1), 1),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 1),
+            ("TOPPADDING", (0, 0), (-1, -1), 0.5),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 0.5),
         ]
     )
 )
@@ -238,8 +247,8 @@ doc = SimpleDocTemplate(
     pagesize=A4,
     rightMargin=0.35 * inch,
     leftMargin=0.35 * inch,
-    topMargin=0.35 * inch,
-    bottomMargin=0.35 * inch,
+    topMargin=0.32 * inch,
+    bottomMargin=0.32 * inch,
 )
 
 doc.build(story)
