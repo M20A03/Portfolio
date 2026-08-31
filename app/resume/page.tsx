@@ -17,6 +17,7 @@ import {
   ArrowLeft,
   Star,
   Zap,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -36,9 +37,10 @@ const staggerContainer = {
 
 export default function ResumePage() {
   const [showAllEducation, setShowAllEducation] = useState(false);
+
   return (
     <main id="main-content" className="min-h-screen bg-background selection:bg-primary/20">
-      {/* Header - Hidden on Print */}
+      {/* Top Navigation Bar - Hidden on Print */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border print:hidden">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/">
@@ -48,17 +50,17 @@ export default function ResumePage() {
             </Button>
           </Link>
           <div className="flex items-center gap-3">
-            <Button size="sm" className="gap-2 hidden md:flex" asChild>
-              <a href="/RESUME_Mayank Raj Gupta.pdf" download="RESUME_Mayank Raj Gupta.pdf">
+            <Button size="sm" className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+              <a href="/resume.pdf" download="Mayank_Raj_Gupta_Resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Download className="w-4 h-4" />
-                Save as PDF
+                Download PDF Resume
               </a>
             </Button>
           </div>
         </div>
       </header>
 
-      {/* Resume Content */}
+      {/* Resume Content Container */}
       <div className="max-w-4xl mx-auto px-6 py-12 md:py-16 print:py-0 print:px-0">
         <motion.div
           variants={staggerContainer}
@@ -66,280 +68,182 @@ export default function ResumePage() {
           animate="animate"
           className="space-y-10"
         >
-          {/* Name & Contact Header */}
-          <motion.section
-            variants={fadeInUp}
-            className="pb-10 border-b border-border"
-          >
+          {/* Header Section */}
+          <motion.section variants={fadeInUp} className="pb-8 border-b border-border">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
               <div className="text-left">
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
+                <h1 className="text-4xl md:text-5xl font-black text-foreground mb-2">
                   Mayank Raj <span className="text-primary">Gupta</span>
                 </h1>
-                <p className="text-xl text-primary font-medium mb-4">
-                  Full-Stack Developer | BCA @ Christ University
+                <p className="text-lg md:text-xl text-primary font-semibold">
+                  Full-Stack Software Engineer &amp; AI Specialist
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Bangalore, India • BCA Scholar @ Christ University
                 </p>
               </div>
-              <div className="flex flex-col items-start md:items-end gap-2 text-sm text-muted-foreground">
+              <div className="flex flex-col items-start md:items-end gap-1.5 text-sm text-muted-foreground">
                 <a href="mailto:mayankrajgupta01@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4" /> mayankrajgupta01@gmail.com
+                  <Mail className="w-4 h-4 text-primary" /> mayankrajgupta01@gmail.com
                 </a>
                 <a href="tel:+919835139865" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <Phone className="w-4 h-4" /> +91 9835139865
+                  <Phone className="w-4 h-4 text-primary" /> +91 9835139865
                 </a>
-                <span className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" /> Bangalore, India
-                </span>
+                <a href="https://www.mayankraj.me" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                  <ExternalLink className="w-4 h-4 text-primary" /> https://www.mayankraj.me
+                </a>
               </div>
             </div>
 
-            {/* Links */}
-            <div className="flex flex-wrap gap-4 mt-6">
-              <a href="https://github.com/M20A03" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-card border border-border text-sm hover:border-primary/50 transition-all">
-                <Github className="w-4 h-4" /> github.com/M20A03
-              </a>
-              <a href="https://www.linkedin.com/in/mayank-raj-gupta-159020396" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-card border border-border text-sm hover:border-primary/50 transition-all">
-                <Linkedin className="w-4 h-4" /> LinkedIn Profile
-              </a>
-            </div>
-            {/* Top Skills (ATS-friendly quick keywords) */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {[
-                "Next.js",
-                "React",
-                "TypeScript",
-                "Firebase",
-                "UI/UX",
-                "Tailwind CSS",
-              ].map((k) => (
-                <span key={k} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">
-                  {k}
-                </span>
-              ))}
+            {/* Links & Quick Tech Badges */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://github.com/M20A03"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-card border border-border text-xs sm:text-sm font-medium hover:border-primary/50 transition-all"
+                >
+                  <Github className="w-4 h-4 text-primary" /> github.com/M20A03
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-card border border-border text-xs sm:text-sm font-medium hover:border-primary/50 transition-all"
+                >
+                  <Linkedin className="w-4 h-4 text-primary" /> linkedin.com/in/mayank-raj-gupta
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5">
+                {["React 19", "Next.js 15", "TypeScript", "Python", "YOLO11", "Firebase", "PostgreSQL"].map((k) => (
+                  <span key={k} className="text-xs px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-semibold">
+                    {k}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.section>
 
           {/* Professional Summary */}
           <motion.section variants={fadeInUp}>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-3">
               <div className="p-2 rounded-lg bg-primary/10">
                 <User className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Professional Summary</h2>
+              <h2 className="text-lg md:text-xl font-bold text-foreground uppercase tracking-wider">Executive Summary</h2>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Highly motivated <span className="text-foreground font-semibold">Bachelor of Computer Applications (BCA)</span> student at <span className="text-primary">Christ University</span> focused on building fast, accessible, and conversion-first web experiences. Core expertise includes <span className="text-foreground">React, Next.js, TypeScript</span> and backend integration with Firebase. I design and implement UI/UX systems (Figma → component library) with an emphasis on accessibility (WCAG AA), performance, and clear product outcomes. Proven ability to ship deployed projects with practical user flows and polished visuals.
+            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+              Full-Stack Software Engineer and Computer Vision Specialist with a portfolio of <strong>17+ deployed applications</strong> and multiple national hackathon wins. Proficient in architecting high-performance web applications using <strong>React 19, Next.js 15, TypeScript</strong>, building resilient backend microservices and RESTful APIs, and implementing Computer Vision (YOLO11/OpenCV) pipelines. Experienced in managing full product lifecycles—from Figma design systems to serverless cloud infrastructure on Vercel and Firebase with sub-100ms response targets.
             </p>
-          </motion.section>
-
-          {/* How I work - recruiter friendly */}
-          <motion.section variants={fadeInUp}>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Zap className="w-5 h-5 text-primary" />
-              </div>
-              <h2 className="text-lg font-bold text-foreground uppercase tracking-wider">How I work</h2>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4 text-sm text-muted-foreground">
-              <div className="space-y-2">
-                <p className="font-semibold">Design & Prototype</p>
-                <p>Figma-driven flows → low-fi to high-fi prototypes → usability check.</p>
-              </div>
-              <div className="space-y-2">
-                <p className="font-semibold">Build & Iterate</p>
-                <p>Component-led development, accessibility audits, and performance tuning.</p>
-              </div>
-            </div>
-          </motion.section>
-
-          {/* Academic Qualifications */}
-          <motion.section variants={fadeInUp}>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <GraduationCap className="w-5 h-5 text-primary" />
-              </div>
-              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Education</h2>
-            </div>
-            <div className="space-y-4">
-              {[
-                {
-                  year: "2025 — 2028",
-                  degree: "Bachelor of Computer Applications (BCA)",
-                  institution: "Christ University, Bangalore",
-                  score: "3.33 / 4.0 CGPA (2nd Semester)",
-                  highlight: "Core focus on Software Engineering & Data Structures",
-                },
-              ].map((edu, index) => (
-                <div key={index} className="group p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                    <h3 className="font-bold text-foreground text-lg">{edu.degree}</h3>
-                    <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">{edu.score}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-muted-foreground text-sm">
-                    <p>{edu.institution}</p>
-                    <p className="font-medium text-primary/80">{edu.year}</p>
-                  </div>
-                  {edu.highlight && <p className="mt-2 text-xs text-primary font-medium italic">⭐ {edu.highlight}</p>}
-                </div>
-              ))}
-
-              {/* Expandable Section - Semester Breakdown & Class Marks */}
-              {showAllEducation && (
-                <div className="space-y-4 pt-2 border-t border-border/50 mt-4">
-                  <div className="text-sm text-muted-foreground italic">📊 Academic Breakdown</div>
-                  {[
-                    {
-                      year: "Nov 2025 — Mar 2026",
-                      degree: "2nd Semester Achievement",
-                      institution: "Christ University, Bangalore",
-                      score: "3.33 CGPA",
-                      highlight: "Balanced academics with project development",
-                    },
-                    {
-                      year: "2025 (1st Semester)",
-                      degree: "1st Semester Foundation",
-                      institution: "Christ University, Bangalore",
-                      score: "3.2+ / 4.0 CGPA",
-                      highlight: "Strong foundation in core BCA curriculum",
-                    },
-                    {
-                      year: "2023 — 2025",
-                      degree: "Class XII (CBSE) - Commerce",
-                      institution: "Rajkamal Swarswati Vidya Mandir, Dhanbad",
-                      score: "76%",
-                    },
-                  ].map((edu, index) => (
-                    <div key={index} className="group p-4 rounded-lg bg-secondary/30 border border-border/40 hover:border-primary/30 transition-all">
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                        <h3 className="font-semibold text-foreground">{edu.degree}</h3>
-                        <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">{edu.score}</span>
-                      </div>
-                      <div className="flex items-center justify-between text-muted-foreground text-sm">
-                        <p>{edu.institution}</p>
-                        <p className="font-medium text-primary/70">{edu.year}</p>
-                      </div>
-                      {edu.highlight && <p className="mt-1.5 text-xs text-primary/80 font-medium italic">✓ {edu.highlight}</p>}
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* See More Button */}
-              <button
-                onClick={() => setShowAllEducation(!showAllEducation)}
-                className="mt-4 text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors print:hidden"
-              >
-                {showAllEducation ? "See less" : "See more details (Semester breakdown)"}
-              </button>
-            </div>
-          </motion.section>
-
-          {/* UI / UX Focus (new) */}
-          <motion.section variants={fadeInUp}>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Star className="w-5 h-5 text-primary" />
-              </div>
-              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">UI / UX & Design</h2>
-            </div>
-            <div className="space-y-4">
-              <p className="text-muted-foreground">I create accessible, user-centred interfaces and component libraries optimized for conversion and performance. My UX workflow includes user flows, low-fi to high-fi prototyping in Figma, accessibility checks (WCAG AA), and handoff-ready component specs for engineers.</p>
-              <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                <li>Designed responsive design systems and component libraries (Figma → React).</li>
-                <li>Performed accessibility audits and implemented improvements for keyboard and screen-reader users.</li>
-                <li>Iterated on visual hierarchy and micro-interactions to increase perceived performance and clarity.</li>
-              </ul>
-            </div>
           </motion.section>
 
           {/* Work & Research Experience */}
           <motion.section variants={fadeInUp}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-5">
               <div className="p-2 rounded-lg bg-primary/10">
                 <Briefcase className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Experience & AI Research</h2>
+              <h2 className="text-lg md:text-xl font-bold text-foreground uppercase tracking-wider">Work &amp; Research Experience</h2>
             </div>
             <div className="space-y-4">
               <div className="p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-1">
-                  <h3 className="font-bold text-foreground text-lg">Freelance Software Engineer</h3>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-1">
+                  <h3 className="font-bold text-foreground text-base md:text-lg">Freelance Full-Stack Engineer</h3>
                   <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">2026 — Present</span>
                 </div>
-                <p className="text-sm font-medium text-muted-foreground mb-3">Singularium Technologies</p>
-                <ul className="text-sm text-muted-foreground space-y-1.5 list-disc pl-5">
-                  <li>Engineering custom full-stack web applications, landing pages, and cloud services for clients.</li>
-                  <li>Integrating robust REST APIs, authentication flows, and responsive UI components with React & Next.js.</li>
+                <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-3">Singularium Technologies • Remote</p>
+                <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-5">
+                  <li>Architected and delivered custom full-stack web applications and client portals using React 19, Next.js 15, and TypeScript.</li>
+                  <li>Integrated secure authentication, multi-tenant database models, and payment gateways with sub-50ms API latencies.</li>
+                  <li>Optimized Lighthouse performance and accessibility scores to 95+ across all delivered client web properties.</li>
                 </ul>
               </div>
 
               <div className="p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-1">
-                  <h3 className="font-bold text-foreground text-lg">Deep Learning AI Research Engineer (Confidential)</h3>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-1">
+                  <h3 className="font-bold text-foreground text-base md:text-lg">AI &amp; Computer Vision Research Project Lead</h3>
                   <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">2026 — Present</span>
                 </div>
-                <p className="text-sm font-medium text-muted-foreground mb-3">Christ (Deemed to be University), Bangalore</p>
-                <ul className="text-sm text-muted-foreground space-y-1.5 list-disc pl-5">
-                  <li>Developing a YOLOv11 computer vision system for real-time object detection and spatial classification.</li>
-                  <li>Engineered Thermino: a specialized thermal analytics deep learning software platform for heat map modeling.</li>
+                <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-3">Christ (Deemed to be University) • Bangalore</p>
+                <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-5">
+                  <li>Trained and benchmarked YOLO11 neural networks for real-time license plate detection and spatial object localization.</li>
+                  <li>Engineered Thermino: a specialized thermal analytics deep learning software platform for spatial heat map modeling.</li>
+                  <li>Achieved 94%+ detection accuracy under adverse lighting conditions using OpenCV adaptive image filters.</li>
                 </ul>
               </div>
             </div>
           </motion.section>
 
-          {/* Core Projects */}
+          {/* Featured Technical Projects */}
           <motion.section variants={fadeInUp}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-5">
               <div className="p-2 rounded-lg bg-primary/10">
                 <Code className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Technical Projects</h2>
+              <h2 className="text-lg md:text-xl font-bold text-foreground uppercase tracking-wider">Featured Technical Projects</h2>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {[
                 {
-                  title: "MRG App: Next-Gen B2B2C Marketplace",
-                  date: "Jan 2026 - Present",
-                  tech: "React, Next.js, Node.js, Firebase",
+                  title: "Credex — AI SaaS Spend Intelligence & Optimization",
+                  tech: "Next.js 16, React 19, TypeScript, Zustand, Recharts, Claude 3.7 Sonnet",
+                  link: "https://credex-sand.vercel.app",
                   points: [
-                    "Developing a scalable marketplace connecting wholesalers, retailers, and customers (Zepto/Blinkit model).",
-                    "Implementing role-based flows, real-time inventory sync, and product discovery screens.",
-                    "Designed a premium UI/UX system focused on clarity, trust, and performance.",
+                    "Engineered an enterprise financial intelligence SaaS platform monitoring recurring software expenditures and predictive run rates.",
+                    "Integrated Claude 3.7 Sonnet LLM with structured JSON output schemas to automatically detect spend anomalies and vendor price hikes.",
+                    "Rendered real-time dynamic Recharts dashboards with Zustand-managed local state and sub-100ms multi-filter response times.",
                   ],
                 },
                 {
-                  title: "DSA Search Algorithm Visualizer & AI Assistant",
-                  date: "Feb 2026",
-                  tech: "JavaScript, HTML5, CSS3, AI Integration",
+                  title: "Enterprise Indian ALPR — Computer Vision & Traffic Security",
+                  tech: "Python, YOLO11, OpenCV, CRNN/Transformers, Streamlit",
+                  link: "https://github.com/M20A03/License-Plate-Detection",
                   points: [
-                    "Built 5+ visual simulations for Linear and Binary search with step-by-step animations.",
-                    "Integrated 'Star-Command AI' to explain algorithmic concepts with guided prompts.",
-                    "Optimized rendering logic for smooth, interactive learning experiences.",
+                    "Developed an automated license plate recognition engine supporting standard, high-security, and high-angle vehicle plates.",
+                    "Implemented OpenCV noise removal and CRNN OCR optical character recognition pipeline achieving over 94% text precision.",
+                    "Deployed a high-throughput Streamlit analytics suite capable of video stream inference at 30+ FPS.",
                   ],
                 },
                 {
-                  title: "Wholesale & Retail E-Commerce Platform",
-                  date: "Jan 2026",
-                  tech: "React (Vite), Firebase, Context API, Lucide",
+                  title: "Roshan Enterprises — Omnichannel B2B/B2C Commerce Platform",
+                  tech: "React 19, Vite, Firebase Auth/Firestore, CSS Design Tokens, SRE Resilience",
+                  link: "https://e-commerce-roshan-enterprises-dhn.web.app",
                   points: [
-                    "Full-stack platform for Roshan Enterprises supporting bulk and retail purchases.",
-                    "Features secure checkout, product browsing, and a polished mobile-friendly shopping flow.",
-                    "Delivered a live demo with performance-focused UI and responsive layouts.",
+                    "Built and deployed a production commerce portal handling bulk and retail catalog orders across 100+ inventory SKUs.",
+                    "Integrated real-time Firebase Firestore database sync, persistent cart management, and zero-FOUC design tokens.",
+                    "Engineered a responsive, keyboard-accessible UI with WCAG 2.1 AA contrast compliance and 16px iOS zoom prevention.",
                   ],
                 },
-              ].map((project, index) => (
-                <div key={index} className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-lg font-bold text-foreground">{project.title}</h3>
-                    <span className="text-xs font-semibold text-primary uppercase tracking-tighter">{project.date}</span>
+                {
+                  title: "DSA Search Algorithm Visualizer & Space Explorer",
+                  tech: "React 19, TypeScript, Vite, WebAudio API, FastAPI, Tailwind CSS",
+                  link: "https://linear-and-binary-search.web.app",
+                  points: [
+                    "Engineered step-by-step interactive simulations for Linear and Binary search algorithms with dynamic sound frequency synthesis.",
+                    "Integrated Star-Command AI chatbot for contextual algorithmic hints and step-by-step Big-O complexity explanations.",
+                  ],
+                },
+              ].map((proj, idx) => (
+                <div key={idx} className="p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                    <h3 className="font-bold text-foreground text-base md:text-lg">
+                      {proj.title}
+                    </h3>
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-primary font-semibold inline-flex items-center gap-1 hover:underline"
+                    >
+                      Live Demo / Repo <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
-                  <p className="text-xs font-mono text-primary/70 mb-4">{project.tech}</p>
-                  <ul className="space-y-2">
-                    {project.points.map((point, i) => (
-                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <Zap className="w-3.5 h-3.5 text-primary mt-1 shrink-0" />
-                        {point}
-                      </li>
+                  <p className="text-xs font-mono text-primary/80 mb-3">{proj.tech}</p>
+                  <ul className="text-xs sm:text-sm text-muted-foreground space-y-1.5 list-disc pl-5">
+                    {proj.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="leading-relaxed">{pt}</li>
                     ))}
                   </ul>
                 </div>
@@ -347,53 +251,100 @@ export default function ResumePage() {
             </div>
           </motion.section>
 
-          {/* Technical Skills - Printed in Columns */}
+          {/* Technical Skills Matrix */}
           <motion.section variants={fadeInUp}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-5">
               <div className="p-2 rounded-lg bg-primary/10">
                 <Code className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Technical Skills</h2>
+              <h2 className="text-lg md:text-xl font-bold text-foreground uppercase tracking-wider">Technical Skills Matrix</h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 rounded-2xl bg-card/30 border border-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5 rounded-xl bg-card border border-border">
               {[
-                { cat: "Languages", val: "JavaScript (ES6+), TypeScript, Python (Pandas/NumPy), C++, C" },
-                { cat: "Frontend & MERN", val: "React 19, Next.js 15, Tailwind CSS 4, Motion" },
-                { cat: "Backend & APIs", val: "Node.js, Express.js, RESTful APIs, Python Flask" },
-                { cat: "Database", val: "PostgreSQL, MongoDB, Supabase, Firebase / Firestore, MySQL" },
-                { cat: "Cloud & Infrastructure", val: "AWS, Supabase, Cloudflare, Railway, Render, Vercel" },
-                { cat: "Tools & AI", val: "Git, GitHub, AntiGravity AI, VS Code, Figma, YOLOv11" },
+                { cat: "Programming Languages", val: "TypeScript, JavaScript (ES6+), Python (NumPy/Pandas), C++, C, SQL" },
+                { cat: "Frontend & Full-Stack", val: "React 19, Next.js 15, Angular, Tailwind CSS v4, Framer Motion, HTML5/CSS3" },
+                { cat: "Backend & APIs", val: "Node.js, Express.js, REST APIs, Python Flask, Fast-API, WebSockets" },
+                { cat: "Databases & Storage", val: "PostgreSQL, Supabase, Firebase Firestore, MySQL, MongoDB, Redis" },
+                { cat: "AI, ML & Vision", val: "YOLO11, OpenCV, LLM Prompt Engineering, Claude 3.7 API, Streamlit" },
+                { cat: "DevOps & Cloud Tools", val: "Git, GitHub, Vercel, Docker, VS Code, Figma, Vite, Linux/Bash" },
               ].map((s, idx) => (
-                <div key={idx}>
-                  <h4 className="text-xs font-bold text-primary uppercase tracking-widest mb-1">{s.cat}</h4>
+                <div key={idx} className="space-y-1">
+                  <h4 className="text-xs font-bold text-primary uppercase tracking-wider">{s.cat}</h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">{s.val}</p>
                 </div>
               ))}
             </div>
           </motion.section>
 
-          {/* Achievements & Certifications */}
+          {/* Academic Qualifications */}
           <motion.section variants={fadeInUp}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <GraduationCap className="w-5 h-5 text-primary" />
+              </div>
+              <h2 className="text-lg md:text-xl font-bold text-foreground uppercase tracking-wider">Education</h2>
+            </div>
+            <div className="space-y-3">
+              <div className="p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-1">
+                  <h3 className="font-bold text-foreground text-base md:text-lg">
+                    Bachelor of Computer Applications (BCA)
+                  </h3>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    3.33 / 4.0 CGPA
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-muted-foreground text-sm">
+                  <p>Christ (Deemed to be University), Bangalore, Karnataka</p>
+                  <p className="font-medium text-primary/80">2025 — 2029</p>
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Relevant Coursework: Data Structures &amp; Algorithms, Object-Oriented Programming (C++/Java), Database Management Systems, Web Architecture.
+                </p>
+              </div>
+
+              {showAllEducation && (
+                <div className="p-4 rounded-lg bg-secondary/30 border border-border/40 text-sm text-muted-foreground space-y-1">
+                  <div className="flex justify-between font-semibold text-foreground">
+                    <span>Class XII (CBSE) — Senior Secondary</span>
+                    <span className="text-primary">76%</span>
+                  </div>
+                  <p>Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023)</p>
+                </div>
+              )}
+
+              <button
+                onClick={() => setShowAllEducation(!showAllEducation)}
+                className="text-xs font-medium text-primary hover:underline transition-colors print:hidden"
+              >
+                {showAllEducation ? "Hide previous education" : "+ Show Class XII details"}
+              </button>
+            </div>
+          </motion.section>
+
+          {/* Honors & Certifications */}
+          <motion.section variants={fadeInUp}>
+            <div className="flex items-center gap-3 mb-5">
               <div className="p-2 rounded-lg bg-primary/10">
                 <Award className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-xl font-bold text-foreground uppercase tracking-wider">Achievements & Credentials</h2>
+              <h2 className="text-lg md:text-xl font-bold text-foreground uppercase tracking-wider">Hackathons &amp; Certifications</h2>
             </div>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-3">
               {[
-                "InHack - Hackathon (Media Meet 2026) - CHRIST University",
-                "CODEX'26 National Level AI Hackathon (2026)",
-                "YUGASTR IT FEST Hackathon (2026)",
-                "HACKNOVA Game Jam Participant - CHRIST University (2026)",
-                "Microsoft AI Prompt Engineering Masterclass",
-                "Infosys C & HTML5 Programming Certified",
-                "Leadership Skill Development - Christ University",
-                "Samsung Co-pilot Workshop Attendee",
+                { title: "InHack - Hackathon (Media Meet 2026)", issuer: "CHRIST (Deemed to be University), Yeshwanthpur" },
+                { title: "CODEX'26 National Level AI Hackathon", issuer: "Don Bosco College, KR Puram, Bengaluru" },
+                { title: "YUGASTR IT FEST Hackathon (2026)", issuer: "Ramaiah College of Arts, Science & Commerce" },
+                { title: "HACKNOVA Game Jam (2026)", issuer: "CHRIST (Deemed to be University)" },
+                { title: "AI Prompt Engineering Masterclass", issuer: "Microsoft & Reliance Digital (2025)" },
+                { title: "C & HTML5 Programming Certified", issuer: "Infosys Springboard (2025)" },
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-card border border-border text-sm">
-                  <Star className="w-4 h-4 text-primary shrink-0" />
-                  <span className="text-muted-foreground font-medium">{item}</span>
+                <div key={idx} className="flex items-start gap-2.5 p-3 rounded-lg bg-card border border-border text-xs">
+                  <Star className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-foreground">{item.title}</p>
+                    <p className="text-muted-foreground text-[11px]">{item.issuer}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -401,42 +352,14 @@ export default function ResumePage() {
         </motion.div>
       </div>
 
-      {/* Footer - Hidden on Print */}
+      {/* Footer */}
       <footer className="py-8 px-6 border-t border-border print:hidden">
         <div className="max-w-5xl mx-auto text-center">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            Built with React & Next.js • {new Date().getFullYear()} Mayank Raj Gupta
+          <p className="text-xs text-muted-foreground">
+            Mayank Raj Gupta • Portfolio: <a href="https://www.mayankraj.me" className="text-primary hover:underline">mayankraj.me</a> • GitHub: <a href="https://github.com/M20A03" className="text-primary hover:underline">github.com/M20A03</a>
           </p>
         </div>
       </footer>
-
-      {/* Print-specific Styles */}
-      <style jsx global>{`
-        @media print {
-          body {
-            background: white !important;
-            color: black !important;
-          }
-          .bg-background, .bg-card, .bg-card/30 {
-            background: white !important;
-          }
-          .text-muted-foreground {
-            color: #4b5563 !important;
-          }
-          .border {
-            border-color: #e5e7eb !important;
-          }
-          .text-primary {
-            color: #3b82f6 !important;
-          }
-          .bg-primary/10 {
-            background: #eff6ff !important;
-          }
-          @page {
-            margin: 1cm;
-          }
-        }
-      `}</style>
     </main>
   );
 }
