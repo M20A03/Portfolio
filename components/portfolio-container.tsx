@@ -14,7 +14,7 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { CustomCursor } from "@/components/custom-cursor";
 import { SectionDivider } from "@/components/section-divider";
-import { LivingBlueprint } from "@/components/living-blueprint";
+import { PureCssAtmosphere } from "@/components/pure-css-atmosphere";
 import { NoiseOverlay } from "@/components/noise-overlay";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Heart, Sparkles } from "lucide-react";
@@ -77,7 +77,7 @@ export function PortfolioContainer() {
 
   return (
     <main id="main-content" className="min-h-screen bg-transparent relative selection:bg-primary/20">
-      <LivingBlueprint />
+      <PureCssAtmosphere />
       <NoiseOverlay />
       <script
         type="application/ld+json"
