@@ -5,7 +5,6 @@ import { ArrowDown, Github, Linkedin, Mail, Download, Briefcase, Code } from "lu
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
-import { ParticleBackground } from "./particle-background";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -111,10 +110,7 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden py-16 sm:py-20"
     >
-      {/* Particle background */}
-      <ParticleBackground />
-
-      {/* Mouse-following gradient blob */}
+      {/* Mouse-following gradient blob (Desktop only) */}
       <div
         className="absolute pointer-events-none w-[450px] h-[450px] rounded-full opacity-20 blur-3xl bg-primary/30 transition-transform duration-[1500ms] ease-out hidden md:block"
         style={{
@@ -124,8 +120,8 @@ export function HeroSection() {
         aria-hidden="true"
       />
 
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      {/* Subtle ambient background glows */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block" aria-hidden="true">
         <div className="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div
           className="absolute bottom-1/4 right-1/4 w-64 sm:w-80 h-64 sm:h-80 bg-primary/5 rounded-full blur-3xl animate-pulse"

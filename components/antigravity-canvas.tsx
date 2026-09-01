@@ -73,26 +73,34 @@ export default function AntigravityCanvas() {
     if (!ctx) return;
 
     let animId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let isMobile = window.innerWidth < 768;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
 
-    const mouse = { x: -9999, y: -9999, radius: 220 };
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    const mouse = { x: -9999, y: -9999, radius: isMobile ? 140 : 220 };
 
     // 1. Nebula Gas Clouds
     const nebulae: NebulaCloud[] = [
-      { x: width * 0.2, y: height * 0.25, radius: 340, color: "rgba(147, 51, 234, 0.15)", vx: 0.12, vy: 0.08 },
-      { x: width * 0.8, y: height * 0.35, radius: 380, color: "rgba(6, 182, 212, 0.14)", vx: -0.1, vy: 0.06 },
-      { x: width * 0.45, y: height * 0.75, radius: 420, color: "rgba(236, 72, 153, 0.11)", vx: 0.07, vy: -0.09 },
-      { x: width * 0.7, y: height * 0.85, radius: 300, color: "rgba(16, 185, 129, 0.09)", vx: -0.06, vy: -0.06 },
+      { x: width * 0.2, y: height * 0.25, radius: isMobile ? 220 : 340, color: "rgba(147, 51, 234, 0.13)", vx: 0.12, vy: 0.08 },
+      { x: width * 0.8, y: height * 0.35, radius: isMobile ? 240 : 380, color: "rgba(6, 182, 212, 0.12)", vx: -0.1, vy: 0.06 },
+      { x: width * 0.45, y: height * 0.75, radius: isMobile ? 260 : 420, color: "rgba(236, 72, 153, 0.10)", vx: 0.07, vy: -0.09 },
+      { x: width * 0.7, y: height * 0.85, radius: isMobile ? 200 : 300, color: "rgba(16, 185, 129, 0.08)", vx: -0.06, vy: -0.06 },
     ];
 
-    // 2. Constellation Stars (Multi-Layer Depth)
-    const stars: Star[] = Array.from({ length: 220 }, () => {
+    // 2. Constellation Stars (Optimized for Mobile Performance & Cleanliness)
+    const starCount = isMobile ? 65 : 180;
+    const stars: Star[] = Array.from({ length: starCount }, () => {
       const baseAlpha = Math.random() * 0.7 + 0.3;
       return {
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 1.8 + 0.4,
+        size: Math.random() * 1.6 + 0.4,
         alpha: baseAlpha,
         baseAlpha,
         twinkleSpeed: Math.random() * 0.035 + 0.012,
@@ -113,7 +121,7 @@ export default function AntigravityCanvas() {
       shootingStars.push({
         x: startX,
         y: startY,
-        length: Math.random() * 80 + 100,
+        length: Math.random() * 60 + 80,
         speed,
         angle,
         opacity: 1,
@@ -123,7 +131,7 @@ export default function AntigravityCanvas() {
       });
     };
 
-    // 4. Antigravity Cosmic Bodies (1 Single Elegant Saturn + Subtle Ambient Light Motes)
+    // 4. Antigravity Cosmic Bodies (1 Single Featured Saturn + Subtle Ambient Light Motes)
     const orbColors = [
       { core: "rgba(6, 182, 212, 0.8)", ring: "#00f3ff" },
       { core: "rgba(168, 85, 247, 0.6)", ring: "#c084fc" },
@@ -131,18 +139,17 @@ export default function AntigravityCanvas() {
       { core: "rgba(16, 185, 129, 0.6)", ring: "#34d399" },
     ];
 
-    // Only 1 majestic ringed planet (Saturn) in the background + 3 subtle ambient energy motes
     const orbs: SkillOrb[] = Array.from({ length: 4 }, (_, i) => {
       const isSaturn = i === 0;
-      const baseX = isSaturn ? width * 0.84 : (width * (i + 1)) / 5 + (Math.random() - 0.5) * 40;
-      const baseY = isSaturn ? height * 0.24 : height * 0.35 + Math.random() * 0.45 * height;
+      const baseX = isSaturn ? (isMobile ? width * 0.82 : width * 0.84) : (width * (i + 1)) / 5 + (Math.random() - 0.5) * 40;
+      const baseY = isSaturn ? (isMobile ? height * 0.14 : height * 0.24) : height * 0.35 + Math.random() * 0.45 * height;
       const palette = orbColors[i % orbColors.length];
       return {
         x: baseX,
         y: baseY,
         baseX,
         baseY,
-        radius: isSaturn ? 22 : Math.random() * 5 + 6,
+        radius: isSaturn ? (isMobile ? 15 : 22) : (isMobile ? 4 : Math.random() * 5 + 5),
         color: palette.core,
         ringColor: palette.ring,
         hasRing: isSaturn,
@@ -157,22 +164,37 @@ export default function AntigravityCanvas() {
 
     // Resize Handler
     const handleResize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      isMobile = window.innerWidth < 768;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
       stars.forEach((s) => {
         s.x = Math.random() * width;
         s.y = Math.random() * height;
       });
       orbs.forEach((orb, i) => {
-        orb.baseX = (width * (i + 1)) / 11;
-        orb.baseY = height * 0.25 + Math.random() * 0.5 * height;
+        const isSaturn = i === 0;
+        orb.baseX = isSaturn ? (isMobile ? width * 0.82 : width * 0.84) : (width * (i + 1)) / 5;
+        orb.baseY = isSaturn ? (isMobile ? height * 0.14 : height * 0.24) : height * 0.35 + Math.random() * 0.45 * height;
       });
     };
 
-    // Mouse Tracking
+    // Mouse & Touch Tracking
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches[0]) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+      }
     };
 
     const handleMouseLeave = () => {
@@ -180,9 +202,12 @@ export default function AntigravityCanvas() {
       mouse.y = -9999;
     };
 
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("resize", handleResize, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchstart", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleMouseLeave, { passive: true });
+    document.addEventListener("mouseleave", handleMouseLeave, { passive: true });
 
     let time = 0;
     let nextMeteorFrame = Math.floor(Math.random() * 120 + 80);
@@ -190,6 +215,9 @@ export default function AntigravityCanvas() {
     // Render Loop (60fps)
     const render = () => {
       time++;
+
+      ctx.save();
+      ctx.scale(dpr, dpr);
 
       // Periodic Shooting Star spawn
       if (time >= nextMeteorFrame) {
@@ -373,6 +401,8 @@ export default function AntigravityCanvas() {
         }
       });
 
+      ctx.restore(); // Balance outer ctx.save() and ctx.scale(dpr, dpr)
+
       animId = requestAnimationFrame(render);
     };
 
@@ -382,6 +412,9 @@ export default function AntigravityCanvas() {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchstart", handleTouchMove);
+      window.removeEventListener("touchend", handleMouseLeave);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [resolvedTheme]);
