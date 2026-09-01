@@ -69,6 +69,12 @@ Each case study can be accessed at `https://www.mayankraj.me/case-study/[slug]`.
 - **Key Features:** High-speed storefront with neon design, Firebase Functions Express.js middleware, relational database schemas for category/reviews, persistent cart, and product search.
 - **Outcome:** Deployed a functional retail storefront with persistent cart memory and user feedback tracking. (Note: Repository code is private).
 
+### 8. Nexus Scholar — Academic Knowledge Graph (`/case-study/nexus-scholar`)
+- **Category:** Full-Stack
+- **Tech Stack:** React 18, TypeScript, Vite, Serverless API, PostgreSQL, pgvector, Prisma, Python, FastAPI.
+- **Key Features:** Automated arXiv paper ingestion, RDF-like subject-predicate-object triple extraction, 768d vector embeddings, 2D/3D force-directed knowledge graph topology, and N-dimensional benchmark comparison matrix.
+- **Outcome:** Accelerated academic literature review duration by 90% via automated knowledge extraction.
+
 ---
 
 ## Site Navigation

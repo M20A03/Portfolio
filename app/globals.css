@@ -160,6 +160,12 @@
     padding-right: env(safe-area-inset-right, 0px);
   }
 
+  /* Selection highlight */
+  ::selection {
+    background: oklch(0.7 0.18 180 / 0.25);
+    color: inherit;
+  }
+
   /* Mobile Safe Area & iOS Zoom Fix */
   input, select, textarea {
     font-size: 16px !important;
@@ -186,12 +192,13 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--secondary);
+    background: var(--background);
   }
 
   ::-webkit-scrollbar-thumb {
     background: var(--primary);
     border-radius: 9999px;
+    border: 2px solid var(--background);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -209,6 +216,26 @@
   }
 }
 
+/* ─── Premium Glassmorphism & Depth ──────────────────────────── */
+.glass-card-premium {
+  background: color-mix(in oklch, var(--card) 75%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklch, var(--border) 60%, transparent);
+  box-shadow: 
+    0 4px 20px -2px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-premium:hover {
+  border-color: color-mix(in oklch, var(--primary) 50%, transparent);
+  box-shadow: 
+    0 12px 32px -4px rgba(0, 0, 0, 0.25),
+    0 0 18px -2px color-mix(in oklch, var(--primary) 25%, transparent),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 /* ─── Gradient text animation ─────────────────────────────────── */
 @keyframes gradient {
   0%   { background-position: 0% center; }
@@ -218,4 +245,53 @@
 .animate-gradient {
   animation: gradient 4s linear infinite;
   background-size: 200% auto !important;
+}
+
+/* ─── Text Shimmer Animation ─────────────────────────────────── */
+@keyframes textShimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(
+    110deg,
+    var(--foreground) 30%,
+    var(--primary) 50%,
+    var(--foreground) 70%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmer 6s linear infinite;
+}
+
+/* ─── Cyber Grid Background Utility ─────────────────────────── */
+.cyber-dot-grid {
+  background-image: radial-gradient(color-mix(in oklch, var(--foreground) 12%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── Noise Grain Texture Overlay ────────────────────────────── */
+.cinematic-noise {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ─── Ambient Glow Pulse ─────────────────────────────────────── */
+@keyframes ambientGlowPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.08); }
+}
+
+.animate-glow-pulse {
+  animation: ambientGlowPulse 8s ease-in-out infinite;
 }

@@ -82,6 +82,60 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
+    slug: "nexus-scholar",
+    title: "Nexus Scholar",
+    subtitle: "University Research Knowledge Graph & Literature Intelligence",
+    description:
+      "An enterprise-grade academic research intelligence and automated knowledge graph platform inspired by the ORKG initiative. Ingests scientific literature (arXiv, DOIs, PDFs), extracts subject-predicate-object semantic triples, indexes 768d vector embeddings, and visualizes cross-disciplinary research connections in real time.",
+    techStack: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Serverless API",
+      "PostgreSQL",
+      "pgvector",
+      "Prisma",
+      "Python",
+      "FastAPI"
+    ],
+    demoUrl: "https://nexus-scholar-huhs.vercel.app",
+    githubUrl: "https://github.com/M20A03/Nexus-Scholar",
+    thumbnailAlt: "Nexus Scholar University Knowledge Graph Portal",
+    category: "Full-Stack",
+    date: "2026",
+    color: "from-cyan-500/20 to-blue-500/20",
+    emoji: "🔬",
+    image: "/images/nexus-scholar.png",
+    isPrivate: false,
+    stats: "PostgreSQL + pgvector · 768d Vectors · arXiv Ingestion · 2D/3D Force Graph",
+    outcome: "Cut literature review duration by 90% via automated semantic triple extraction and interactive comparative matrix generation.",
+    highlights: [
+      "Automated arXiv & PDF Ingestion: Extracts RDF-like subject-predicate-object semantic triples instantly",
+      "N-Dimensional Matrix Comparisons: Side-by-side matrices contrasting model architectures and benchmark metrics",
+      "Interactive 2D/3D Knowledge Graph Topology: Real-time force-directed canvas mapping cross-department collaborations",
+      "Hybrid Semantic & Vector Search: 768d dense vector indexing over research literature with pgvector"
+    ],
+    featureTitle: "Automated Research Knowledge Graph & Literature Intelligence Platform",
+    process: [
+      {
+        title: "Problem",
+        text: "Academic literature is trapped in isolated PDF silos, requiring researchers to spend dozens of hours manually comparing benchmark metrics and architectures."
+      },
+      {
+        title: "Design",
+        text: "Architected a dual-view portal combining high-density matrix comparison tables with an interactive 2D/3D force-directed knowledge graph."
+      },
+      {
+        title: "Build",
+        text: "Engineered high-throughput arXiv ingestion microservice, PostgreSQL with pgvector indexing, and lightweight React/Vite visualization frontends."
+      },
+      {
+        title: "Outcome",
+        text: "Deployed zero-cold-start research exploration platform accelerating literature reviews by up to 90%."
+      }
+    ]
+  },
+  {
     slug: "roshan-enterprises",
     title: "Wholesale & Retail E-Commerce Website",
     subtitle: "Roshan Enterprises Storefront",

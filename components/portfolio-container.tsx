@@ -16,6 +16,8 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { SectionDivider } from "@/components/section-divider";
 import AntigravityCanvas from "@/components/antigravity-canvas";
 import RetroWaveBackground from "@/components/retrowave-background";
+import { SpotlightBackground } from "@/components/spotlight-background";
+import { NoiseOverlay } from "@/components/noise-overlay";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Heart, Sparkles } from "lucide-react";
 import { motion, type HTMLMotionProps } from "framer-motion";
@@ -79,6 +81,8 @@ export function PortfolioContainer() {
     <main id="main-content" className="min-h-screen bg-background relative selection:bg-primary/20">
       <AntigravityCanvas />
       <RetroWaveBackground />
+      <SpotlightBackground />
+      <NoiseOverlay />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageLd) }}

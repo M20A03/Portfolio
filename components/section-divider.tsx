@@ -2,17 +2,13 @@
 
 export function SectionDivider({ flip = false }: { flip?: boolean }) {
   return (
-    <div className={`w-full overflow-hidden leading-[0] ${flip ? "rotate-180" : ""}`} aria-hidden="true">
-      <svg
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
-        className="w-full h-[34px] md:h-[56px]"
-      >
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          className="fill-background"
-        />
-      </svg>
+    <div className={`w-full overflow-hidden flex items-center justify-center my-6 md:my-10 ${flip ? "rotate-180" : ""}`} aria-hidden="true">
+      <div className="w-full max-w-6xl px-6 relative flex items-center justify-center">
+        {/* Luminous Neon Gradient Divider Line */}
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        {/* Center Glowing Accent Node */}
+        <div className="absolute w-2 h-2 rounded-full bg-primary/60 blur-[1px] shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
+      </div>
     </div>
   );
 }
