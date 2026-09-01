@@ -12,10 +12,8 @@ import { ProofSection } from "@/components/proof-section";
 import { AIAssistant } from "@/components/ai-assistant";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { ScrollToTop } from "@/components/scroll-to-top";
-import { CustomCursor } from "@/components/custom-cursor";
 import { SectionDivider } from "@/components/section-divider";
-import { PureCssAtmosphere } from "@/components/pure-css-atmosphere";
-import { NoiseOverlay } from "@/components/noise-overlay";
+import { ExecutiveAtmosphere } from "@/components/executive-atmosphere";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Heart, Sparkles } from "lucide-react";
 import { motion, type HTMLMotionProps } from "framer-motion";
@@ -50,11 +48,12 @@ const socials = [
   },
 ];
 
+// Lightweight, 60fps GPU-composited fade-up without spring mass
 const sectionAnimation: HTMLMotionProps<"div"> = {
-  initial: { opacity: 0, y: 40, scale: 0.99 },
-  whileInView: { opacity: 1, y: 0, scale: 1 },
-  viewport: { once: true, margin: "-80px" },
-  transition: { type: "spring", stiffness: 70, damping: 16, mass: 0.6 },
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.45, ease: [0.25, 1, 0.5, 1] },
 };
 
 export function PortfolioContainer() {
@@ -77,13 +76,11 @@ export function PortfolioContainer() {
 
   return (
     <main id="main-content" className="min-h-screen bg-transparent relative selection:bg-primary/20">
-      <PureCssAtmosphere />
-      <NoiseOverlay />
+      <ExecutiveAtmosphere />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageLd) }}
       />
-      <CustomCursor />
       <ScrollProgress />
       <Navbar />
 
