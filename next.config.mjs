@@ -31,12 +31,13 @@ const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value: `
-      default-src 'self';
-      script-src 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com https://vitals.vercel-insights.com;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      default-src 'self' https:;
+      script-src 'self' 'unsafe-eval' 'unsafe-inline' https: blob:;
+      style-src 'self' 'unsafe-inline' https:;
       img-src 'self' blob: data: https:;
-      font-src 'self' https://fonts.gstatic.com data:;
+      font-src 'self' https: data:;
       connect-src 'self' https: wss:;
+      worker-src 'self' blob:;
       frame-ancestors 'self';
       base-uri 'self';
       form-action 'self';
