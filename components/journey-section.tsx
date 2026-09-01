@@ -130,68 +130,71 @@ export function JourneySection() {
                 </div>
 
                 {/* Timeline */}
-                <div className="relative">
-                    {/* Central Line */}
-                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2" />
+                <div className="w-full">
+                    {/* Timeline List with Confined Central Line */}
+                    <div className="relative">
+                        {/* Central Line: Stops cleanly at the last milestone */}
+                        <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-0.5 bg-border/80 -translate-x-1/2 pointer-events-none" />
 
-                    <ol className="space-y-6 md:space-y-8" aria-label="Journey timeline milestones">
-                        {visibleMilestones.map((item, index) => {
-                            const Icon = item.icon;
-                            return (
-                                <motion.li
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-80px" }}
-                                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                                    className={`relative flex flex-col md:flex-row items-start md:items-center ${
-                                        index % 2 === 0 ? "md:flex-row-reverse" : ""
-                                    }`}
-                                >
-                                    {/* Dot / Icon */}
-                                    <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full border-3 border-background bg-card flex items-center justify-center z-10 shadow-lg group hover:scale-110 transition-transform duration-300">
-                                        <Icon className="w-4 h-4 text-primary" />
-                                    </div>
+                        <ol className="space-y-6 md:space-y-8" aria-label="Journey timeline milestones">
+                            {visibleMilestones.map((item, index) => {
+                                const Icon = item.icon;
+                                return (
+                                    <motion.li
+                                        key={index}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, margin: "-80px" }}
+                                        transition={{ duration: 0.5, delay: index * 0.05 }}
+                                        className={`relative flex flex-col md:flex-row items-start md:items-center ${
+                                            index % 2 === 0 ? "md:flex-row-reverse" : ""
+                                        }`}
+                                    >
+                                        {/* Dot / Icon */}
+                                        <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full border-3 border-background bg-card flex items-center justify-center z-10 shadow-lg group hover:scale-110 transition-transform duration-300">
+                                            <Icon className="w-4 h-4 text-primary" />
+                                        </div>
 
-                                    {/* Content Card */}
-                                    <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-12 text-left" : "md:pr-12 md:text-right"} pl-10 w-full`}>
-                                        <Card className="group hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 bg-card/70 backdrop-blur-sm">
-                                            <CardContent className="p-4 sm:p-5 md:p-6 flex flex-col gap-2.5">
-                                                <div className={`flex items-center gap-2 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}>
-                                                    <Badge variant="outline" className="w-fit text-primary border-primary/20 text-[11px] font-bold uppercase tracking-wider">
-                                                        {item.date}
-                                                    </Badge>
-                                                    <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground px-2 py-0.5 rounded bg-muted">
-                                                        {item.badge}
-                                                    </span>
-                                                </div>
-                                                <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                                                    {item.title}
-                                                </h3>
-                                                <p className={`text-xs sm:text-sm font-medium text-muted-foreground flex items-center gap-1.5 ${
-                                                    index % 2 === 0 ? "md:justify-start" : "md:justify-end"
-                                                }`}>
-                                                    <Zap className="w-3.5 h-3.5 text-primary shrink-0" />
-                                                    <span>{item.location}</span>
-                                                </p>
-                                                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
-                                                    {item.description}
-                                                </p>
-                                            </CardContent>
-                                        </Card>
-                                    </div>
-                                </motion.li>
-                            );
-                        })}
-                    </ol>
+                                        {/* Content Card */}
+                                        <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-12 text-left" : "md:pr-12 md:text-right"} pl-10 w-full`}>
+                                            <Card className="group hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 bg-card/70 backdrop-blur-sm">
+                                                <CardContent className="p-4 sm:p-5 md:p-6 flex flex-col gap-2.5">
+                                                    <div className={`flex items-center gap-2 ${index % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}>
+                                                        <Badge variant="outline" className="w-fit text-primary border-primary/20 text-[11px] font-bold uppercase tracking-wider">
+                                                            {item.date}
+                                                        </Badge>
+                                                        <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground px-2 py-0.5 rounded bg-muted">
+                                                            {item.badge}
+                                                        </span>
+                                                    </div>
+                                                    <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                                                        {item.title}
+                                                    </h3>
+                                                    <p className={`text-xs sm:text-sm font-medium text-muted-foreground flex items-center gap-1.5 ${
+                                                        index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                                                    }`}>
+                                                        <Zap className="w-3.5 h-3.5 text-primary shrink-0" />
+                                                        <span>{item.location}</span>
+                                                    </p>
+                                                    <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
+                                                        {item.description}
+                                                    </p>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </motion.li>
+                                );
+                            })}
+                        </ol>
+                    </div>
 
-                    {/* Expand/Collapse Button */}
+                    {/* Expand/Collapse Button (Separated from timeline line) */}
                     {milestones.length > 4 && (
-                        <div className="mt-8 flex justify-center print:hidden">
+                        <div className="mt-10 flex justify-center print:hidden relative z-10">
                             <button
                                 type="button"
                                 onClick={() => setShowAll((prev) => !prev)}
-                                className="px-5 py-2 rounded-full border border-border bg-muted/40 hover:bg-muted/80 text-sm font-semibold text-primary hover:text-primary/90 transition-all cursor-pointer shadow-2xs"
+                                className="px-6 py-2.5 rounded-full border border-border bg-card hover:bg-muted/80 text-sm font-semibold text-primary hover:text-primary/90 transition-all cursor-pointer shadow-md hover:shadow-lg"
                                 aria-expanded={showAll}
                                 aria-controls="journey"
                             >

@@ -98,70 +98,17 @@ const languageColors = ["bg-blue-500", "bg-yellow-400", "bg-orange-500", "bg-pur
 
 const fallbackGithubData: GitHubStatsData = {
   username: GITHUB_USERNAME,
-  stars: 0,
-  repositories: 0,
-  followers: 0,
+  stars: 1,
+  repositories: 23,
+  followers: 7,
   forks: 0,
   languages: [
-    { name: "TypeScript", percent: 40, color: "bg-blue-500" },
+    { name: "TypeScript", percent: 45, color: "bg-blue-500" },
     { name: "JavaScript", percent: 35, color: "bg-yellow-400" },
-    { name: "HTML", percent: 15, color: "bg-orange-500" },
-    { name: "Others", percent: 10, color: "bg-muted-foreground" },
+    { name: "Python", percent: 12, color: "bg-emerald-500" },
+    { name: "Others", percent: 8, color: "bg-muted-foreground" },
   ],
 };
-
-type GithubRepo = {
-  stargazers_count: number;
-  forks_count: number;
-  language: string | null;
-  size: number;
-  fork: boolean;
-  private: boolean;
-};
-
-type GithubUser = {
-  followers: number;
-  public_repos: number;
-};
-
-function buildLanguageDistribution(repos: GithubRepo[]): LanguageStat[] {
-  const totals = new Map<string, number>();
-  let totalWeight = 0;
-
-  repos.forEach((repo) => {
-    if (!repo.language) {
-      return;
-    }
-
-    const weight = Math.max(repo.size, 1);
-    totals.set(repo.language, (totals.get(repo.language) ?? 0) + weight);
-    totalWeight += weight;
-  });
-
-  if (totalWeight === 0) {
-    return fallbackGithubData.languages;
-  }
-
-  const sorted = [...totals.entries()].sort((a, b) => b[1] - a[1]);
-  const top = sorted.slice(0, 3);
-  const othersWeight = sorted.slice(3).reduce((sum, [, weight]) => sum + weight, 0);
-
-  const distribution: LanguageStat[] = top.map(([name, weight], index) => ({
-    name,
-    percent: Math.round((weight / totalWeight) * 100),
-    color: languageColors[index % languageColors.length],
-  }));
-
-  if (othersWeight > 0) {
-    distribution.push({
-      name: "Others",
-      percent: Math.max(1, Math.round((othersWeight / totalWeight) * 100)),
-      color: "bg-muted-foreground",
-    });
-  }
-
-  return distribution;
-}
 
 export function AboutSection() {
   const [githubData, setGithubData] = useState<GitHubStatsData>(fallbackGithubData);
@@ -174,41 +121,32 @@ export function AboutSection() {
       setIsLoadingGithub(true);
 
       try {
-        const [userRes, reposRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, {
-            headers: { Accept: "application/vnd.github+json" },
-          }),
-          fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100&type=owner`, {
-            headers: { Accept: "application/vnd.github+json" },
-          }),
-        ]);
-
-        if (!userRes.ok || !reposRes.ok) {
-          throw new Error("Unable to load GitHub data");
+        const res = await fetch("/api/github");
+        if (res.ok) {
+          const data = (await res.json()) as GitHubStatsData;
+          if (isMounted) {
+            setGithubData(data);
+            return;
+          }
         }
-
-        const user = (await userRes.json()) as GithubUser;
-        const repos = ((await reposRes.json()) as GithubRepo[]).filter((repo) => !repo.fork);
-
-        const stars = repos.reduce((sum, repo) => sum + repo.stargazers_count, 0);
-        const forks = repos.reduce((sum, repo) => sum + repo.forks_count, 0);
-        const languages = buildLanguageDistribution(repos);
-
-        if (!isMounted) {
-          return;
-        }
-
-        setGithubData({
-          username: GITHUB_USERNAME,
-          stars,
-          repositories: user.public_repos,
-          followers: user.followers,
-          forks,
-          languages,
-        });
+        throw new Error("Local API fallback");
       } catch {
-        if (isMounted) {
-          setGithubData(fallbackGithubData);
+        try {
+          const userRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+          if (userRes.ok) {
+            const user = await userRes.json();
+            if (isMounted) {
+              setGithubData((prev) => ({
+                ...prev,
+                repositories: user.public_repos || prev.repositories,
+                followers: user.followers || prev.followers,
+              }));
+            }
+          }
+        } catch {
+          if (isMounted) {
+            setGithubData(fallbackGithubData);
+          }
         }
       } finally {
         if (isMounted) {

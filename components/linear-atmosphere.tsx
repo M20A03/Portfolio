@@ -180,11 +180,11 @@ export function LinearAtmosphere() {
         className="absolute inset-0 w-full h-full transition-opacity duration-700 pointer-events-none"
         style={{
           backgroundImage: isDark
-            ? "linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px)"
-            : "linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px)",
+            ? "linear-gradient(to right, rgba(255, 255, 255, 0.075) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.075) 1px, transparent 1px)"
+            : "linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
-          maskImage: "radial-gradient(ellipse 70% 55% at 50% 25%, black 25%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse 70% 55% at 50% 25%, black 25%, transparent 80%)",
+          maskImage: "radial-gradient(ellipse 75% 60% at 50% 25%, black 30%, transparent 85%)",
+          WebkitMaskImage: "radial-gradient(ellipse 75% 60% at 50% 25%, black 30%, transparent 85%)",
         }}
       />
 
