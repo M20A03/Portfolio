@@ -17,6 +17,7 @@ import { SectionDivider } from "@/components/section-divider";
 import AntigravityCanvas from "@/components/antigravity-canvas";
 import RetroWaveBackground from "@/components/retrowave-background";
 import { SpotlightBackground } from "@/components/spotlight-background";
+import { LightAtmosphereBackground } from "@/components/light-atmosphere-background";
 import { NoiseOverlay } from "@/components/noise-overlay";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Heart, Sparkles } from "lucide-react";
@@ -82,6 +83,7 @@ export function PortfolioContainer() {
       <AntigravityCanvas />
       <RetroWaveBackground />
       <SpotlightBackground />
+      <LightAtmosphereBackground />
       <NoiseOverlay />
       <script
         type="application/ld+json"

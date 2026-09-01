@@ -295,3 +295,34 @@
 .animate-glow-pulse {
   animation: ambientGlowPulse 8s ease-in-out infinite;
 }
+
+/* ─── Glacial Atmospheric Drift (Light Mode Enterprise Background) ─── */
+@keyframes glacialDrift1 {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(45px, 20px); }
+  100% { transform: translate(-30px, 35px); }
+}
+
+@keyframes glacialDrift2 {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(-50px, -25px); }
+  100% { transform: translate(35px, -15px); }
+}
+
+@keyframes glacialDrift3 {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(30px, -35px); }
+  100% { transform: translate(-45px, 20px); }
+}
+
+.animate-glacial-drift-1 {
+  animation: glacialDrift1 30s linear infinite alternate;
+}
+
+.animate-glacial-drift-2 {
+  animation: glacialDrift2 34s linear infinite alternate;
+}
+
+.animate-glacial-drift-3 {
+  animation: glacialDrift3 28s linear infinite alternate;
+}
