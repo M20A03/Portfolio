@@ -111,20 +111,20 @@ export function JourneySection() {
     const visibleMilestones = showAll ? milestones : milestones.slice(0, 3);
 
     return (
-        <section id="journey" className="scroll-mt-24 py-12 md:py-24 px-6 md:px-12 bg-transparent relative overflow-hidden">
+        <section id="journey" className="scroll-mt-24 py-10 md:py-16 px-4 sm:px-6 md:px-12 bg-transparent relative overflow-hidden">
             {/* Background Decorative Element */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="max-w-4xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-16 md:mb-24 text-center">
-                    <p className="text-primary font-bold text-sm tracking-[0.2em] uppercase mb-4">
+                <div className="mb-10 md:mb-14 text-center">
+                    <p className="text-primary font-bold text-xs sm:text-sm tracking-[0.2em] uppercase mb-2 sm:mb-3">
                         The Timeline
                     </p>
-                    <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4">
                         My <span className="text-primary">Journey</span>
                     </h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                         A visual overview of my education, key projects, and professional milestones.
                     </p>
                 </div>
@@ -134,37 +134,37 @@ export function JourneySection() {
                     {/* Central Line */}
                     <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2" />
 
-                    <ol className="space-y-12 md:space-y-24" aria-label="Journey timeline milestones">
+                    <ol className="space-y-6 md:space-y-8" aria-label="Journey timeline milestones">
                         {visibleMilestones.map((item, index) => (
                             <motion.li
                                 key={index}
-                                initial={{ opacity: 0, y: 50 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.7, delay: index * 0.1 }}
+                                viewport={{ once: true, margin: "-80px" }}
+                                transition={{ duration: 0.5, delay: index * 0.06 }}
                                 className={`relative flex flex-col md:flex-row items-start md:items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""
                                     }`}
                             >
                                 {/* Dot / Icon */}
-                                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full border-4 border-background bg-card flex items-center justify-center z-10 shadow-xl group hover:scale-110 transition-transform duration-300">
-                                    <item.icon className="w-5 h-5 text-primary" />
+                                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full border-3 border-background bg-card flex items-center justify-center z-10 shadow-lg group hover:scale-110 transition-transform duration-300">
+                                    <item.icon className="w-4 h-4 text-primary" />
                                 </div>
 
                                 {/* Content Card */}
-                                <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-16 text-left" : "md:pr-16 md:text-right"} pl-12 w-full`}>
-                                    <Card className="group hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
-                                        <CardContent className="p-6 md:p-8 flex flex-col gap-3">
-                                            <Badge variant="outline" className="w-fit text-primary border-primary/20 text-xs font-black uppercase tracking-widest">
+                                <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pl-12 text-left" : "md:pr-12 md:text-right"} pl-10 w-full`}>
+                                    <Card className="group hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 bg-card/70 backdrop-blur-sm">
+                                        <CardContent className="p-4 sm:p-5 md:p-6 flex flex-col gap-2.5">
+                                            <Badge variant="outline" className="w-fit text-primary border-primary/20 text-[11px] font-bold uppercase tracking-wider">
                                                 {item.date}
                                             </Badge>
-                                            <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                                            <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-sm font-semibold text-muted-foreground italic flex items-center gap-2">
-                                                <Zap className="w-4 h-4 text-primary shrink-0" />
-                                                {item.location}
+                                            <p className="text-xs sm:text-sm font-medium text-muted-foreground flex items-center gap-1.5 md:inline-flex">
+                                                <Zap className="w-3.5 h-3.5 text-primary shrink-0" />
+                                                <span>{item.location}</span>
                                             </p>
-                                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                            <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed">
                                                 {item.description}
                                             </p>
                                         </CardContent>
@@ -176,15 +176,15 @@ export function JourneySection() {
 
                     {/* Mobile See More */}
                     {milestones.length > 3 && (
-                        <div className="mt-6 flex justify-center print:hidden">
+                        <div className="mt-8 flex justify-center print:hidden">
                             <button
                                 type="button"
                                 onClick={() => setShowAll((prev) => !prev)}
-                                className="text-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 transition-colors"
+                                className="px-5 py-2 rounded-full border border-border bg-muted/40 hover:bg-muted/80 text-sm font-semibold text-primary hover:text-primary/90 transition-all cursor-pointer shadow-2xs"
                                 aria-expanded={showAll}
                                 aria-controls="journey"
                             >
-                                {showAll ? "See less journey" : `See more journey (${milestones.length - 3})`}
+                                {showAll ? "See less journey" : `See full timeline (${milestones.length - 3} more)`}
                             </button>
                         </div>
                     )}
