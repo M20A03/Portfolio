@@ -11,6 +11,7 @@ interface SkillOrb {
   radius: number;
   color: string;
   ringColor: string;
+  hasRing: boolean;
   ringAngle: number;
   ringSpeed: number;
   floatOffset: number;
@@ -122,31 +123,33 @@ export default function AntigravityCanvas() {
       });
     };
 
-    // 4. Antigravity Skill Orbs with Orbital Rings
+    // 4. Antigravity Cosmic Bodies (1 Single Elegant Saturn + Subtle Ambient Light Motes)
     const orbColors = [
-      { core: "rgba(6, 182, 212, 0.9)", ring: "#00f3ff" },
-      { core: "rgba(236, 72, 153, 0.9)", ring: "#ff007f" },
-      { core: "rgba(168, 85, 247, 0.9)", ring: "#c084fc" },
-      { core: "rgba(59, 130, 246, 0.9)", ring: "#60a5fa" },
-      { core: "rgba(16, 185, 129, 0.9)", ring: "#34d399" },
+      { core: "rgba(6, 182, 212, 0.8)", ring: "#00f3ff" },
+      { core: "rgba(168, 85, 247, 0.6)", ring: "#c084fc" },
+      { core: "rgba(59, 130, 246, 0.6)", ring: "#60a5fa" },
+      { core: "rgba(16, 185, 129, 0.6)", ring: "#34d399" },
     ];
 
-    const orbs: SkillOrb[] = Array.from({ length: 10 }, (_, i) => {
-      const baseX = (width * (i + 1)) / 11 + (Math.random() - 0.5) * 60;
-      const baseY = height * 0.25 + Math.random() * 0.5 * height;
+    // Only 1 majestic ringed planet (Saturn) in the background + 3 subtle ambient energy motes
+    const orbs: SkillOrb[] = Array.from({ length: 4 }, (_, i) => {
+      const isSaturn = i === 0;
+      const baseX = isSaturn ? width * 0.84 : (width * (i + 1)) / 5 + (Math.random() - 0.5) * 40;
+      const baseY = isSaturn ? height * 0.24 : height * 0.35 + Math.random() * 0.45 * height;
       const palette = orbColors[i % orbColors.length];
       return {
         x: baseX,
         y: baseY,
         baseX,
         baseY,
-        radius: Math.random() * 12 + 16,
+        radius: isSaturn ? 22 : Math.random() * 5 + 6,
         color: palette.core,
         ringColor: palette.ring,
-        ringAngle: Math.random() * Math.PI * 2,
-        ringSpeed: (Math.random() * 0.03 + 0.015) * (Math.random() > 0.5 ? 1 : -1),
+        hasRing: isSaturn,
+        ringAngle: -0.45,
+        ringSpeed: 0.003,
         floatOffset: Math.random() * Math.PI * 2,
-        floatSpeed: Math.random() * 0.02 + 0.01,
+        floatSpeed: Math.random() * 0.015 + 0.008,
         vx: 0,
         vy: 0,
       };
@@ -342,22 +345,32 @@ export default function AntigravityCanvas() {
         ctx.arc(orb.x, orb.y, orb.radius, 0, Math.PI * 2);
         ctx.fill();
 
-        // Rapidly Rotating Planetary Ring
-        orb.ringAngle += orb.ringSpeed;
-        ctx.save();
-        ctx.translate(orb.x, orb.y);
-        ctx.rotate(orb.ringAngle);
-        ctx.scale(1, 0.36); // Elliptical ring perspective
+        // Planetary Ring System (Exclusively for the single featured Saturn body)
+        if (orb.hasRing) {
+          orb.ringAngle += orb.ringSpeed;
+          ctx.save();
+          ctx.translate(orb.x, orb.y);
+          ctx.rotate(orb.ringAngle);
+          ctx.scale(1, 0.32); // Deep elliptical perspective
 
-        ctx.strokeStyle = orb.ringColor;
-        ctx.lineWidth = 2.0;
-        ctx.shadowColor = orb.ringColor;
-        ctx.shadowBlur = 10;
+          // Outer Primary Ring
+          ctx.strokeStyle = orb.ringColor;
+          ctx.lineWidth = 2.2;
+          ctx.shadowColor = orb.ringColor;
+          ctx.shadowBlur = 12;
+          ctx.beginPath();
+          ctx.arc(0, 0, orb.radius * 2.2, 0, Math.PI * 2);
+          ctx.stroke();
 
-        ctx.beginPath();
-        ctx.arc(0, 0, orb.radius * 1.8, 0, Math.PI * 1.6); // Open arc
-        ctx.stroke();
-        ctx.restore();
+          // Delicate Inner Ring
+          ctx.lineWidth = 1.0;
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.55)";
+          ctx.beginPath();
+          ctx.arc(0, 0, orb.radius * 2.6, 0, Math.PI * 2);
+          ctx.stroke();
+
+          ctx.restore();
+        }
       });
 
       animId = requestAnimationFrame(render);
