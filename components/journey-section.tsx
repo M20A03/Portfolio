@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Zap, Code, Database, Sparkles, TrendingUp, Cpu } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -107,9 +107,17 @@ const milestones = [
 
 export function JourneySection() {
     const [showAll, setShowAll] = useState(false);
-    const INITIAL_COUNT = 2;
+    const [isMobile, setIsMobile] = useState(false);
 
-    const visibleMilestones = showAll ? milestones : milestones.slice(0, INITIAL_COUNT);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile, { passive: true });
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    const initialCount = isMobile ? 2 : 3;
+    const visibleMilestones = showAll ? milestones : milestones.slice(0, initialCount);
 
     return (
         <section id="journey" className="scroll-mt-24 py-10 md:py-16 px-4 sm:px-6 md:px-12 bg-transparent relative overflow-hidden">
@@ -190,7 +198,7 @@ export function JourneySection() {
                     </div>
 
                     {/* Expand/Collapse Button (Separated from timeline line) */}
-                    {milestones.length > INITIAL_COUNT && (
+                    {milestones.length > initialCount && (
                         <div className="mt-10 flex justify-center print:hidden relative z-10">
                             <button
                                 type="button"
@@ -199,7 +207,7 @@ export function JourneySection() {
                                 aria-expanded={showAll}
                                 aria-controls="journey"
                             >
-                                {showAll ? "See less journey" : `See full timeline (${milestones.length - INITIAL_COUNT} more milestones)`}
+                                {showAll ? "See less journey" : `See full timeline (${milestones.length - initialCount} more milestones)`}
                             </button>
                         </div>
                     )}

@@ -81,10 +81,18 @@ export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<(typeof categories)[number]>("All");
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [projects, setProjects] = useState<ProjectData[]>(projectData);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const INITIAL_PROJECT_COUNT = 4;
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile, { passive: true });
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const initialCount = isMobile ? 4 : 6;
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
-  const visibleProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, INITIAL_PROJECT_COUNT);
+  const visibleProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, initialCount);
 
   useEffect(() => {
     let isMounted = true;
@@ -313,7 +321,7 @@ export function ProjectsSection() {
         </motion.div>
 
         {/* See More Projects Toggle */}
-        {filteredProjects.length > INITIAL_PROJECT_COUNT && (
+        {filteredProjects.length > initialCount && (
           <div className="mt-10 text-center">
             <Button
               variant="default"
@@ -324,7 +332,7 @@ export function ProjectsSection() {
               <Sparkles className="w-4 h-4" />
               {showAllProjects
                 ? "Show Less Projects"
-                : `See More Projects (${filteredProjects.length - INITIAL_PROJECT_COUNT} remaining)`}
+                : `See More Projects (${filteredProjects.length - initialCount} remaining)`}
             </Button>
           </div>
         )}
