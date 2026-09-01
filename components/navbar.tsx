@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Menu, X, Sun, Moon } from "lucide-react";
+import { Github, Linkedin, Menu, X, Sun, Moon, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
@@ -119,8 +119,25 @@ export function Navbar() {
           </div>
 
           {/* Social Links & Theme Toggle */}
-          <div className="flex items-center gap-4 sm:gap-5">
-            <div className="hidden md:flex items-center gap-3.5">
+          <div className="flex items-center gap-3 sm:gap-4">
+            {/* Quick Command Palette Button */}
+            <button
+              onClick={() =>
+                window.dispatchEvent(
+                  new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })
+                )
+              }
+              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-muted/40 hover:bg-muted/80 text-xs text-foreground/80 hover:text-foreground transition-all cursor-pointer shadow-2xs"
+              aria-label="Open Command Palette"
+            >
+              <Search className="w-3.5 h-3.5 text-primary" />
+              <span className="font-medium">Search</span>
+              <kbd className="font-mono text-[10px] bg-background px-1.5 py-0.5 rounded border border-border text-muted-foreground">
+                ⌘K
+              </kbd>
+            </button>
+
+            <div className="hidden md:flex items-center gap-2.5">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a

@@ -35,6 +35,15 @@ export const metadata: Metadata = {
   description:
     "Official portfolio of Mayank Raj Gupta, Full Stack Developer and BCA Scholar at Christ University. Expertise in React, Next.js 15, TypeScript, Python, YOLOv11 Deep Learning, and AntiGravity AI workflows.",
   keywords: [
+    "Mayank Raj",
+    "Mayank Raj portfolio",
+    "Mayank Raj developer",
+    "Mayank Raj software engineer",
+    "Mayank Raj Bangalore",
+    "Mayank Raj Christ University",
+    "Mayank Raj GitHub",
+    "Mayank Raj AI Engineer",
+    "Mayank Raj Full Stack Developer",
     "Mayank Raj Gupta",
     "Mayank Raj Gupta portfolio",
     "Mayank Raj Gupta developer",

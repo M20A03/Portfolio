@@ -1,84 +1,36 @@
-# Mayank Raj Gupta
+# Mayank Raj Gupta (Mayank Raj)
 
-Official portfolio and professional dossier of Mayank Raj Gupta, a Full Stack Developer, MERN Stack Specialist, and BCA Scholar at Christ University, Bangalore. Mayank pivoted from a Commerce background to Computer Science, qualifying for Christ University on his very first attempt, and combining sharp business logic with high-end engineering.
+> Full-Stack Engineer, AI Systems & Knowledge Graph Specialist, and Computer Science Scholar at Christ University, Bangalore.
 
-- **Portfolio Website:** https://www.mayankraj.me
-- **GitHub:** https://github.com/M20A03 (M20A03)
+## Summary
+Mayank Raj Gupta (also known as Mayank Raj) is a software engineer specializing in scalable full-stack web applications, AI/ML agentic systems, Knowledge Graphs, vector embeddings (pgvector), Next.js 15, React 19, TypeScript, Python, and YOLOv11 Deep Learning. 
+
+- **Primary Website:** https://www.mayankraj.me
+- **GitHub:** https://github.com/M20A03
 - **LinkedIn:** https://www.linkedin.com/in/mayank-raj-gupta-159020396
 - **Email:** mayankrajgupta01@gmail.com
-- **Current Education:** Bachelor of Computer Applications (BCA) at Christ University, Bangalore (2025-2028). Maintainer of a 3.2+ CGPA.
+- **Location:** Bangalore, India
 
----
+## Key Projects & Case Studies
+1. **Nexus Scholar (AI Knowledge Graph & Research Engine)**
+   - Autonomous scientific discovery system combining Neo4j graph topologies with pgvector semantic retrieval, LangGraph agents, and Next.js 15.
+   - Live URL: https://www.mayankraj.me/case-study/nexus-scholar
+2. **Akion Fintech (Autonomous Algo-Trading & Financial Analytics)**
+   - Sub-millisecond market execution dashboard, WebSocket streaming order books, and real-time algorithmic portfolio risk modeling.
+   - Live URL: https://www.mayankraj.me/case-study/akion-fintech
+3. **Credex (Smart P2P Lending & Micro-Financing Engine)**
+   - Decentralized credit-scoring algorithm, automated escrow contracts, and responsive Next.js frontend.
+   - Live URL: https://www.mayankraj.me/case-study/credex
+4. **YOLOv11 Real-Time Deep Learning Suite**
+   - High-throughput computer vision pipeline achieving 94.6% mAP@0.5 on industrial safety inspection.
+   - Live URL: https://www.mayankraj.me/case-study/yolo11-deep-learning
+5. **Roshan Enterprises (Enterprise B2B Distribution Suite)**
+   - High-performance inventory management platform processing 10,000+ SKU sync operations.
+   - Live URL: https://www.mayankraj.me/case-study/roshan-enterprises
 
-## Technical Summary & Profile
-
-Mayank is an expert software developer and Prompt Engineer who designs scalable, high-performance web systems. Having made a successful transition from Commerce to Computer Science, he uses his business roots to build products with great user experience and clear conversion value. He has engineered 8+ deployed web systems, collaborated on YOLOv11 deep learning research, and specializes in multi-agent software engineering.
-
-### Core Tech Stack & AI Integration
-- **Frontend & Web Architecture:** React 19, Next.js 15, TypeScript, Angular, Tailwind CSS v4, Framer Motion, GSAP, Lenis, tsParticles.
-- **Backend & APIs:** Node.js, Express.js, Python, Flask, RESTful APIs, Session Auth.
-- **Databases & Cloud Hosting:** MySQL (Advanced Relational Database Design), Supabase (PostgreSQL), Firebase (Auth, Firestore, Cloud Functions, Realtime Database), AWS, Cloudflare, Vercel, Railway.
-- **Generative AI & Tools:** Expert-level AI prompt engineering across **ChatGPT & OpenAI API**, **Google Gemini SDK & Live API**, **Anthropic Claude API**, **DeepSeek API**, and AntiGravity Agentic SDKs.
-- **Computer Vision & Research:** YOLOv11 Edge Computer Vision, PyTorch, PyModel Training, OpenCV.
-
----
-
-## Featured Projects & Case Studies
-
-Each case study can be accessed at `https://www.mayankraj.me/case-study/[slug]`.
-
-### 1. Credex AI Spend Audit (`/case-study/credex`)
-- **Category:** Full-Stack
-- **Tech Stack:** React, Next.js, Tailwind CSS v4, Anthropic SDK, Supabase, Zustand, GSAP, Framer Motion.
-- **Key Features:** Real-time Indian Rupee (₹) savings calculator with Lakh/Crore formatting, floating orb AI chatbot assistant powered by Anthropic's Claude API, spring-physics tickers, and glassmorphic dashboards.
-- **Outcome:** Shipped a high-speed, zero-latency auditing application optimizing AI SaaS spend for Indian startups.
-
-### 2. Wholesale & Retail E-Commerce (`/case-study/roshan-enterprises`)
-- **Category:** Full-Stack
-- **Tech Stack:** React, Vite, Firebase, Vanilla CSS, Lucide React, js-cookie.
-- **Key Features:** Dual checkout routes for retail and wholesale buyers, cookie-based session security, list virtualization for large catalog rendering, and responsive item cards.
-- **Outcome:** Built a comprehensive storefront handling complex B2B and B2C purchasing routes.
-
-### 3. Samagra - Computer Science Department Portal (`/case-study/samagra`)
-- **Category:** Full-Stack
-- **Tech Stack:** React, Vite, Tailwind CSS v4, tsParticles, Lenis, Framer Motion, React Router v7, Zustand.
-- **Key Features:** Centralized club schedules, interactive blogging modules, custom smooth scrolling (Lenis), and tsParticles backdrop canvas.
-- **Outcome:** Centralized Christ University CS Association announcements on Vercel. (Note: Repository code is private).
-
-### 4. Event Registration & Admin Desk (`/case-study/event-registration-desk-system`)
-- **Category:** Full-Stack
-- **Tech Stack:** Node.js, Express, EJS, Supabase (PostgreSQL), Nodemailer, HTML/CSS/JS.
-- **Key Features:** Input sanitation using express-validator, automated calendar invites (.ics invites via Nodemailer), and secure CSV dashboard exports for organizers.
-- **Outcome:** Deployed a secure tech conference administration system.
-
-### 5. FLUX - Cyberpunk IT & Cultural Fest (`/case-study/flux`)
-- **Category:** Frontend
-- **Tech Stack:** React, Next.js, Tailwind CSS v4, Axios, Lucide React, HTML5 Canvas.
-- **Key Features:** Interactive cyber-rain Canvas animation, custom keyword-matching assistant chatbot, hacker-themed sign-up modals, and a countdown timer.
-- **Outcome:** Created an immersive registration portal for Christ University CS Association fests. (Note: Repository code is private).
-
-### 6. Search Algorithm Simulator (`/case-study/search-algorithm-simulator`)
-- **Category:** Tools
-- **Tech Stack:** JavaScript, HTML, CSS, Firebase, AI Chatbot.
-- **Key Features:** 5 visual simulation grids showing search steps, real-world scenario tools, and Star-Command AI chatbot.
-- **Outcome:** Visualized and simplified search logic for students.
-
-### 7. GMT Mart Grocery & Retail Platform (`/case-study/gmt-mart`)
-- **Category:** Full-Stack
-- **Tech Stack:** React, Next.js, Tailwind CSS v4, Supabase (PostgreSQL), Firebase (Auth & Functions), Zustand, PostHog.
-- **Key Features:** High-speed storefront with neon design, Firebase Functions Express.js middleware, relational database schemas for category/reviews, persistent cart, and product search.
-- **Outcome:** Deployed a functional retail storefront with persistent cart memory and user feedback tracking. (Note: Repository code is private).
-
-### 8. Nexus Scholar — Academic Knowledge Graph (`/case-study/nexus-scholar`)
-- **Category:** Full-Stack
-- **Tech Stack:** React 18, TypeScript, Vite, Serverless API, PostgreSQL, pgvector, Prisma, Python, FastAPI.
-- **Key Features:** Automated arXiv paper ingestion, RDF-like subject-predicate-object triple extraction, 768d vector embeddings, 2D/3D force-directed knowledge graph topology, and N-dimensional benchmark comparison matrix.
-- **Outcome:** Accelerated academic literature review duration by 90% via automated knowledge extraction.
-
----
-
-## Site Navigation
-- **Home:** https://www.mayankraj.me/
-- **Resume:** https://www.mayankraj.me/resume
-- **Sitemap:** https://www.mayankraj.me/sitemap.xml
-- **Robots.txt:** https://www.mayankraj.me/robots.txt
+## Core Technical Skills
+- **Frontend:** Next.js 15, React 19, TypeScript (Strict), Tailwind CSS, Framer Motion, WebSockets.
+- **Backend & APIs:** Node.js, Express, Python (FastAPI, Flask), RESTful APIs, GraphQL.
+- **Databases & Vectors:** PostgreSQL, pgvector, Neo4j, MongoDB, Redis, Supabase, Prisma.
+- **AI & ML:** YOLOv11, LangChain, LangGraph, RAG pipelines, OpenAI API, Gemini API, PyTorch.
+- **DevOps & Cloud:** Docker, AWS (S3, EC2, CloudFront), Vercel, Cloudflare, GitHub Actions CI/CD.
