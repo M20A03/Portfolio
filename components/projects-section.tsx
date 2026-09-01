@@ -82,7 +82,7 @@ export function ProjectsSection() {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [projects, setProjects] = useState<ProjectData[]>(projectData);
 
-  const INITIAL_PROJECT_COUNT = 6;
+  const INITIAL_PROJECT_COUNT = 4;
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
   const visibleProjects = showAllProjects ? filteredProjects : filteredProjects.slice(0, INITIAL_PROJECT_COUNT);
 

@@ -107,8 +107,9 @@ const milestones = [
 
 export function JourneySection() {
     const [showAll, setShowAll] = useState(false);
+    const INITIAL_COUNT = 2;
 
-    const visibleMilestones = showAll ? milestones : milestones.slice(0, 4);
+    const visibleMilestones = showAll ? milestones : milestones.slice(0, INITIAL_COUNT);
 
     return (
         <section id="journey" className="scroll-mt-24 py-10 md:py-16 px-4 sm:px-6 md:px-12 bg-transparent relative overflow-hidden">
@@ -189,7 +190,7 @@ export function JourneySection() {
                     </div>
 
                     {/* Expand/Collapse Button (Separated from timeline line) */}
-                    {milestones.length > 4 && (
+                    {milestones.length > INITIAL_COUNT && (
                         <div className="mt-10 flex justify-center print:hidden relative z-10">
                             <button
                                 type="button"
@@ -198,7 +199,7 @@ export function JourneySection() {
                                 aria-expanded={showAll}
                                 aria-controls="journey"
                             >
-                                {showAll ? "See less journey" : `See full timeline (${milestones.length - 4} more milestones)`}
+                                {showAll ? "See less journey" : `See full timeline (${milestones.length - INITIAL_COUNT} more milestones)`}
                             </button>
                         </div>
                     )}
