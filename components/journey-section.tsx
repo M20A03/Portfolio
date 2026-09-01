@@ -88,6 +88,14 @@ const milestones = [
         color: "bg-purple-600",
     },
     {
+        date: "2026 — Present",
+        title: "Academic Knowledge Graph Intelligence",
+        location: "Nexus Scholar Platform",
+        description: "Architected Nexus Scholar, an academic research intelligence platform indexing arXiv literature into semantic triples with 768d vector embeddings and interactive 2D/3D force-directed graphs.",
+        icon: Zap,
+        color: "bg-cyan-600",
+    },
+    {
         date: "May 2026 — Present",
         title: "Web Development Internship",
         location: "shadowfox.org.in",

@@ -10,21 +10,21 @@ import { useState } from "react";
 const proofStats = [
   {
     icon: Rocket,
-    label: "Production Projects",
-    value: "17+",
-    note: "Full-stack apps deployed across Firebase & Vercel",
+    label: "Production Systems",
+    value: "18+",
+    note: "Full-stack apps, AI knowledge graphs & deep learning systems",
   },
   {
     icon: BadgeCheck,
     label: "Accessibility Focus",
     value: "WCAG 2.1 AA",
-    note: "Semantic landmark hierarchy & contrast checks",
+    note: "Strict contrast, semantic landmarks & keyboard navigation",
   },
   {
     icon: Clock3,
     label: "Typical Response",
     value: "< 24h",
-    note: "For full-stack engineering & freelance inquiries",
+    note: "For full-stack engineering & AI consulting inquiries",
   },
 ];
 
@@ -44,9 +44,9 @@ const testimonials = [
 ];
 
 const nowItems = [
-  "Building deeper full-stack case studies with measurable outcomes",
-  "Improving backend architecture and API design patterns",
-  "Contributing to open-source and documenting lessons learned",
+  "Building Nexus Scholar university literature knowledge graphs with pgvector",
+  "Fine-tuning YOLOv11 deep learning pipelines for edge hardware vision",
+  "Architecting high-conversion SaaS web applications with Next.js 15 & React 19",
 ];
 
 export function ProofSection() {

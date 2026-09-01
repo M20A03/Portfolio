@@ -81,15 +81,15 @@ const education = [
 ];
 
 const highlights = [
-  { icon: Code2, label: "Languages", value: "5+" },
-  { icon: Lightbulb, label: "Projects", value: "17+" },
+  { icon: Code2, label: "Languages & Frameworks", value: "12+" },
+  { icon: Lightbulb, label: "Case Studies", value: "18+" },
   { icon: GraduationCap, label: "Certifications", value: "10+" },
 ];
 
 const interests = [
   { icon: Plane, label: "Travelling", description: "Exploring new places" },
   { icon: Bike, label: "Cycling", description: "Around the city" },
-  { icon: Code2, label: "Coding", description: "Building solutions" },
+  { icon: Code2, label: "AI Research", description: "Knowledge graphs & vision" },
 ];
 
 const GITHUB_USERNAME = "M20A03";
@@ -268,8 +268,8 @@ export function AboutSection() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  I am a dedicated <span className="text-foreground font-medium">Full-Stack &amp; MERN Stack Developer</span> and BCA Scholar at <span className="text-primary">Christ University</span> with a strong foundation in scalable web architecture, frontend UI design, and backend RESTful APIs. My engineering focus centers on building production-ready applications with clean code and modern frameworks.
+                <p className="text-slate-300 dark:text-slate-200 leading-relaxed">
+                  I am a dedicated <span className="text-foreground font-semibold">Full-Stack &amp; AI Systems Engineer</span> and BCA Scholar at <span className="text-primary font-medium">Christ University, Bangalore</span>. Pivoting from a Commerce foundation to Computer Science (clearing on my first attempt), I bridge financial logic with modern software architecture, specializing in <span className="text-foreground font-semibold">React 19, Next.js 15, FastAPI, PostgreSQL (pgvector), and YOLOv11 Computer Vision</span>.
                 </p>
               </CardContent>
             </Card>
@@ -284,8 +284,8 @@ export function AboutSection() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Always <span className="text-primary">inquisitive to new technologies</span> and eager to learn. I believe in writing clean, efficient code and creating user-friendly experiences. Every project is an opportunity to grow and make an impact.
+                <p className="text-slate-300 dark:text-slate-200 leading-relaxed">
+                  I specialize in <span className="text-primary font-medium">multi-agent AI workflows (AntiGravity AI)</span>, LLM reasoning pipelines (Claude, Gemini, OpenAI), and high-conversion accessible UI systems. From academic knowledge graphs to enterprise e-commerce portals, I build production-grade web applications with measured real-world impact.
                 </p>
               </CardContent>
             </Card>
@@ -298,7 +298,7 @@ export function AboutSection() {
                 <CardContent className="p-0">
                   <item.icon className="w-6 h-6 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <AnimatedCounter value={item.value} />
-                  <p className="text-sm text-muted-foreground">{item.label}</p>
+                  <p className="text-sm text-slate-300 dark:text-slate-200 font-medium">{item.label}</p>
                 </CardContent>
               </Card>
             ))}
@@ -316,17 +316,17 @@ export function AboutSection() {
                   <div className="w-full lg:w-1/3 flex flex-col gap-8">
                     <div>
                       <h3 className="text-3xl font-black text-foreground tracking-tighter mb-2">Code <span className="text-primary">Activity</span></h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        An overview of my development pulse. Combining public contributions with my private engineering workspace and primary tech stack: <span className="text-foreground font-bold">TypeScript, JavaScript, & HTML</span>.
+                      <p className="text-slate-300 dark:text-slate-200 text-sm leading-relaxed">
+                        An overview of my development pulse. Combining public contributions with my private engineering workspace and primary tech stack: <span className="text-foreground font-bold">TypeScript, Python, React, Next.js, & SQL</span>.
                       </p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       {codeActivityStats.map((stat, i) => (
-                        <div key={i} className="p-4 rounded-2xl bg-background/50 border border-border/50 hover:border-primary/30 transition-colors group/stat">
-                          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1 group-hover/stat:text-primary transition-colors">{stat.label}</p>
+                        <div key={i} className="p-4 rounded-2xl bg-card/70 border border-border/60 hover:border-primary/40 transition-colors group/stat">
+                          <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">{stat.label}</p>
                           <p className="text-xl font-black text-foreground">{stat.value}</p>
-                          <p className="text-[9px] text-muted-foreground font-medium">{stat.sub}</p>
+                          <p className="text-[9px] text-slate-300 dark:text-slate-200 font-medium">{stat.sub}</p>
                         </div>
                       ))}
                     </div>

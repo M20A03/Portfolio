@@ -11,17 +11,17 @@ import { motion } from "framer-motion";
 
 const roles = [
   "Full-Stack & MERN Developer",
-  "Next.js 15 & React Architect",
-  "AI-Powered Workflows & LLMs",
-  "RESTful APIs & Backend Engineer",
+  "AI Systems & Knowledge Graph Architect",
+  "Next.js 15 & React 19 Engineer",
+  "Deep Learning & YOLOv11 Specialist",
   "Cloud & SRE Infrastructure",
 ];
 
 const proofChips = [
-  "17+ Deployed Case Studies",
+  "18+ Deployed Case Studies",
+  "Knowledge Graphs & AI Systems",
   "React 19 & Next.js 15",
   "TypeScript (Strict Mode)",
-  "AI-Powered Workflows & Auth",
 ];
 
 function MagneticIcon({ children, className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { children: React.ReactNode }) {
@@ -81,7 +81,7 @@ export function HeroSection() {
     return () => section?.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Smooth typing effect
+  // Typewriter loop
   useEffect(() => {
     const current = roles[roleIndex];
     let timeout: NodeJS.Timeout;
@@ -147,7 +147,7 @@ export function HeroSection() {
             <div className="flex justify-center lg:justify-start mb-5">
               <Badge
                 variant="outline"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border-primary/20 text-primary text-xs sm:text-sm font-medium"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/15 border-primary/30 text-primary text-xs sm:text-sm font-semibold backdrop-blur-md"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -167,25 +167,25 @@ export function HeroSection() {
 
             {/* Dynamic Animated Role Ticker */}
             <div
-              className="text-xl sm:text-2xl md:text-3xl text-foreground/90 font-medium mb-4 min-h-[2.25rem] flex items-center justify-center lg:justify-start"
+              className="text-xl sm:text-2xl md:text-3xl text-foreground font-semibold mb-4 min-h-[2.25rem] flex items-center justify-center lg:justify-start"
               aria-live="polite"
             >
               <span>{displayed}</span>
               <span className="animate-pulse text-primary ml-1" aria-hidden="true">|</span>
             </div>
 
-            {/* H2 Semantic Punchy Tagline (Exactly 12 words) */}
-            <h2 className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed font-normal">
-              Full-Stack &amp; MERN Developer building high-performance, accessible web applications and AI-driven platforms.
+            {/* H2 Semantic Punchy Tagline */}
+            <h2 className="text-sm sm:text-base md:text-lg text-foreground/90 dark:text-slate-200 max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed font-normal">
+              Full-Stack &amp; MERN Developer building high-performance, accessible web platforms, research knowledge graphs, and AI-driven systems.
             </h2>
 
-            {/* Feature Proof Badges (Wrap gracefully on 320px screens) */}
+            {/* Feature Proof Badges */}
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-8">
               {proofChips.map((chip) => (
                 <Badge
                   key={chip}
                   variant="secondary"
-                  className="rounded-full px-3 py-1 bg-secondary/80 border border-border text-xs text-foreground/90 font-medium shadow-xs"
+                  className="rounded-full px-3.5 py-1.5 bg-card/85 dark:bg-slate-900/80 border border-border/80 dark:border-white/20 text-xs text-foreground dark:text-slate-100 font-medium shadow-xs backdrop-blur-md hover:border-primary/50 transition-colors"
                 >
                   {chip}
                 </Badge>
@@ -207,7 +207,7 @@ export function HeroSection() {
                 variant="outline"
                 size="lg"
                 onClick={() => scrollToSection("contact")}
-                className="w-full sm:w-auto px-7 py-6 text-sm sm:text-base font-semibold border-border hover:bg-secondary hover:border-primary/50 transition-all hover:scale-105 active:scale-95 bg-background/80 gap-2 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary"
+                className="w-full sm:w-auto px-7 py-6 text-sm sm:text-base font-semibold border-border/80 dark:border-white/25 hover:bg-secondary dark:hover:bg-white/10 hover:border-primary/70 transition-all hover:scale-105 active:scale-95 bg-card/80 dark:bg-slate-900/90 text-foreground dark:text-white gap-2 cursor-pointer shadow-md backdrop-blur-md focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <Briefcase className="w-4 h-4" />
                 Hire Me / Freelance
@@ -217,7 +217,7 @@ export function HeroSection() {
                 asChild
                 variant="ghost"
                 size="lg"
-                className="w-full sm:w-auto px-5 py-6 text-sm sm:text-base font-medium gap-2 text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all active:scale-95 group focus-visible:ring-2 focus-visible:ring-primary"
+                className="w-full sm:w-auto px-5 py-6 text-sm sm:text-base font-medium gap-2 text-foreground/90 dark:text-slate-200 hover:text-primary hover:bg-primary/10 border border-border/60 dark:border-white/15 bg-card/50 dark:bg-slate-900/50 backdrop-blur-md transition-all active:scale-95 group focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <a href="/resume.pdf" download="Mayank_Raj_Gupta_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
@@ -240,7 +240,7 @@ export function HeroSection() {
                       target={href.startsWith("mailto") ? undefined : "_blank"}
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 active:scale-95 inline-block focus-visible:ring-2 focus-visible:ring-primary"
+                      className="p-3 rounded-full border border-border/80 dark:border-white/20 bg-card/60 dark:bg-slate-900/80 text-foreground/90 dark:text-slate-200 hover:text-primary hover:border-primary hover:bg-primary/15 backdrop-blur-md transition-all duration-300 hover:scale-110 active:scale-95 inline-block focus-visible:ring-2 focus-visible:ring-primary"
                     >
                       <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </MagneticIcon>
