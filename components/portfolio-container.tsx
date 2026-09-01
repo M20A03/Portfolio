@@ -14,9 +14,7 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { CustomCursor } from "@/components/custom-cursor";
 import { SectionDivider } from "@/components/section-divider";
-import AntigravityCanvas from "@/components/antigravity-canvas";
-import RetroWaveBackground from "@/components/retrowave-background";
-import { SpotlightBackground } from "@/components/spotlight-background";
+import { DarkAtmosphereBackground } from "@/components/dark-atmosphere-background";
 import { LightAtmosphereBackground } from "@/components/light-atmosphere-background";
 import { NoiseOverlay } from "@/components/noise-overlay";
 import { Separator } from "@/components/ui/separator";
@@ -80,9 +78,7 @@ export function PortfolioContainer() {
 
   return (
     <main id="main-content" className="min-h-screen bg-transparent relative selection:bg-primary/20">
-      <AntigravityCanvas />
-      <RetroWaveBackground />
-      <SpotlightBackground />
+      <DarkAtmosphereBackground />
       <LightAtmosphereBackground />
       <NoiseOverlay />
       <script

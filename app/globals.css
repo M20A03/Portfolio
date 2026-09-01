@@ -326,3 +326,34 @@
 .animate-glacial-drift-3 {
   animation: glacialDrift3 28s linear infinite alternate;
 }
+
+/* ─── Glacial Lateral Drift (Mature Dark Mode Background) ─── */
+@keyframes darkDrift1 {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(50px); }
+  100% { transform: translateX(-40px); }
+}
+
+@keyframes darkDrift2 {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(-60px); }
+  100% { transform: translateX(45px); }
+}
+
+@keyframes darkDrift3 {
+  0% { transform: translateX(0px); }
+  50% { transform: translateX(40px); }
+  100% { transform: translateX(-55px); }
+}
+
+.animate-dark-drift-1 {
+  animation: darkDrift1 25s ease-in-out infinite alternate;
+}
+
+.animate-dark-drift-2 {
+  animation: darkDrift2 27s ease-in-out infinite alternate;
+}
+
+.animate-dark-drift-3 {
+  animation: darkDrift3 24s ease-in-out infinite alternate;
+}
