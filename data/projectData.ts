@@ -82,56 +82,46 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "nexus-scholar",
-    title: "Nexus Scholar",
-    subtitle: "University Research Knowledge Graph & Literature Intelligence",
+    slug: "yolo11-deep-learning",
+    title: "YOLOv11 Computer Vision & Object Detection System",
+    subtitle: "Confidential Deep Learning Research @ Christ University",
     description:
-      "An enterprise-grade academic research intelligence and automated knowledge graph platform inspired by the ORKG initiative. Ingests scientific literature (arXiv, DOIs, PDFs), extracts subject-predicate-object semantic triples, indexes 768d vector embeddings, and visualizes cross-disciplinary research connections in real time.",
-    techStack: [
-      "React 18",
-      "TypeScript",
-      "Vite",
-      "Serverless API",
-      "PostgreSQL",
-      "pgvector",
-      "Prisma",
-      "Python",
-      "FastAPI"
-    ],
-    demoUrl: "https://nexus-scholar-huhs.vercel.app",
-    githubUrl: "https://github.com/M20A03/Nexus-Scholar",
-    thumbnailAlt: "Nexus Scholar University Knowledge Graph Portal",
-    category: "Full-Stack",
-    date: "2026",
-    color: "from-cyan-500/20 to-blue-500/20",
-    emoji: "🔬",
-    image: "/images/nexus-scholar.png",
-    isPrivate: false,
-    stats: "PostgreSQL + pgvector · 768d Vectors · arXiv Ingestion · 2D/3D Force Graph",
-    outcome: "Cut literature review duration by 90% via automated semantic triple extraction and interactive comparative matrix generation.",
+      "A confidential deep learning research project utilizing state-of-the-art YOLOv11 computer vision architecture for high-speed object detection, spatial tracking, and automated image feature classification.",
+    techStack: ["YOLOv11", "PyTorch", "Python", "Computer Vision", "OpenCV", "Deep Learning"],
+    demoUrl: null,
+    githubUrl: null,
+    thumbnailAlt: "YOLOv11 Deep Learning Computer Vision System",
+    category: "Tools",
+    date: "2026 — Present",
+    color: "from-purple-500/20 to-cyan-500/20",
+    emoji: "👁️",
+    image: "/images/yolo11-preview.svg",
+    isPrivate: true,
+    stats: "Confidential Research · YOLOv11 · Christ University",
+    outcome: "Trained and evaluated custom YOLOv11 object detection pipelines for specialized vision benchmarks.",
     highlights: [
-      "Automated arXiv & PDF Ingestion: Extracts RDF-like subject-predicate-object semantic triples instantly",
-      "N-Dimensional Matrix Comparisons: Side-by-side matrices contrasting model architectures and benchmark metrics",
-      "Interactive 2D/3D Knowledge Graph Topology: Real-time force-directed canvas mapping cross-department collaborations",
-      "Hybrid Semantic & Vector Search: 768d dense vector indexing over research literature with pgvector"
+      "Confidential research project supervised at Christ University",
+      "YOLOv11 neural network backbone optimized for low-latency visual inference",
+      "Custom dataset annotation, feature extraction, and bounding-box evaluation",
+      "Designed for real-time edge hardware deployment and spatial analysis"
     ],
-    featureTitle: "Automated Research Knowledge Graph & Literature Intelligence Platform",
+    featureTitle: "Computer Vision Architecture & Neural Inference",
     process: [
       {
-        title: "Problem",
-        text: "Academic literature is trapped in isolated PDF silos, requiring researchers to spend dozens of hours manually comparing benchmark metrics and architectures."
+        title: "Research & Design",
+        text: "Formulated object detection objectives and prepared annotated image datasets for YOLOv11 fine-tuning."
       },
       {
-        title: "Design",
-        text: "Architected a dual-view portal combining high-density matrix comparison tables with an interactive 2D/3D force-directed knowledge graph."
+        title: "Model Training",
+        text: "Trained YOLOv11 detection models with custom hyperparameters, data augmentations, and loss functions."
       },
       {
-        title: "Build",
-        text: "Engineered high-throughput arXiv ingestion microservice, PostgreSQL with pgvector indexing, and lightweight React/Vite visualization frontends."
+        title: "Evaluation",
+        text: "Benchmarked mean Average Precision (mAP) and inference latency across diverse testing conditions."
       },
       {
         title: "Outcome",
-        text: "Deployed zero-cold-start research exploration platform accelerating literature reviews by up to 90%."
+        text: "Shipped a high-accuracy computer vision pipeline for academic research applications."
       }
     ]
   },
@@ -444,46 +434,56 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "yolo11-deep-learning",
-    title: "YOLOv11 Computer Vision & Object Detection System",
-    subtitle: "Confidential Deep Learning Research @ Christ University",
+    slug: "nexus-scholar",
+    title: "Nexus Scholar",
+    subtitle: "University Research Knowledge Graph & Literature Intelligence",
     description:
-      "A confidential deep learning research project utilizing state-of-the-art YOLOv11 computer vision architecture for high-speed object detection, spatial tracking, and automated image feature classification.",
-    techStack: ["YOLOv11", "PyTorch", "Python", "Computer Vision", "OpenCV", "Deep Learning"],
-    demoUrl: null,
-    githubUrl: null,
-    thumbnailAlt: "YOLOv11 Deep Learning Computer Vision System",
-    category: "Tools",
-    date: "2026 — Present",
-    color: "from-purple-500/20 to-cyan-500/20",
-    emoji: "👁️",
-    image: "/images/yolo11-preview.svg",
-    isPrivate: true,
-    stats: "Confidential Research · YOLOv11 · Christ University",
-    outcome: "Trained and evaluated custom YOLOv11 object detection pipelines for specialized vision benchmarks.",
-    highlights: [
-      "Confidential research project supervised at Christ University",
-      "YOLOv11 neural network backbone optimized for low-latency visual inference",
-      "Custom dataset annotation, feature extraction, and bounding-box evaluation",
-      "Designed for real-time edge hardware deployment and spatial analysis"
+      "An enterprise-grade academic research intelligence and automated knowledge graph platform inspired by the ORKG initiative. Ingests scientific literature (arXiv, DOIs, PDFs), extracts subject-predicate-object semantic triples, indexes 768d vector embeddings, and visualizes cross-disciplinary research connections in real time.",
+    techStack: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Serverless API",
+      "PostgreSQL",
+      "pgvector",
+      "Prisma",
+      "Python",
+      "FastAPI"
     ],
-    featureTitle: "Computer Vision Architecture & Neural Inference",
+    demoUrl: "https://nexus-scholar-huhs.vercel.app",
+    githubUrl: "https://github.com/M20A03/Nexus-Scholar",
+    thumbnailAlt: "Nexus Scholar University Knowledge Graph Portal",
+    category: "Full-Stack",
+    date: "2026",
+    color: "from-cyan-500/20 to-blue-500/20",
+    emoji: "🔬",
+    image: "/images/nexus-scholar.png",
+    isPrivate: false,
+    stats: "PostgreSQL + pgvector · 768d Vectors · arXiv Ingestion · 2D/3D Force Graph",
+    outcome: "Cut literature review duration by 90% via automated semantic triple extraction and interactive comparative matrix generation.",
+    highlights: [
+      "Automated arXiv & PDF Ingestion: Extracts RDF-like subject-predicate-object semantic triples instantly",
+      "N-Dimensional Matrix Comparisons: Side-by-side matrices contrasting model architectures and benchmark metrics",
+      "Interactive 2D/3D Knowledge Graph Topology: Real-time force-directed canvas mapping cross-department collaborations",
+      "Hybrid Semantic & Vector Search: 768d dense vector indexing over research literature with pgvector"
+    ],
+    featureTitle: "Automated Research Knowledge Graph & Literature Intelligence Platform",
     process: [
       {
-        title: "Research & Design",
-        text: "Formulated object detection objectives and prepared annotated image datasets for YOLOv11 fine-tuning."
+        title: "Problem",
+        text: "Academic literature is trapped in isolated PDF silos, requiring researchers to spend dozens of hours manually comparing benchmark metrics and architectures."
       },
       {
-        title: "Model Training",
-        text: "Trained YOLOv11 detection models with custom hyperparameters, data augmentations, and loss functions."
+        title: "Design",
+        text: "Architected a dual-view portal combining high-density matrix comparison tables with an interactive 2D/3D force-directed knowledge graph."
       },
       {
-        title: "Evaluation",
-        text: "Benchmarked mean Average Precision (mAP) and inference latency across diverse testing conditions."
+        title: "Build",
+        text: "Engineered high-throughput arXiv ingestion microservice, PostgreSQL with pgvector indexing, and lightweight React/Vite visualization frontends."
       },
       {
         title: "Outcome",
-        text: "Shipped a high-accuracy computer vision pipeline for academic research applications."
+        text: "Deployed zero-cold-start research exploration platform accelerating literature reviews by up to 90%."
       }
     ]
   },

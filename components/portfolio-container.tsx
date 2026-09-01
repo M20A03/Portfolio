@@ -78,7 +78,7 @@ export function PortfolioContainer() {
   };
 
   return (
-    <main id="main-content" className="min-h-screen bg-background relative selection:bg-primary/20">
+    <main id="main-content" className="min-h-screen bg-transparent relative selection:bg-primary/20">
       <AntigravityCanvas />
       <RetroWaveBackground />
       <SpotlightBackground />
@@ -141,7 +141,7 @@ export function PortfolioContainer() {
       {/* ─── Footer ─────────────────────────────────────────── */}
       <motion.footer
         {...sectionAnimation}
-        className="pt-0 pb-10 px-6 md:px-12 bg-background"
+        className="pt-0 pb-10 px-6 md:px-12 bg-transparent"
       >
         <Separator className="mb-10" />
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">

@@ -24,18 +24,18 @@ export function SpotlightBackground() {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden" aria-hidden="true">
+    <div className="fixed inset-0 pointer-events-none z-[-5] overflow-hidden" aria-hidden="true">
       {/* 1. Subtle Interactive Dot Matrix Grid with Radial Spotlight Mask */}
       <div
-        className="absolute inset-0 w-full h-full opacity-40 dark:opacity-30"
+        className="absolute inset-0 w-full h-full opacity-60 dark:opacity-45"
         style={{
           backgroundImage: isDark
-            ? "radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px)"
-            : "radial-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-          maskImage: `radial-gradient(circle 500px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 80%)`,
-          WebkitMaskImage: `radial-gradient(circle 500px at ${mousePos.x}px ${mousePos.y}px, black 30%, transparent 80%)`,
-          transition: "mask-image 0.15s ease-out, -webkit-mask-image 0.15s ease-out",
+            ? "radial-gradient(rgba(255, 255, 255, 0.25) 1.2px, transparent 1.2px)"
+            : "radial-gradient(rgba(0, 0, 0, 0.18) 1.2px, transparent 1.2px)",
+          backgroundSize: "28px 28px",
+          maskImage: `radial-gradient(circle 550px at ${mousePos.x}px ${mousePos.y}px, black 35%, transparent 85%)`,
+          WebkitMaskImage: `radial-gradient(circle 550px at ${mousePos.x}px ${mousePos.y}px, black 35%, transparent 85%)`,
+          transition: "mask-image 0.12s ease-out, -webkit-mask-image 0.12s ease-out",
         }}
       />
 
