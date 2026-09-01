@@ -68,61 +68,66 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
-          ? "bg-background/95 backdrop-blur-xl border-b border-border"
+          ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 md:px-12" aria-label="Primary">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <nav className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12" aria-label="Primary">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <a href="#main-content" className="text-xl md:text-2xl font-bold text-foreground hover:text-primary transition-colors">
+          <a
+            href="#main-content"
+            className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+          >
             MRG<span className="text-primary">.</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-9 lg:gap-10">
             {navLinks.map((link) =>
               link.isPage ? (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium transition-colors relative group text-muted-foreground hover:text-foreground"
+                  className="text-base font-medium transition-colors relative group text-foreground/80 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 w-0 group-hover:w-full" />
+                  <span className="absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 w-0 group-hover:w-full" />
                 </Link>
               ) : (
                 <a
                   key={link.href}
                   href={link.href}
                   aria-current={activeSection === getSectionId(link.href) ? "page" : undefined}
-                  className={`text-sm font-medium transition-colors relative group ${activeSection === getSectionId(link.href)
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                    }`}
+                  className={`text-base font-medium transition-colors relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm ${
+                    activeSection === getSectionId(link.href)
+                      ? "text-primary font-semibold"
+                      : "text-foreground/80 hover:text-foreground"
+                  }`}
                 >
                   {link.label}
                   <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${activeSection === getSectionId(link.href)
+                    className={`absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                      activeSection === getSectionId(link.href)
                         ? "w-full"
                         : "w-0 group-hover:w-full"
-                      }`}
+                    }`}
                   />
                 </a>
               )
             )}
           </div>
 
-          {/* Social Links & Mobile Menu Button */}
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-3">
+          {/* Social Links & Theme Toggle */}
+          <div className="flex items-center gap-4 sm:gap-5">
+            <div className="hidden md:flex items-center gap-3.5">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
                     href="https://github.com/M20A03"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="p-2 text-foreground/80 hover:text-foreground transition-colors rounded-full hover:bg-primary/10"
                     aria-label="GitHub"
                   >
                     <Github className="w-5 h-5" />
@@ -136,7 +141,7 @@ export function Navbar() {
                     href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="p-2 text-foreground/80 hover:text-foreground transition-colors rounded-full hover:bg-primary/10"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
@@ -146,7 +151,7 @@ export function Navbar() {
               </Tooltip>
             </div>
 
-            <Separator orientation="vertical" className="hidden md:block h-5" />
+            <Separator orientation="vertical" className="hidden md:block h-6" />
 
             {/* Theme Toggle */}
             {mounted && (
@@ -157,7 +162,7 @@ export function Navbar() {
                     size="icon"
                     onClick={handleThemeToggle}
                     aria-label="Toggle theme"
-                    className="rounded-full text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all"
+                    className="w-10 h-10 rounded-full text-foreground/80 hover:text-foreground hover:bg-primary/10 transition-all"
                   >
                     {isDarkMode ? (
                       <Sun className="w-5 h-5 transition-transform rotate-0 scale-100" />
@@ -173,16 +178,16 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden w-10 h-10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-nav-menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
+                <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-5 h-5" />
+                <Menu className="w-6 h-6" />
               )}
             </Button>
           </div>
@@ -199,18 +204,18 @@ export function Navbar() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden"
             >
-              <div className="flex flex-col gap-4 pt-4 pb-6 border-t border-border">
+              <div className="flex flex-col gap-3 pt-4 pb-6 border-t border-border">
                 {navLinks.map((link, index) =>
                   link.isPage ? (
                     <motion.div
                       key={link.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.04 }}
                     >
                       <Link
                         href={link.href}
-                        className="text-base font-medium transition-colors text-muted-foreground hover:text-foreground block"
+                        className="text-lg font-medium py-2 transition-colors text-foreground/80 hover:text-foreground block"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {link.label}
@@ -221,15 +226,17 @@ export function Navbar() {
                       key={link.href}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.04 }}
                     >
                       <a
                         href={link.href}
                         aria-current={activeSection === getSectionId(link.href) ? "page" : undefined}
-                        className={`text-base font-medium transition-colors block ${activeSection === getSectionId(link.href)
-                            ? "text-primary"
-                            : "text-muted-foreground hover:text-foreground"
-                          }`}
+                        className={`text-lg font-medium py-2 transition-colors block ${
+                          activeSection === getSectionId(link.href)
+                            ? "text-primary font-semibold"
+                            : "text-foreground/80 hover:text-foreground"
+                        }`}
+                        onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {link.label}
                       </a>
@@ -237,16 +244,16 @@ export function Navbar() {
                   )
                 )}
                 <motion.div
-                  className="flex items-center gap-4 pt-4 border-t border-border"
+                  className="flex items-center gap-5 pt-4 border-t border-border"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: navLinks.length * 0.05 }}
+                  transition={{ delay: navLinks.length * 0.04 }}
                 >
                   <a
                     href="https://github.com/M20A03"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-foreground/80 hover:text-foreground transition-colors p-2"
                     aria-label="GitHub"
                   >
                     <Github className="w-5 h-5" />
@@ -255,7 +262,7 @@ export function Navbar() {
                     href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-foreground/80 hover:text-foreground transition-colors p-2"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
