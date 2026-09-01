@@ -13,7 +13,7 @@ import { AIAssistant } from "@/components/ai-assistant";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { SectionDivider } from "@/components/section-divider";
-import { ExecutiveAtmosphere } from "@/components/executive-atmosphere";
+import { SparkAtmosphere } from "@/components/spark-atmosphere";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Heart, Sparkles } from "lucide-react";
 import { motion, type HTMLMotionProps } from "framer-motion";
@@ -76,7 +76,7 @@ export function PortfolioContainer() {
 
   return (
     <main id="main-content" className="min-h-screen bg-transparent relative selection:bg-primary/20">
-      <ExecutiveAtmosphere />
+      <SparkAtmosphere />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageLd) }}
