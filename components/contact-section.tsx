@@ -114,7 +114,16 @@ export function ContactSection() {
     setFormStatus("loading");
 
     if (!web3formsKey) {
-      setFormStatus("error");
+      // Graceful mail client fallback when Web3Forms key is not configured
+      const mailtoUrl = `mailto:mayankrajgupta01@gmail.com?subject=${encodeURIComponent(
+        formData.subject || `Portfolio message from ${formData.name}`
+      )}&body=${encodeURIComponent(
+        `${formData.message}\n\n---\nSender: ${formData.name}\nEmail: ${formData.email}`
+      )}`;
+      window.open(mailtoUrl, "_blank");
+      setFormStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormErrors({});
       return;
     }
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Menu, X, Sun, Moon, Search } from "lucide-react";
+import { Github, Linkedin, Menu, X, Sun, Moon, Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
@@ -120,6 +120,17 @@ export function Navbar() {
 
           {/* Social Links & Theme Toggle */}
           <div className="flex items-center gap-3 sm:gap-4">
+            {/* Ask AI Button */}
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-ai-assistant"))}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 hover:bg-primary/20 text-xs font-semibold text-primary transition-all cursor-pointer shadow-xs group"
+              aria-label="Open AI Assistant"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-primary group-hover:rotate-12 transition-transform" />
+              <span>Ask AI</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            </button>
+
             {/* Quick Command Palette Button */}
             <button
               onClick={() =>
@@ -260,6 +271,26 @@ export function Navbar() {
                     </motion.div>
                   )
                 )}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.04 }}
+                  className="pt-2"
+                >
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      window.dispatchEvent(new CustomEvent("open-ai-assistant"));
+                    }}
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary/10 border border-primary/30 text-primary font-semibold text-base hover:bg-primary/20 transition-all"
+                  >
+                    <Sparkles className="w-4 h-4 text-primary" />
+                    <span>Ask AI Assistant</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1" />
+                  </button>
+                </motion.div>
+
                 <motion.div
                   className="flex items-center gap-5 pt-4 border-t border-border"
                   initial={{ opacity: 0 }}

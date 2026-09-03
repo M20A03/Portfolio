@@ -179,6 +179,17 @@ export function CommandPalette() {
 
     // Actions
     {
+      id: "action-chat",
+      title: "Chat with Mayank AI",
+      category: "Actions",
+      description: "Ask questions about MERN stack, projects, and bio",
+      icon: Sparkles,
+      action: () => {
+        window.dispatchEvent(new CustomEvent("open-ai-assistant"));
+        setIsOpen(false);
+      },
+    },
+    {
       id: "action-theme",
       title: `Switch to ${isDark ? "Light" : "Dark"} Mode`,
       category: "Actions",
