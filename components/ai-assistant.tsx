@@ -19,10 +19,9 @@ import {
   ExternalLink
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-// Client-side fallback knowledge base with 25+ rich categories
+// Client-side fallback knowledge base with complete authentic background
 const CLIENT_KNOWLEDGE_BASE: Array<{
   category: string;
   keywords: string[];
@@ -30,51 +29,93 @@ const CLIENT_KNOWLEDGE_BASE: Array<{
   suggestions: string[];
 }> = [
   {
+    category: "smruti_research",
+    keywords: ["smruti", "dr smruti", "mam", "research", "hardware", "prototype", "computer vision", "50 times", "50000", "50,000", "images", "mid-july", "mid july", "measurements", "iteration", "dataset"],
+    reply: "Mayank works directly with **Dr. Smruti Ma'am** on university-affiliated research in the Department of Computer Science:\n\n• **Hardware & Vision Prototype:** In mid-July, Mayank joined a project that had been stalled for 6 months at <10% output. He identified fundamental structural flaws in the design. Entrusted by Dr. Smruti Ma'am to redesign it from scratch—with no existing model in the world to reference—he iterated through **over 50 component redesigns across 15 grueling days alone** until it worked. That working model is with the team right now, actively collecting datasets for the software and computer vision pipeline!\n• **Computer Vision Pipeline:** Built custom deep learning architectures from scratch, overcoming an initial 30% accuracy by curating, cleaning, and preprocessing **50,000+ images**, pushing accuracy to **81%**.",
+    suggestions: ["Incubation Startup Apps", "Teaching Experience", "MERN Stack Details", "View Resume"]
+  },
+  {
+    category: "incubation_startup",
+    keywords: ["incubation", "startup", "android", "apps", "mobile app", "october", "founder", "client", "play store", "2 apps", "app development"],
+    reply: "Mayank was approached by a startup from **Christ University's Incubation Centre** to build their digital platform:\n\n• **Strategic Expansion:** While they initially asked for just a website, Mayank evaluated their roadmap and proposed building their mobile applications as well.\n• **Rapid Turnaround:** Overcoming earlier struggles with Android development, he rebuilt his architectural foundations and **single-handedly completed 70% of both Android apps plus their full website in just one week**!\n• **Live Launch:** Both live Android apps and the web platform are scheduled for official launch this **October**. The startup founder was extremely impressed with his execution speed.",
+    suggestions: ["Dr. Smruti Research", "Credex Architecture", "MERN Stack Skills", "Contact Mayank"]
+  },
+  {
+    category: "teaching_peer_help",
+    keywords: ["teach", "teaching", "classmates", "java", "eclipse", "flask", "streamlit", "help", "assignment", "exam help", "peers", "friends", "class"],
+    reply: "Mayank is widely known across his section as the **go-to person for academic and coding help**:\n\n• **Teaching Full-Stack Java:** When Dr. Smruti Ma'am asked for help teaching Java full-stack with Eclipse and MySQL to the class, Mayank helped guide the class because he had mastered the stack beforehand.\n• **Python Lab Leadership:** Taught the entire class how to bridge frontend **Streamlit** with backend **Flask** to build and deploy interactive apps.\n• **Peer Mentorship:** Whether someone is a close friend or a stranger, Mayank always takes out time to debug classmates' code, explain assignment concepts, and share study materials.",
+    suggestions: ["Samagra Department Portal", "Dr. Smruti Research", "Academic CGPA", "Contact Mayank"]
+  },
+  {
+    category: "samagra",
+    keywords: ["samagra", "csa", "department portal", "association", "portal", "cs department"],
+    reply: "Mayank is a core technical volunteer for the **Computer Science Association (CSA)** at Christ University:\n\n• **Built from Scratch:** He single-handedly designed, built, and maintains **Samagra**, the official departmental web portal.\n• **Features:** Centralizes academic resources, faculty details, 6 student clubs, and committee showcases.\n• **Stability:** The platform is already live and running smoothly, serving hundreds of students across the department.",
+    suggestions: ["Flux Event", "Dr. Smruti Research", "MERN Stack Experience", "View Resume"]
+  },
+  {
+    category: "flux",
+    keywords: ["flux", "fest", "event", "postponed", "february", "ticket", "registration portal"],
+    reply: "For the departmental fest **Flux**, Mayank took the initiative to build the entire **online event registration and ticketing system single-handedly**.\n\n• The portal was built and fully tested with live verification workflows.\n• The departmental event was subsequently **postponed to February**, where the platform will be used for registrations.",
+    suggestions: ["Samagra Portal", "Incubation Startup Apps", "Tech Stack", "Contact Mayank"]
+  },
+  {
+    category: "caps",
+    keywords: ["caps", "tech tank", "club", "volunteer", "stepped down", "left"],
+    reply: "Mayank was previously a technical volunteer with **CAPS in Tech Tank** at Christ University.\n\nHe made the responsible decision to step down from CAPS so he could dedicate his full focus to his deep learning research under Dr. Smruti Ma'am and the engineering of the Samagra departmental portal.",
+    suggestions: ["Dr. Smruti Research", "Samagra Portal", "View Resume", "Contact Mayank"]
+  },
+  {
+    category: "cgpa",
+    keywords: ["cgpa", "grade", "marks", "gpa", "score", "3.3", "academics", "percentage", "studies"],
+    reply: "Mayank scored a **3.3 CGPA** in his previous semester at Christ University.\n\nHe achieved this while balancing intensive laboratory research with Dr. Smruti Ma'am, building live Android apps for an incubation startup, developing Samagra, and shipping 18+ real-world projects. He is actively working hard to push his academic score even higher this semester!",
+    suggestions: ["Pivot from Commerce", "Dr. Smruti Research", "Projects Overview", "Contact Mayank"]
+  },
+  {
     category: "mern_stack",
     keywords: ["mern", "stack", "mongodb", "express", "node", "react", "fullstack", "full stack", "backend", "frontend", "javascript", "typescript"],
     reply: "Mayank is an accomplished **MERN Stack Specialist** proficient in:\n\n• **MongoDB & Mongoose:** Schema design, aggregation pipelines, performance indexing, and Atlas clustering.\n• **Express.js & Node.js:** Scalable REST APIs, JWT authentication, middleware pipelines, and microservices.\n• **React 19 & Next.js 15:** Server Components, client state machines, SSR/SSG caching, and fluid Framer Motion animations.\n• **Strict TypeScript:** End-to-end type safety across client and server.",
-    suggestions: ["Credex Architecture", "View Resume", "Database Experience", "Contact Mayank"]
+    suggestions: ["Credex Architecture", "Incubation Startup", "Dr. Smruti Research", "View Resume"]
   },
   {
     category: "projects",
     keywords: ["project", "projects", "work", "built", "showcase", "case study", "apps", "portfolio"],
-    reply: "Mayank has built and deployed **18+ production-ready case studies**, including:\n\n1. **Credex:** AI-driven financial spend auditor built with Claude API, Indian Rupee (₹) Lakh/Crore formatting, and spring charts.\n2. **GMT Mart:** High-speed e-commerce storefront with neon cyberpunk aesthetics and Firebase serverless backend.\n3. **Samagra:** The official web portal for the Computer Science Association at Christ University.\n4. **Flux:** Dynamic event management portal with live QR code check-ins and analytics.\n5. **YOLOv11 Computer Vision:** Custom edge object detection pipeline with live bounding box rendering.\n\nExplore them in the **[Projects Section](#projects)**!",
-    suggestions: ["Tell me about Credex", "What is Samagra?", "MERN Stack Details", "View Resume"]
+    reply: "Mayank has built and deployed **18+ production-ready case studies**, including:\n\n1. **Incubation Center Startup:** 2 live Android apps + website launching in October.\n2. **Dr. Smruti Research Prototype:** Custom hardware setup + computer vision pipeline.\n3. **Credex:** AI-driven financial spend auditor built with Claude API, Indian Rupee (₹) Lakh/Crore formatting, and spring charts.\n4. **Samagra:** The official web portal for the Computer Science Association at Christ University.\n5. **GMT Mart:** High-speed e-commerce storefront with neon cyberpunk aesthetics and Firebase serverless backend.\n\nExplore them in the **[Projects Section](#projects)**!",
+    suggestions: ["Tell me about Credex", "Incubation Startup Apps", "Dr. Smruti Research", "View Resume"]
   },
   {
     category: "credex",
     keywords: ["credex", "fintech", "rupee", "finance", "spend", "audit", "lakh", "crore"],
     reply: "**Credex** is Mayank's flagship financial intelligence SaaS platform tailored for the Indian market:\n\n• **Core Engine:** Built on Next.js, React 19, and TypeScript with real-time Claude API integration for automated spend classification and anomaly detection.\n• **Indian Context:** Fully localized currency parsing supporting Rupee (₹), Lakhs (L), and Crores (Cr).\n• **UI/UX:** Interactive spring-physics charts, responsive dashboards, and zero-latency state updates.\n\nCheck out the full case study in the **[Projects Section](#projects)**!",
-    suggestions: ["Tell me about GMT Mart", "View Resume", "Tech Stack", "Contact Mayank"]
+    suggestions: ["Incubation Startup Apps", "View Resume", "Tech Stack", "Contact Mayank"]
   },
   {
     category: "christ_university",
-    keywords: ["christ", "university", "college", "bca", "campus", "bangalore", "attendance", "cgpa", "academics", "grade", "samagra", "csa"],
-    reply: "Mayank is pursuing his **Bachelor of Computer Applications (BCA)** at **Christ University, Bangalore** (Class of 2025–2028), maintaining an impressive **3.2+ CGPA**.\n\n• He serves as a tech student leader, having built **Samagra** (the official portal for the Computer Science Association) and the registration engine for **Flux**.\n• He blends computer science fundamentals (Data Structures, Algorithms, RDBMS) with business-focused coursework in Marketing and Investment Trading.",
-    suggestions: ["Pivot from Commerce", "Tech Stack", "View Projects", "Contact Mayank"]
+    keywords: ["christ", "university", "college", "bca", "campus", "bangalore"],
+    reply: "Mayank is pursuing his **Bachelor of Computer Applications (BCA)** at **Christ University, Bangalore** (Class of 2025–2028):\n\n• He serves as a tech student lead, having built **Samagra** for the department and the registration engine for **Flux**.\n• Conducts research under Dr. Smruti Ma'am in computer vision and hardware modeling.\n• Helps classmates in Java and Python labs and balances hands-on engineering with coursework in Marketing and Investment Trading.",
+    suggestions: ["Pivot from Commerce", "Dr. Smruti Research", "Teaching Experience", "Contact Mayank"]
   },
   {
     category: "pivot",
     keywords: ["pivot", "commerce", "switch", "background", "story", "origin", "non-cs", "non cs", "first attempt"],
-    reply: "Mayank made a bold and successful **pivot from a Commerce background to Computer Science**, clearing the rigorous entrance for Christ University's BCA program on his very first attempt!\n\nThis background gives him a unique competitive edge: he doesn't just write code; he understands unit economics, product-market fit, conversion, and business strategy.",
-    suggestions: ["Tech Stack", "View Projects", "Education", "Contact Mayank"]
+    reply: "Mayank made a bold and successful **pivot from a Commerce background to Computer Science**, clearing the rigorous entrance for Christ University's BCA program on his **very first attempt**!\n\nThis background gives him a unique competitive edge: he doesn't just write code; he understands unit economics, product-market fit, conversion, and business strategy.",
+    suggestions: ["Academic CGPA", "Dr. Smruti Research", "Education", "Contact Mayank"]
   },
   {
     category: "experience",
     keywords: ["experience", "internship", "intern", "company", "singularium", "shadowfox", "job", "work experience", "career"],
-    reply: "Mayank's professional industry experience includes:\n\n• **Singularium Technologies (Full-Stack Engineer Intern):** Architected scalable Next.js and Node.js microservices, optimized database queries, and integrated automated testing.\n• **ShadowFox (Web Development Intern):** Developed reusable component systems adhering to WCAG 2.1 AA accessibility standards and integrated REST APIs.\n• **Freelance & Campus Engineering:** Deployed production portals handling thousands of student and business interactions.",
-    suggestions: ["View Resume", "Projects Section", "MERN Stack Details", "Contact Mayank"]
+    reply: "Mayank's professional industry experience includes:\n\n• **Research Intern (Christ University):** Working under Dr. Smruti Ma'am on custom hardware modeling and deep learning vision pipelines.\n• **Singularium Technologies (Full-Stack Engineer Intern):** Architected scalable Next.js and Node.js microservices, optimized database queries, and integrated automated testing.\n• **ShadowFox (Web Development Intern):** Developed reusable component systems adhering to WCAG 2.1 AA accessibility standards and integrated REST APIs.\n• **Campus Incubation Startup:** Solo developer for 2 Android apps and a web platform launching this October.",
+    suggestions: ["Dr. Smruti Research", "Incubation Startup Apps", "View Resume", "Contact Mayank"]
   },
   {
     category: "hire_me",
     keywords: ["hire", "job", "offer", "recruiting", "recruiter", "interview", "salary", "internship", "opportunity", "availability", "available", "full time", "part time", "contract"],
-    reply: "Mayank is **actively open for Full-Stack / MERN Engineering Internships, Junior Developer roles, and selective Freelance projects**!\n\n• **Location:** Available onsite in Bangalore or remotely worldwide.\n• **Value Proposition:** Fast shipping velocity, clean TypeScript code, rapid adoption of modern AI tools, and product-minded execution.\n• **Get in Touch:** Email directly at **mayankrajgupta01@gmail.com** or call **+91 9835139865** to schedule an interview!",
-    suggestions: ["Download Resume", "Email Mayank", "View Projects", "Skills Breakdown"]
+    reply: "Mayank is **actively open for Full-Stack / MERN Engineering Internships, Junior Developer roles, and selective Freelance projects**!\n\n• **Location:** Available onsite in Bangalore or remotely worldwide.\n• **Key Differentiator:** Extreme problem-solving grit (iterating 50+ times to solve stalled research problems), fast shipping velocity (70% of 2 apps built in 1 week), and clean TypeScript code.\n• **Get in Touch:** Email directly at **mayankrajgupta01@gmail.com** or call **+91 9835139865** to schedule an interview!",
+    suggestions: ["Download Resume", "Email Mayank", "View Projects", "Dr. Smruti Research"]
   },
   {
     category: "resume",
     keywords: ["resume", "cv", "curriculum", "pdf", "download", "summary"],
-    reply: "You can view and download Mayank's complete recruiter-optimized resume directly on the **[/resume](/resume)** page.\n\nIt features comprehensive breakdowns of his education at Christ University, internships at Singularium and ShadowFox, 18+ deployed projects, and complete technical proficiencies.",
+    reply: "You can view and download Mayank's complete recruiter-optimized resume directly on the **[/resume](/resume)** page.\n\nIt features comprehensive breakdowns of his education at Christ University, research with Dr. Smruti Ma'am, internships at Singularium and ShadowFox, 18+ deployed projects, and complete technical proficiencies.",
     suggestions: ["Open Resume Page", "Contact Mayank", "Projects Overview", "MERN Skills"]
   },
   {
@@ -84,34 +125,10 @@ const CLIENT_KNOWLEDGE_BASE: Array<{
     suggestions: ["Send Email", "View Resume", "Check Projects", "MERN Skills"]
   },
   {
-    category: "ai_tools",
-    keywords: ["ai", "gemini", "claude", "chatgpt", "deepseek", "antigravity", "prompt", "llm", "yolo", "vision", "machine learning"],
-    reply: "Mayank integrates AI across both product architecture and his developer workflow:\n\n• **AI Application Engineering:** Integrated Claude API into Credex for real-time receipt and spend analysis; implemented Gemini API endpoints; trained YOLOv11 deep learning models for custom computer vision detection.\n• **Developer Velocity:** AntiGravity AI pair programming, prompt engineering specialist, accelerating production delivery by 5x–10x while maintaining strict code standards.",
-    suggestions: ["Credex AI Features", "MERN Stack Details", "View Projects", "Contact Mayank"]
-  },
-  {
-    category: "certifications",
-    keywords: ["certificate", "certifications", "certified", "credential", "license", "course"],
-    reply: "Mayank holds certified credentials in:\n\n• Full-Stack Web Development & Modern JavaScript Frameworks\n• Advanced Database Design & Relational Modeling (MySQL & PostgreSQL)\n• AI Prompt Engineering & GenAI Architecture\n• Python for Data Science and Machine Learning Foundations\n\nVisit the **[Certifications Section](#certifications)** to view verified credentials!",
-    suggestions: ["Skills Breakdown", "View Resume", "Projects Section", "Contact Mayank"]
-  },
-  {
-    category: "hobbies",
-    keywords: ["hobby", "hobbies", "outside", "cycling", "travel", "relax", "driving", "free time", "fun"],
-    reply: "Outside of programming and AI systems engineering, Mayank enjoys **long-distance cycling, highway driving, exploring tech meetups in Bangalore, and studying financial markets and startup pitch decks**.\n\nHe believes maintaining physical stamina and diverse interests fuels creative problem-solving in software architecture!",
-    suggestions: ["Pivot from Commerce", "Tech Stack", "View Projects", "Contact Mayank"]
-  },
-  {
-    category: "future",
-    keywords: ["future", "mba", "startup", "years", "goal", "goals", "plan", "plans", "vision"],
-    reply: "Mayank's long-term vision is to architect high-impact tech ventures combining **AI-driven automation, fintech intelligence, and enterprise full-stack systems**.\n\nHis roadmap includes gaining deep engineering and systems experience in high-growth startups, contributing to open-source software, and eventually founding product-led tech solutions.",
-    suggestions: ["Tech Stack", "Credex Architecture", "View Resume", "Contact Mayank"]
-  },
-  {
     category: "greetings",
     keywords: ["hi", "hello", "hey", "namaste", "greetings", "good morning", "good afternoon", "good evening", "sup", "yo"],
-    reply: "Namaste! I am **Mayank AI**, the interactive digital assistant for Mayank Raj Gupta.\n\nI can tell you all about his **MERN stack expertise, 18+ deployed projects (like Credex & Samagra), his journey at Christ University, or how to get in touch for hiring and collaborations**. What would you like to explore?",
-    suggestions: ["Tell me about Mayank", "MERN Stack Skills", "Featured Projects", "How to Hire Mayank"]
+    reply: "Namaste! I am **Mayank AI**, the interactive digital assistant for Mayank Raj Gupta.\n\nI can tell you all about his **research under Dr. Smruti Ma'am, his 2 upcoming Android apps for a campus startup, Samagra, MERN stack expertise, or how to get in touch for hiring and collaborations**. What would you like to explore?",
+    suggestions: ["Dr. Smruti Research", "Incubation Startup Apps", "MERN Stack Skills", "How to Hire Mayank"]
   }
 ];
 
@@ -145,7 +162,7 @@ function getClientFallbackResponse(userMessage: string): { reply: string; sugges
     }
   }
 
-  if (bestIntent && highestScore >= 3) {
+  if (bestIntent && highestScore >= 2) {
     return {
       reply: bestIntent.reply,
       suggestions: bestIntent.suggestions
@@ -153,11 +170,11 @@ function getClientFallbackResponse(userMessage: string): { reply: string; sugges
   }
 
   return {
-    reply: `Thank you for asking about **"${userMessage}"**!\n\nAs Mayank's digital assistant, I can highlight that Mayank is a **Full-Stack MERN Developer and BCA Scholar at Christ University (Bangalore)** who builds scalable web architectures, AI-integrated SaaS tools, and high-performance applications.\n\nFeel free to explore his verified projects, review his resume, or connect with him directly to discuss this in depth!`,
+    reply: `That's an interesting question regarding **"${userMessage}"**!\n\nAs Mayank's personal assistant, I can share that Mayank is a **Full-Stack MERN Developer and BCA Scholar at Christ University (Bangalore)** known for his relentless problem-solving grit. Whether it's redesigning custom hardware prototypes through 50+ iterations under Dr. Smruti Ma'am, single-handedly developing 2 live Android apps for a college incubation startup, or building the *Samagra* portal, he thrives on tackling challenges that others consider difficult.\n\nWould you like to explore his research, check out his mobile and web projects, or connect with him directly?`,
     suggestions: [
+      "Dr. Smruti Research",
+      "Incubation Startup Apps",
       "MERN Stack Skills",
-      "Featured Projects",
-      "View Resume",
       "Contact Mayank"
     ]
   };
@@ -204,15 +221,12 @@ function renderFormattedMessage(text: string) {
       return <div key={idx} className="h-2" />;
     }
 
-    // Replace bold **text** and [link](url)
     const formattedParts: (string | React.ReactNode)[] = [];
     let remaining = line;
     let partKey = 0;
 
     while (remaining.length > 0) {
-      // Check for Markdown Link [label](url)
       const linkMatch = remaining.match(/\[([^\]]+)\]\(([^)]+)\)/);
-      // Check for Markdown Bold **text**
       const boldMatch = remaining.match(/\*\*([^*]+)\*\*/);
 
       if (linkMatch && (!boldMatch || (linkMatch.index ?? 0) <= (boldMatch.index ?? 0))) {
@@ -262,12 +276,12 @@ function renderFormattedMessage(text: string) {
 }
 
 const initialDemoQuestions = [
-  "Tell me about Mayank",
+  "Dr. Smruti Ma'am Research",
+  "Incubation Startup Apps",
   "MERN Stack Experience",
-  "Featured Projects",
+  "Teaching & Peer Help",
   "Commerce to CS Pivot",
-  "Study at Christ University?",
-  "How to Hire Mayank"
+  "Samagra Department Portal"
 ];
 
 interface ChatMessage {
@@ -276,6 +290,7 @@ interface ChatMessage {
   text: string;
   suggestions?: string[];
   source?: string;
+  isStreaming?: boolean;
 }
 
 export function AIAssistant() {
@@ -285,11 +300,11 @@ export function AIAssistant() {
     {
       id: "welcome-1",
       type: "bot",
-      text: "Namaste! I am **Mayank AI**, the full-stack digital assistant for Mayank Raj Gupta.\n\nAsk me anything about his **MERN stack skills, 18+ deployed projects (like Credex), internships, or how to contact him for hire**!",
+      text: "Namaste! I am **Mayank AI**, the official digital assistant for Mayank Raj Gupta.\n\nAsk me anything about his **research with Dr. Smruti Ma'am, his 2 live Android apps for a campus startup, Samagra, or his MERN stack skills**!",
       suggestions: [
-        "MERN Stack Experience",
-        "Credex Architecture",
-        "Christ University BCA",
+        "Dr. Smruti Ma'am Research",
+        "Incubation Startup Apps",
+        "Teaching & Peer Help",
         "View Resume"
       ]
     }
@@ -306,7 +321,7 @@ export function AIAssistant() {
     return () => window.removeEventListener("open-ai-assistant", handleOpenEvent);
   }, []);
 
-  // Auto-scroll on new messages
+  // Auto-scroll on new messages or during streaming
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({
@@ -315,6 +330,50 @@ export function AIAssistant() {
       });
     }
   }, [messages, isTyping]);
+
+  // Realistic word-by-word streaming typewriter effect
+  const streamBotResponse = useCallback((fullText: string, suggestions?: string[], source?: string) => {
+    const botId = `bot-${Date.now()}`;
+    setIsTyping(false);
+
+    // Initial placeholder message
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: botId,
+        type: "bot",
+        text: "",
+        suggestions: [],
+        source,
+        isStreaming: true
+      }
+    ]);
+
+    const words = fullText.split(" ");
+    let currentIdx = 0;
+    let accumulated = "";
+
+    const streamInterval = setInterval(() => {
+      if (currentIdx < words.length) {
+        accumulated += (currentIdx > 0 ? " " : "") + words[currentIdx];
+        const nextText = accumulated;
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === botId ? { ...msg, text: nextText } : msg
+          )
+        );
+        currentIdx++;
+      } else {
+        clearInterval(streamInterval);
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === botId ? { ...msg, suggestions, isStreaming: false } : msg
+          )
+        );
+        if (soundEnabled) playChime("receive");
+      }
+    }, 18);
+  }, [soundEnabled]);
 
   const handleSend = useCallback(async (text: string) => {
     if (!text.trim() || isTyping) return;
@@ -333,7 +392,6 @@ export function AIAssistant() {
     if (soundEnabled) playChime("send");
 
     try {
-      // Prepare history for API context
       const conversationHistory = newMessages.slice(-6).map((m) => ({
         role: m.type === "user" ? "user" : "model",
         text: m.text
@@ -350,18 +408,7 @@ export function AIAssistant() {
 
       if (res.ok) {
         const data = await res.json();
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: `bot-${Date.now()}`,
-            type: "bot",
-            text: data.reply,
-            suggestions: data.suggestions,
-            source: data.source
-          }
-        ]);
-        if (soundEnabled) playChime("receive");
-        setIsTyping(false);
+        streamBotResponse(data.reply, data.suggestions, data.source);
         return;
       }
     } catch {
@@ -371,28 +418,17 @@ export function AIAssistant() {
     // Fallback local engine response
     const fallback = getClientFallbackResponse(userText);
     setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `bot-${Date.now()}`,
-          type: "bot",
-          text: fallback.reply,
-          suggestions: fallback.suggestions,
-          source: "semantic_engine"
-        }
-      ]);
-      if (soundEnabled) playChime("receive");
-      setIsTyping(false);
-    }, 450);
-  }, [messages, isTyping, soundEnabled]);
+      streamBotResponse(fallback.reply, fallback.suggestions, "semantic_engine");
+    }, 300);
+  }, [messages, isTyping, soundEnabled, streamBotResponse]);
 
   const handleClearChat = () => {
     setMessages([
       {
         id: `welcome-${Date.now()}`,
         type: "bot",
-        text: "Conversation cleared! What else would you like to know about Mayank's MERN skills, projects, or background?",
-        suggestions: ["MERN Stack Experience", "Credex Architecture", "Contact Mayank"]
+        text: "Conversation cleared! What else would you like to know about Mayank's research under Dr. Smruti Ma'am, his incubation startup apps, or MERN skills?",
+        suggestions: ["Dr. Smruti Ma'am Research", "Incubation Startup Apps", "MERN Stack Experience", "Contact Mayank"]
       }
     ]);
   };
@@ -496,7 +532,7 @@ export function AIAssistant() {
                   <div className="flex items-center gap-2">
                     <h3 className="font-bold text-base tracking-tight text-foreground">Mayank AI</h3>
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-primary/15 text-primary font-bold uppercase tracking-wider">
-                      MERN
+                      MERN & AI
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -587,6 +623,9 @@ export function AIAssistant() {
                     }`}
                   >
                     {renderFormattedMessage(msg.text)}
+                    {msg.isStreaming && (
+                      <span className="inline-block w-1.5 h-3.5 ml-1 bg-primary animate-pulse align-middle" />
+                    )}
                   </div>
 
                   {/* Suggestion Chips under Bot Messages */}
@@ -618,9 +657,9 @@ export function AIAssistant() {
               )}
             </div>
 
-            {/* Footer Input & Default Suggestions */}
+            {/* Footer Input & Initial Suggestions */}
             <div className="p-3.5 sm:p-4 bg-card/60 border-t border-border/50 flex flex-col gap-3">
-              {/* Default Initial Questions */}
+              {/* Initial Demo Questions */}
               {messages.length <= 2 && (
                 <div className="flex overflow-x-auto gap-1.5 pb-1 scrollbar-none">
                   {initialDemoQuestions.map((q, qIdx) => (
@@ -649,7 +688,7 @@ export function AIAssistant() {
                       handleSend(query);
                     }
                   }}
-                  placeholder="Ask about MERN skills, projects, Christ Univ..."
+                  placeholder="Ask about Dr. Smruti research, startup apps..."
                   aria-label="Ask Mayank anything"
                   disabled={isTyping}
                   className="w-full bg-background/70 border border-border/60 rounded-[1.4rem] py-3 pl-5 pr-12 text-[13.5px] text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all shadow-sm placeholder:text-muted-foreground/60 disabled:opacity-50"
