@@ -285,9 +285,10 @@ export function ProjectsSection() {
                             size="sm"
                             className="gap-1.5 border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all bg-transparent text-xs rounded-full"
                           >
-                            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" aria-hidden="true" />
                               <ExternalLink className="w-3.5 h-3.5" />
-                              Demo
+                              Live Demo
                             </a>
                           </Button>
                         </TooltipTrigger>
