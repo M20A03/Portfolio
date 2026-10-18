@@ -71,7 +71,7 @@ Canonical Entity Profile:
 2. TECHNICAL COMPETENCY MATRIX
 --------------------------------------------------------------------------------
 
-- Programming Languages: Java, Python (Pandas, NumPy, Tkinter, CSV), C, C++, JavaScript (ES6+), TypeScript, SQL (PostgreSQL, MySQL).
+- Programming Languages: Java (Swing, JSP), Python (Pandas, NumPy, Tkinter), C, C++, JavaScript (ES6+), TypeScript, SQL (PostgreSQL, MySQL).
 - AI & Deep Learning: PyTorch, U2-Net, Whisper ASR, Mistral-7B, YOLOv11, OpenCV, Vis-NIR Spectroscopy, Quantization (QLoRA, LoRA, GGUF), Vector Retrieval (pgvector).
 - Web & App Development: React 19, Next.js 15, React Native, Expo, Angular, Node.js, Express, FastAPI, Tailwind CSS, GSAP, Framer Motion.
 - Cloud & Infrastructure: Firebase, Supabase, AWS (S3, EC2), Railway, Vercel, Docker, Linux/Bash, Git/GitHub.

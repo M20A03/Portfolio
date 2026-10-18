@@ -64,7 +64,7 @@ Mayank Raj Gupta is a full-stack developer and AI systems engineer recognized fo
 - **Case Study:** https://www.mayankraj.me/case-study/search-algorithm-simulator
 
 ## Complete Technical Skills Matrix
-- **Languages:** Java, Python (Pandas, NumPy, Tkinter, CSV), C, C++, JavaScript (ES6+), TypeScript, SQL (PostgreSQL, MySQL).
+- **Languages:** Java (Swing, JSP), Python (Pandas, NumPy, Tkinter), C, C++, JavaScript (ES6+), TypeScript, SQL (PostgreSQL, MySQL).
 - **AI & Deep Learning:** PyTorch, U2-Net, Whisper ASR, Mistral-7B, YOLOv11, OpenCV, Vis-NIR Spectroscopy, QLoRA, LoRA, Vector Search (pgvector), RAG Architectures.
 - **Frontend Frameworks:** React 19, Next.js 15, React Native (Expo), Angular, Tailwind CSS, HTML5/CSS3, Framer Motion, GSAP.
 - **Backend & Cloud:** FastAPI, Node.js, Express.js, Firebase, Supabase, PostgreSQL, MySQL, Railway, AWS (S3, EC2), Vercel.

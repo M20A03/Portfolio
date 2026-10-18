@@ -123,6 +123,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   .skip-link {
@@ -266,4 +267,13 @@
   background-clip: text;
   color: transparent;
   animation: textShimmer 6s linear infinite;
+}
+
+/* ─── No Scrollbar Utility ────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -97,9 +97,9 @@ HACKATHONS & CERTIFICATIONS
 =====================================================
 TECHNICAL SKILLS ARSENAL
 =====================================================
-- Languages: Java, Python (Pandas, NumPy, OpenCV, PyTorch, Tkinter), C, C++, JavaScript (ES6+), TypeScript, SQL (PostgreSQL, MySQL).
+- Languages: Java (Core, Swing, JSP), Python (Pandas, NumPy, OpenCV, PyTorch, Tkinter), C, C++, JavaScript (ES6+), TypeScript, SQL (PostgreSQL, MySQL).
 - AI & Deep Learning: PyTorch, U2-Net, Whisper ASR, Mistral-7B, YOLOv11, OpenCV, Vis-NIR Spectroscopy, Hugging Face, Agentic Architectures.
-- Web & Mobile: React Native, Expo, React 19, Next.js 15, FastAPI, Node.js, Express.js, Tailwind CSS v4, Framer Motion, shadcn/ui.
+- Web & Mobile: React Native, Expo, React 19, Next.js 15, FastAPI, Java Server Pages (JSP), Node.js, Express.js, Tailwind CSS v4, Framer Motion, shadcn/ui.
 - Cloud, DevOps & Databases: PostgreSQL (Supabase with pgvector), MySQL, Firebase, Railway, AWS (S3, EC2), Vercel, Docker, Git/GitHub, Postman, Linux/Bash.
 
 =====================================================

@@ -279,12 +279,12 @@ export default function ResumePage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5 rounded-xl bg-card border border-border">
               {[
-                { cat: "Programming Languages", val: "TypeScript, JavaScript (ES6+), Python (NumPy/Pandas), Java, C++, C, SQL" },
-                { cat: "Mobile & Frontend", val: "Android App Development, React Native, Expo, React 19, Next.js 15, Tailwind CSS v4" },
-                { cat: "Backend & APIs", val: "FastAPI, Node.js, Express.js, WebSockets, Python Flask, REST APIs" },
+                { cat: "Programming Languages", val: "Java (Swing, JSP), Python (NumPy/Pandas), TypeScript, JavaScript (ES6+), C++, C, SQL" },
+                { cat: "Mobile & Frontend", val: "Android App Development, React Native, Expo, React 19, Next.js 15, Tailwind CSS 4" },
+                { cat: "Backend & APIs", val: "FastAPI, Java Server Pages (JSP), Node.js, Express.js, WebSockets, REST APIs" },
                 { cat: "Databases & Cloud", val: "AWS (S3, EC2), Railway, Supabase, PostgreSQL, Firebase Firestore, MySQL, Vercel" },
-                { cat: "AI, ML & Clinical NLP", val: "Whisper ASR, Mistral-7B, YOLOv11, OpenCV, PyTorch, Prompt Engineering" },
-                { cat: "DevOps & Tools", val: "Git, GitHub, Docker, Postman, Linux/Bash, VS Code, Vite, Figma" },
+                { cat: "AI, ML & Clinical NLP", val: "Whisper ASR, Mistral-7B, PyTorch, U2-Net, YOLOv11, OpenCV, Vis-NIR Spectroscopy" },
+                { cat: "DevOps & Tools", val: "Git, GitHub, Docker, Linux/Bash, VS Code, Eclipse IDE, Postman, Figma" },
               ].map((s, idx) => (
                 <div key={idx} className="space-y-1">
                   <h4 className="text-xs font-bold text-primary uppercase tracking-wider">{s.cat}</h4>
