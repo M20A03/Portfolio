@@ -99,15 +99,15 @@ export const projectData: ProjectData[] = [
       "AES-256",
       "WebSockets"
     ],
-    demoUrl: "https://github.com/M20A03/Praxirence",
-    githubUrl: "https://github.com/M20A03/Praxirence",
+    demoUrl: "https://www.praxirence.com",
+    githubUrl: null,
     thumbnailAlt: "Praxirence AI Ambient Clinical Intelligence Interface",
     category: "Full-Stack",
     date: "2026",
     color: "from-emerald-500/20 to-teal-500/20",
     emoji: "🩺",
     image: "/images/praxirence.png",
-    isPrivate: false,
+    isPrivate: true,
     stats: "FastAPI · Whisper ASR · Mistral-7B · Expo Native",
     outcome: "Built a DPDP/HIPAA-compliant healthcare ecosystem featuring live audio consultation transcription, automated SOAP care plans, live OPD triage queues, and a passwordless patient vault.",
     highlights: [

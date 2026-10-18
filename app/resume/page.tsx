@@ -197,7 +197,7 @@ export default function ResumePage() {
                 {
                   title: "Praxirence — Ambient Clinical Intelligence & Dual-Ecosystem Healthcare",
                   tech: "React Native, Expo, FastAPI, Python 3.11, Whisper ASR, Mistral-7B, PyTorch, AES-256",
-                  link: "https://github.com/M20A03/Praxirence",
+                  link: "https://www.praxirence.com",
                   points: [
                     "Architected a zero-trust, DPDP/HIPAA-compliant healthcare ecosystem featuring 2 native mobile apps (Doctor & Patient), a FastAPI backend, and an on-premise ML pipeline.",
                     "Implemented live ambient consultation recording with fine-tuned Whisper-Small and QLoRA Mistral-7B for automated SOAP note generation (0.92 ROUGE-1).",
