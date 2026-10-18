@@ -212,7 +212,7 @@ export function AboutSection() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-                  I am a dedicated <span className="text-foreground font-semibold">Full-Stack &amp; AI Systems Engineer</span> and BCA Scholar at <span className="text-primary font-medium">Christ University, Bangalore</span>. Pivoting from a Commerce foundation to Computer Science (clearing on my first attempt), I bridge financial logic with modern software architecture, specializing in <span className="text-foreground font-semibold">React 19, Next.js 15, FastAPI, PostgreSQL (pgvector), and YOLOv11 Computer Vision</span>.
+                  I am a dedicated <span className="text-foreground font-semibold">Full-Stack &amp; AI Systems Architect</span> and BCA Scholar at <span className="text-primary font-medium">Christ University, Bangalore</span> (3.33 CGPA). Making a bold, successful pivot from a Commerce foundation to Computer Science on my very first attempt, I combine business and unit economics insight with systems engineering. Currently serving as <span className="text-foreground font-semibold">AI &amp; Computer Vision Research Lead (Stipendiary)</span> at Christ University, I engineer multimodal vision-spectral curation pipelines while architecting production ecosystems like <span className="text-primary font-medium">Praxirence</span> (dual-ecosystem ambient healthcare AI).
                 </p>
               </CardContent>
             </Card>
@@ -228,7 +228,7 @@ export function AboutSection() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
-                  I specialize in <span className="text-primary font-medium">multi-agent AI workflows (AntiGravity AI)</span>, LLM reasoning pipelines (Claude, Gemini, OpenAI), and high-conversion accessible UI systems. From academic knowledge graphs to enterprise e-commerce portals, I build production-grade web applications with measured real-world impact.
+                  I specialize in building <span className="text-primary font-medium">zero-trust, high-performance architectures</span> across <span className="text-foreground font-semibold">React 19, Next.js 15, TypeScript, Python/FastAPI, PyTorch, React Native (Expo), and Cloud/Databases (PostgreSQL, Supabase, Firebase, Railway)</span>. Whether fine-tuning Whisper &amp; Mistral-7B for automated medical SOAP notes or standardizing 11,500 multimodal artifacts with U2-Net, I prioritize deterministic reliability, sub-second latency, and measurable real-world outcomes.
                 </p>
               </CardContent>
             </Card>

@@ -149,19 +149,15 @@ export const projectData: ProjectData[] = [
     eyebrow: "CONFIDENTIAL COMPUTER VISION PROJECT @ CHRIST UNIVERSITY",
     featureTitle: "Agricultural Vision & Spectral Analytics System",
     description:
-      "A confidential software platform and computer vision pipeline engineered under Christ University guidance (Stipend-Funded Research Grant) for agricultural authenticity verification. Preprocesses multi-megapixel macroscopic captures using deep salient object segmentation and sinc-windowed downsampling. Synchronizes 400nm–1000nm Vis-NIR diffuse reflectance spectroscopy with visual specimen morphology, eliminating ambient optical interference and laboratory shadow artifacts across a 2,300-specimen benchmark.",
+      "A confidential software platform and computer vision pipeline engineered under Christ University guidance (Stipend-Funded Research Grant) for agricultural authenticity verification, utilizing deep salient object segmentation and Vis-NIR spectroscopy across 2,300 specimens.",
     detailDescription:
       "An advanced computer vision curation engine and multimodal deep learning platform engineered for agricultural specimen analysis. Integrates deep salient object segmentation, anti-aliased Lanczos-3 resizing, dynamic bounding-box auto-cropping, and Vis-NIR diffuse reflectance spectroscopy into a synchronized, standardized dataset pipeline.",
     techStack: [
       "Python",
       "PyTorch",
       "U2-Net",
-      "OpenCV",
-      "Computer Vision",
-      "Vis-NIR Spectroscopy",
-      "FastAPI",
-      "PIL / Pillow",
-      "NumPy"
+      "Vis-NIR",
+      "OpenCV"
     ],
     demoUrl: null,
     githubUrl: null,
