@@ -189,7 +189,7 @@ export function HeroSection() {
             <div className="flex items-center justify-center lg:justify-start gap-3">
               {[
                 { href: "https://github.com/M20A03", icon: Github, label: "GitHub Profile" },
-                { href: "https://www.linkedin.com/in/mayank-raj-gupta-159020396", icon: Linkedin, label: "LinkedIn Profile" },
+                { href: "https://www.linkedin.com/in/mayank-raj-gupta", icon: Linkedin, label: "LinkedIn Profile" },
                 { href: "mailto:mayankrajgupta01@gmail.com", icon: Mail, label: "Send Email" },
               ].map(({ href, icon: Icon, label }) => (
                 <Tooltip key={label}>

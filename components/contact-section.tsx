@@ -35,7 +35,7 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mayank-raj-gupta-159020396",
+    href: "https://www.linkedin.com/in/mayank-raj-gupta",
     username: "Mayank Raj Gupta",
   },
   {

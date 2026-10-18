@@ -39,7 +39,7 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mayank-raj-gupta-159020396",
+    href: "https://www.linkedin.com/in/mayank-raj-gupta",
     icon: Linkedin,
   },
   {
@@ -70,7 +70,7 @@ export function PortfolioContainer() {
       url: siteUrl,
       sameAs: [
         "https://github.com/M20A03",
-        "https://www.linkedin.com/in/mayank-raj-gupta-159020396",
+        "https://www.linkedin.com/in/mayank-raj-gupta",
       ],
     },
   };

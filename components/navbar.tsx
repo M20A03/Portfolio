@@ -166,7 +166,7 @@ export function Navbar() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
-                    href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
+                    href="https://www.linkedin.com/in/mayank-raj-gupta"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 text-foreground/80 hover:text-foreground transition-colors rounded-full hover:bg-primary/10"
@@ -307,7 +307,7 @@ export function Navbar() {
                     <Github className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/mayank-raj-gupta-159020396"
+                    href="https://www.linkedin.com/in/mayank-raj-gupta"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground/80 hover:text-foreground transition-colors p-2"

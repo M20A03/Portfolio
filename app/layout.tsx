@@ -211,7 +211,7 @@ export default function RootLayout({
       },
       "sameAs": [
         "https://github.com/M20A03",
-        "https://www.linkedin.com/in/mayank-raj-gupta-159020396",
+        "https://www.linkedin.com/in/mayank-raj-gupta",
         siteUrl,
       ],
     },

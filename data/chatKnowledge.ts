@@ -13,7 +13,7 @@ BIOGRAPHY & PROFILE
 - Primary Roles: Full-Stack & AI Systems Architect, Mobile App Developer, BCA Scholar @ Christ University.
 - Location: Bangalore, Karnataka, India.
 - Email: mayankrajgupta01@gmail.com | Phone: +91 9835139865
-- Portfolio: https://www.mayankraj.me | GitHub: https://github.com/M20A03 | LinkedIn: https://www.linkedin.com/in/mayank-raj-gupta-159020396
+- Portfolio: https://www.mayankraj.me | GitHub: https://github.com/M20A03 | LinkedIn: https://www.linkedin.com/in/mayank-raj-gupta
 - Academic Journey: Bachelor of Computer Applications (BCA), Christ (Deemed to be University), Bangalore (Class of 2025–2029) — 3.33/4.0 CGPA.
 - High School: Class XII (CBSE) from Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023).
 - Origin Story: Made a bold, successful pivot from a Commerce foundation to Computer Science, clearing the highly competitive entrance exam for Christ University on his very first attempt. This unique background allows him to blend financial logic, business unit economics, and product strategy with software engineering.
@@ -431,7 +431,7 @@ export const SEMANTIC_INTENTS: ChatIntent[] = [
 
 • **Email:** [mayankrajgupta01@gmail.com](mailto:mayankrajgupta01@gmail.com)
 • **Phone:** [+91 9835139865](tel:+919835139865)
-• **LinkedIn:** [linkedin.com/in/mayank-raj-gupta](https://www.linkedin.com/in/mayank-raj-gupta-159020396)
+• **LinkedIn:** [linkedin.com/in/mayank-raj-gupta](https://www.linkedin.com/in/mayank-raj-gupta)
 • **GitHub:** [github.com/M20A03](https://github.com/M20A03)
 • **Portfolio:** [https://www.mayankraj.me](https://www.mayankraj.me)
 • **Location:** Bangalore, Karnataka, India`,

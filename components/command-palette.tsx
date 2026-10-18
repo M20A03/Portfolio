@@ -156,11 +156,11 @@ export function CommandPalette() {
       id: "contact-linkedin",
       title: "Open LinkedIn Profile",
       category: "Contact",
-      description: "linkedin.com/in/mayank-raj-gupta-159020396",
+      description: "linkedin.com/in/mayank-raj-gupta",
       icon: Linkedin,
       external: true,
       action: () => {
-        window.open("https://www.linkedin.com/in/mayank-raj-gupta-159020396", "_blank");
+        window.open("https://www.linkedin.com/in/mayank-raj-gupta", "_blank");
         setIsOpen(false);
       },
     },

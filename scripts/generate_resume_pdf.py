@@ -76,7 +76,7 @@ story.append(Paragraph("Full-Stack Developer & AI Specialist | BCA Scholar @ Chr
 
 contact = [
     ["mayankraj.gupta@bcah.christuniversity.in", "+91 9835139865", "Bangalore, India"],
-    ["Portfolio: mayankraj.me", "GitHub: github.com/M20A03", "LinkedIn: linkedin.com/in/mayank-raj-gupta-159020396"],
+    ["Portfolio: mayankraj.me", "GitHub: github.com/M20A03", "LinkedIn: linkedin.com/in/mayank-raj-gupta"],
 ]
 contact_table = Table(contact, colWidths=[2.6 * inch, 2.3 * inch, 2.5 * inch])
 contact_table.setStyle(

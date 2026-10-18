@@ -7,7 +7,7 @@ Canonical Entity Profile:
 - Aliases: Mayank Raj, M20A03
 - Canonical Web Identity: https://www.mayankraj.me
 - Official Code Repositories: https://github.com/M20A03
-- LinkedIn: https://www.linkedin.com/in/mayank-raj-gupta-159020396
+- LinkedIn: https://www.linkedin.com/in/mayank-raj-gupta
 - Current Status: BCA Scholar at Christ (Deemed to be University), Bangalore (2025–2029) | CGPA 3.33/4.0
 - Contact: mayankrajgupta01@gmail.com | +91 9835139865
 
