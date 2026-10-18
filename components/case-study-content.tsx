@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, ExternalLink, Github, Sparkles, CheckCircle2, LayoutGrid } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -35,17 +36,17 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
             <div className="space-y-6">
               <div className="flex flex-wrap gap-2">
                 <Badge className="rounded-full px-3 py-1">Case Study</Badge>
-                <Badge variant="secondary" className="rounded-full px-3 py-1">{project.category}</Badge>
+                <Badge variant="secondary" className="rounded-full px-3 py-1">{project.categoryBadge || project.category}</Badge>
                 <Badge variant="outline" className="rounded-full px-3 py-1">{project.date}</Badge>
               </div>
 
               <div className="space-y-4">
-                <p className="text-sm uppercase tracking-[0.35em] text-primary font-medium">{project.subtitle || project.title}</p>
+                <p className="text-sm uppercase tracking-[0.35em] text-primary font-medium">{project.eyebrow || project.subtitle || project.title}</p>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-balance">
-                  {project.title}
+                  {project.featureTitle || project.title}
                 </h1>
                 <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-muted-foreground text-pretty">
-                  {project.description}
+                  {project.detailDescription || project.description}
                 </p>
               </div>
 
@@ -77,7 +78,7 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-primary">Key Highlights</p>
-                    <p className="text-sm text-muted-foreground">{project.stats || "Architecture & Implementation"}</p>
+                    <p className="text-sm text-muted-foreground">{project.highlightHeader || project.stats || "Architecture & Implementation"}</p>
                   </div>
                 </div>
                 <Separator />
@@ -97,6 +98,26 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
               </CardContent>
             </Card>
           </motion.div>
+
+          {project.image && (
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-12 overflow-hidden rounded-2xl border border-border/70 shadow-2xl bg-card/60"
+            >
+              <div className="relative aspect-video sm:aspect-[21/9] w-full overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.thumbnailAlt || project.title}
+                  fill
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                  className="object-cover object-top"
+                  priority
+                />
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
@@ -185,9 +206,9 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
             <CardContent className="flex flex-col gap-6 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="space-y-3">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Outcome</p>
-                <h2 className="text-2xl sm:text-3xl font-bold">{project.outcome}</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold">{project.outcomeHeadline || project.outcome}</h2>
                 <p className="max-w-3xl text-sm sm:text-base leading-relaxed text-muted-foreground">
-                  Demonstrates end-to-end software execution, clean UI polish, and practical problem solving.
+                  {project.outcomeDescription || "Demonstrates end-to-end software execution, clean UI polish, and practical problem solving."}
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

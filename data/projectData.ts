@@ -24,6 +24,12 @@ export interface ProjectData {
   highlights?: string[];
   subtitle?: string;
   featureTitle?: string;
+  eyebrow?: string;
+  categoryBadge?: string;
+  detailDescription?: string;
+  highlightHeader?: string;
+  outcomeHeadline?: string;
+  outcomeDescription?: string;
   process?: ProjectProcessStep[];
 }
 
@@ -137,21 +143,68 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "future-working-app",
-    title: "Future Working App",
-    subtitle: "Personal Product Idea & Landing",
-    description: "A private project geared for a personal product launch, featuring local market catalog browsing and clean responsive interfaces.",
-    techStack: ["React", "Vite", "Firebase", "Tailwind CSS"],
-    demoUrl: "https://mrg-idea.web.app/",
-    githubUrl: "https://github.com/M20A03/Future-working-app",
-    thumbnailAlt: "Future Working App Local Market Storefront",
-    category: "Full-Stack",
-    date: "2026",
-    color: "from-yellow-500/20 to-amber-500/20",
-    emoji: "💡",
-    image: "/images/future-working-app.png",
+    slug: "agricultural-vision-spectral-analytics",
+    title: "Confidential Agricultural Vision & Spectral Analytics System",
+    subtitle: "Agricultural Vision & Spectral Analytics System",
+    eyebrow: "CONFIDENTIAL COMPUTER VISION PROJECT @ CHRIST UNIVERSITY",
+    featureTitle: "Agricultural Vision & Spectral Analytics System",
+    description:
+      "A confidential software platform and computer vision pipeline engineered under Christ University guidance (Stipend-Funded Research Grant) for agricultural authenticity verification. Preprocesses multi-megapixel macroscopic captures using deep salient object segmentation and sinc-windowed downsampling. Synchronizes 400nm–1000nm Vis-NIR diffuse reflectance spectroscopy with visual specimen morphology, eliminating ambient optical interference and laboratory shadow artifacts across a 2,300-specimen benchmark.",
+    detailDescription:
+      "An advanced computer vision curation engine and multimodal deep learning platform engineered for agricultural specimen analysis. Integrates deep salient object segmentation, anti-aliased Lanczos-3 resizing, dynamic bounding-box auto-cropping, and Vis-NIR diffuse reflectance spectroscopy into a synchronized, standardized dataset pipeline.",
+    techStack: [
+      "Python",
+      "PyTorch",
+      "U2-Net",
+      "OpenCV",
+      "Computer Vision",
+      "Vis-NIR Spectroscopy",
+      "FastAPI",
+      "PIL / Pillow",
+      "NumPy"
+    ],
+    demoUrl: null,
+    githubUrl: null,
+    thumbnailAlt: "BioSpectral-Trust Agricultural Spectral Analysis Dashboard",
+    category: "Tools",
+    categoryBadge: "Computer Vision / AI",
+    date: "2026 — Present",
+    color: "from-emerald-500/20 to-teal-500/20",
+    emoji: "🔬",
+    image: "/images/agricultural-vision.jpg",
     isPrivate: true,
-    stats: "React · Vite · Firebase Hosting",
+    stats: "Stipend-Funded Research · Python · PyTorch · U2-Net · Vis-NIR · OpenCV",
+    highlightHeader: "Key Highlights | Stipend-Funded Research · Agricultural Vision · Christ University",
+    outcome:
+      "Built an automated 4-stage computer vision curation pipeline standardizing an 11,500-file multimodal dataset across 2,300 physical specimens, achieving sub-120ms neural segmentation and delivering clean, artifact-free visual-spectral data for model training.",
+    outcomeHeadline:
+      "Engineered an automated 4-stage computer vision pipeline standardizing 11,500 multimodal dataset artifacts.",
+    outcomeDescription:
+      "Eliminates shortcut learning from ambient laboratory clutter, ensuring robust visual-spectral alignment across diverse fruit and legume geometries.",
+    highlights: [
+      "Confidential software platform developed under Christ (Deemed to be University) guidance (Stipend-Funded Research Grant)",
+      "4-stage deterministic image curation engine converting >12MP uncalibrated benchtop photography into standardized ML artifacts",
+      "U2-Net salient foreground extraction generating high-fidelity continuous alpha mattes with persistent VRAM session caching (110ms/image)",
+      "11,500 multimodal synchronized artifacts across 2,300 physical specimens with exact 50:50 binary organic/conventional balance"
+    ],
+    process: [
+      {
+        title: "Data Acquisition & Scaling",
+        text: "Ingested macro photography and Theremino Vis-NIR 400nm–1000nm diffuse reflectance spectral curves. Implemented proportional Lanczos-3 downsampling (a=3 sinc kernel) bounded at 1200px, eliminating aspect distortion while preserving micro-lenticels and skin striations."
+      },
+      {
+        title: "Neural Background Removal",
+        text: "Deployed U2-Net nested ReS-UNet architecture for salient object detection, computing continuous floating-point alpha mattes to cleanly separate specimens from laboratory bench clutter, ceramic plates, and diffuse contact shadows."
+      },
+      {
+        title: "Compositing & Adaptive Cropping",
+        text: "Formulated Porter-Duff Over alpha compositing onto pure white (#FFFFFF) canvases to eliminate dark border halos, coupled with vectorized bounding-box detection adding 15% dynamic padding for auto-centered thumbnail generation."
+      },
+      {
+        title: "Outcome & Dataset Synchronization",
+        text: "Delivered 11,500 paired dataset artifacts across 2,300 specimens (Groundnut, Soybean, Banana, Sapota) with automated canonical regex renaming (CU_SDD_...), ensuring seamless data integrity for downstream multimodal classification."
+      }
+    ]
   },
   {
     slug: "nexus-scholar",
@@ -692,46 +745,46 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "thermino-software-project",
-    title: "Thermino Thermal Analytics & Modeling System",
-    subtitle: "Confidential Deep Learning Project @ Christ University",
+    slug: "future-working-app",
+    title: "Future Working App (MRG Idea)",
+    subtitle: "Personal Product Idea & Market Storefront",
     description:
-      "An advanced thermal analytics and deep learning software application engineered for heat distribution modeling, automated infrared anomaly detection, and predictive thermal profiling.",
-    techStack: ["Deep Learning", "Python", "React", "TypeScript", "Thermal Modeling", "PyTorch"],
-    demoUrl: null,
-    githubUrl: null,
-    thumbnailAlt: "Thermino Thermal Analytics & Deep Learning System",
+      "A private project engineered for a personal product launch (MRG Idea), featuring local market catalog browsing, responsive interactive storefront flows, and Firebase cloud hosting.",
+    techStack: ["React", "Vite", "Firebase", "Tailwind CSS", "TypeScript"],
+    demoUrl: "https://mrg-idea.web.app/",
+    githubUrl: "https://github.com/M20A03/Future-working-app",
+    thumbnailAlt: "Future Working App Local Market Storefront",
     category: "Full-Stack",
-    date: "2026 — Present",
-    color: "from-red-500/20 to-orange-500/20",
-    emoji: "🔥",
-    image: "/images/thermino-preview.svg",
+    date: "2026",
+    color: "from-yellow-500/20 to-amber-500/20",
+    emoji: "💡",
+    image: "/images/future-working-app.png",
     isPrivate: true,
-    stats: "Confidential Software · Thermal Deep Learning · Christ University",
-    outcome: "Engineered specialized deep learning models for thermal heat map analysis and automated diagnostics.",
+    stats: "React · Vite · Firebase Hosting · MRG Idea",
+    outcome: "Built an interactive local market catalog and personal product storefront web application deployed on Firebase.",
     highlights: [
-      "Confidential software platform developed under Christ University guidance",
-      "Deep learning neural networks for infrared pattern recognition and thermal gradients",
-      "Full-stack analytical dashboard rendering dynamic heat maps and predictive graphs",
-      "Integrated anomaly detection alerting for critical temperature thresholds"
+      "Curated personal product idea and launch storefront for local market offerings",
+      "Interactive product catalog with category browsing and dynamic search filtering",
+      "Mobile-optimized responsive layouts with Tailwind CSS styling",
+      "Seamless single-page application deployment on Firebase Hosting"
     ],
-    featureTitle: "Thermal Intelligence & Predictive Deep Learning",
+    featureTitle: "Future Working App (MRG Idea Storefront)",
     process: [
       {
-        title: "Data Acquisition",
-        text: "Ingested thermal sensor arrays and infrared image feeds into pre-processing data pipelines."
+        title: "Product Ideation",
+        text: "Formulated personal product catalog requirements tailored for local market discovery and community storefronts."
       },
       {
-        title: "Model Engineering",
-        text: "Developed deep learning regression and classification models to identify thermal hotspots."
+        title: "Frontend Engineering",
+        text: "Developed responsive React components with Vite, implementing modular product cards and category navigation."
       },
       {
-        title: "Frontend Integration",
-        text: "Built a responsive dashboard to visualize thermal telemetry and real-time inference results."
+        title: "State & Flow",
+        text: "Designed streamlined client-side state management for fast catalog search, item previews, and interaction triggers."
       },
       {
-        title: "Outcome",
-        text: "Delivered a full-stack thermal analytics suite for experimental and industrial evaluation."
+        title: "Cloud Deployment",
+        text: "Configured automated CI/CD and production deployment to Firebase Hosting for fast global edge delivery."
       }
     ]
   },
@@ -958,5 +1011,9 @@ export const projectData: ProjectData[] = [
 ];
 
 export function getProjectBySlug(slug: string): ProjectData | undefined {
-  return projectData.find((project) => project.slug === slug);
+  return projectData.find(
+    (project) =>
+      project.slug === slug ||
+      (slug === "thermino-software-project" && project.slug === "agricultural-vision-spectral-analytics")
+  );
 }
