@@ -215,6 +215,16 @@ export default function ResumePage() {
                   ],
                 },
                 {
+                  title: "StudyArchive — Academic Resource Platform & Document Hub",
+                  tech: "Angular 21 SSR, TypeScript, Firebase Firestore & Auth, SCSS",
+                  link: "https://straw-hats-7795d.web.app",
+                  points: [
+                    "Engineered a full-stack campus resource platform with Angular 21 Standalone Components and Server-Side Rendering.",
+                    "Implemented real-time Firebase Firestore synchronization, multi-course document indexing, and student peer review workflows.",
+                    "Designed a responsive desktop and mobile interface with instant search and zero-friction Google 1-click authentication.",
+                  ],
+                },
+                {
                   title: "DSA Search Algorithm Visualizer & Space Explorer",
                   tech: "React 19, TypeScript, Vite, WebAudio API, FastAPI, Tailwind CSS",
                   link: "https://linear-and-binary-search.web.app",
@@ -303,9 +313,8 @@ export default function ResumePage() {
 
               {showAllEducation && (
                 <div className="p-4 rounded-lg bg-secondary/30 border border-border/40 text-sm text-muted-foreground space-y-1">
-                  <div className="flex justify-between font-semibold text-foreground">
-                    <span>Class XII (CBSE) — Senior Secondary</span>
-                    <span className="text-primary">76%</span>
+                  <div className="font-semibold text-foreground">
+                    Class XII (CBSE) — Senior Secondary
                   </div>
                   <p>Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023 — 2025)</p>
                 </div>

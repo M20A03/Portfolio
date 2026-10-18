@@ -63,7 +63,13 @@ const itemVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const education = [
+const education: Array<{
+  year: string;
+  degree: string;
+  institution: string;
+  location: string;
+  details?: string;
+}> = [
   {
     year: "2025 — 2029",
     degree: "Bachelor of Computer Applications (BCA)",
@@ -76,7 +82,6 @@ const education = [
     degree: "Higher Secondary (12th Commerce)",
     institution: "Rajkamal Saraswati Vidya Mandir, Dhanbad (CBSE)",
     location: "Dhanbad, Jharkhand",
-    details: "76%",
   },
 ];
 
@@ -351,8 +356,12 @@ export function AboutSection() {
                         {edu.degree}
                       </h4>
                       <p className="text-muted-foreground">{edu.institution}</p>
-                      <Separator className="my-2" />
-                      <p className="text-primary text-sm font-medium">{edu.details}</p>
+                      {edu.details && (
+                        <>
+                          <Separator className="my-2" />
+                          <p className="text-primary text-sm font-medium">{edu.details}</p>
+                        </>
+                      )}
                     </CardContent>
                   </Card>
                 </motion.div>

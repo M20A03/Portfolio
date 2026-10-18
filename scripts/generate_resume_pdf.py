@@ -114,7 +114,7 @@ edu_rows = [
     ],
     [
         Paragraph("<b>Class XII (CBSE) — Senior Secondary</b><br/>Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023)", styles["ResumeBody"]),
-        Paragraph("<b>76.0%</b>", styles["ResumeBody"]),
+        Paragraph("<b>CBSE Senior Secondary</b>", styles["ResumeBody"]),
     ],
 ]
 edu_table = Table(edu_rows, colWidths=[4.9 * inch, 2.5 * inch])
