@@ -10,9 +10,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 const certifications = [
   {
     year: "2026",
-    title: "Web Development Virtual Internship",
-    issuer: "ShadowFox",
-    image: "/certificates/certificate-13.png",
+    title: "SPARK Research Program",
+    issuer: "CHRIST (Deemed to be University)",
+    image: "/certificates/certificate-10.png",
   },
   {
     year: "2026",
@@ -22,15 +22,21 @@ const certifications = [
   },
   {
     year: "2026",
-    title: "CODEX'26 National Level Online Hackathon (Theme: AI Solutions)",
-    issuer: "Don Bosco College, KR Puram, Bengaluru (BITBLAZE BCA)",
-    image: "/certificates/certificate-11.png",
+    title: "Web Development Virtual Internship",
+    issuer: "ShadowFox",
+    image: "/certificates/certificate-13.png",
   },
   {
     year: "2026",
     title: "InHack - Hackathon (Media Meet 2026)",
     issuer: "Department of Media Studies, CHRIST (Deemed to be University), Yeshwanthpur",
     image: "/certificates/certificate-12.jpg",
+  },
+  {
+    year: "2026",
+    title: "CODEX'26 National Level Online Hackathon (Theme: AI Solutions)",
+    issuer: "Don Bosco College, KR Puram, Bengaluru (BITBLAZE BCA)",
+    image: "/certificates/certificate-11.png",
   },
   {
     year: "2026",
@@ -43,12 +49,6 @@ const certifications = [
     title: "HACKNOVA Game Jam",
     issuer: "CHRIST (Deemed to be University)",
     image: "/certificates/certificate-4.jpg",
-  },
-   {
-    year: "2026",
-    title: "SPARK Research Program",
-    issuer: "CHRIST (Deemed to be University)",
-    image: "/certificates/certificate-10.png",
   },
   {
     year: "2025",

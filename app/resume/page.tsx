@@ -279,12 +279,12 @@ export default function ResumePage() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5 rounded-xl bg-card border border-border">
               {[
-                { cat: "Programming Languages", val: "TypeScript, JavaScript (ES6+), Python (NumPy/Pandas), C++, C, SQL" },
-                { cat: "Frontend & Full-Stack", val: "React 19, Next.js 15, Angular, Tailwind CSS v4, Framer Motion, HTML5/CSS3" },
-                { cat: "Backend & APIs", val: "Node.js, Express.js, REST APIs, Python Flask, Fast-API, WebSockets" },
-                { cat: "Databases & Storage", val: "PostgreSQL, Supabase, Firebase Firestore, MySQL, MongoDB, Redis" },
-                { cat: "AI, ML & Vision", val: "YOLO11, OpenCV, LLM Prompt Engineering, Claude 3.7 API, Streamlit" },
-                { cat: "DevOps & Cloud Tools", val: "Git, GitHub, Vercel, Docker, VS Code, Figma, Vite, Linux/Bash" },
+                { cat: "Programming Languages", val: "TypeScript, JavaScript (ES6+), Python (NumPy/Pandas), Java, C++, C, SQL" },
+                { cat: "Mobile & Frontend", val: "Android App Development, React Native, Expo, React 19, Next.js 15, Tailwind CSS v4" },
+                { cat: "Backend & APIs", val: "FastAPI, Node.js, Express.js, WebSockets, Python Flask, REST APIs" },
+                { cat: "Databases & Cloud", val: "AWS (S3, EC2), Railway, Supabase, PostgreSQL, Firebase Firestore, MySQL, Vercel" },
+                { cat: "AI, ML & Clinical NLP", val: "Whisper ASR, Mistral-7B, YOLOv11, OpenCV, PyTorch, Prompt Engineering" },
+                { cat: "DevOps & Tools", val: "Git, GitHub, Docker, Postman, Linux/Bash, VS Code, Vite, Figma" },
               ].map((s, idx) => (
                 <div key={idx} className="space-y-1">
                   <h4 className="text-xs font-bold text-primary uppercase tracking-wider">{s.cat}</h4>
@@ -326,7 +326,7 @@ export default function ResumePage() {
                   <div className="font-semibold text-foreground">
                     Class XII (CBSE) — Senior Secondary
                   </div>
-                  <p>Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023 — 2025)</p>
+                  <p>Rajkamal Saraswati Vidya Mandir, Dhanbad, Jharkhand (2023)</p>
                 </div>
               )}
 
@@ -349,6 +349,8 @@ export default function ResumePage() {
             </div>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
+                { title: "PromptWars - Vibe-Coding Hackathon", issuer: "Google for Developers x CHRIST University (2026)" },
+                { title: "SPARK Research Program", issuer: "CHRIST (Deemed to be University) (2026)" },
                 { title: "InHack - Hackathon (Media Meet 2026)", issuer: "CHRIST (Deemed to be University), Yeshwanthpur" },
                 { title: "CODEX'26 National Level AI Hackathon", issuer: "Don Bosco College, KR Puram, Bengaluru" },
                 { title: "YUGASTR IT FEST Hackathon (2026)", issuer: "Ramaiah College of Arts, Science & Commerce" },
