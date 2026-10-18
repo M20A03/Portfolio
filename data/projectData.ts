@@ -82,48 +82,21 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "study-archive",
-    title: "Study Archive (CampusShare)",
-    subtitle: "Campus Resource & Notes Sharing Platform",
-    description:
-      "A campus resource platform built to help students manage, share, and access study materials, notes, and previous year questions. Powered by Firebase real-time database for seamless collaboration.",
-    techStack: ["HTML", "CSS", "JavaScript", "Firebase"],
-    demoUrl: "https://straw-hats-7795d.web.app",
-    githubUrl: "https://github.com/M20A03/StudyArchive",
-    thumbnailAlt: "Study Archive Campus Material Platform Interface",
+    slug: "future-working-app",
+    title: "Future Working App",
+    subtitle: "Personal Product Idea & Landing",
+    description: "A private project geared for a personal product launch, featuring local market catalog browsing and clean responsive interfaces.",
+    techStack: ["React", "Vite", "Firebase", "Tailwind CSS"],
+    demoUrl: "https://mrg-idea.web.app/",
+    githubUrl: "https://github.com/M20A03/Future-working-app",
+    thumbnailAlt: "Future Working App Local Market Storefront",
     category: "Full-Stack",
-    date: "Feb 2026",
-    color: "from-purple-500/20 to-pink-500/20",
-    emoji: "📚",
-    image: "/images/project-study-archive.png",
-    isPrivate: false,
-    stats: "Firebase Realtime DB · Cloud Storage · Student Portal",
-    outcome: "Created a single access point for study resources with cloud-backed updates.",
-    highlights: [
-      "Centralized study notes, syllabus PDFs, and previous year questions",
-      "Firebase realtime database backend for instant resource sync across devices",
-      "Clean filterable category navigation designed for rapid exam prep",
-      "Live deployment serving active university students"
-    ],
-    featureTitle: "Cloud Collaboration & Academic Resource UX",
-    process: [
-      {
-        title: "Problem",
-        text: "Course materials were fragmented across multiple chat groups and hard to search during exam prep."
-      },
-      {
-        title: "Design",
-        text: "Organized resources by subject, semester, and material type with quick search and preview features."
-      },
-      {
-        title: "Build",
-        text: "Connected client interfaces directly with Firebase Cloud Storage and Realtime Database."
-      },
-      {
-        title: "Outcome",
-        text: "Built a reliable hub that streamlines academic resource distribution for students."
-      }
-    ]
+    date: "2026",
+    color: "from-yellow-500/20 to-amber-500/20",
+    emoji: "💡",
+    image: "/images/future-working-app.png",
+    isPrivate: true,
+    stats: "React · Vite · Firebase Hosting",
   },
   {
     slug: "nexus-scholar",
@@ -576,21 +549,48 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
-    slug: "future-working-app",
-    title: "Future Working App",
-    subtitle: "Personal Product Idea & Landing",
-    description: "A private project geared for a personal product launch, featuring local market catalog browsing and clean responsive interfaces.",
-    techStack: ["React", "Vite", "Firebase", "Tailwind CSS"],
-    demoUrl: "https://mrg-idea.web.app/",
-    githubUrl: "https://github.com/M20A03/Future-working-app",
-    thumbnailAlt: "Future Working App Local Market Storefront",
+    slug: "study-archive",
+    title: "Study Archive (CampusShare)",
+    subtitle: "Campus Resource & Notes Sharing Platform",
+    description:
+      "A campus resource platform built to help students manage, share, and access study materials, notes, and previous year questions. Powered by Firebase real-time database for seamless collaboration.",
+    techStack: ["HTML", "CSS", "JavaScript", "Firebase"],
+    demoUrl: "https://straw-hats-7795d.web.app",
+    githubUrl: "https://github.com/M20A03/StudyArchive",
+    thumbnailAlt: "Study Archive Campus Material Platform Interface",
     category: "Full-Stack",
-    date: "2026",
-    color: "from-yellow-500/20 to-amber-500/20",
-    emoji: "💡",
-    image: "/images/future-working-app.png",
-    isPrivate: true,
-    stats: "React · Vite · Firebase Hosting",
+    date: "Feb 2026",
+    color: "from-purple-500/20 to-pink-500/20",
+    emoji: "📚",
+    image: "/images/project-study-archive.png",
+    isPrivate: false,
+    stats: "Firebase Realtime DB · Cloud Storage · Student Portal",
+    outcome: "Created a single access point for study resources with cloud-backed updates.",
+    highlights: [
+      "Centralized study notes, syllabus PDFs, and previous year questions",
+      "Firebase realtime database backend for instant resource sync across devices",
+      "Clean filterable category navigation designed for rapid exam prep",
+      "Live deployment serving active university students"
+    ],
+    featureTitle: "Cloud Collaboration & Academic Resource UX",
+    process: [
+      {
+        title: "Problem",
+        text: "Course materials were fragmented across multiple chat groups and hard to search during exam prep."
+      },
+      {
+        title: "Design",
+        text: "Organized resources by subject, semester, and material type with quick search and preview features."
+      },
+      {
+        title: "Build",
+        text: "Connected client interfaces directly with Firebase Cloud Storage and Realtime Database."
+      },
+      {
+        title: "Outcome",
+        text: "Built a reliable hub that streamlines academic resource distribution for students."
+      }
+    ]
   },
   {
     slug: "yolo11-deep-learning",
