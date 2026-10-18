@@ -1,6 +1,6 @@
 # 🛰️ Case Study: Space Explorer — Algorithmic Simulation Platform (Linear & Binary Search)
 
-- **Live Deployment:** [linear-and-binary-search.web.app](https://linear-and-binary-search.web.app)
+- **Live Deployment:** [linear-and-binary-search.vercel.app](https://linear-and-binary-search.vercel.app/)
 - **Source Code:** [github.com/M20A03/Linear-and-Bineary-Search-Simulation](https://github.com/M20A03/Linear-and-Bineary-Search-Simulation)
 - **Role:** Full-Stack Architect & SRE
 - **Tech Stack:** React 19, Vite 7, Firebase Auth & RTDB, HTML5 WebAudio API, FastAPI / Python 3.11

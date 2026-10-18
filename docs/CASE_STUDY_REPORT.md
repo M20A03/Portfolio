@@ -3,7 +3,7 @@
 Reviewed live deployments:
 - https://e-commerce-roshan-enterprises-dhn.web.app
 - https://lumi-glow-sigma.vercel.app
-- https://linear-and-binary-search.web.app
+- https://linear-and-binary-search.vercel.app/
 - https://straw-hats-7795d.web.app
 - https://angappbackery-216fe.web.app
 

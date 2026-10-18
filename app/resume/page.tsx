@@ -237,7 +237,7 @@ export default function ResumePage() {
                 {
                   title: "DSA Search Algorithm Visualizer & Space Explorer",
                   tech: "React 19, TypeScript, Vite, WebAudio API, FastAPI, Tailwind CSS",
-                  link: "https://linear-and-binary-search.web.app",
+                  link: "https://linear-and-binary-search.vercel.app/",
                   points: [
                     "Engineered step-by-step interactive simulations for Linear and Binary search algorithms with dynamic sound frequency synthesis.",
                     "Integrated Star-Command AI chatbot for contextual algorithmic hints and step-by-step Big-O complexity explanations.",

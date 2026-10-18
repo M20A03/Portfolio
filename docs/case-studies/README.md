@@ -16,7 +16,7 @@ Comprehensive collection of **Senior Full-Stack Architect & Site Reliability Eng
 | **06** | [CampusShare (StudyArchive)](./study-archive.md) | Academic Resource Sharing Portal | Angular 21, Signals, Firestore, SWR Caching, SCSS | [Live Demo](https://straw-hats-7795d.web.app) |
 | **07** | [Pokédex Lite](./pokedex-lite.md) | High-Performance PokéAPI Explorer | React 18, Vite 5, Firebase Auth, Vanilla CSS Tokens | [Live Demo](https://pokedex-deepsolv.web.app) |
 | **08** | [Sakthi Dental Clinic](./sakthi-dental-clinic.md) | Healthcare Practice Portal | React 19, Vite 8 / Rolldown, Tailwind CSS v4, Vitest | [Live Demo](https://www.sakthidentalclinic.in) |
-| **09** | [Space Explorer (DSA Simulation)](./search-algorithm-simulator.md) | Interactive CS Educational Platform | React 19, Vite, WebAudio API, Firebase, FastAPI | [Live Demo](https://linear-and-binary-search.web.app) |
+| **09** | [Space Explorer (DSA Simulation)](./search-algorithm-simulator.md) | Interactive CS Educational Platform | React 19, Vite, WebAudio API, Firebase, FastAPI | [Live Demo](https://linear-and-binary-search.vercel.app/) |
 | **10** | [LumiGlow Skincare](./lumi-glow.md) | Premium D2C Skincare E-Commerce | React, Vite, Rolldown, CSS Tokens, SRE Resilience | [Live Demo](https://lumi-glow-sigma.vercel.app) |
 | **11** | [Akoin Fintech](./fintech.md) | Digital Payments & Banking Gateway | HTML5/CSS3/JS, Edge Middleware, Design Tokens, SRE | [Live Demo](https://github.com/M20A03/Fintech) |
 | **12** | [Online Meeting App](./online-meeting-app.md) | Meeting Lifecycle & Scheduling | Python (Flask), MySQL, Pandas, Jinja2 | [Live Demo](https://github.com/M20A03/OnlineMeetingApp-main) |

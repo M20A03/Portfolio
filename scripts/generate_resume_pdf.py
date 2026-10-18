@@ -160,7 +160,7 @@ projects = [
     (
         "DSA Search Algorithm Visualizer & Space Explorer",
         "JavaScript, HTML5, CSS3, AI Integration, WebAudio API",
-        "Live Demo: https://linear-and-binary-search.web.app/",
+        "Live Demo: https://linear-and-binary-search.vercel.app/",
         [
             "Built 5+ step-by-step visual simulations for Linear and Binary search algorithms with dynamic visual pointer highlights.",
             "Integrated 'Star-Command AI', an intelligent conversational assistant to guide students through algorithm logic.",
