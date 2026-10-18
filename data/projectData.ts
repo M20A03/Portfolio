@@ -82,6 +82,61 @@ export const projectData: ProjectData[] = [
     ]
   },
   {
+    slug: "praxirence",
+    title: "Praxirence — Ambient Clinical Intelligence Platform",
+    subtitle: "Dual-Ecosystem Mobile & Ambient AI Clinical Scribe",
+    description:
+      "An end-to-end, zero-trust ambient clinical intelligence healthcare platform designed to eliminate doctor documentation burnout. Captures verbal consultations to generate structured SOAP notes with fine-tuned Whisper & Mistral-7B, automated drug-drug safety contraindication scoring, and delivers real-time health vaults across two native Android mobile apps (Doctor & Patient).",
+    techStack: [
+      "React Native",
+      "Expo",
+      "FastAPI",
+      "Python 3.11",
+      "Whisper ASR",
+      "Mistral-7B",
+      "PyTorch",
+      "TypeScript",
+      "AES-256",
+      "WebSockets"
+    ],
+    demoUrl: "https://github.com/M20A03/Praxirence",
+    githubUrl: "https://github.com/M20A03/Praxirence",
+    thumbnailAlt: "Praxirence AI Ambient Clinical Intelligence Interface",
+    category: "Full-Stack",
+    date: "2026",
+    color: "from-emerald-500/20 to-teal-500/20",
+    emoji: "🩺",
+    image: "/images/praxirence.png",
+    isPrivate: false,
+    stats: "FastAPI · Whisper ASR · Mistral-7B · Expo Native",
+    outcome: "Built a DPDP/HIPAA-compliant healthcare ecosystem featuring live audio consultation transcription, automated SOAP care plans, live OPD triage queues, and a passwordless patient vault.",
+    highlights: [
+      "Fine-tuned Whisper-Small with LoRA (FP16) and Mistral-7B with QLoRA for automated SOAP note generation (0.92 ROUGE-1)",
+      "Two standalone native mobile applications (Doctor App & Patient App) built with React Native and Expo",
+      "Automated pharmacological contraindication scoring cross-referencing patient allergies and active regimens",
+      "Zero audio retention protocol with in-memory audio shredding and AES-256-GCM encryption at rest"
+    ],
+    featureTitle: "Ambient Clinical Intelligence & Dual-Ecosystem Healthcare",
+    process: [
+      {
+        title: "Problem",
+        text: "Practicing clinicians face severe administrative burnout spending hours drafting SOAP notes and prescriptions, while patients endure opaque waiting times and struggle to interpret complex medical regimens."
+      },
+      {
+        title: "Architecture",
+        text: "Engineered a dual-ecosystem mobile architecture: a Doctor App with live waveform transcription and OPD capacity guards, paired with a Patient App featuring passwordless OTP authentication and an AI Health Copilot."
+      },
+      {
+        title: "Medical AI Pipeline",
+        text: "Implemented an on-premise privacy-first ML pipeline using fine-tuned Whisper for multi-speaker clinical ASR and QLoRA-quantized Mistral-7B-Instruct to convert dialogue into structured medical records with 72/72 passing tests."
+      },
+      {
+        title: "Security & Compliance",
+        text: "Architected DPDP Act 2023 and HIPAA-compliant zero-trust security: zero persistent voice storage, HMAC-SHA256 blind indexing for private lookups, and AES-256-GCM data encryption."
+      }
+    ]
+  },
+  {
     slug: "future-working-app",
     title: "Future Working App",
     subtitle: "Personal Product Idea & Landing",

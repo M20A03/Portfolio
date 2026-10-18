@@ -48,9 +48,10 @@ TECHNICAL STACK (MERN & MORE):
 
 FLAGSHIP SOFTWARE PROJECTS:
 1. Credex: Real-time Indian Rupee (₹) SaaS financial spend auditor powered by Claude API with Lakh/Crore localization and spring-physics charts.
-2. GMT Mart: High-performance e-commerce storefront with neon cyberpunk aesthetics and Firebase serverless backend.
-3. Samagra: Official portal for the Computer Science Association at Christ University.
-4. Incubation Startup Apps: Two live Android apps + web platform launching in October 2026.
+2. Praxirence: AI-Powered ambient clinical intelligence platform with fine-tuned Whisper & Mistral-7B, 2 native Android apps (Doctor & Patient), automated SOAP care plan synthesis, and zero-trust DPDP/HIPAA compliance.
+3. StudyArchive: Comprehensive campus resource and academic paper hub built on Angular 21 SSR and Firebase Firestore.
+4. Nexus Scholar: Academic university research hub with Python FastAPI backend and Gemini AI research assistant.
+5. Samagra: Official portal for the Computer Science Association at Christ University.
 
 RECRUITER & PLACEMENT FAQs:
 - Availability: Open for Software Engineering & Full-Stack / MERN Internships, Junior Developer roles, and selective freelance contracts.

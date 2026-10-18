@@ -86,7 +86,13 @@ const CLIENT_KNOWLEDGE_BASE: Array<{
     category: "credex",
     keywords: ["credex", "fintech", "rupee", "finance", "spend", "audit", "lakh", "crore"],
     reply: "**Credex** is Mayank's flagship financial intelligence SaaS platform tailored for the Indian market:\n\n• **Core Engine:** Built on Next.js, React 19, and TypeScript with real-time Claude API integration for automated spend classification and anomaly detection.\n• **Indian Context:** Fully localized currency parsing supporting Rupee (₹), Lakhs (L), and Crores (Cr).\n• **UI/UX:** Interactive spring-physics charts, responsive dashboards, and zero-latency state updates.\n\nCheck out the full case study in the **[Projects Section](#projects)**!",
-    suggestions: ["Incubation Startup Apps", "View Resume", "Tech Stack", "Contact Mayank"]
+    suggestions: ["Tell me about Praxirence", "Incubation Startup Apps", "View Resume", "Contact Mayank"]
+  },
+  {
+    category: "praxirence",
+    keywords: ["praxirence", "medical", "doctor", "patient", "clinical", "soap", "whisper", "mistral", "healthcare", "hospital"],
+    reply: "**Praxirence** is Mayank's flagship AI-powered ambient clinical intelligence platform:\n\n• **Dual Native Mobile Apps:** Standalone Doctor and Patient Android apps (React Native / Expo) featuring real-time consultation recording, waveform visualizers, and personal health vaults.\n• **On-Premise Medical AI:** Fine-tuned Whisper ASR and QLoRA Mistral-7B for automated clinical SOAP care plan generation (0.92 ROUGE-1) with 72/72 passing tests.\n• **Zero-Trust Security:** Built with DPDP Act 2023 & HIPAA compliance, zero audio retention (in-memory shredding), and AES-256-GCM data encryption.\n\nCheck out the full case study in the **[Projects Section](#projects)**!",
+    suggestions: ["Credex Architecture", "View Resume", "Tech Stack", "Contact Mayank"]
   },
   {
     category: "christ_university",

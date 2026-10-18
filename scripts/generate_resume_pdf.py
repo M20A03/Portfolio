@@ -168,12 +168,13 @@ projects = [
         ],
     ),
     (
-        "MRG App: Next-Gen B2B2C Marketplace",
-        "React, Next.js, Node.js, Firebase Auth & Firestore",
-        "Live Demo: https://mrg-idea.web.app/",
+        "Praxirence — Ambient Clinical Intelligence & Dual-Ecosystem Healthcare",
+        "React Native, Expo, FastAPI, Python 3.11, Whisper ASR, Mistral-7B, AES-256",
+        "GitHub: github.com/M20A03/Praxirence",
         [
-            "Developing a marketplace platform connecting wholesalers, retailers, and customers with real-time inventory management.",
-            "Designed a modern, responsive UI with glassmorphism aesthetics and performance-first component architecture.",
+            "Architected a zero-trust, DPDP/HIPAA-compliant healthcare platform with 2 native Android apps (Doctor/Patient) and FastAPI backend.",
+            "Engineered live consultation recording with fine-tuned Whisper & QLoRA Mistral-7B for automated SOAP note generation (0.92 ROUGE-1).",
+            "Built automated pharmacological contraindication safety checks, live OPD queue triage, and an encrypted patient vault.",
         ],
     ),
 ]
