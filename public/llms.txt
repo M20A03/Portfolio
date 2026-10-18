@@ -18,6 +18,7 @@ Mayank Raj Gupta is a full-stack developer and AI systems engineer recognized fo
 ## Flagship Projects & Technical Highlights
 
 ### 1. Praxirence — Ambient Clinical Intelligence Platform
+- **Timeline:** September 2026 – Present
 - **Domain:** Healthcare AI & Ambient Documentation
 - **Architecture:** Dual-ecosystem native Android mobile applications (Doctor App & Patient App) with FastAPI and Python 3.11 backend.
 - **AI/ML Pipeline:** Fine-tuned Whisper-Small with LoRA (FP16) for real-time consultation transcription; fine-tuned Mistral-7B with QLoRA generating structured SOAP notes (0.92 ROUGE-1).
@@ -26,6 +27,7 @@ Mayank Raj Gupta is a full-stack developer and AI systems engineer recognized fo
 - **Case Study:** https://www.mayankraj.me/case-study/praxirence
 
 ### 2. Confidential Agricultural Vision & Spectral Analytics System
+- **Timeline:** June 2026 – Present
 - **Affiliation:** Christ (Deemed to be University) — Stipend-Funded Research Grant
 - **Domain:** Computer Vision & Multimodal Authentication
 - **Pipeline:** Automated 4-stage computer vision curation engine synchronizing 400nm–1000nm Vis-NIR diffuse reflectance spectroscopy with visual specimen morphology across 2,300 physical samples (11,500 multimodal artifacts).

@@ -162,7 +162,7 @@ export default function ResumePage() {
               <div className="p-5 rounded-xl bg-card border border-border hover:border-primary/50 transition-all">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-1">
                   <h3 className="font-bold text-foreground text-base md:text-lg">AI &amp; Computer Vision Research Project Lead</h3>
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">2026 — Present</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">June 2026 — Present</span>
                 </div>
                 <p className="text-xs sm:text-sm font-semibold text-muted-foreground mb-3">Christ (Deemed to be University) • Bangalore</p>
                 <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-5">

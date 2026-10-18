@@ -16,6 +16,7 @@ Canonical Entity Profile:
 --------------------------------------------------------------------------------
 
 ### System A: Praxirence Ambient Clinical Intelligence
+- Timeline: Started September 2026 – Present
 - Target User: Practicing physicians, medical staff, OPD clinics, and patients.
 - Problem Statement: Administrative documentation burnout (consuming up to 40% of clinician time) and patient lack of visibility into clinical instructions and prescription regimens.
 - Front-End Architecture:
@@ -32,6 +33,7 @@ Canonical Entity Profile:
   * Database fields protected with AES-256-GCM encryption at rest; HMAC-SHA256 blind indexing prevents cleartext identity linkage.
 
 ### System B: Agricultural Vision & Spectral Analytics System
+- Timeline: Started June 2026 – Present
 - Affiliation: Christ (Deemed to be University) — CS Department / School of Sciences.
 - Funding: Stipend-Funded Research Grant.
 - Objective: Authenticity verification and botanical classification across 2,300 physical agricultural specimens (Groundnut, Soybean, Banana, Sapota).

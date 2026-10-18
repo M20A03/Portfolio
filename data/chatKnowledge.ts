@@ -21,7 +21,7 @@ BIOGRAPHY & PROFILE
 =====================================================
 EXPERIENCE & RESEARCH APPOINTMENTS
 =====================================================
-1. AI & Computer Vision Research Lead (Stipendiary Assistantship) — Christ University (2026 – Present)
+1. AI & Computer Vision Research Lead (Stipendiary Assistantship) — Christ University (June 2026 – Present)
    - Leads a confidential stipend-funded research project under faculty guidance.
    - Engineered an automated 4-stage computer vision & Vis-NIR spectral curation pipeline standardizing 11,500 multimodal dataset artifacts across 2,300 physical specimens (Groundnut, Soybean, Banana, Sapota).
    - Ingests macroscopic photography and 400nm–1000nm Vis-NIR diffuse reflectance spectroscopy curves.
@@ -43,7 +43,7 @@ EXPERIENCE & RESEARCH APPOINTMENTS
 =====================================================
 FLAGSHIP PRODUCTION PROJECTS
 =====================================================
-1. Praxirence — Ambient Clinical Intelligence Platform (2026)
+1. Praxirence — Ambient Clinical Intelligence Platform (September 2026 – Present)
    - End-to-end, zero-trust ambient clinical intelligence healthcare ecosystem eliminating doctor documentation burnout.
    - Dual Native Mobile Apps: Praxirence Doctor (real-time live audio consultation recording, waveform visualizers, OPD queue management) and Praxirence Patient (passwordless OTP login, medical vault, AI Health Copilot) built on React Native & Expo.
    - Medical AI Pipeline: Fine-tuned Whisper-Small (LoRA FP16) for multi-speaker clinical dialogue transcription + fine-tuned Mistral-7B (QLoRA) converting consultations into structured medical SOAP notes (0.92 ROUGE-1 score, 72/72 passing unit tests).
@@ -51,7 +51,7 @@ FLAGSHIP PRODUCTION PROJECTS
    - Zero-Trust Security: DPDP Act 2023 & HIPAA compliance, in-memory audio shredding (zero persistent voice storage), HMAC-SHA256 blind indexing, and AES-256-GCM encrypted data vaults.
    - Live Website: https://www.praxirence.com | GitHub: Confidential (Proprietary IP).
 
-2. Confidential Agricultural Vision & Spectral Analytics System (2026 — Present)
+2. Confidential Agricultural Vision & Spectral Analytics System (June 2026 — Present)
    - Detailed in Experience above. Synchronizes visual morphology with 400nm–1000nm Vis-NIR diffuse reflectance spectroscopy.
    - Built on Python, PyTorch, U2-Net, OpenCV, and FastAPI.
    - Standardized 11,500 dataset artifacts across 2,300 specimens with sub-120ms neural segmentation.
