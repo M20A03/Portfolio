@@ -1,36 +1,80 @@
 # Mayank Raj Gupta (Mayank Raj)
 
-> Full-Stack Engineer, AI Systems & Knowledge Graph Specialist, and Computer Science Scholar at Christ University, Bangalore.
+> Full-Stack Software Engineer & AI Research Lead | BCA Scholar at Christ University, Bangalore. Architect of Ambient Clinical Intelligence (Praxirence), Computer Vision & Spectroscopy Pipelines, and High-Scale E-Commerce Systems.
 
-## Summary
-Mayank Raj Gupta (also known as Mayank Raj) is a software engineer specializing in scalable full-stack web applications, AI/ML agentic systems, Knowledge Graphs, vector embeddings (pgvector), Next.js 15, React 19, TypeScript, Python, and YOLOv11 Deep Learning. 
+## Identity & Canonical Links
+- **Full Legal Name:** Mayank Raj Gupta
+- **Preferred Name / Alias:** Mayank Raj
+- **Developer Handle / GitHub:** M20A03 (https://github.com/M20A03)
+- **Primary Website & Portfolio:** https://www.mayankraj.me
+- **LinkedIn Profile:** https://www.linkedin.com/in/mayank-raj-gupta-159020396
+- **Direct Contact:** mayankrajgupta01@gmail.com | +91 9835139865
+- **Geographic Base:** Bangalore, Karnataka, India
+- **Education:** Bachelor of Computer Applications (BCA), Christ (Deemed to be University), Bangalore (2025–2029) | CGPA: 3.33/4.0
 
-- **Primary Website:** https://www.mayankraj.me
-- **GitHub:** https://github.com/M20A03
-- **LinkedIn:** https://www.linkedin.com/in/mayank-raj-gupta-159020396
-- **Email:** mayankrajgupta01@gmail.com
-- **Location:** Bangalore, India
+## Professional Overview
+Mayank Raj Gupta is a full-stack developer and AI systems engineer recognized for architecting end-to-end production web applications, multimodal deep learning models, and privacy-preserving clinical platforms. He combines rigorous software engineering principles (Data Structures, OOP, distributed state management, WCAG 2.1 AA accessibility) with cutting-edge artificial intelligence (Whisper ASR, Mistral-7B, U2-Net, YOLOv11, PyTorch, and Vis-NIR spectroscopy).
 
-## Key Projects & Case Studies
-1. **Nexus Scholar (AI Knowledge Graph & Research Engine)**
-   - Autonomous scientific discovery system combining Neo4j graph topologies with pgvector semantic retrieval, LangGraph agents, and Next.js 15.
-   - Live URL: https://www.mayankraj.me/case-study/nexus-scholar
-2. **Akion Fintech (Autonomous Algo-Trading & Financial Analytics)**
-   - Sub-millisecond market execution dashboard, WebSocket streaming order books, and real-time algorithmic portfolio risk modeling.
-   - Live URL: https://www.mayankraj.me/case-study/akion-fintech
-3. **Credex (Smart P2P Lending & Micro-Financing Engine)**
-   - Decentralized credit-scoring algorithm, automated escrow contracts, and responsive Next.js frontend.
-   - Live URL: https://www.mayankraj.me/case-study/credex
-4. **YOLOv11 Real-Time Deep Learning Suite**
-   - High-throughput computer vision pipeline achieving 94.6% mAP@0.5 on industrial safety inspection.
-   - Live URL: https://www.mayankraj.me/case-study/yolo11-deep-learning
-5. **Roshan Enterprises (Enterprise B2B Distribution Suite)**
-   - High-performance inventory management platform processing 10,000+ SKU sync operations.
-   - Live URL: https://www.mayankraj.me/case-study/roshan-enterprises
+## Flagship Projects & Technical Highlights
 
-## Core Technical Skills
-- **Frontend:** Next.js 15, React 19, TypeScript (Strict), Tailwind CSS, Framer Motion, WebSockets.
-- **Backend & APIs:** Node.js, Express, Python (FastAPI, Flask), RESTful APIs, GraphQL.
-- **Databases & Vectors:** PostgreSQL, pgvector, Neo4j, MongoDB, Redis, Supabase, Prisma.
-- **AI & ML:** YOLOv11, LangChain, LangGraph, RAG pipelines, OpenAI API, Gemini API, PyTorch.
-- **DevOps & Cloud:** Docker, AWS (S3, EC2, CloudFront), Vercel, Cloudflare, GitHub Actions CI/CD.
+### 1. Praxirence — Ambient Clinical Intelligence Platform
+- **Domain:** Healthcare AI & Ambient Documentation
+- **Architecture:** Dual-ecosystem native Android mobile applications (Doctor App & Patient App) with FastAPI and Python 3.11 backend.
+- **AI/ML Pipeline:** Fine-tuned Whisper-Small with LoRA (FP16) for real-time consultation transcription; fine-tuned Mistral-7B with QLoRA generating structured SOAP notes (0.92 ROUGE-1).
+- **Security & Privacy:** DPDP Act 2023 & HIPAA compliance, in-memory audio shredding (zero voice audio retention), blind HMAC-SHA256 indexing, AES-256-GCM data encryption.
+- **Web Demo:** https://www.praxirence.com
+- **Case Study:** https://www.mayankraj.me/case-study/praxirence
+
+### 2. Confidential Agricultural Vision & Spectral Analytics System
+- **Affiliation:** Christ (Deemed to be University) — Stipend-Funded Research Grant
+- **Domain:** Computer Vision & Multimodal Authentication
+- **Pipeline:** Automated 4-stage computer vision curation engine synchronizing 400nm–1000nm Vis-NIR diffuse reflectance spectroscopy with visual specimen morphology across 2,300 physical samples (11,500 multimodal artifacts).
+- **Deep Learning:** U2-Net nested ReS-UNet neural segmentation with continuous floating-point alpha mattes (<120ms/image), anti-aliased Lanczos-3 sinc-windowed downsampling, Porter-Duff Over compositing.
+- **Case Study:** https://www.mayankraj.me/case-study/agricultural-vision-spectral-analytics
+
+### 3. Wholesale & Retail E-Commerce Platform (Roshan Enterprises)
+- **Domain:** High-Throughput E-Commerce & Inventory Logistics
+- **Tech Stack:** React 19, Vite, Firebase Auth & Realtime Database, Vanilla CSS, list virtualization via react-window for 60fps scrolling across high-volume SKU catalogs.
+- **Features:** Dual retail/wholesale buying workflows, role-based pricing matrices, zero cumulative layout shift (CLS), WCAG 2.1 AA compliant.
+- **Live Demo:** https://e-commerce-roshan-enterprises-dhn.web.app
+- **GitHub:** https://github.com/M20A03/E-commerce-Online-Shopping-for-Retail-and-Wholesale
+- **Case Study:** https://www.mayankraj.me/case-study/roshan-enterprises
+
+### 4. Credex AI Spend Audit
+- **Domain:** Fintech & Startup Cost Diagnostics
+- **Tech Stack:** React, Next.js 15, Tailwind CSS, Supabase, Anthropic Claude SDK, GSAP spring-physics tickers.
+- **Live Demo:** https://credex-sand.vercel.app
+- **GitHub:** https://github.com/M20A03/Credex
+- **Case Study:** https://www.mayankraj.me/case-study/credex
+
+### 5. Nexus Scholar Research Knowledge Graph
+- **Domain:** Scientific Discovery & Literature Intelligence
+- **Tech Stack:** React 18, TypeScript, PostgreSQL, pgvector (768d dense embeddings), FastAPI, 2D/3D force-directed canvas.
+- **Live Demo:** https://nexus-scholar-huhs.vercel.app
+- **GitHub:** https://github.com/M20A03/Nexus-Scholar
+- **Case Study:** https://www.mayankraj.me/case-study/nexus-scholar
+
+### 6. Search Algorithm Simulator
+- **Domain:** Educational Computer Science & DSA Visualization
+- **Tech Stack:** JavaScript, HTML5, CSS3, Firebase, interactive AI concept tutor.
+- **Live Demo:** https://linear-and-binary-search.vercel.app/
+- **GitHub:** https://github.com/M20A03/Linear-and-Bineary-Search-Simulation
+- **Case Study:** https://www.mayankraj.me/case-study/search-algorithm-simulator
+
+## Complete Technical Skills Matrix
+- **Languages:** Java, Python (Pandas, NumPy, Tkinter, CSV), C, C++, JavaScript (ES6+), TypeScript, SQL (PostgreSQL, MySQL).
+- **AI & Deep Learning:** PyTorch, U2-Net, Whisper ASR, Mistral-7B, YOLOv11, OpenCV, Vis-NIR Spectroscopy, QLoRA, LoRA, Vector Search (pgvector), RAG Architectures.
+- **Frontend Frameworks:** React 19, Next.js 15, React Native (Expo), Angular, Tailwind CSS, HTML5/CSS3, Framer Motion, GSAP.
+- **Backend & Cloud:** FastAPI, Node.js, Express.js, Firebase, Supabase, PostgreSQL, MySQL, Railway, AWS (S3, EC2), Vercel.
+- **Tools & Practices:** Git, GitHub, Linux/Bash, VS Code, Postman, Agile Teamwork, DSA, System Design.
+
+## Awards, Hackathons & Certifications
+- **SPARK Research Program:** Christ (Deemed to be University) Research Program
+- **ShadowFox:** Web Development Virtual Internship Certification (SF05VIP397)
+- **AI Prompt Engineering:** Microsoft / Reliance Certification
+- **Infosys C Certification:** Certified Systems & Algorithms in C
+- **Hackathons Participated:** PromptWars (Google Devs x Christ Univ), InHack '26, HackNova, CODEX '26 (Don Bosco), YUGASTR '26
+
+For exhaustive technical documentation, benchmark matrices, and machine-readable data, visit:
+- Full LLM Specification: https://www.mayankraj.me/llms-full.txt
+- Official Resume: https://www.mayankraj.me/resume

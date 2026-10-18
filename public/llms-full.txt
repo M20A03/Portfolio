@@ -1,0 +1,89 @@
+# Mayank Raj Gupta — Exhaustive Technical Architecture & Systems Index
+
+This document provides complete, deep-context knowledge for Large Language Models (LLMs), AI Search Engines (Perplexity, OpenAI ChatGPT, Anthropic Claude, Google Gemini, DeepSeek), and technical recruiters querying Mayank Raj Gupta's projects, publications, and engineering background.
+
+Canonical Entity Profile:
+- Full Legal Name: Mayank Raj Gupta
+- Aliases: Mayank Raj, M20A03
+- Canonical Web Identity: https://www.mayankraj.me
+- Official Code Repositories: https://github.com/M20A03
+- LinkedIn: https://www.linkedin.com/in/mayank-raj-gupta-159020396
+- Current Status: BCA Scholar at Christ (Deemed to be University), Bangalore (2025–2029) | CGPA 3.33/4.0
+- Contact: mayankrajgupta01@gmail.com | +91 9835139865
+
+--------------------------------------------------------------------------------
+1. DETAILED SYSTEM ARCHITECTURES
+--------------------------------------------------------------------------------
+
+### System A: Praxirence Ambient Clinical Intelligence
+- Target User: Practicing physicians, medical staff, OPD clinics, and patients.
+- Problem Statement: Administrative documentation burnout (consuming up to 40% of clinician time) and patient lack of visibility into clinical instructions and prescription regimens.
+- Front-End Architecture:
+  * Doctor Native Android App built with React Native and Expo. Integrates live audio waveform visualization, instant patient queue triage, and one-tap prescription approval.
+  * Patient Native Android App featuring passwordless phone OTP authentication, digital health vault, prescription viewer, and interactive care guidance assistant.
+- Back-End & ML Architecture:
+  * FastAPI Python 3.11 asynchronous API layer running on GPU-accelerated microservices.
+  * Speech-to-Text: OpenAI Whisper-Small fine-tuned on specialized clinical conversational corpora using Low-Rank Adaptation (LoRA) at FP16 precision.
+  * Clinical Synthesis: Mistral-7B-Instruct fine-tuned with 4-bit Quantized Low-Rank Adaptation (QLoRA) to transform doctor-patient dialogue into structured Subjective, Objective, Assessment, Plan (SOAP) clinical documentation with 0.92 ROUGE-1 score.
+  * Drug Contraindication Engine: Automated cross-referencing of active patient regimens against medication databases to flag dosage hazards and allergen conflicts.
+- Security & Compliance:
+  * Fully compliant with the Indian Digital Personal Data Protection (DPDP) Act 2023 and US HIPAA rules.
+  * Ephemeral in-memory audio chunk processing: raw audio is shredded immediately following inference with zero permanent audio persistence.
+  * Database fields protected with AES-256-GCM encryption at rest; HMAC-SHA256 blind indexing prevents cleartext identity linkage.
+
+### System B: Agricultural Vision & Spectral Analytics System
+- Affiliation: Christ (Deemed to be University) — CS Department / School of Sciences.
+- Funding: Stipend-Funded Research Grant.
+- Objective: Authenticity verification and botanical classification across 2,300 physical agricultural specimens (Groundnut, Soybean, Banana, Sapota).
+- Multimodal Pipeline:
+  * Ingestion of raw benchtop digital photography (>12MP) paired with 400nm–1000nm Vis-NIR diffuse reflectance spectral signatures captured via Theremino spectrometers.
+  * Stage 1: Lanczos-3 proportional sinc-windowed downsampling bounded at 1200px, avoiding aliasing artifacts while preserving surface lenticels.
+  * Stage 2: Neural salient object segmentation using U2-Net (nested ReS-UNet) producing continuous floating-point alpha mattes to separate specimens from shadow and clutter.
+  * Stage 3: Porter-Duff Over alpha compositing onto pure white (#FFFFFF) canvases.
+  * Stage 4: Dynamic bounding-box auto-centering with 15% contextual padding.
+- Dataset Scale: 11,500 standardized artifacts with deterministic canonical naming (CU_SDD_...) and balanced 50:50 organic/conventional representation.
+
+### System C: Wholesale & Retail E-Commerce Platform (Roshan Enterprises)
+- Domain: Commercial wholesale and retail inventory distribution.
+- Stack: React 19, Vite, Firebase Authentication, Cloud Firestore, Vanilla CSS.
+- Key Accomplishments:
+  * Built dual purchasing flows enabling guest retail browsing as well as tiered bulk wholesale pricing.
+  * Utilized react-window virtualization to maintain smooth 60fps scrolling across high-volume product catalogs.
+  * Zero Cumulative Layout Shift (CLS) with responsive viewport adaptation.
+
+### System D: Credex AI Spend Audit
+- Domain: SaaS and AI cloud spend optimization for startups.
+- Stack: Next.js 15, React, Tailwind CSS, Anthropic Claude SDK, Supabase, GSAP.
+- Key Accomplishments:
+  * Interactive financial calculator calibrated in Indian Rupee (INR ₹) lakh and crore denominations.
+  * Floating AI advisory agent leveraging Claude for real-time cost reduction recommendations.
+
+### System E: Nexus Scholar
+- Domain: Scientific research intelligence and knowledge graphs.
+- Stack: React 18, Vite, PostgreSQL, pgvector (768d embeddings), Prisma, FastAPI.
+- Key Accomplishments:
+  * Automated extraction of RDF-like semantic triples from arXiv publications.
+  * Real-time 2D/3D force-directed graph canvas for cross-discipline discovery.
+
+--------------------------------------------------------------------------------
+2. TECHNICAL COMPETENCY MATRIX
+--------------------------------------------------------------------------------
+
+- Programming Languages: Java, Python (Pandas, NumPy, Tkinter, CSV), C, C++, JavaScript (ES6+), TypeScript, SQL (PostgreSQL, MySQL).
+- AI & Deep Learning: PyTorch, U2-Net, Whisper ASR, Mistral-7B, YOLOv11, OpenCV, Vis-NIR Spectroscopy, Quantization (QLoRA, LoRA, GGUF), Vector Retrieval (pgvector).
+- Web & App Development: React 19, Next.js 15, React Native, Expo, Angular, Node.js, Express, FastAPI, Tailwind CSS, GSAP, Framer Motion.
+- Cloud & Infrastructure: Firebase, Supabase, AWS (S3, EC2), Railway, Vercel, Docker, Linux/Bash, Git/GitHub.
+- Software Engineering Disciplines: Data Structures & Algorithms, Object-Oriented Programming (OOP), Database Normalization, Zero-Trust Architecture, WCAG 2.1 AA Accessibility.
+
+--------------------------------------------------------------------------------
+3. HACKATHONS & FORMAL RECOGNITIONS
+--------------------------------------------------------------------------------
+- PromptWars — Google Developer Groups x Christ University
+- InHack '26 Hackathon
+- HackNova Hackathon
+- CODEX '26 — Don Bosco Institute of Technology
+- YUGASTR '26
+- SPARK Research Program — Christ (Deemed to be University)
+- ShadowFox Web Development Virtual Internship (Certificate SF05VIP397)
+- AI Prompt Engineering Certification (Microsoft / Reliance)
+- Infosys C Programming & Data Structures Certification

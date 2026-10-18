@@ -29,49 +29,58 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mayank Raj Gupta | Full Stack Developer & AI Specialist Portfolio",
+    default: "Mayank Raj Gupta | Full Stack Developer & AI Specialist | Bangalore, India",
     template: "%s | Mayank Raj Gupta",
   },
   description:
-    "Official portfolio of Mayank Raj Gupta, Full Stack Developer and BCA Scholar at Christ University. Expertise in React, Next.js 15, TypeScript, Python, YOLOv11 Deep Learning, and AntiGravity AI workflows.",
+    "Official engineering portfolio of Mayank Raj Gupta, Full Stack Developer and AI Researcher at Christ University, Bangalore. Architect of Praxirence (Ambient Clinical Intelligence), BioSpectral-Trust Agricultural Vision Pipelines, and High-Scale E-Commerce Systems using React, Next.js 15, TypeScript, Python, Whisper ASR, and PyTorch.",
   keywords: [
     "Mayank Raj",
+    "Mayank Raj Gupta",
     "Mayank Raj portfolio",
+    "Mayank Raj Gupta portfolio",
     "Mayank Raj developer",
-    "Mayank Raj software engineer",
+    "Mayank Raj Gupta developer",
     "Mayank Raj Bangalore",
     "Mayank Raj Christ University",
-    "Mayank Raj GitHub",
+    "Mayank Raj Gupta Christ University",
+    "Mayank Raj software engineer",
     "Mayank Raj AI Engineer",
     "Mayank Raj Full Stack Developer",
-    "Mayank Raj Gupta",
-    "Mayank Raj Gupta portfolio",
-    "Mayank Raj Gupta developer",
-    "Mayank Raj Gupta Christ University",
-    "Mayank Raj Gupta Bangalore",
-    "Mayank Raj Gupta Full Stack Developer",
-    "Mayank Raj Gupta MERN Stack Developer",
-    "Mayank Raj Gupta Singularium Technologies",
-    "Mayank Raj Gupta AWS Supabase Cloudflare",
     "Mayank Raj Gupta BCA",
-    "Mayank Raj Gupta AI Specialist",
-    "Mayank Raj Gupta GitHub M20A03",
-    "Mayank Raj Gupta Commerce Pivot",
-    "Mayank Raj Gupta ChatGPT Gemini Claude DeepSeek",
+    "Mayank Raj Gupta Bangalore",
+    "M20A03",
+    "M20A03 GitHub",
+    "Praxirence",
+    "Praxirence AI",
+    "Praxirence Ambient Clinical Intelligence",
+    "Wholesale & Retail E-Commerce Platform Roshan Enterprises",
+    "Agricultural Vision & Spectral Analytics System",
+    "BioSpectral-Trust Christ University",
+    "Credex AI Spend Audit",
+    "Nexus Scholar Knowledge Graph",
     "Full Stack Developer Bangalore",
-    "MERN Stack Developer Bangalore",
-    "React Next.js AWS Supabase Developer",
+    "AI Specialist Bangalore",
+    "React Next.js TypeScript Developer",
+    "Python FastAPI PyTorch Developer",
+    "Whisper ASR Mistral-7B Healthcare",
+    "Computer Vision U2-Net YOLOv11",
+    "Mayank Raj Gupta ChatGPT Gemini Claude Perplexity DeepSeek",
   ],
   authors: [{ name: "Mayank Raj Gupta", url: siteUrl }],
   creator: "Mayank Raj Gupta",
   publisher: "Mayank Raj Gupta",
   generator: "Next.js 15",
+  category: "technology",
+  classification: "Software Engineering, AI Research, Full Stack Portfolio",
+  referrer: "origin-when-cross-origin",
   alternates: {
     canonical: "/",
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -83,10 +92,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
+    locale: "en_US",
+    siteName: "Mayank Raj Gupta Portfolio",
     title: "Mayank Raj Gupta | Full Stack Developer & AI Specialist",
     description:
-      "Official portfolio of Mayank Raj Gupta showcasing full-stack web applications, deep learning projects, certifications, and developer skills.",
-    siteName: "Mayank Raj Gupta Portfolio",
+      "Explore the official engineering portfolio of Mayank Raj Gupta: Ambient Clinical Intelligence (Praxirence), Multimodal Computer Vision research, and high-performance Web Systems.",
     images: [
       {
         url: `${siteUrl}/images/portfolio-og.png`,
@@ -99,8 +109,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Mayank Raj Gupta | Full Stack Developer & AI Specialist",
-    description: "Official portfolio of Mayank Raj Gupta showcasing projects, certifications, and technical skills.",
+    description:
+      "Official portfolio of Mayank Raj Gupta: Ambient Clinical Intelligence (Praxirence), Multimodal Computer Vision, and enterprise full-stack engineering.",
     images: [`${siteUrl}/images/portfolio-og.png`],
+    creator: "@mayankraj",
+    site: "@mayankraj",
   },
   icons: {
     icon: [
@@ -126,15 +139,33 @@ export default function RootLayout({
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": `${siteUrl}/#person`,
       "name": "Mayank Raj Gupta",
-      "alternateName": ["Mayank Raj", "Mayank Raj Gupta Developer", "M20A03"],
+      "givenName": "Mayank",
+      "familyName": "Gupta",
+      "alternateName": ["Mayank Raj", "Mayank Raj Gupta Developer", "M20A03", "Mayank Gupta"],
       "url": siteUrl,
       "image": `${siteUrl}/placeholder-user.jpg`,
-      "jobTitle": "Full Stack Developer & AI Research Engineer",
+      "jobTitle": ["Full Stack Developer", "AI Specialist", "Computer Vision Research Lead"],
+      "description":
+        "Full-Stack Developer, AI Systems Engineer, and BCA Scholar at Christ University, Bangalore. Architect of Praxirence (Ambient Clinical Intelligence) and Agricultural Vision & Spectral Analytics System.",
+      "gender": "https://schema.org/Male",
+      "nationality": {
+        "@type": "Country",
+        "name": "India",
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "India",
+      },
+      "email": "mailto:mayankrajgupta01@gmail.com",
+      "telephone": "+919835139865",
       "worksFor": [
         {
           "@type": "Organization",
-          "name": "Singularium Technologies",
+          "name": "Christ University CS Research (AI Research Lead)",
         },
         {
           "@type": "Organization",
@@ -144,45 +175,132 @@ export default function RootLayout({
       "alumniOf": {
         "@type": "EducationalOrganization",
         "name": "Christ (Deemed to be University), Bangalore",
+        "url": "https://christuniversity.in",
       },
       "knowsAbout": [
-        "React",
+        "Full-Stack Web Development",
+        "React 19",
         "Next.js 15",
         "TypeScript",
-        "Node.js",
         "Python",
+        "FastAPI",
+        "PyTorch",
         "Deep Learning",
+        "Whisper ASR",
+        "Mistral-7B",
+        "Computer Vision",
+        "U2-Net",
         "YOLOv11",
+        "Vis-NIR Spectroscopy",
+        "PostgreSQL",
+        "pgvector",
         "Firebase",
-        "AntiGravity AI",
-        "Software Architecture",
-        "ChatGPT",
-        "Google Gemini",
-        "Anthropic Claude",
-        "DeepSeek",
-        "AI Prompt Engineering",
+        "Supabase",
+        "Railway",
+        "AWS (S3, EC2)",
+        "Zero-Trust Architecture",
+        "DPDP Act & HIPAA Compliance",
+        "Artificial Intelligence & LLMs",
+        "Data Structures & Algorithms",
       ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Software Engineer & AI Researcher",
+        "occupationalCategory": "15-1252.00",
+        "skills": "React, Next.js, Python, PyTorch, Whisper ASR, Computer Vision, TypeScript, PostgreSQL, FastAPI",
+      },
       "sameAs": [
         "https://github.com/M20A03",
         "https://www.linkedin.com/in/mayank-raj-gupta-159020396",
+        siteUrl,
       ],
     },
     {
       "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": `${siteUrl}/#profilepage`,
+      "url": siteUrl,
+      "name": "Mayank Raj Gupta | Full Stack Developer & AI Specialist Portfolio",
+      "mainEntity": {
+        "@id": `${siteUrl}/#person`,
+      },
+      "dateCreated": "2025-01-01",
+      "dateModified": new Date().toISOString().split("T")[0],
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
       "name": "Mayank Raj Gupta Portfolio",
       "url": siteUrl,
       "description":
-        "Official portfolio website of Mayank Raj Gupta, Full Stack Developer and BCA Scholar at Christ University.",
+        "Official engineering portfolio of Mayank Raj Gupta, Full Stack Developer and BCA Scholar at Christ University.",
       "publisher": {
-        "@type": "Person",
-        "name": "Mayank Raj Gupta",
+        "@id": `${siteUrl}/#person`,
       },
       "potentialAction": {
         "@type": "SearchAction",
         "target": `${siteUrl}/?q={search_term_string}`,
         "query-input": "required name=search_term_string",
       },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${siteUrl}/#featured-projects`,
+      "name": "Featured Software & Engineering Systems by Mayank Raj Gupta",
+      "itemListElement": [
+        {
+          "@type": "SoftwareApplication",
+          "position": 1,
+          "name": "Praxirence — Ambient Clinical Intelligence Platform",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Android, Web",
+          "description":
+            "Zero-trust ambient clinical intelligence platform eliminating doctor burnout via real-time Whisper ASR and Mistral-7B SOAP note synthesis.",
+          "url": "https://www.praxirence.com",
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 2,
+          "name": "Agricultural Vision & Spectral Analytics System",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, Cloud",
+          "description":
+            "Confidential 4-stage computer vision and Vis-NIR spectroscopy pipeline engineered under Christ University research grant across 2,300 specimens.",
+          "url": `${siteUrl}/case-study/agricultural-vision-spectral-analytics`,
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 3,
+          "name": "Wholesale & Retail E-Commerce Platform (Roshan Enterprises)",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "description":
+            "High-throughput commercial storefront with dual B2B wholesale/retail checkout flows, list virtualization, and Firebase integration.",
+          "url": "https://e-commerce-roshan-enterprises-dhn.web.app",
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 4,
+          "name": "Credex AI Spend Audit",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "description":
+            "Financial audit platform for Indian startups featuring INR ₹ savings calculator and Claude AI consulting orb.",
+          "url": "https://credex-sand.vercel.app",
+        },
+        {
+          "@type": "SoftwareApplication",
+          "position": 5,
+          "name": "Nexus Scholar Knowledge Graph",
+          "applicationCategory": "ReferenceApplication",
+          "operatingSystem": "Web",
+          "description":
+            "Scientific discovery engine extracting semantic RDF triples from research papers with 768d pgvector dense search.",
+          "url": "https://nexus-scholar-huhs.vercel.app",
+        },
+      ],
     },
   ];
 
@@ -194,6 +312,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Knowledge Profile" />
+        <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Comprehensive LLM Technical Specification" />
+        <meta name="ai-content-declaration" content="human-authored" />
+        <meta name="rating" content="General" />
+        <meta name="distribution" content="Global" />
+        <meta name="revisit-after" content="2 days" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

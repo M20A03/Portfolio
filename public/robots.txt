@@ -1,11 +1,91 @@
+# Senior SEO & AI Web Crawler Permissions Architecture
+# https://www.mayankraj.me
+
 User-agent: *
 Allow: /
 
+# OpenAI / ChatGPT Search & Training
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic / Claude AI
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Google Search, Gemini AI & AI Overviews
 User-agent: Googlebot
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity AI Search Engine
+User-agent: PerplexityBot
+Allow: /
+
+# Microsoft Bing & Copilot
 User-agent: Bingbot
 Allow: /
 
+User-agent: msnbot
+Allow: /
+
+# Apple Intelligence & Siri Knowledge
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# DeepSeek AI Crawler
+User-agent: DeepSeekBot
+Allow: /
+
+# Meta AI & Llama Ingestion
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Common Crawl (LLM Foundational Training)
+User-agent: CCBot
+Allow: /
+
+# Diffbot AI Knowledge Graph
+User-agent: Diffbot
+Allow: /
+
+# Brave & DuckDuckGo Search Engines
+User-agent: Bravebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Social Graph Bots
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemaps & Knowledge Feeds
 Sitemap: https://www.mayankraj.me/sitemap.xml
 Host: https://www.mayankraj.me

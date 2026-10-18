@@ -9,12 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
       },
-      // Brave Search Engine Crawler
-      {
-        userAgent: "Bravebot",
-        allow: "/",
-      },
-      // OpenAI / ChatGPT Search Crawler
+      // OpenAI / ChatGPT Search & Training
       {
         userAgent: "GPTBot",
         allow: "/",
@@ -23,7 +18,11 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "ChatGPT-User",
         allow: "/",
       },
-      // Anthropic / Claude Web Crawler
+      {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+      },
+      // Anthropic / Claude
       {
         userAgent: "ClaudeBot",
         allow: "/",
@@ -32,7 +31,11 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "anthropic-ai",
         allow: "/",
       },
-      // Google & Google Gemini AI Crawler
+      {
+        userAgent: "Claude-Web",
+        allow: "/",
+      },
+      // Google Search, Gemini & Google AI Overviews
       {
         userAgent: "Googlebot",
         allow: "/",
@@ -41,19 +44,75 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Google-Extended",
         allow: "/",
       },
-      // Perplexity AI Search Crawler
+      // Perplexity AI Search Engine
       {
         userAgent: "PerplexityBot",
         allow: "/",
       },
-      // Bing / Microsoft Copilot
+      // Microsoft Bing & Copilot
       {
         userAgent: "Bingbot",
         allow: "/",
       },
-      // Apple / Siri Intelligence
+      {
+        userAgent: "msnbot",
+        allow: "/",
+      },
+      // Apple Intelligence & Siri Knowledge
       {
         userAgent: "Applebot",
+        allow: "/",
+      },
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
+      },
+      // DeepSeek AI Crawler
+      {
+        userAgent: "DeepSeekBot",
+        allow: "/",
+      },
+      // Meta AI & Llama Web Ingestion
+      {
+        userAgent: "Meta-ExternalAgent",
+        allow: "/",
+      },
+      {
+        userAgent: "FacebookBot",
+        allow: "/",
+      },
+      // Cohere AI
+      {
+        userAgent: "cohere-ai",
+        allow: "/",
+      },
+      // Common Crawl (Foundational LLM Training Datasets)
+      {
+        userAgent: "CCBot",
+        allow: "/",
+      },
+      // Diffbot Knowledge Graph Extractor
+      {
+        userAgent: "Diffbot",
+        allow: "/",
+      },
+      // Brave Search Engine
+      {
+        userAgent: "Bravebot",
+        allow: "/",
+      },
+      // DuckDuckGo Search Engine
+      {
+        userAgent: "DuckDuckBot",
+        allow: "/",
+      },
+      // Social & Developer Graph Crawlers
+      {
+        userAgent: "Twitterbot",
+        allow: "/",
+      },
+      {
+        userAgent: "LinkedInBot",
         allow: "/",
       },
     ],
