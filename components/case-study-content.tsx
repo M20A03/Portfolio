@@ -19,7 +19,7 @@ export function CaseStudyContent({ project }: CaseStudyContentProps) {
     <>
       <section className="relative overflow-hidden border-b border-border/60 bg-card/40">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.18),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.14),transparent_28%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-8">
           <Button asChild variant="ghost" size="sm" className="gap-2 px-0 hover:bg-transparent hover:text-primary">
             <Link href="/#projects">
               <ArrowLeft className="h-4 w-4" />

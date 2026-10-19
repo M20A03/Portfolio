@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { Github, Linkedin, Menu, X, Sun, Moon, Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
@@ -16,7 +17,7 @@ const navLinks = [
   { href: "/#skills", label: "Skills" },
   { href: "/#certifications", label: "Certifications" },
   { href: "/#contact", label: "Contact" },
-  { href: "/resume", label: "Resume", isPage: true },
+  { href: "/resume", label: "Resume" },
 ];
 
 function getSectionId(href: string) {
@@ -29,6 +30,7 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+  const pathname = usePathname();
 
   const isDarkMode = resolvedTheme === "dark";
 
@@ -40,19 +42,30 @@ export function Navbar() {
     setMounted(true);
   }, []);
 
+  // Automatically close mobile menu whenever route changes
   useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Determine active section on the home page via scroll
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Determine active section
       const sections = navLinks
-        .filter((link) => !link.isPage)
+        .filter((link) => link.href.includes("#"))
         .map((link) => getSectionId(link.href));
+
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
+          if (rect.top <= 160) {
             setActiveSection(section);
             break;
           }
@@ -60,13 +73,32 @@ export function Navbar() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
+
+  // Handle mobile navigation click without race condition unmounting
+  const handleMobileNavClick = useCallback(
+    (href: string) => {
+      if (href.startsWith("/#") && pathname === "/") {
+        const sectionId = href.replace("/#", "");
+        const elem = document.getElementById(sectionId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      // Give the browser touch event and client router a short window to register
+      setTimeout(() => {
+        setIsMobileMenuOpen(false);
+      }, 120);
+    },
+    [pathname]
+  );
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 print:hidden transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
           ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
@@ -75,32 +107,33 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12" aria-label="Primary">
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <a
-            href="#main-content"
+          <Link
+            href="/"
+            onClick={() => {
+              if (pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+              setIsMobileMenuOpen(false);
+            }}
             className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
           >
             MRG<span className="text-primary">.</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-9 lg:gap-10">
-            {navLinks.map((link) =>
-              link.isPage ? (
+            {navLinks.map((link) => {
+              const isSectionActive = pathname === "/" && activeSection === getSectionId(link.href);
+              const isPageActive = pathname === link.href;
+              const isActive = isSectionActive || isPageActive;
+
+              return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-base font-medium transition-colors relative group text-foreground/80 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 w-0 group-hover:w-full" />
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  aria-current={activeSection === getSectionId(link.href) ? "page" : undefined}
+                  aria-current={isActive ? "page" : undefined}
                   className={`text-base font-medium transition-colors relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm ${
-                    activeSection === getSectionId(link.href)
+                    isActive
                       ? "text-primary font-semibold"
                       : "text-foreground/80 hover:text-foreground"
                   }`}
@@ -108,14 +141,12 @@ export function Navbar() {
                   {link.label}
                   <span
                     className={`absolute -bottom-1.5 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                      activeSection === getSectionId(link.href)
-                        ? "w-full"
-                        : "w-0 group-hover:w-full"
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
-                </a>
-              )
-            )}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Social Links & Theme Toggle */}
@@ -190,7 +221,7 @@ export function Navbar() {
                     size="icon"
                     onClick={handleThemeToggle}
                     aria-label="Toggle theme"
-                    className="w-10 h-10 rounded-full text-foreground/80 hover:text-foreground hover:bg-primary/10 transition-all"
+                    className="w-10 h-10 rounded-full text-foreground/80 hover:text-foreground hover:bg-primary/10 transition-all cursor-pointer"
                   >
                     {isDarkMode ? (
                       <Sun className="w-5 h-5 transition-transform rotate-0 scale-100" />
@@ -203,25 +234,26 @@ export function Navbar() {
               </Tooltip>
             )}
 
+            {/* Mobile Hamburger Menu Button */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden w-10 h-10"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden w-10 h-10 rounded-full text-foreground/80 hover:text-foreground hover:bg-primary/10 transition-all cursor-pointer"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-nav-menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-foreground" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-foreground" />
               )}
             </Button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -229,53 +261,43 @@ export function Navbar() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden"
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="md:hidden overflow-y-auto max-h-[calc(100vh-5.5rem)] pb-8"
             >
-              <div className="flex flex-col gap-3 pt-4 pb-6 border-t border-border">
-                {navLinks.map((link, index) =>
-                  link.isPage ? (
+              <div className="flex flex-col gap-1.5 pt-4 pb-6 border-t border-border">
+                {navLinks.map((link, index) => {
+                  const isSectionActive = pathname === "/" && activeSection === getSectionId(link.href);
+                  const isPageActive = pathname === link.href;
+                  const isActive = isSectionActive || isPageActive;
+
+                  return (
                     <motion.div
                       key={link.href}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.04 }}
+                      transition={{ delay: index * 0.03 }}
                     >
                       <Link
                         href={link.href}
-                        className="text-lg font-medium py-2 transition-colors text-foreground/80 hover:text-foreground block"
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        aria-current={isActive ? "page" : undefined}
+                        className={`text-lg font-semibold py-3 px-4 rounded-xl transition-all block ${
+                          isActive
+                            ? "text-primary font-bold bg-primary/15 border-l-4 border-primary pl-3"
+                            : "text-foreground/80 hover:text-foreground hover:bg-muted/50"
+                        }`}
+                        onClick={() => handleMobileNavClick(link.href)}
                       >
                         {link.label}
                       </Link>
                     </motion.div>
-                  ) : (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.04 }}
-                    >
-                      <a
-                        href={link.href}
-                        aria-current={activeSection === getSectionId(link.href) ? "page" : undefined}
-                        className={`text-lg font-medium py-2 transition-colors block ${
-                          activeSection === getSectionId(link.href)
-                            ? "text-primary font-semibold"
-                            : "text-foreground/80 hover:text-foreground"
-                        }`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {link.label}
-                      </a>
-                    </motion.div>
-                  )
-                )}
+                  );
+                })}
+
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.04 }}
-                  className="pt-2"
+                  transition={{ delay: navLinks.length * 0.03 }}
+                  className="pt-3"
                 >
                   <button
                     type="button"
@@ -283,7 +305,7 @@ export function Navbar() {
                       setIsMobileMenuOpen(false);
                       window.dispatchEvent(new CustomEvent("open-ai-assistant"));
                     }}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary/10 border border-primary/30 text-primary font-semibold text-base hover:bg-primary/20 transition-all"
+                    className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-primary/10 border border-primary/30 text-primary font-semibold text-base hover:bg-primary/20 transition-all cursor-pointer"
                   >
                     <Sparkles className="w-4 h-4 text-primary" />
                     <span>Ask AI Assistant</span>
@@ -292,10 +314,10 @@ export function Navbar() {
                 </motion.div>
 
                 <motion.div
-                  className="flex items-center gap-5 pt-4 border-t border-border"
+                  className="flex items-center gap-5 pt-4 mt-2 border-t border-border px-2"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: navLinks.length * 0.04 }}
+                  transition={{ delay: navLinks.length * 0.03 + 0.05 }}
                 >
                   <a
                     href="https://github.com/M20A03"

@@ -37,9 +37,9 @@ export default function ResumePage() {
   const [showAllEducation, setShowAllEducation] = useState(false);
 
   return (
-    <main id="main-content" className="min-h-screen bg-background selection:bg-primary/20">
-      {/* Top Navigation Bar - Hidden on Print */}
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border print:hidden">
+    <main id="main-content" className="min-h-screen bg-background selection:bg-primary/20 pt-20 md:pt-24 print:pt-0">
+      {/* Action Sub-Bar - Hidden on Print */}
+      <div className="sticky top-20 md:top-24 z-40 bg-background/90 backdrop-blur-lg border-b border-border print:hidden">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/">
             <Button variant="ghost" size="sm" className="gap-2">
@@ -56,7 +56,7 @@ export default function ResumePage() {
             </Button>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Resume Content Container */}
       <div className="max-w-4xl mx-auto px-6 py-12 md:py-16 print:py-0 print:px-0">
