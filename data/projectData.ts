@@ -109,7 +109,7 @@ export const projectData: ProjectData[] = [
     githubUrl: null,
     thumbnailAlt: "Praxirence AI Ambient Clinical Intelligence Interface",
     category: "Full-Stack",
-    date: "Sep 2026",
+    date: "Sep 2026 — Present",
     color: "from-emerald-500/20 to-teal-500/20",
     emoji: "🩺",
     image: "/images/praxirence.png",
